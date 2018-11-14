@@ -73,14 +73,14 @@ const createNeoUser = user => {
   //write a query for creting a user with uuid
   session.run(
     'CREATE (a:Person {uuid: $uuid, name:$name}) RETURN a',
-    {uuid: user.uuid, name: user.email.slice(0,6)}
+    {uuid: user.uuid, name: user.email}
   ).then(result => {
     session.close();
   
     const singleRecord = result.records[0];
+
     const node = singleRecord.get(0);
   
-    console.log('we are getting here with ', node);
   
     // on application exit:
     driver.close();
