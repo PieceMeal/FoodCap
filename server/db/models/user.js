@@ -1,7 +1,8 @@
 const crypto = require('crypto')
 const Sequelize = require('sequelize')
 const db = require('../db')
-
+let {session, driver} = require('../neo')
+const uuidv1 = require('uuid/v1')
 const User = db.define('user', {
   email: {
     type: Sequelize.STRING,
@@ -26,6 +27,11 @@ const User = db.define('user', {
   },
   googleId: {
     type: Sequelize.STRING
+  }, 
+  uuid : {
+    type : Sequelize.STRING,
+    allowNull: false,
+    defaultValue: uuidv1
   }
 })
 
@@ -63,5 +69,24 @@ const setSaltAndPassword = user => {
   }
 }
 
+const createNeoUser = user => {
+  //write a query for creting a user with uuid
+  session.run(
+    'CREATE (a:Person {uuid: $uuid, name:$name}) RETURN a',
+    {uuid: user.uuid, name: user.email.slice(0,6)}
+  ).then(result => {
+    session.close();
+  
+    const singleRecord = result.records[0];
+    const node = singleRecord.get(0);
+  
+    console.log('we are getting here with ', node);
+  
+    // on application exit:
+    driver.close();
+  });
+}
+
 User.beforeCreate(setSaltAndPassword)
 User.beforeUpdate(setSaltAndPassword)
+User.afterCreate(createNeoUser)
