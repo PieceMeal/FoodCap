@@ -3,7 +3,7 @@ node_js:
   - node # uses most recent stable node version
 services:
   - postgresql # starts up postgres
-  -Neo4j
+  - neo4j
 addons:
   postgresql: '9.6' # highest available postgres version on Travis
 dist: trusty # uses trusty environment
@@ -15,14 +15,25 @@ notifications:
 install:
   - npm ci # faster, goes only from package-lock
 before_script:
-  - psql -c 'create database "boilermaker-test";' -U postgres # remember to change this name if you change it elsewhere (e.g. package.json)
+  - psql -c 'create database "shopping-list-1809-test";' -U postgres # remember to change this name if you change it elsewhere (e.g. package.json)
+  branches:
+    only:
+      -master
 
 # before_deploy:
 #   - npm run build-client # make the bundle
 #   - rm -rf node_modules # omit from the tarball, since we skip cleanup
 # deploy:
+<<<<<<< HEAD
   skip_cleanup: true # prevents travis from deleting the build
   provider: heroku
   app: shopping-list-1809 # see README
   api_key:
     secure: "pt4a7kr4q2qhhlaxph/W9O76oVnpKgk4LLXTF0uqRwRh1COT0L13MpnVo3uOg+KNBrEliHFKKPnrHfYawIqZ3J4g4bOQ71GgH/f8rnmXmKxkSIyjomQwvG2HZapjnkpYS0rKZnqfQz079jXkNizUK5+xPLHotImGklvJgq4Z1Qw40nJrX/12t4mpYEJ4uEm9ER0gxjrzrXxCI4i+7OH0gYEvK26jN+AVrLaHUUD6VRwMHsP2njbm3pgd6rtJaGjLT5zsspdcfTLgiN9MIJpXHVzXmC+lv0oRJk06SbdMyrMcBSQEH1d3CYSppfEU7vHx3uZ1m0BEzFW2JvRNu4A8rsroKBj8IECJkPuVWW3hbGTX/fR7IzL7BDnT+no++FV34dCzqcCRkQkA276AL3gi3ZqcBzHm7yPVPvB7yxL/knDVWcmGsi47TfFrlUG6PxZHe6dUJD5ULs/j6+MPL3FEEby3cc+KoAmfkF5X0T/AkZZkyAHIsG2FE3bh3fZyAo/nzPZ0D8VmX6a7Ij3DWnHbu5cHuMP3FJd1m9I7YKfB8nsUYztCkM27p8nDtYGhxs78pXtn5l4R0mjQJgFIqyseg+PJ/m1rMfhFj45xMETRnRNe8DfH76ywjA9s/0Aj4jD8nSp4cpbPyt0+mAIa7w7ME8jGP8MMRa50akyC6aV7HBg=" # see README
+=======
+#   skip_cleanup: true # prevents travis from deleting the build
+#   provider: heroku
+  app: shopping-list-1809 # see README
+  api_key:
+    secure: "x4jlBqUVuxSr4r/55GZVU/Uyv3dOBXMxdgVv5O8/Jl5rsdhhZCneMwEXepOCn8KnP+0o5a7/n0+KZOI523W77xCatyC/38q4aR2I4o0RA9EZwv8wv5SXeQnqKEAu7EUkut51WRNUlDPPA4P2WXXCms5h2/aSsBq084mGdIyOd13o7auvDZThmbybnBITyeV6XxKEJwj6BpelUfQicwmV6cS9CdzU8mX+F+O9VTlvusOblYvY80ia1iSFuAj3oLmaBH/mdiitq3uckP/1q1X4zpPeVjw0bjjNlmh9c9AHglzqjUVht0mGUJ31cBZ1Vd3tGGag13u9iTBoN6iiTA7Ts4ooc2b4IWHnxgtcgIlJF905dhpYpyiYD3c2ERwplRwYyMhTKE+NJUTMhesIHRc0KLoKom9VrdnjQQJ9iPHAs5Y4i4acqdeTktOBeO8+oKzxnidWBU7lVJx+Uia4G0ESROXxjbgRN/iPC+Pvsc0d8aPcDIqhuCrwGWPhYaMkhVFrCAtRqAztNyixNtp5sDCtmOSf+IcDPQVxdTiIrzHe6CxmtXI3kXJlr2EBOz7QgxQ6sA9eT/DPX19FdhFIlNSL5N7SEKeXiQ3/jgGCozE7KjP8H7pR7ieTfhU/maJuTJmCsTRs+CNEIjmHU1YwNNJYt5us7gp+gCjRZmuIJioQ4Ow=" # see README
+>>>>>>> master
