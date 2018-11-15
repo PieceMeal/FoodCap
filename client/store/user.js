@@ -40,7 +40,12 @@ export const auth = (email, password, method) => async dispatch => {
 
   try {
     dispatch(getUser(res.data))
-    history.push('/home')
+    console.log('this is our data from user-------->>', res.data);
+    if(!res.data.formFilled) {
+    history.push('/home/preferences')
+    }else {
+      history.push('/home')
+    }
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
@@ -56,6 +61,16 @@ export const logout = () => async dispatch => {
   }
 }
 
+export const setPreference = (preferences, userId) => async dispatch => {
+  console.log('this is our put', preferences, userId);
+  try {
+    const {data} = await axios.put(`/api/users/${userId}`, {preferences})
+    
+    dispatch(getUser(data.user))
+  } catch (err) {
+    console.error(err)
+  }
+}
 /**
  * REDUCER
  */

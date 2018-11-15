@@ -32,7 +32,12 @@ const User = db.define('user', {
     type: Sequelize.STRING,
     allowNull: false,
     defaultValue: uuidv1
+  },
+  formFilled : {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
+
 })
 
 module.exports = User
