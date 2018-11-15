@@ -77,7 +77,7 @@
       "cloves": {"quantity": 12},
       "clementines": {"quantity": 2},
       "red wine": {"quantity": 2,"type": "bottles"},
-      "cinnamon": {"quantity": 2, "type": "sticks"},
+      "cinnamon": {"quantity": 2, "type": "sticks"}
     },
 
     "method": [
@@ -99,5 +99,5 @@
     "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/mulled_wine_46955_16x9.jpg",
     "isVegetarian": true,
     "categories": ["alcohol"]
-  },
+  }
 }
