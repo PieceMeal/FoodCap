@@ -5,6 +5,9 @@ const {User} = require('../server/db/models')
 const database = require('./database.json')
 let {session, driver} = require('../server/db/neo')
 
+
+
+
 const testRecipe = {
   "Sixteen-minute pizza": {
     "ingredients": {
@@ -32,6 +35,14 @@ const testRecipe = {
 
 //maps through json database and creates recipe nodes (run by seed function)
 const recipeSeeder = async db => {
+await session.run('MATCH (n) DETACH DELETE n')
+
+//check that recipe name is unique before creating the node
+//we are not sure why it works, but it works
+session.run(`CREATE CONSTRAINT ON (recipe:Recipe) ASSERT recipe.name IS UNIQUE`)
+session.run(`CREATE CONSTRAINT ON (ingredient:Ingredient) ASSERT ingredient.name IS UNIQUE`)
+// session.close();
+
   for (let recipe in db) {
     if (db.hasOwnProperty(recipe)) {
       const recipeObj = db[recipe]
@@ -49,7 +60,7 @@ const recipeSeeder = async db => {
         if (ingredientsObj.hasOwnProperty(ingredient)) {
           //create ingredient nodes that don't already exist
           await session.run(
-            'CREATE (b:Ingredient {name:$name}) RETURN b',
+            'MERGE (b:Ingredient {name:$name}) RETURN b',
             { name: ingredient }
           )
           //establish relationship between recipe and ingredient
@@ -94,14 +105,9 @@ async function runSeed() {
   console.log('seeding...')
   try {
     //neo4j deleting all nodes before run seed --------------------------------------------
-    session.run('MATCH (n) DETACH DELETE n')
-    session.close();
-
-    //check that recipe name is unique before creating the node
-    session.run(`CREATE CONSTRAINT ON (recipe:Recipe) ASSERT recipe.name IS UNIQUE`)
-    session.run(`CREATE CONSTRAINT ON (ingredient:Ingredient) ASSERT ingredient.name IS UNIQUE`)
-    await seed()
     await recipeSeeder(database)
+    await seed()
+
   } catch (err) {
     console.error(err)
     process.exitCode = 1
