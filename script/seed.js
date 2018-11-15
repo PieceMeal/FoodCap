@@ -6,7 +6,7 @@ const {User} = require('../server/db/models')
 //neo4j deleting all nodes before run seed --------------------------------------------
 let {session, driver} = require('../server/db/neo')
 session.run('MATCH (n) detach delete n')
-session.close();
+session.close()
 //----------------------------
 
 async function seed() {
@@ -14,16 +14,13 @@ async function seed() {
   console.log('db synced!')
 
   const users = await Promise.all([
-    User.create({ email: 'cody@email.com', password: '123'}),
-    User.create({ email: 'murphy@email.com', password: '123'})
+    User.create({email: 'cody@email.com', password: '123'}),
+    User.create({email: 'murphy@email.com', password: '123'})
   ])
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
 }
-
-
-
 
 // We've separated the `seed` function from the `runSeed` function.
 // This way we can isolate the error handling and exit trapping.
