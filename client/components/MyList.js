@@ -58,7 +58,7 @@ const style = {
     marginLeft: '1vw'
   },
   wholeTray: {
-    backgroundColor: '#FF6699',
+    backgroundColor: '#dd4871',
     marginLeft: '5vw',
     marginRight: '5vw',
     padding: '12px',
@@ -89,7 +89,7 @@ class MyList extends Component {
         />
         <Divider />
 
-        <table class="ui inverted green table">
+        <table class="ui inverted olive table">
           <thead>
             <tr>
               <th>Item</th>
