@@ -40,7 +40,19 @@ const style = {
     marginTop: '1em',
     padding: '2em 0em'
   },
-  listButtons: { float: 'right', backgroundColor: '#E0E0E0' }
+  listButtons: {
+    float: 'right',
+    backgroundColor: '#E0E0E0',
+    marginLeft: '1vw'
+  },
+  wholeTray: {
+    backgroundColor: 'pink',
+    marginLeft: '5vw',
+    marginRight: '5vw',
+    padding: '12px',
+    border: '2px solid black',
+    borderRadius: '15px'
+  }
 };
 
 class MyList extends Component {
@@ -56,16 +68,7 @@ class MyList extends Component {
     //DUMMY VERSION
     list = dummyData;
     return (
-      <div
-        style={{
-          backgroundColor: 'pink',
-          marginLeft: '5vw',
-          marginRight: '5vw',
-          padding: '12px',
-          border: '2px solid black',
-          borderRadius: '15px'
-        }}
-      >
+      <div style={style.wholeTray}>
         <Header
           as="h3"
           content="Your Tray"
@@ -88,10 +91,10 @@ class MyList extends Component {
                           Take off shopping list
                         </button>
                         <button style={style.listButtons} type="button">
-                          <i aria-hidden="true" class="angle down icon" />
+                          <i aria-hidden="true" className="angle down icon" />
                         </button>
                         <button style={style.listButtons} type="button">
-                          <i aria-hidden="true" class="angle up icon" />
+                          <i aria-hidden="true" className="angle up icon" />
                         </button>
                       </h5>
                     </Segment>
@@ -104,7 +107,7 @@ class MyList extends Component {
         <span>
           <Button animated style={{ backgroundColor: 'red' }}>
             <Button.Content visible>
-              <i aria-hidden="true" class="trash alternate icon" />
+              <i aria-hidden="true" className="trash alternate icon" />
             </Button.Content>
             <Button.Content hidden>Delete</Button.Content>
           </Button>
