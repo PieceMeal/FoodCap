@@ -137,48 +137,7 @@ class MyList extends Component {
             </tr>
           </tbody>
         </table>
-        {/* <Grid container columns={2} stackable>
-          {ingredients.length
-            ? ingredients.map(ingredient => {
-                return (
-                  <Grid.Column key={ingredient.id}>
-                    <Segment style={{ backgroundColor: '#f5f5f5' }}>
-                      <h5>
-                        <b>{ingredient.name}&emsp;</b>
-                        <small>
-                          {ingredient.quant}&ensp;{ingredient.unit}
-                        </small>
 
-                        <button style={style.listButtons} type="button">
-                          Take off shopping list
-                        </button>
-                        <button style={style.listButtons} type="button">
-                          <i aria-hidden="true" className="angle down icon" />
-                        </button>
-                        <button style={style.listButtons} type="button">
-                          <i aria-hidden="true" className="angle up icon" />
-                        </button>
-                      </h5>
-                      {ingredient.note ? (
-                        <div>
-                          <Divider />{' '}
-                          <small style={{ color: '#484848' }}>
-                            Notes: {ingredient.note}
-                          </small>
-                        </div>
-                      ) : null}
-                    </Segment>
-                  </Grid.Column>
-                );
-              })
-            : null}
-          <GridColumn>
-            <button style={{ backgroundColor: '#f5f5f5' }}>
-              <i aria-hidden="true" className="plus icon" />
-              &emsp;ADD
-            </button>
-          </GridColumn>
-        </Grid> */}
         <Divider />
         <span>
           <Button animated style={{ backgroundColor: 'red' }}>
