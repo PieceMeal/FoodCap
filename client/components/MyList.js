@@ -58,7 +58,7 @@ const style = {
     marginLeft: '1vw'
   },
   wholeTray: {
-    backgroundColor: 'pink',
+    backgroundColor: '#FF6699',
     marginLeft: '5vw',
     marginRight: '5vw',
     padding: '12px',
@@ -88,7 +88,56 @@ class MyList extends Component {
           textAlign="center"
         />
         <Divider />
-        <Grid container columns={2} stackable>
+
+        <table class="ui inverted green table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Amount</th>
+              <th>Notes</th>
+              <th> </th>
+            </tr>
+          </thead>
+          <tbody>
+            {ingredients.length
+              ? ingredients.map(ingredient => {
+                  return (
+                    <tr key={ingredient.id}>
+                      <td>
+                        <b>{ingredient.name}</b>
+                      </td>
+                      <td>
+                        <small>
+                          {ingredient.quant}&ensp;{ingredient.unit}
+                        </small>
+                      </td>
+                      <td>{ingredient.note ? ingredient.note : null}</td>
+                      <td>
+                        <button style={style.listButtons} type="button">
+                          Take off shopping list
+                        </button>
+                        <button style={style.listButtons} type="button">
+                          <i aria-hidden="true" className="angle down icon" />
+                        </button>
+                        <button style={style.listButtons} type="button">
+                          <i aria-hidden="true" className="angle up icon" />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })
+              : null}
+            <tr>
+              <td>
+                <button style={{ backgroundColor: '#f5f5f5' }}>
+                  <i aria-hidden="true" className="plus icon" />
+                  &emsp;ADD
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        {/* <Grid container columns={2} stackable>
           {ingredients.length
             ? ingredients.map(ingredient => {
                 return (
@@ -129,7 +178,7 @@ class MyList extends Component {
               &emsp;ADD
             </button>
           </GridColumn>
-        </Grid>
+        </Grid> */}
         <Divider />
         <span>
           <Button animated style={{ backgroundColor: 'red' }}>
