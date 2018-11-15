@@ -1,4 +1,4 @@
-const database = require('./db.json')
+const database = require('./database.json')
 const { session, driver } = require('../server/db/neo')
 
 //don't know what this is doing
@@ -20,6 +20,7 @@ const dbParser = db => {
           time: db[key]["time"]["totalMins"],   //string number
           serves: db[key]["serves"]             //string
         }
+
       ).then(result => {
         session.close();
 
