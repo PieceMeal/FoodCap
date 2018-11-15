@@ -1,0 +1,8 @@
+{
+  "italian": {"name": "Italian"},
+  "pasta": {"name": "Pasta"},
+  "quick": {"name": "Quick"},
+  "dessert": {"name": "Dessert"},
+  "alcohol": {"name": "Alcoholic"}
+
+}
