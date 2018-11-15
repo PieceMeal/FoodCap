@@ -27,9 +27,9 @@ const User = db.define('user', {
   },
   googleId: {
     type: Sequelize.STRING
-  }, 
-  uuid : {
-    type : Sequelize.STRING,
+  },
+  uuid: {
+    type: Sequelize.STRING,
     allowNull: false,
     defaultValue: uuidv1
   },
@@ -76,6 +76,7 @@ const setSaltAndPassword = user => {
 
 const createNeoUser = user => {
   //write a query for creting a user with uuid
+
   session.run(
     'CREATE (a:Person {uuid: $uuid, name:$name}) RETURN a',
     {uuid: user.uuid, name: user.email}
@@ -90,6 +91,8 @@ const createNeoUser = user => {
     // on application exit:
     driver.close();
   });
+
+  
 }
 
 User.beforeCreate(setSaltAndPassword)
