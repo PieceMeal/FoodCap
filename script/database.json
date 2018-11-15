@@ -1,6 +1,7 @@
 {
   "Ten-minute pizza": {
     "ingredients": {
+      "sugar" :       {"quantity" : 1, "type" : "tbsp"},
       "flour":        {"quantity": 1, "type": "cup"},
       "olive oil":    {"quantity": 8, "type": "tbsp"},
       "salt":         {"quantity": 1, "type": "tsp"},
