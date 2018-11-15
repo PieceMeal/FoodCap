@@ -19,16 +19,18 @@ router.get('/', async (req, res, next) => {
 router.put('/:userId',async (req, res, next) => {
   try{
     console.log('we got here----', req.body)
-    let ingName = req.body
+    let ingName = req.body.preferences
     let userId = req.params.userId
     console.log('user id____', userId)
     let user = await User.findById(userId);
     let uuid = user.uuid;
-
+    console.log('uuid', uuid)
+    console.log('ingName', ingName);
+    
     await session.run(
-      `MATCH (a:User), (b: Ingredient) 
+      `MATCH (a:Person), (b: Ingredient) 
        WHERE a.uuid = $uuid AND b.name = $ingName
-       CREATE (a) -[r:like]->(b)
+       MERGE (a) -[r:like]->(b)
        RETURN r`,
        {uuid: uuid, ingName: ingName}
        )

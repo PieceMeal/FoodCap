@@ -35,7 +35,7 @@ const testRecipe = {
 
 //maps through json database and creates recipe nodes (run by seed function)
 const recipeSeeder = async db => {
-session.run('MATCH (n) DETACH DELETE n')
+await session.run('MATCH (n) DETACH DELETE n')
 
 //check that recipe name is unique before creating the node
 //we are not sure why it works, but it works
@@ -60,7 +60,7 @@ session.run(`CREATE CONSTRAINT ON (ingredient:Ingredient) ASSERT ingredient.name
         if (ingredientsObj.hasOwnProperty(ingredient)) {
           //create ingredient nodes that don't already exist
           await session.run(
-            'CREATE (b:Ingredient {name:$name}) RETURN b',
+            'MERGE (b:Ingredient {name:$name}) RETURN b',
             { name: ingredient }
           )
           //establish relationship between recipe and ingredient
