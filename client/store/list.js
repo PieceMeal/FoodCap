@@ -39,9 +39,9 @@ const deleteList = () => ({
 /**
  * THUNK CREATORS
  */
-export const setListThunk = () => async dispatch => {
+export const setListThunk = id => async dispatch => {
   try {
-    const { data } = await axios.get('/api/lists/currentlist');
+    const { data } = await axios.get(`/api/lists/${id}`);
     dispatch(setList(data));
   } catch (err) {
     console.error(err);
