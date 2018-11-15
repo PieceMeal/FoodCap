@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setListThunk } from '../store/list';
-import { Button, Grid, Segment, Header, Divider } from 'semantic-ui-react';
+import {
+  setListThunk,
+  deleteSingleItemThunk,
+  deleteListThunk
+} from '../store/list';
+import {
+  Button,
+  Grid,
+  Segment,
+  Header,
+  Divider,
+  GridColumn
+} from 'semantic-ui-react';
 
 let dummyData = [
   { name: 'turkey', unit: 'lb', quant: 5, id: 1 },
@@ -31,13 +42,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setList: () => dispatch(setListThunk())
+    setList: () => dispatch(setListThunk()),
+    deleteSingle: info => dispatch(deleteSingleItemThunk(info)),
+    deleteAll: uuid => dispatch(deleteListThunk(uuid))
   };
 };
 
 const style = {
   h3: {
-    marginTop: '1em',
     padding: '2em 0em'
   },
   listButtons: {
@@ -63,10 +75,10 @@ class MyList extends Component {
     //this.props.setList()
   }
   render() {
-    let { list } = this.props;
+    let { ingredients } = this.props;
 
     //DUMMY VERSION
-    list = dummyData;
+    ingredients = dummyData;
     return (
       <div style={style.wholeTray}>
         <Header
@@ -75,9 +87,10 @@ class MyList extends Component {
           style={style.h3}
           textAlign="center"
         />
+        <Divider />
         <Grid container columns={2} stackable>
-          {list
-            ? list.map(ingredient => {
+          {ingredients.length
+            ? ingredients.map(ingredient => {
                 return (
                   <Grid.Column key={ingredient.id}>
                     <Segment style={{ backgroundColor: '#f5f5f5' }}>
@@ -97,11 +110,25 @@ class MyList extends Component {
                           <i aria-hidden="true" className="angle up icon" />
                         </button>
                       </h5>
+                      {ingredient.note ? (
+                        <div>
+                          <Divider />{' '}
+                          <small style={{ color: '#484848' }}>
+                            Notes: {ingredient.note}
+                          </small>
+                        </div>
+                      ) : null}
                     </Segment>
                   </Grid.Column>
                 );
               })
             : null}
+          <GridColumn>
+            <button style={{ backgroundColor: '#f5f5f5' }}>
+              <i aria-hidden="true" className="plus icon" />
+              &emsp;ADD
+            </button>
+          </GridColumn>
         </Grid>
         <Divider />
         <span>
