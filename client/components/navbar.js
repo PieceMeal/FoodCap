@@ -14,8 +14,8 @@ const Navbar = ({handleClick, isLoggedIn}) => (
   <Container>
   <Menu size='large'>
   <Link to='/'><Menu.Item name='Home'/></Link>
-  <Link to='/userHome'><Menu.Item
-    name='UserHome'
+  <Link to='/home'><Menu.Item
+    name='User Home'
   /></Link>
 
   <Menu.Menu position='right'>

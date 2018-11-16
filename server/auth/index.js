@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const User = require('../db/models/user')
+const {session, driver} = require('../db/neo')
 module.exports = router
 
 router.post('/login', async (req, res, next) => {
@@ -12,7 +13,24 @@ router.post('/login', async (req, res, next) => {
       console.log('Incorrect password for user:', req.body.email)
       res.status(401).send('Wrong username and/or password')
     } else {
-      req.login(user, err => (err ? next(err) : res.json(user)))
+      let uuid = user.uuid
+      let recipes = await session.run(
+        `MATCH(r:Recipe) -[:hasIngredient]-> (i:Ingredient),
+        (i) <-[:like] - (a: Person {uuid: $uuid})
+        RETURN r`, {
+          uuid: uuid
+        }
+      )
+      const recipesArray =[]
+      recipes.records.forEach((rec, i) => {
+        const props = rec.get('r').properties
+        recipesArray[i]= {}
+        for(let key in props) {
+          recipesArray[i][key] = props[key]
+        }
+      })
+      console.log('we are sending information back')
+      req.login(user, err => (err ? next(err) : res.json({user: user, recipes: recipesArray})))
     }
   } catch (err) {
     next(err)
@@ -39,6 +57,7 @@ router.post('/logout', (req, res) => {
 })
 
 router.get('/me', (req, res) => {
+  console.log('is this a problem??? req.user', req.user);
   res.json(req.user)
 })
 

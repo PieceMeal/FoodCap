@@ -48,11 +48,12 @@ session.run(`CREATE CONSTRAINT ON (ingredient:Ingredient) ASSERT ingredient.name
       const recipeObj = db[recipe]
       //create recipe node
       await session.run(
-        'CREATE (a:Recipe {name:$name, instructions:$instructions, time:$time, serves:$serves}) RETURN a',
+        'CREATE (a:Recipe {name:$name, instructions:$instructions, time:$time, serves:$serves, image: $image}) RETURN a',
         { name: recipe,                            //string
           instructions: recipeObj["method"],      //array of strings
           time: recipeObj["time"]["totalMins"],   //string number
-          serves: recipeObj["serves"]             //string
+          serves: recipeObj["serves"],             //string
+          image: recipeObj["image"]
         }
       )
       const ingredientsObj = recipeObj.ingredients

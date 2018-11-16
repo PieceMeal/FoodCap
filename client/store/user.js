@@ -6,7 +6,8 @@ import history from '../history'
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
-
+const UPDATE_USER = 'UPDATE_USER'
+const GET_RECIPES = 'GET_RECIPES'
 /**
  * INITIAL STATE
  */
@@ -15,8 +16,17 @@ const defaultUser = {}
 /**
  * ACTION CREATORS
  */
-const getUser = user => ({type: GET_USER, user})
+const getUser = (user) => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
+const updateUser = (user,recipes) => ({
+  type: UPDATE_USER,
+  user,
+  recipes
+})
+const getRecipes = (recipes) => ({
+  type: GET_RECIPES,
+  recipes
+})
 
 /**
  * THUNK CREATORS
@@ -35,13 +45,18 @@ export const auth = (email, password, method) => async dispatch => {
   try {
     res = await axios.post(`/auth/${method}`, {email, password})
   } catch (authError) {
-    return dispatch(getUser({error: authError}))
+    // return dispatch(getUser({error: authError}))
   }
 
   try {
-    dispatch(getUser(res.data))
-    console.log('this is our data from user-------->>', res.data);
-    if(!res.data.formFilled) {
+    if(res.data.user){
+    let user = res.data.user
+    user['recipes'] = res.data.recipes
+    dispatch(getUser(user))
+    }else {
+      dispatch(getUser(res.data))
+    }
+    if(method.length === 6) {
     history.push('/home/preferences')
     }else {
       history.push('/home')
@@ -62,11 +77,21 @@ export const logout = () => async dispatch => {
 }
 
 export const setPreference = (preferences, userId) => async dispatch => {
-  console.log('this is our put', preferences, userId);
   try {
     const {data} = await axios.put(`/api/users/${userId}`, {preferences})
-    
-    dispatch(getUser(data.user))
+
+    dispatch(updateUser(data.user, data.recipes))
+  } catch (err) {
+    console.error(err)
+  }
+}
+export const fetchRecipes = (userId) => async dispatch => {
+  //we need to create fetchRecipe thunk that is going to get our recipes on componentDidMount 
+  //or on componentDidUpdate because now after refreshing the page they are gone.
+  console.log('we are getting some info here??', userId);
+  try {
+    const {data} = await axios.get(`/api/users/${userId}`);
+    dispatch(getRecipes(data))
   } catch (err) {
     console.error(err)
   }
@@ -77,9 +102,13 @@ export const setPreference = (preferences, userId) => async dispatch => {
 export default function(state = defaultUser, action) {
   switch (action.type) {
     case GET_USER:
-      return action.user
+    return action.user
     case REMOVE_USER:
       return defaultUser
+      case UPDATE_USER :
+      return {...state ,formFilled: action.user.formFilled ,recipes: action.recipes}
+      case GET_RECIPES:
+      return {...state, recipes: action.recipes}
     default:
       return state
   }
