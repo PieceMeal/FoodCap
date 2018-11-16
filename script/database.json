@@ -68,7 +68,7 @@
     "ingredients": {
       "heavy cream": { "quantity": 8, "type": "oz" },
       "lemon curd": { "quantity": 12, "type": "oz" },
-      "lemon": { "quantity": 1, "type": null }
+      "lemon": { "quantity": 1, "type": "" }
     },
     "method": [
       "Whisk the cream until floppy,  then whisk in the lemon curd along with the lemon juice and zest. ",
@@ -90,10 +90,10 @@
   },
   "Mary Berry's mulled wine": {
     "ingredients": {
-      "orange": { "quantity": 1, "type": null },
-      "lemon": { "quantity": 3, "type": null },
-      "cloves": { "quantity": 12, "type": null },
-      "clementines": { "quantity": 2, "type": null },
+      "orange": { "quantity": 1, "type": "" },
+      "lemon": { "quantity": 3, "type": "" },
+      "cloves": { "quantity": 12, "type": "" },
+      "clementines": { "quantity": 2, "type": "" },
       "red wine": { "quantity": 2, "type": "bottles" },
       "cinnamon": { "quantity": 2, "type": "sticks" }
     },

@@ -5,11 +5,11 @@ import history from '../history';
  * ACTION TYPES
  */
 import {
-  LIST_SET,
-  LIST_INCREMENT,
-  LIST_DELETE,
-  LIST_REMOVE_ITEM,
-  LIST_ADD_ITEM
+  SET_LIST,
+  INCREMENT_LIST,
+  DELETE_LIST,
+  REMOVE_LIST_ITEM,
+  ADD_LIST_ITEM
 } from './constants';
 
 /**
@@ -21,11 +21,11 @@ const defaultList = { uuid: null, ingredients: [] };
  * ACTION CREATORS
  */
 const setList = list => ({
-  type: LIST_SET,
+  type: SET_LIST,
   list
 });
 const addListItem = ingredientObj => ({
-  type: LIST_ADD_ITEM,
+  type: ADD_LIST_ITEM,
   ingredientObj
 });
 const deleteSingleItem = name => ({

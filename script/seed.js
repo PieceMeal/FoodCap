@@ -41,69 +41,106 @@ const testRecipe = {
 
 //maps through json database and creates recipe nodes (run by seed function)
 const recipeSeeder = async db => {
-  await session.run('MATCH (n) DETACH DELETE n');
+  try {
+    await session.run('MATCH (n) DETACH DELETE n');
 
-  //check that recipe name is unique before creating the node
-  //we are not sure why it works, but it works
-  session.run(
-    `CREATE CONSTRAINT ON (recipe:Recipe) ASSERT recipe.name IS UNIQUE`
-  );
-  session.run(
-    `CREATE CONSTRAINT ON (ingredient:Ingredient) ASSERT ingredient.name IS UNIQUE`
-  );
-  // session.close();
+    //check that recipe name is unique before creating the node
+    //we are not sure why it works, but it works
+    await session.run(
+      `CREATE CONSTRAINT ON (recipe:Recipe) ASSERT recipe.name IS UNIQUE`
+    );
+    await session.run(
+      `CREATE CONSTRAINT ON (ingredient:Ingredient) ASSERT ingredient.name IS UNIQUE`
+    );
+    // session.close();
 
-  for (let recipe in db) {
-    if (db.hasOwnProperty(recipe)) {
-      const recipeObj = db[recipe];
-      //create recipe node
-      await session.run(
-        'CREATE (a:Recipe {name:$name, instructions:$instructions, time:$time, serves:$serves}) RETURN a',
-        {
-          name: recipe, //string
-          instructions: recipeObj['method'], //array of strings
-          time: recipeObj['time']['totalMins'], //string number
-          serves: recipeObj['serves'] //string
-        }
-      );
-      const ingredientsObj = recipeObj.ingredients;
-      for (let ingredient in ingredientsObj) {
-        if (ingredientsObj.hasOwnProperty(ingredient)) {
-          //create ingredient nodes that don't already exist
-          await session.run('MERGE (b:Ingredient {name:$name}) RETURN b', {
-            name: ingredient
-          });
-          //establish relationship between recipe and ingredient
-          await session.run(
-            `MATCH (a:Recipe), (b:Ingredient)
+    for (let recipe in db) {
+      if (db.hasOwnProperty(recipe)) {
+        const recipeObj = db[recipe];
+        //create recipe node
+        await session.run(
+          'CREATE (a:Recipe {name:$name, instructions:$instructions, time:$time, serves:$serves}) RETURN a',
+          {
+            name: recipe, //string
+            instructions: recipeObj.method, //array of strings
+            time: recipeObj.time.totalMins, //string number
+            serves: recipeObj.serves //string
+          }
+        );
+        const ingredientsObj = recipeObj.ingredients;
+        for (let ingredient in ingredientsObj) {
+          if (ingredientsObj.hasOwnProperty(ingredient)) {
+            //create ingredient nodes that don't already exist
+            await session.run('MERGE (b:Ingredient {name:$name}) RETURN b', {
+              name: ingredient
+            });
+            // session.close();
+
+            //establish relationship between recipe and ingredient
+            await session.run(
+              `MATCH (a:Recipe), (b:Ingredient)
             WHERE a.name = $aName AND b.name = $bName
             MERGE (a)-[r:hasIngredient {quantity: $quantity, type: $type} ]->(b) RETURN r`,
-            {
-              aName: recipe,
-              bName: ingredient,
-              quantity: ingredientsObj[ingredient]['quantity'] || '',
-              type: ingredientsObj[ingredient]['type'] || ''
-            }
-          );
+              {
+                aName: recipe,
+                bName: ingredient,
+                quantity: ingredientsObj[ingredient].quantity,
+                type: ingredientsObj[ingredient].type
+              }
+            );
+            // session.close();
+          }
         }
+        // session.close();
       }
-      session.close();
     }
+  } catch (err) {
+    console.log(err);
   }
-  driver.close();
+};
+
+const listSeeder = async () => {
+  console.log('seeding lists');
+  //now that we have some seed data...lets seed a list for cody and 2 lists for murphy
+  try {
+    await session.run(
+      `MATCH (a:Person {name: 'murphy@email.com'}) CREATE (l:List {name: 'Muphy List', uuid: '1111'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
+    );
+    console.log(' list 1');
+    await session.run(
+      `MATCH (a:Person {name: 'cody@email.com'}) CREATE (l:List {name: 'Cody List', uuid: '2222'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
+    );
+    console.log(' list 2');
+
+    await session.run(
+      `MATCH (a:Person {name: 'cody@email.com'}) CREATE (l:List {name: 'Cody 2nd List', uuid: '3333'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
+    );
+    console.log(' list 3');
+
+    // session.close();
+
+    console.log('done seeding lists');
+    //driver.close();
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 async function seed() {
-  await db.sync({ force: true });
-  console.log('db synced!');
+  try {
+    await db.sync({ force: true });
+    console.log('db synced!');
 
-  const users = await Promise.all([
-    User.create({ email: 'cody@email.com', password: '123' }),
-    User.create({ email: 'murphy@email.com', password: '123' })
-  ]);
+    const users = await Promise.all([
+      User.create({ email: 'cody@email.com', password: '123' }),
+      User.create({ email: 'murphy@email.com', password: '123' })
+    ]);
 
-  console.log(`seeded ${users.length} users`);
-  console.log(`seeded successfully`);
+    console.log(`seeded ${users.length} users`);
+    console.log(`seeded successfully`);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 // We've separated the `seed` function from the `runSeed` function.
@@ -115,12 +152,17 @@ async function runSeed() {
     //neo4j deleting all nodes before run seed --------------------------------------------
     await recipeSeeder(database);
     await seed();
+    await listSeeder();
+    await session.close();
+    await driver.close();
+    console.log('done');
   } catch (err) {
     console.error(err);
     process.exitCode = 1;
   } finally {
     console.log('closing db connection');
     await db.close();
+
     console.log('db connection closed');
   }
 }
