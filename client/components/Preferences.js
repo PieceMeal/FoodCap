@@ -14,8 +14,12 @@ state = {
 
 handleSubmit = (e) => {
     e.preventDefault()
-
-    this.props.setPreference(this.state.favoriteFood, this.props.user.id)
+    const preferencesObj = {
+        favCuisines: this.state.favCuisines,
+        favIngredients: this.state.favIngredients,
+        mealTypes: this.state.mealTypes
+    }
+    this.props.setPreference(preferencesObj, this.props.user.id)
     history.push('/home');
 }
 
@@ -29,7 +33,7 @@ handleCheck = (e) => {
 }
 
 cuisines = ["Chinese Food", "Italian Food", "Mexican Food", "American Food", "Indian Food"]
-ingredients = ["Chicken", "Beef", "Pork", "Seafood", "Cheese", "Mushrooms", "Pesto", "Tomatoes"]
+ingredients = ["chicken", "beef", "pork", "seafood", "cheese", "mushrooms", "pesto", "tomatoes", "potatoes"]
 statements = ["I am vegetarian.", "I prefer low-calorie recipes.", "I prefer easy, quicky recipes."]
 
 render(){
@@ -70,10 +74,10 @@ render(){
 }
 
 const mapStateToProps  = state => ({
-    user : state.user
+    user: state.user
 })
-const mapDispatchToProps = dispatch =>({
-    setPreference : (pref, id) => dispatch(setPreference(pref, id))
+const mapDispatchToProps = dispatch => ({
+    setPreference: (pref, id) => dispatch(setPreference(pref, id))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Preference)
 
