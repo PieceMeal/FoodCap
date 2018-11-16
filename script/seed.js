@@ -41,7 +41,8 @@ const testRecipe = {
 
 //maps through json database and creates recipe nodes (run by seed function)
 const recipeSeeder = async db => {
-	try {
+
+	try{
 		await runQuery('MATCH (n) DETACH DELETE n');
 
 		//check that recipe name is unique before creating the node
