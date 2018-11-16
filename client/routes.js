@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Login, Signup, UserHome, Preferences, ListById, LandingPage} from './components';
+import {
+	Login,
+	Signup,
+	UserHome,
+	Preferences,
+	ListById,
+	LandingPage,
+} from './components';
 import { me } from './store';
 import { MyList, MyLists } from './components';
 /**
@@ -19,11 +26,10 @@ class Routes extends Component {
 		return (
 			<Switch>
 				{/* Routes placed here are available to all visitors */}
-				<Route exact path='/' component={LandingPage} />
+				<Route exact path="/" component={LandingPage} />
 				<Route path="/login" component={Login} />
 				<Route path="/signup" component={Signup} />
-				<Route path="/list" component={MyList} />
-				<Route path="/lists/:id" component={ListById} />
+				<Route path="/lists/:id" component={MyList} />
 				<Route path="/lists/" component={MyLists} />
 				{isLoggedIn && (
 					<Switch>

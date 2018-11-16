@@ -1,4 +1,6 @@
 // LIST CONSTANTS
 export const SET_LIST = 'SET_LIST';
 export const INCREMENT_LIST = 'INCREMENT_LIST';
-export const SET_LISTS = 'SET_LISTS'
+export const SET_LISTS = 'SET_LISTS';
+export const LIST_REMOVE_ITEM = 'LIST_REMOVE_ITEM';
+export const LIST_UPDATE_ITEMS = 'LIST_UPDATE_ITEMS';
