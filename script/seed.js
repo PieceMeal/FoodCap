@@ -64,7 +64,8 @@ const recipeSeeder = async db => {
 						name: recipe, //string
 						instructions: recipeObj.method, //array of strings
 						time: recipeObj.time.totalMins, //string number
-						serves: recipeObj.serves, //string
+            serves: recipeObj.serves, //string
+            image: recipeObj.image
 					}
 				);
 				const ingredientsObj = recipeObj.ingredients;
