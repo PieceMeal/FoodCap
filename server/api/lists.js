@@ -256,11 +256,10 @@ router.put('/removeingredient', async (req, res, next) => {
 }'})-[:HAS_LIST]->
 */
 
-//PUT (/api/lists/removeingredient)
+//PUT (/api/lists/updateingredient)
 //expects: req.body.uuid to match the uuic of list
 //         req.body.ingredient to be the name of ingredient
 //         req.body.quantity to be new quantity #
-//         req.body.type to be new quantity type
 router.put('/updateingredient', async (req, res, next) => {
 	try {
 		//list uuid and recipe name
