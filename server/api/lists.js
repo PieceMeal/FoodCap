@@ -14,6 +14,7 @@ module.exports = router;
 //creates a list node that is has a relationship to
 //req.user.uuid
 router.post('/', async (req, res, next) => {
+
 	try {
 		const { listName } = req.body;
 		const { records } = await runQuery(
@@ -21,7 +22,7 @@ router.post('/', async (req, res, next) => {
 				req.user.uuid
 			}'}) CREATE (l:List {name:'${listName}', uuid: '${uuidv1()}'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
 		);
-		console.log(records);
+		console.log(records[0].get('l'));
 
 		res.json(records[0].get('l'));
 	} catch (err) {

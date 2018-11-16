@@ -43,7 +43,7 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 router.put('/:userId',async (req, res, next) => {
-  debugger
+
   try{
     let ingName = req.body.preferences
     let userId = req.params.userId

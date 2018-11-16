@@ -2,14 +2,33 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ListPreview from './ListPreview'
 import {connect} from 'react-redux'
-import {Container,Header, Icon, Divider, Grid,Card, Image,Button } from 'semantic-ui-react'
+import {Container,Header, Icon, Divider, Grid,Card, Image,Button, Popup, Input ,Form} from 'semantic-ui-react'
 import {fetchRecipes} from '../store/user'
+import {createList} from '../store/lists'
 /**
  * COMPONENT
  */
 class UserHome extends React.Component {
+state = {
+  listName : ''
+}
 componentDidMount(){
   this.props.fetchRecipes(this.props.user.id)
+}
+handleSubmit = (e) => {
+//have a thunk in lists.js that will take this action and dispatch post request for list api
+//clear the state after submit so input is empty
+
+this.props.createList(this.state.listName)
+this.setState({
+  listName: ''
+})
+}
+handleChange = (e) => {
+this.setState({
+  listName: e.target.value
+})
+console.log('my state', this.state.listName)
 }
   render(){
     if(this.props.recipes) {
@@ -20,14 +39,19 @@ componentDidMount(){
       <Icon name='users' circular />
       <Header.Content>Hello {this.props.email}</Header.Content>
     </Header>
+    <Form onSubmit={this.handleSubmit}>
+    <Input size='large' icon='add' placeholder='create new list...' onChange={this.handleChange} value={this.state.listName} />
+  </Form>
   </div>
   <Divider />
+  <Container>
   <ListPreview />
+  </Container>
+  <Divider />
   <Divider />
   <Grid columns={4}>
     <Grid.Row>
    {this.props.recipes.map((rec, id) => {
-     console.log('this is my rec', rec)
      return (
       <Grid.Column key={id}>
       <Card>
@@ -64,7 +88,8 @@ const mapState = state => {
   } 
 }
 const dispatchState = dispatch => ({
-  fetchRecipes : (id) => dispatch(fetchRecipes(id))
+  fetchRecipes: (id) => dispatch(fetchRecipes(id)),
+  createList: (name) => dispatch(createList(name))
 })
 
 export default connect(mapState, dispatchState)(UserHome)
