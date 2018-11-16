@@ -753,5 +753,1207 @@
     "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/bagels_47163_16x9.jpg",
     "isVegetarian": true,
     "recommendations": 0
-  }
+  },
+
+  "Chai muffins": {
+    "ingredients": [
+      "225ml/8fl oz unsweetened almond milk",
+      "2 Chai teabags",
+      "1 tsp ground cinnamon",
+      "400g/14oz white spelt flour",
+      "2½ tsp baking powder",
+      "150g/5½oz soft light brown sugar",
+      "75g/2½oz natural skin-on almonds, roughly chopped",
+      "2 large free-range eggs",
+      "150ml/5fl oz sunflower oil"
+    ],
+    "method": [
+      "Warm the almond milk with the contents of the 2 teabags (I just rip them open over the pan) and cinnamon – stirring to mix – and leave to cool.",
+      "While the milk’s cooling, preheat the oven to 200C/180C Fan/Gas 6 and line a 12-hole muffin tin with paper cases.",
+      "In a large bowl, measure out the flour, baking powder, sugar and all but 2 tablespoons of the chopped almonds, and combine well.",
+      "When the milk has cooled, add the eggs and oil, then whisk well. ",
+      "Add the liquid ingredients to the dry ingredients, using a wooden spoon. Don’t be too efficient about this: a slightly lumpy batter makes for lighter muffins. Divide the mixture between the muffin cases (it will fill them well), then sprinkle equally with the remaining almonds and bake for 20–25 minutes, or until a cake tester comes out clean and the muffins are slightly risen and pleasingly golden-brown on top.",
+      "Remove to a wire rack to cool for about 10 minutes before devouring."
+    ],
+    "url": "www_bbc_com_food_recipes_chai_muffins_06244",
+    "title": "Chai muffins",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "30 mins to 1 hour30 mins to 1 hour",
+      "cookingMins": 60,
+      "totalMins": 90
+    },
+    "serves": "Makes 12 muffinsMakes 12 muffins",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chai_muffins_06244_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Chargrilled broccoli pasta with chilli and garlic": {
+    "ingredients": [
+      "100g/3½oz spaghetti",
+      "3 tbsp olive oil",
+      "100g/3½oz broccoli, cut into small florets",
+      "1 garlic clove, finely sliced",
+      "½ red chilli, finely sliced",
+      "1 tbsp flaked almonds",
+      "salt and freshly ground black pepper"
+    ],
+    "method": [
+      "Bring a large pan of salted water to the boil and cook the spaghetti for 8 minutes, until al dente. ",
+      "Meanwhile, heat the olive oil in a saucepan over a high heat and add the broccoli. Leave it for 1 minute before moving so the broccoli chars, then turn and char on the other sides for about 3 minutes. ",
+      "Add the garlic, chilli and almonds and stir-fry for a further 3 minutes. Season with salt and pepper. ",
+      "Drain the spaghetti and add to the broccoli pan, stir well to combine and serve. "
+    ],
+    "url": "www_bbc_com_food_recipes_chargrilled_broccoli_69096",
+    "title": "Chargrilled broccoli pasta with chilli and garlic",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 1Serves 1",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chargrilled_broccoli_69096_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Chargrilled courgette with basil, mint, chilli and lemon": {
+    "ingredients": [
+      "6 courgettes, ends trimmed, cut into long strips",
+      "1-2 tbsp extra virgin olive oil, plus extra for dressing ",
+      "1 fresh red chilli, seeded, finely chopped (or 5 tsp dried chilli flakes) ",
+      "sea salt and freshly ground black pepper",
+      "½ lemon, juice only ",
+      "handful fresh mint, roughly chopped ",
+      "handful fresh basil, roughly chopped"
+    ],
+    "method": [
+      "Toss the courgette strips in a bowl with the olive oil (just enough to coat the courgette), chilli, sea salt and freshly ground black pepper.",
+      "Heat a ridged grill pan until smoking hot and griddle the courgettes in batches, about four minutes per side, being careful not to crowd the grill pan. They should be tender, but with a crunch to them in the middle. If the strips are not quite cooked, leave them on the grill pan for longer, but watch the heat as you don't want them to burn. Don't be tempted to move the courgette while it is cooking or you won't get the chargrill marks across the flesh. Drain on kitchen paper.",
+      "Toss the griddled courgettes in the lemon juice, mint, basil and a good slug of your best extra virgin olive oil."
+    ],
+    "url": "www_bbc_com_food_recipes_chargrilledcourgette_85172",
+    "title": "Chargrilled courgette with basil, mint, chilli and lemon",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4-6Serves 4-6",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chargrilledcourgette_85172_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Chargrilled sweet and sour prawns": {
+    "ingredients": [
+      "6 large prawns, butterflied, shells on, but heads removed",
+      "pinch sea salt",
+      "drizzle vegetable oil",
+      "large handful fresh coriander",
+      "1 lime, juice only",
+      "4-5 tbsp white wine vinegar",
+      "3-4 tbsp caster sugar",
+      "4cm/1in piece fresh ginger, unpeeled",
+      "1 mild red chilli, finely chopped"
+    ],
+    "method": [
+      "To butterfly the prawns, first remove the head by twisting it off, then discard. Don't remove the shell. Place the prawn on its back on a cutting board. Using a small, sharp knife, cut through the centre of the body from below the head down to the tail. Don't cut all the way through the flesh. Repeat with the remaining prawns.",
+      "For the sweet and sour sauce, pour the vinegar into a small pan (not aluminium) over a medium heat. Add the sugar and heat through.",
+      "Slice the ginger into thick slices and add to the sauce in the pan.",
+      "Slice the chilli and add to the pan. Simmer the sauce until the sugar is dissolved and the sauce is reduced and sticky - about five minutes. Taste and adjust flavour as needed by adding a touch more sugar or vinegar, as necessary.",
+      "Meanwhile, heat a ridged grill pan until hot. Sprinkle the sea salt over the prepared prawns. Pour over the oil, then rub it into the prawns.",
+      "Place the prawns on the hot grill pan and grill until cooked through and slightly charred (this will take about 2-3 minutes). Press down lightly with tongs to ensure even cooking. Turn the prawns over and cook for another 2-3 minutes on the other side.",
+      "Chop the fresh coriander. When the prawns are cooked, transfer them into the pan with the reduced sauce.",
+      "Add the coriander and a squeeze of fresh lime juice to the pan.",
+      "Stir together until the prawns are coated in the sauce. Serve straightaway."
+    ],
+    "url": "www_bbc_com_food_recipes_chargrilledsweetands_90198",
+    "title": "Chargrilled sweet and sour prawns",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 2Serves 2",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chargrilledsweetands_90198_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Cheddar and bacon frittata": {
+    "ingredients": [
+      "700g/1lb 9oz large salad potatoes, peeled and halved",
+      "175g/6oz smoked bacon, roughly chopped",
+      "1 tbsp olive oil",
+      "1 garlic clove",
+      "½ red pepper, thinly sliced",
+      "6 large free-range eggs",
+      "25g flatleaf parsley, roughly chopped",
+      "30g/1oz cheddar, grated",
+      "salt and freshly ground black pepper"
+    ],
+    "method": [
+      "Parboil the potatoes in lightly salted water for 6–10 minutes, until almost cooked but still firm. Cut them into slices. Preheat your grill to medium–high. ",
+      "Using a large ovenproof non-stick frying pan, fry the bacon in its own fat, stirring, for 4–5 minutes, or until cooked. Transfer to a plate and set aside. ",
+      "Heat the oil in the same pan. Add the garlic and peppers and fry for 4–5 minutes, or until just cooked. ",
+      "Add the potatoes to the pan, stir gently, then fry for 2–3 minutes, until lightly browned. Return the bacon to the pan and stir gently again. ",
+      "Crack the eggs into a jug and lightly beat using a fork. Stir in the parsley and season well. Pour over the potato-and-bacon mixture, then sprinkle the cheese on top. Cook for 5 minutes.",
+      "Transfer to the grill and cook for 5 minutes, or until cooked through. Serve in slices, with salad if you like. "
+    ],
+    "url": "www_bbc_com_food_recipes_cheddar_and_bacon_31049",
+    "title": "Cheddar and bacon frittata",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4–6Serves 4–6",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cheddar_and_bacon_31049_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "French toast with ham and cheddar": {
+    "ingredients": [
+      "2 eggs",
+      "115ml/4¼fl oz milk",
+      "sea salt",
+      "freshly ground black pepper",
+      "2 slices white bread (3cm/1.25in thick)",
+      "1 tsp Dijon mustard",
+      "2 slices ham, trimmed to fit bread",
+      "2 slices cheddar ",
+      "1 tbsp olive oil"
+    ],
+    "method": [
+      "Preheat oven to 180C/350F/Gas 4.",
+      "Place eggs, milk, salt and pepper into a large bowl. Whisk to combine.",
+      "With a sharp, thin-bladed knife, carefully slit open one side of each slice of bread to form a pocket. Ensure that you leave 1cm/0.5in around the edges.",
+      "Spread the mustard on one side of the pocket and place a slice of ham and cheese inside.",
+      "Put the pockets into a shallow dish. Pour over the egg mixture and leave for five minutes, turning once.",
+      "Heat a non-stick frying pan over a medium-high heat, add half of the olive oil and swirl to coat the base of the pan.",
+      "Put the bread pocket into the pan and cook on one side for about two minutes until golden brown. Turn and cook for another minute.",
+      "Remove from the pan and place on a baking tray. Put in the oven and cook for ten minutes, or until the filling has melted."
+    ],
+    "url": "www_bbc_com_food_recipes_cheddarandhameggybre_72058",
+    "title": "French toast with ham and cheddar",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "less than 10 minsless than 10 mins",
+      "cookingMins": 10,
+      "totalMins": 40
+    },
+    "serves": "Serves 2Serves 2",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cheddarandhameggybre_72058_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Cheese and ham quinoa bites": {
+    "ingredients": [
+      "rapeseed oil, for greasing",
+      "180g/6½oz quinoa, rinsed well and drained ",
+      "6 free-range eggs, beaten",
+      "6 spring onions, roughly chopped",
+      "6 tomatoes, roughly chopped",
+      "120g/4½oz ‘lighter’ mature cheddar cheese, grated",
+      "120g/4½oz lean wafer-thin ham, shredded",
+      "1 tsp mustard powder",
+      "½ tsp sea salt ",
+      "freshly ground black pepper"
+    ],
+    "method": [
+      "Preheat the oven to 200C/180C Fan/Gas 6. Lightly grease a 12-hole muffin tin with a little rapeseed oil.",
+      "Put the quinoa into a large saucepan, add 540ml/19fl oz cold water and bring to the boil over a high heat. Stir well then reduce the heat and simmer for 20 minutes, or until all the water has been absorbed and the quinoa is tender.",
+      "Tip the quinoa into a sieve and rinse with cold running water to stop the cooking process. Use your hands to squeeze out any excess water.",
+      "Beat together the eggs, vegetables, cheese and ham. Stir in the quinoa and mustard powder and season with salt and pepper.",
+      "Divide the mixture between the muffin holes and bake for 18–20 minutes until golden brown."
+    ],
+    "url": "www_bbc_com_food_recipes_cheese_and_ham_quinoa_37074",
+    "title": "Cheese and ham quinoa bites",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "30 mins to 1 hour30 mins to 1 hour",
+      "cookingMins": 60,
+      "totalMins": 90
+    },
+    "serves": "Makes 12Makes 12",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cheese_and_ham_quinoa_37074_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Cheese and chorizo rolls": {
+    "ingredients": [
+      "500g/1lb 2oz strong white flour",
+      "7g instant yeast",
+      "1 tsp salt",
+      "1 tsp sugar or honey",
+      "2 tbsp olive oil",
+      "300ml/10fl oz tepid water",
+      "50g/1¾oz chorizo, finely chopped",
+      "100g/3½oz hard cheese (such as cheddar or gouda), grated",
+      "2 tbsp finely snipped chives (or finely chopped thyme, oregano, parsley)",
+      "1 free-range egg, beaten, for glazing "
+    ],
+    "method": [
+      "Put the flour, yeast, salt and sugar (or honey) in a bowl and drizzle in the olive oil, then the water, mixing together until it comes together as a dough. Add the chorizo, 50g/1¾oz of the cheese and the chives (or other herbs).",
+      "Knead in the bowl for a minute until the additions have worked in a little, then knead on a floured surface until the dough is smooth. Return to the bowl, cover with a damp cloth or cling film and leave to rest somewhere warm for 1½ –2 hours, until doubled in size.",
+      "Preheat your oven to its highest setting. Knock back the risen dough and divide into 8–10 even pieces. Knead and shape into balls, then place in a 28cm/11in diameter cake tin or a small roasting tin, which has been lined with greaseproof paper. Cover with a damp towel again and leave to rise for another 20–30 minutes, or until risen and squashing together.",
+      "Brush lightly with the egg glaze (you need a very light touch if the bread dough is at all puffy and springy), then sprinkle over the remaining 50g/1¾oz cheese. Bake in the oven for 20–25 minutes, or until cooked through and a golden-brown colour. They should feel slightly hollow. Serve warm from the oven or cold."
+    ],
+    "url": "www_bbc_com_food_recipes_cheese_and_chorizo_rolls_96145",
+    "title": "Cheese and chorizo rolls",
+    "time": {
+      "preparation": "over 2 hoursover 2 hours",
+      "preparationMins": 120,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 150
+    },
+    "serves": "Makes 8–10Makes 8–10",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cheese_and_chorizo_rolls_96145_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Cherry and chocolate mug cake": {
+    "ingredients": [
+      "75g/3oz dark chocolate, melted, plus extra to serve",
+      "50g/1¾oz unsalted butter, melted, plus extra for greasing ",
+      "2 free-range eggs, beaten",
+      "50g/1¾oz caster sugar",
+      "50g/1¾oz plain flour",
+      "½ tsp baking powder",
+      "50g/1¾oz pitted cherries from a can, chopped, 2 tbsp juice reserved"
+    ],
+    "method": [
+      "Place the chocolate, butter, eggs and sugar into a bowl and mix together well.",
+      "Add the flour, baking powder, cherries and cherry juice and fold together until smooth.",
+      "Grease two mugs with butter, then spoon the mixture into each until three-quarters full. Cover each with cling film, place in the microwave and cook on full power for 2 minutes. Remove the cling film and cook for a further 30 seconds, or until risen and cooked through.",
+      "To serve, top with the reserved cherries and drizzle with the melted chocolate."
+    ],
+    "url": "www_bbc_com_food_recipes_cherryandchocolateca_84273",
+    "title": "Cherry and chocolate mug cake",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 2Serves 2",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cherryandchocolateca_84273_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Cherry tomato, marinated feta and basil skewers": {
+    "ingredients": [
+      "350g/12oz feta (enough to make 40 squares)",
+      "120ml/4fl oz extra virgin olive oil",
+      "1 unwaxed lemon, zest only",
+      "2 tsp freshly chopped oregano",
+      "1 tsp cracked black pepper",
+      "40 cherry tomatoes",
+      "large bunch of basil",
+      "40 long skewers"
+    ],
+    "method": [
+      "Cut the feta into 40 even squares and place in a bowl.  Pour over the olive oil; add the lemon zest, oregano and cracked black pepper.  Leave to marinate for at least 2 hours or preferably overnight.",
+      "To assemble, take a skewer and place a cherry tomato first, follow with a cube of the feta.  You could prepare the skewers to this stage in advance, just keep refrigerated. ",
+      "Finish each one with a basil leaf.  Skewer one tip of the leaf then the other tip so it looks like a little sail.  Repeat until you have forty skewers."
+    ],
+    "url": "www_bbc_com_food_recipes_cherrytomatomarinate_68101",
+    "title": "Cherry tomato, marinated feta and basil skewers",
+    "time": {
+      "preparation": "overnightovernight",
+      "preparationMins": 720,
+      "cooking": "no cooking requiredno cooking required",
+      "cookingMins": 0,
+      "totalMins": 720
+    },
+    "serves": "Makes 40Makes 40",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cherrytomatomarinate_68101_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Chestnut stuffed mushrooms": {
+    "ingredients": [
+      "6 large mushrooms",
+      "80g/2oz butter",
+      "3 tbsp olive oil",
+      "6 sprigs thyme, picked",
+      "3 tbsp madeira",
+      "2 medium onions",
+      "6 Lincolnshire sausages",
+      "2 sprigs rosemary, picked ",
+      "200g/7oz breadcrumbs",
+      "200g/7oz can of chestnuts, chopped"
+    ],
+    "method": [
+      "Pre heat the oven to 180C/350F/Gas 4.",
+      "Remove the stalks from the mushrooms to allow them to be stuffed and lay in a large oven dish. Place a little knob of butter in each one and then drizzle the olive oil all over. Sprinkle the thyme into the mushrooms and finish with a few generous glugs of Madeira wine. Pop them in the oven for 20 minutes.",
+      "Now for the stuffing, roughly chop your onions and soften in a frying pan with a little butter till golden. Remove the sausage skin and break the meat into the pan with the now golden onions. Tear in the remaining herbs, add the breadcrumbs and allow to cook through slightly. Chop the chestnuts and add to the pan and mix the contents well.",
+      "After about 20 minutes remove the mushrooms and generously heap your stuffing into the mushrooms, piling it as high as you dare. Don’t worry about there being extra stuffing, simply shape them into little balls and place them around the mushrooms. ",
+      "Now return the dish to the oven for a further half hour. Serve when the stuffing is crisp and golden."
+    ],
+    "url": "www_bbc_com_food_recipes_chestnut_stuffed_83323",
+    "title": "Chestnut stuffed mushrooms",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "30 mins to 1 hour30 mins to 1 hour",
+      "cookingMins": 60,
+      "totalMins": 90
+    },
+    "serves": "Serves 3-4Serves 3-4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chestnut_stuffed_83323_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Vegan coconut macaroons": {
+    "ingredients": [
+      "80g/2¾oz desiccated coconut",
+      "125ml/4½fl oz full-fat coconut milk",
+      "1 tbsp coconut flour",
+      "2 tbsp maple syrup",
+      "½ tsp vanilla extract",
+      "pinch salt"
+    ],
+    "method": [
+      "Preheat the oven to 180C/160C Fan/Gas 4. Line a baking tray with baking parchment.",
+      "Stir all of the ingredients together in a saucepan over a medium heat until well combined. Continue to cook for 4-5 minutes until the coconut milk has been absorbed into the mixture and the mixture has thickened. Remove from the heat and set aside to cool slightly.",
+      "Scoop tablespoonfuls of the macaroon mixture onto the prepared baking tray, to form small domes, leaving a gap between each. Bake in the middle of the oven for 12-15 minutes, or until toasted and golden-brown at the edges.",
+      "Remove from the oven and set the macaroons aside to cool completely, then enjoy."
+    ],
+    "url": "www_bbc_com_food_recipes_chewy_coconut_macaroons_69782",
+    "title": "Vegan coconut macaroons",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Makes 16Makes 16",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chewy_coconut_macaroons_69782_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Chicken and chorizo paella": {
+    "ingredients": [
+      "1–2 tbsp oil",
+      "12 whole chicken pieces (legs or thighs), on the bone",
+      "1 chorizo sausage, sliced into 3mm/⅛in thick slices",
+      "1 large onion, finely chopped",
+      "3 garlic cloves, crushed",
+      "2 red peppers, seeds removed, sliced",
+      "2–3 red chillies, seeds removed, chopped",
+      "2 tsp smoked paprika ",
+      "1.5 litres/2½ pints chicken stock",
+      "400g/14oz paella rice",
+      "12 mussels or clams, (optional) cleaned, open and damaged shells discarded",
+      "handful parsley, roughly chopped"
+    ],
+    "method": [
+      "Preheat the oven to 180C/350F/Gas 4.",
+      "Heat the oil in a large, lidded, heatproof pan or paella pan. Fry the chicken until the pieces are evenly browned, turning them regularly as they cook. You may need to do this in two batches, depending on the size of your pan. Remove the chicken from the pan and set aside.",
+      "Fry the slices of chorizo in the pan until crisp. They will release their juices into the pan, which adds a lot of flavour to the dish. Add the onion to the pan, and cook gently until soft, then add the garlic and fry for a further 2–3 minutes. Add the red peppers, chillies and smoked paprika, cook for another 2–3 minutes. Return the chicken pieces to the pan and pour in the stock. Simmer gently for 20–25 minutes until the chicken is tender. ",
+      "Add the rice to the pan, cover with the lid and put into the preheated oven. Cook for 30 minutes, or until all the liquid has been absorbed and the rice is cooked. Alternatively, if using a paella pan which won’t fit in the oven, cover tightly with foil and continue cooking on the stove over a low heat for the same cooking time. If using mussels or clams, add them to the pan for the final 20 minutes cooking time. Discard any shells that remain closed after cooking. Check the chicken is cooked by piercing the thickest part of a piece with a skewer – if the juices run clear the chicken is cooked. ",
+      "Sprinkle with parsley before bringing the pan to the table. Let your guests help themselves."
+    ],
+    "url": "www_bbc_com_food_recipes_chicken_and_chorizo_33509",
+    "title": "Chicken and chorizo paella",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "1 to 2 hours1 to 2 hours",
+      "cookingMins": 120,
+      "totalMins": 150
+    },
+    "serves": "Serves 6Serves 6",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chicken_and_chorizo_33509_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Chicken and mushroom casserole": {
+    "ingredients": [
+      "8 tbsp olive oil",
+      "flour, for dusting",
+      "400g /14oz chicken thighs, skinned and boned",
+      "150g /5½oz small onions, peeled",
+      "1 carrot, very finely chopped",
+      "1 celery stalk, very finely chopped",
+      "300g/10½oz button mushrooms, halved",
+      "200ml/7fl oz dry white wine ",
+      "500ml/18fl oz chicken stock",
+      "freshly grated nutmeg, to taste",
+      "3 free range egg yolks, beaten with 4 tsp of milk",
+      "1 tbsp finely chopped fresh parsley"
+    ],
+    "method": [
+      "Heat six tablespoons of the olive oil in a frying pan over a medium heat. ",
+      "Sprinkle some flour onto a plate. Coat the chicken thighs in the flour, shaking off any excess, and carefully place into the hot oil. Fry the chicken thighs for 4-5 minutes on each side, or until golden-brown on each side.",
+      "Remove the chicken thighs from the pan and set aside on a plate lined with kitchen paper.",
+      "Heat the remaining two tablespoons of olive oil in a frying pan and fry the onion, carrot, celery and mushrooms for five minutes, or until softened. ",
+      "Add the wine and the stock, bring to a simmer and cook for a further 10 minutes. ",
+      "Return the chicken to the pan and season to taste with salt, freshly ground black pepper and nutmeg. Continue to simmer for another 4-5 minutes, or until the chicken is cooked through",
+      "Just before serving, stir in the egg yolk mixture until smooth and sprinkle over the parsley."
+    ],
+    "url": "www_bbc_com_food_recipes_chicken_and_mushroom_17575",
+    "title": "Chicken and mushroom casserole",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chicken_and_mushroom_17575_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Mediterranean chicken with potatoes": {
+    "ingredients": [
+      "1 tbsp olive oil ",
+      "400–500g/14oz-1lb 2oz chicken thighs, skin on and bone in",
+      "1 onion, diced ",
+      "1 carrot, finely diced ",
+      "2 garlic cloves, sliced",
+      "400g tin tomatoes ",
+      "250ml/9fl oz chicken stock",
+      "1 tsp dried mixed herbs ",
+      "600g/1lb 5oz potatoes, cut into bite-sized pieces",
+      "salt and pepper "
+    ],
+    "method": [
+      "Heat a large saucepan over a medium heat. Add the oil and, once hot, add the chicken thighs, skin side down. Brown the chicken on each side for 3-4 minutes, or until nicely golden-brown all over. Remove the thighs from the pan and set to one side.",
+      "Add the onion and carrot with a pinch of salt to the saucepan and stir over the heat. Fry for 6-7 minutes, or until the onions are soft and translucent. Add the garlic and continue to cook for two more minutes.",
+      "Add the browned chicken back to the pan along with any juices from the meat. Pour over the tomatoes, stock and mixed herbs and mix well to make sure everything is evenly distributed. Season with a little salt and pepper, cover with a lid and gently simmer for 20 minutes, or until the chicken is cooked through and the sauce thickened slightly.",
+      "Meanwhile boil the potatoes in a saucepan of boiling water for 10-12 minutes, or until tender and cooked through. Drain and serve alongside the cooked chicken."
+    ],
+    "url": "www_bbc_com_food_recipes_chicken_cacciatore_with_54620",
+    "title": "Mediterranean chicken with potatoes",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "30 mins to 1 hour30 mins to 1 hour",
+      "cookingMins": 60,
+      "totalMins": 90
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chicken_cacciatore_with_54620_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Coconut chilli chicken": {
+    "ingredients": [
+      "3 plump stalks lemongrass ",
+      "50g/2oz fresh ginger ",
+      "2 hot red chillies",
+      "2 cloves garlic",
+      "a bunch coriander ",
+      "2 limes",
+      "2 tbsp groundnut oil",
+      "200g/7oz tomatoes",
+      "2 tbsp fish sauce (nam plah)",
+      "2 tbsp dark soy sauce",
+      "8 chicken thighs",
+      "400ml/14oz can coconut milk",
+      "8 apricots, halved"
+    ],
+    "method": [
+      "Peel and discard the outer leaves of the lemongrass- they can sometimes be tough. Cut the inner leaves into short lengths and put in the food processor. Peel the ginger, then slice into thin pieces and add to the lemongrass. Chop the chillies, discarding their stems and add to the ginger with the peeled garlic. Roughly chop the stems and half of the leaves of the coriander to add to the food processor, reserving the rest for later.",
+      "Grate the lime zest into the food processor, reserving the limes for later, then turn the machine on and let it chop everything to a coarse paste. Add a little groundnut oil and scrape the sides down with a spatula if it sticks. Add the fish sauce, soy sauce and the tomatoes and process for a few seconds longer.",
+      "Warm a further tablespoon of groundnut oil in a deep pan over a moderate to high heat and use it to brown the chicken pieces, turning them so they colour nicely on both sides. Lift the chicken pieces out and pour away anything more than a tablespoon of oil and juices. Add the spice paste and let it fry over a moderate heat for two minutes till fragrant, stirring almost constantly, then return the chicken to the pan. Pour over the coconut milk, stir, cover and leave to simmer over a low heat for 15-20 minutes. Meanwhile halve and stone the apricots and leave them to one side.",
+      "Test the chicken for doneness making certain it’s cooked right the way through, then add the apricots. Leave to simmer for a few minutes, then add the juice of the limes and the reserved coriander leaves. "
+    ],
+    "url": "www_bbc_com_food_recipes_chicken_curry_with_59058",
+    "title": "Coconut chilli chicken",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chicken_curry_with_59058_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Chicken egg-fried rice": {
+    "ingredients": [
+      "1 tsp vegetable oil",
+      "1 large free-range egg, lightly beaten",
+      "2 spring onions, sliced",
+      "50g/1¾oz frozen peas",
+      "250g pouch microwavable rice ",
+      "large handful leftover roast chicken (or shop-bought cooked chicken), shredded",
+      "1 tsp toasted sesame oil ",
+      "1 tbsp dark soy sauce "
+    ],
+    "method": [
+      "Heat half the oil in a wok or large frying pan over a high heat until it just starts to smoke. Add the egg and quickly stir-fry until just under-cooked. Remove from the wok and set aside.",
+      "Heat the rest of the oil in the wok and add the spring onions and frozen peas. Stir-fry until the peas have defrosted.",
+      "Squeeze the rice pouch a few times to break up the rice, then add the rice to the pan with the roast chicken. Stir-fry until the rice has started to crisp a little and the chicken is hot through.",
+      "Stir in the cooked egg, toasted sesame oil and soy sauce and serve. "
+    ],
+    "url": "www_bbc_com_food_recipes_chicken_egg_fried_rice_50450",
+    "title": "Chicken egg-fried rice",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "less than 10 minsless than 10 mins",
+      "cookingMins": 10,
+      "totalMins": 40
+    },
+    "serves": "Serves 1Serves 1",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chicken_egg_fried_rice_50450_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Chicken fajita drumsticks with Mexican corn salad": {
+    "ingredients": [
+      "12 chicken drumsticks",
+      "1 tbsp paprika",
+      "1 tbsp ground cumin",
+      "4 garlic cloves",
+      "1 tbsp vegetable oil",
+      "6 large tortilla wraps",
+      "approx 200g tin sweetcorn, rinsed and drained",
+      "1 red pepper",
+      "2 spring onions",
+      "half a lemon, juice only",
+      "salt and pepper"
+    ],
+    "method": [
+      "Preheat the oven to 200C/180C Fan/Gas 6. Tip the chicken into a large roasting tray and sprinkle over the spices. Lightly crush the garlic, leaving the skins on, and add to the tray with the chicken. Drizzle with the oil and season with salt and pepper. Roast for 30 minutes, turning halfway through cooking, until the chicken is lightly charred on the outside and perfectly cooked inside.",
+      "While the chicken is cooking, make the salad. Tip the sweetcorn into a bowl then finely chop the pepper (removing the seeds) and add to the bowl. Finely slice the spring onions then add to the bowl along with a squeeze of lemon juice. Season to taste with salt and pepper.",
+      "Shred the chicken from the bone and then wrap in tortilla wraps with the salad."
+    ],
+    "url": "www_bbc_com_food_recipes_chicken_drumsticks_with_66853",
+    "title": "Chicken fajita drumsticks with Mexican corn salad",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 6Serves 6",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chicken_drumsticks_with_66853_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Chicken noodle soup": {
+    "ingredients": [
+      "3 chicken carcasses, plus 6 chicken legs",
+      "2.5 litres/4 pints 8fl oz water",
+      "3 carrots, peeled, chopped",
+      "2 celery stalks, trimmed, chopped",
+      "1 large leek, trimmed, sliced",
+      "2 large onions, peeled, chopped",
+      "2 fresh bay leaves",
+      "1 small bunch fresh thyme",
+      "1 tsp black peppercorns",
+      "1 tsp salt flakes",
+      "150g/5oz rice noodles",
+      "1 tbsp chopped fresh parsley",
+      "1-2 tbsp chopped fresh chives, to serve"
+    ],
+    "method": [
+      "Place the chicken carcasses and drumsticks into a large deep pan and cover with the water. Add the carrots, celery, leek and onions. ",
+      "Make a bouquet garni with the bay leaves and the thyme by tying the herbs together with kitchen string. Add the bouquet garni to the pan along with the peppercorns and salt. ",
+      "Cover the pan with the lid and bring the mixture to the boil, then reduce the heat until it is simmering. Simmer for about two hours, skimming off any scum that rises to the surface of the liquid from time to time. Set aside to cool slightly, then strain the stock into a smaller pan. Pick the meat from the chicken drumsticks and add it to the strained broth. ",
+      "When ready to serve the broth, bring it to a gentle simmer, then add the noodles. Cook the noodles according to packet instructions until tender, then stir in the chopped parsley.",
+      "Serve the chicken noodle soup in bowls with the chopped chives sprinkled over."
+    ],
+    "url": "www_bbc_com_food_recipes_chickennoodlesoup_93136",
+    "title": "Chicken noodle soup",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "over 2 hoursover 2 hours",
+      "cookingMins": 120,
+      "totalMins": 150
+    },
+    "serves": "Serves 6Serves 6",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chickennoodlesoup_93136_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Chicken yakitori": {
+    "ingredients": [
+      "500g/1lb chicken breast, cut into 2.5cm/1in pieces",
+      "1 red pepper, deseeded and cut into chunks",
+      "small bunch spring onions",
+      "6 shiitake mushrooms, stem removed and halved",
+      "small bunch spring onions",
+      "3 tbsp mirin ",
+      "3 tbsp Japanese soy sauce",
+      "3 tbsp sake (rice wine)",
+      "1 tsp sugar"
+    ],
+    "method": [
+      "Thread the chicken pieces onto pre-soaked bamboo skewers, interspersing each piece of chicken with spring onion, pepper and mushroom.",
+      "Mix together the mirin, soy, rice wine and sugar and stir until the sugar dissolves.",
+      "Heat a griddle pan and brush the chicken with the glaze. Griddle turning every 30 seconds or so, brushing the top each time until the chicken is cooked through and the meat burnished a to mahogany glaze."
+    ],
+    "url": "www_bbc_com_food_recipes_chickenyakitori_11599",
+    "title": "Chicken yakitori",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chickenyakitori_11599_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Chilli and garlic-spiced kale crisps": {
+    "ingredients": [
+      "½ tsp dried chilli flakes",
+      "1 tsp garlic granules",
+      "¼ tsp sea salt",
+      "250g/9oz curly kale, leaves picked from stems, washed and dried",
+      "1 tbsp light olive oil"
+    ],
+    "method": [
+      "Preheat the oven to 120C/100C Fan/Gas ½ and line two large baking trays with baking paper.",
+      "Mix together the chilli, garlic granules and sea salt.",
+      "Put the kale in a large bowl and massage the oil into the leaves. Toss with the seasoning. ",
+      "Spread the leaves out in a single layer on two large baking trays. Bake for 20 minutes, turning the trays halfway through cooking.",
+      "Lift the leaves from the baking paper using a spatula. Return the trays to the oven, turn off the heat and leave for 12–15 minutes, or until crisp."
+    ],
+    "url": "www_bbc_com_food_recipes_chilli_and_garlic_spiced_00826",
+    "title": "Chilli and garlic-spiced kale crisps",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chilli_and_garlic_spiced_00826_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Chilli and coriander fish parcel": {
+    "ingredients": [
+      "125g/4½oz cod, coley or haddock fillet",
+      "2 tsp lemon juice",
+      "1 tbsp fresh coriander leaves",
+      "1 garlic clove, roughly chopped",
+      "1 green chilli, deseeded and chopped",
+      "¼ tsp sugar",
+      "2 tsp natural yoghurt",
+      "80g/3oz mangetout, steamed, to serve"
+    ],
+    "method": [
+      "Preheat the oven to 200C/180C Fan/Gas 6. ",
+      "Place the fish in a non-metallic dish and sprinkle with the lemon juice. Cover and leave in the fridge to marinate for 15-20 minutes.",
+      "Put the coriander, garlic and chilli in a food processor or blender and process until the mixture forms a paste. Add the sugar and yoghurt and briefly process to blend.",
+      "Lay the fish on a sheet of foil. Coat the fish on both sides with the paste. Gather up the foil loosely and turn over at the top to seal. Return to the fridge for at least 1 hour.",
+      "Place the parcel on a baking tray and bake for about 15 minutes, or until the fish is just cooked. Serve with the mangetout."
+    ],
+    "url": "www_bbc_com_food_recipes_chilli_and_coriander_21270",
+    "title": "Chilli and coriander fish parcel",
+    "time": {
+      "preparation": "1-2 hours1-2 hours",
+      "preparationMins": 120,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 150
+    },
+    "serves": "Serves 1Serves 1",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chilli_and_coriander_21270_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Steamed chilli soy tofu": {
+    "ingredients": [
+      "250g/9oz silken tofu",
+      "1 small red chilli, sliced finely",
+      "2 spring onions, trimmed and sliced finely",
+      "1 tbsp reduced-sodium soy sauce",
+      "1 tsp sesame oil",
+      "1 tsp oyster sauce (or vegetarian oyster sauce, if preferred)",
+      "2 tbsp fresh coriander",
+      "steamed rice, to serve"
+    ],
+    "method": [
+      "Fill the base of your steamer with water and bring to the boil. Drain the tofu and place it on a heatproof plate that will fit inside the steamer. Steam the tofu for 15 minutes, then drain off the excess water and carefully transfer to a serving plate.",
+      "Heat the soy sauce, sesame oil and oyster sauce together in a small pan until hot. Pour the mixture over the tofu, scatter with the red chilli, spring onion and coriander leaves and serve with steamed rice alongside."
+    ],
+    "url": "www_bbc_com_food_recipes_chillisoytofu_13912",
+    "title": "Steamed chilli soy tofu",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 2Serves 2",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chillisoytofu_13912_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Chocolate chip fluffy pancakes": {
+    "ingredients": [
+      "2 free-range eggs",
+      "5 tbsp milk",
+      "150g/5oz self-raising flour",
+      "2 tbsp caster sugar",
+      "pinch of salt",
+      "75g/3oz dark chocolate chips",
+      "sunflower oil, for frying",
+      "butterscotch ice cream, to serve",
+      "maple syrup or clear honey, to serve"
+    ],
+    "method": [
+      "Whisk together the eggs and milk. ",
+      "Place the plain flour, caster sugar and a pinch of salt in large bowl, then make a well in the centre, pour in the liquid and beat with a hand whisk until smooth. ",
+      "Stir in the chocolate chips, then cook spoonfuls of the mixture in a non-stick pan, using just a tiny splash of sunflower oil, for 1-2 minutes on each side until puffed and golden. ",
+      "Stack and serve with a scoop of butterscotch ice cream and a drizzle of maple syrup."
+    ],
+    "url": "www_bbc_com_food_recipes_chocchippuffypancake_65968",
+    "title": "Chocolate chip fluffy pancakes",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "less than 10 minsless than 10 mins",
+      "cookingMins": 10,
+      "totalMins": 40
+    },
+    "serves": "Serves 2Serves 2",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chocchippuffypancake_65968_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Gluten-free chocolate cake": {
+    "ingredients": [
+      "200g/7oz dark chocolate, minimum 70% cocoa solids, cut into pieces",
+      "200g/7oz unsalted butter, softened, cut into small pieces",
+      "200g/7oz golden caster sugar",
+      "5 free-range eggs, ‎separated",
+      "200g/7oz ground almonds "
+    ],
+    "method": [
+      "Preheat the oven to 180C/160 Fan/Gas 4. Grease a 23cm/9in loose-bottomed round cake tin and line with greaseproof paper.",
+      "Melt the chocolate in a small heatproof bowl set over a saucepan of gently simmering water, making sure the bowl doesn’t touch the water. ",
+      "Put the butter and sugar in a large mixing bowl and beat until light and creamy. Whisk in the egg yolks. Mix in the almonds, then lightly fold in the melted chocolate. ",
+      "Using an electric hand whisk, beat the egg whites in a large, clean glass bowl until stiff peaks form. Fold into the almond mixture. Spoon into the prepared tin and level out the top. ",
+      "Bake for 30–40 minutes, or until a skewer inserted into the centre of the cake comes out clean. Leave to cool slightly in the tin, then transfer to a cooling rack."
+    ],
+    "url": "www_bbc_com_food_recipes_chocolate_almond_caprese_27893",
+    "title": "Gluten-free chocolate cake",
+    "time": {
+      "preparation": "30 mins to 1 hour30 mins to 1 hour",
+      "preparationMins": 60,
+      "cooking": "30 mins to 1 hour30 mins to 1 hour",
+      "cookingMins": 60,
+      "totalMins": 120
+    },
+    "serves": "Serves 6-8Serves 6-8",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chocolate_almond_caprese_27893_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Christmas carrots": {
+    "ingredients": [
+      "9 medium carrots, peeled, topped and tailed",
+      "250g/9oz butter",
+      "150g/5½oz sugar",
+      "3 tsp salt",
+      "4 star anise"
+    ],
+    "method": [
+      "Use a clean scourer to smooth the carrots and remove any peel marks (optional).",
+      "In a pan combine 400ml/14fl oz of water, the butter, sugar, salt and star anise. Bring to the boil, then reduce the heat to a gentle simmer and add the carrots. Cook until the carrots are tender (approximately 45 minutes) and the volume of liquid has reduced by half.",
+      "Serve the carrots as a side dish with the reduced cooking liquid poured over."
+    ],
+    "url": "www_bbc_com_food_recipes_christmas_carrots_90489",
+    "title": "Christmas carrots",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/christmas_carrots_90489_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Christmas Martini": {
+    "ingredients": [
+      "ice cubes",
+      "50ml/2fl oz vodka",
+      "25ml/1fl oz Chambord ",
+      "25ml/1fl oz cocoa liqueur (such as Creme de cacao blanc)",
+      "1 sprig rosemary"
+    ],
+    "method": [
+      "Tumble ice cubes generously into a cocktail shaker. Add the vodka, Chambord and cocoa liqueur and shake well. Pour into a martini glass (leaving the ice behind in the shaker) and add a sprig of rosemary. Drink, full of Christmas cheer."
+    ],
+    "url": "www_bbc_com_food_recipes_christmas_martini_77981",
+    "title": "Christmas Martini",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "no cooking requiredno cooking required",
+      "cookingMins": 0,
+      "totalMins": 30
+    },
+    "serves": "Serves 1Serves 1",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/christmas_martini_77981_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Mulled cider": {
+    "ingredients": [
+      "4 cardamom pods, lightly crushed",
+      "1 clementine, sliced into wedges, spiked with 8 cloves",
+      "1 lemon, sliced into wedges, spiked with 8 cloves",
+      "100ml/4fl oz whisky ",
+      "100ml/4fl oz orange liqueur",
+      "3 tbsp clear honey",
+      "1 litre/1 pint 15¼fl oz cider ",
+      "4 cinnamon stick",
+      "freshly grated nutmeg, to garnish"
+    ],
+    "method": [
+      "Heat all of the ingredients in a large saucepan over a low heat until warmed through.",
+      "Pour between 4 latte glasses or other heatproof glasses.",
+      "Finish with a little freshly grated nutmeg."
+    ],
+    "url": "www_bbc_com_food_recipes_cidertoddy_90492",
+    "title": "Mulled cider",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "less than 10 minsless than 10 mins",
+      "cookingMins": 10,
+      "totalMins": 40
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cidertoddy_90492_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "The Biker burger": {
+    "ingredients": [
+      "800g/1lb 12oz chuck steak, trimmed of any gristle or hard pieces of fat, chilled  ",
+      "50g/1¾oz bone marrow, finely diced (optional)",
+      "4 burger buns, split",
+      "flaked sea salt and freshly ground black pepper",
+      "100g/3½oz mayonnaise",
+      "2 tbsp tomato ketchup",
+      "squeeze of lemon juice",
+      "1 large gherkin, finely chopped",
+      "1 tsp garlic powder",
+      "½ tsp chipotle paste or other hot sauce"
+    ],
+    "method": [
+      "Make sure the meat is well chilled – if you freeze it, then let it thaw partially, you’ll find it much easier to cut. Put it through a coarse mincer, or chop it very finely by hand. It should be fine enough to stick together when you squeeze a handful. Add the bone marrow, if using.",
+      "Season the steak with salt and a little black pepper, then divide the mixture into four and shape each one into a round pattie 2–2.5cm/¾–1in thick. The mincing and chopping will help bring the meat to room temperature, but if it’s still cold, leave the burgers to stand for a while.",
+      "For the burger sauce, mix together all the ingredients in a bowl.",
+      "Heat a frying pan or your barbecue. When too hot to hold your hand over, add the burgers – there’s no need for oil, as some fat will render out of the meat. Cook for 4 minutes, or until the burgers are well seared and have a thick crust. Flip them and cook for another 3 minutes for rare meat, 4 minutes for medium-rare, 5 for medium and up to 6 for well done. Serve with the burger sauce."
+    ],
+    "url": "www_bbc_com_food_recipes_classic_burgers_58632",
+    "title": "The Biker burger",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "less than 10 minsless than 10 mins",
+      "cookingMins": 10,
+      "totalMins": 40
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/classic_burgers_58632_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Chocolate and ginger oat biscuits": {
+    "ingredients": [
+      "225g/8oz unsalted butter",
+      "100g/3½oz golden syrup",
+      "200g/7oz soft brown sugar",
+      "150g/3½oz plain flour",
+      "2 tsp baking powder",
+      "1 tsp sea salt flakes ",
+      "4 tsp ground ginger",
+      "2 tsp ground cinnamon",
+      "400g/14oz rolled oats",
+      "2 free-range eggs, beaten",
+      "50g/1¾oz stem ginger, chopped",
+      "115g/4oz good quality dark chocolate"
+    ],
+    "method": [
+      "Preheat the oven to 180C/350F/Gas 4. Line two baking trays with non-stick parchment. Melt the butter and the golden syrup in a pan over a low heat. Set aside to cool slightly.  ",
+      "Combine the sugar, flour, baking powder, salt and spices and mix well to combine. Stir in the rolled oats and mix thoroughly. Pour in the melted butter and syrup and stir until well combined. Then stir in the beaten eggs and the stem ginger.",
+      "Spoon in even, heaped teaspoons onto the lined baking trays, leaving room for them to spread. Bake in the oven for 8-10 minutes. Remove the biscuits from the oven and set aside to cool completely.",
+      "Melt the chocolate in a bowl suspended over a pan of barely simmering water (do not let the bottom of the bowl touch the water). Dip the biscuits in the melted chocolate and place on a cooling rack until the chocolate has set."
+    ],
+    "url": "www_bbc_com_food_recipes_classic_stem_ginger_83286",
+    "title": "Chocolate and ginger oat biscuits",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "30 mins to 1 hour30 mins to 1 hour",
+      "cookingMins": 60,
+      "totalMins": 90
+    },
+    "serves": "Makes 24 biscuitsMakes 24 biscuits",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/classic_stem_ginger_83286_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Classic sourdough": {
+    "ingredients": [
+      "375g/13oz strong white flour, plus extra for dusting",
+      "250g/9oz sourdough starter",
+      "7.5g salt",
+      "130-175ml/4-6fl oz tepid water",
+      "olive oil, for kneading"
+    ],
+    "method": [
+      "Combine the flour, starter and salt in a large mixing bowl. Add the water, a little at a time, and mix with your hands to make a soft dough (you may not need all of the water).",
+      "Coat a chopping board or work surface with olive oil, then tip the dough onto it and knead the dough for 10-15 minutes, or until the dough forms is smooth and elastic. ",
+      "Tip the dough into a lightly oiled bowl and cover with cling film. Leave to rise in a warm place for five hours, or until at least doubled in size. ",
+      "Knead the dough until it’s smooth, knocking the air out. Roll into a ball and dust with flour. ",
+      "Tip the dough into a well-floured round banneton or proving basket and leave to rise for 4-8 hours.",
+      "Put a tray half filled with water on the bottom oven shelf and preheat the oven to 220C/425F/Gas 7. ",
+      "Gently tip the risen dough onto a lined baking tray.  Bake the loaf for 30 minutes at this heat, then reduce the heat to 200C/400F/Gas 6 and bake for a further 15-20 minutes. Cool on a cooling rack.  "
+    ],
+    "url": "www_bbc_com_food_recipes_classic_sourdough_21029",
+    "title": "Classic sourdough",
+    "time": {
+      "preparation": "over 2 hoursover 2 hours",
+      "preparationMins": 120,
+      "cooking": "30 mins to 1 hour30 mins to 1 hour",
+      "cookingMins": 60,
+      "totalMins": 180
+    },
+    "serves": "Makes 1 loafMakes 1 loaf",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/classic_sourdough_21029_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Coconut chicken noodle soup": {
+    "ingredients": [
+      "1 nest medium egg noodles",
+      "3 spring onions, chopped",
+      "200ml/7fl oz coconut milk",
+      "200ml/7fl oz chicken stock made with ½ a stock cube",
+      "1-2 chicken thighs or drumsticks, skin removed",
+      "salt and freshly ground black pepper"
+    ],
+    "method": [
+      "Boil the kettle. Break up the noodles and put into a bowl. Cover with boiling water, set aside, and allow the noodles to soften completely - about 10 minutes. ",
+      "Meanwhile, add the white part of the spring onion to a saucepan with the coconut milk, stock and a twist of black pepper. Bring to a simmer, add the chicken thighs and cook for 15-20 minutes. Don’t boil it or the chicken will be tough and the coconut milk will separate (If you use boneless chicken thighs simmer for 8-10 minutes).",
+      "Remove the chicken from the saucepan and check that it is completely cooked. If it’s pink near the bone, return it to the stock for another 5 minutes. When cooked, set the chicken thighs aside to cool slightly.",
+      "Drain the noodles and add them to the coconut liquid. Chop the chicken from the bone and stir into the soup with the green part of the spring onion. Season with salt and black pepper."
+    ],
+    "url": "www_bbc_com_food_recipes_coconut_chicken_noodle_20610",
+    "title": "Coconut chicken noodle soup",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 1Serves 1",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/coconut_chicken_noodle_20610_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Coffee crème caramels": {
+    "ingredients": [
+      "1 tbsp instant coffee granules",
+      "75g/2½oz caster sugar",
+      "600ml/20fl oz full-fat milk",
+      "3 free-range eggs",
+      "3 free-range egg yolks",
+      "125g/4½oz caster sugar"
+    ],
+    "method": [
+      "Heat the oven to 150C/300F/Gas 2. Have ready four ovenproof ramekins.",
+      "Put the coffee, caster sugar and milk in a saucepan and bring gently up to simmering point, stirring occasionally to dissolve the coffee. Do not boil. Remove from the heat and set aside while you make the caramel.",
+      "For the caramel, put the sugar and 50ml/2fl oz of water in a heavy based-pan. Heat gently until the sugar has dissolved, then bring to the boil. Boil for a few minutes, or until the syrup has turned to a dark golden-brown caramel.",
+      "As soon as the caramel has reached the right colour, pour it into the ramekins. Take care because it will be extremely hot. Leave to set (but do not put it in the fridge).",
+      "Beat the eggs and egg yolks together in a bowl. Gently pour on the coffee-flavoured milk and whisk until well combined. Strain into a jug. Pour this mixture into the ramekins. Put the ramekins in a large, deep oven tray. Pour hot water into the tray so that it comes three-quarters of the way up the ramekins. Cover the tray with foil and place in the oven. Bake for 40-45 minutes, or until the custards are just set but still have a bit of wobble.",
+      "Remove from the oven dish and leave to cool completely, then refrigerate for 24 hours.",
+      "To turn out, first run a thin-bladed knife around the outside of the custard then put a plate over the top and invert the ramekin so that the custard and its lovely caramel juices come out onto the dish. Serve straight away."
+    ],
+    "url": "www_bbc_com_food_recipes_coffee_crme_caramels_75585",
+    "title": "Coffee crème caramels",
+    "time": {
+      "preparation": "overnightovernight",
+      "preparationMins": 720,
+      "cooking": "30 mins to 1 hour30 mins to 1 hour",
+      "cookingMins": 60,
+      "totalMins": 780
+    },
+    "serves": "Makes 4Makes 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/coffee_crme_caramels_75585_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Coleslaw": {
+    "ingredients": [
+      "450g/1lb white cabbage",
+      "1 small onion (optional)",
+      "1 small carrot (optional) ",
+      "30g/1oz sugar",
+      "a pinch of cayenne or chilli powder ",
+      "30g/1oz plain flour",
+      "2 eggs, yolks only",
+      "a good knob of butter ",
+      "175ml/6fl oz whole milk",
+      "55ml/2fl oz red wine vinegar ",
+      "1-2 tsp English mustard"
+    ],
+    "method": [
+      "Grate or shred the cabbage and carrots and onions (if you're using them). Put them in a big bowl and set aside.",
+      "Mix the sugar, cayenne and flour in a bowl that will go into your double boiler. Season well with salt and pepper. Now whisk in all remaining ingredients except the mustard, in the order in which they are listed. In the meantime, heat the water in the bottom of the double boiler. ",
+      "Put the bowl over the heat and start whisking. Do not stop for more than a few moments while the mixture is cooking. Cooking will take something like 15 minutes, and you will know that the sauce is done when it's thick enough to coat the back of a spoon. Strain into a clean bowl to eliminate any lumps, and whisk in the mustard. (Use the larger amount if you want a hotter result, the smaller if you want just a mustardy accent.)",
+      "Toss the slaw with half the dressing and toss. If it needs more, add it in small doses till you've reached the desired consistency. Serve immediately or leave, covered, in the fridge, for 1-2 days with 1 or 2 tosses every day."
+    ],
+    "url": "www_bbc_com_food_recipes_coleslaw_68108",
+    "title": "Coleslaw",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/coleslaw_68108_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Coq au vin": {
+    "ingredients": [
+      "25g/1oz butter",
+      "150g/5½oz shallots, peeled but left whole",
+      "5 garlic cloves, crushed ",
+      "150g/5½oz streaky bacon, cut thickly ",
+      "sprig of fresh thyme or a good pinch of dried",
+      "350g/12½oz button mushrooms",
+      "500ml/16½fl oz good red wine",
+      "500ml/16½fl oz chicken stock",
+      "2 tbsp balsamic vinegar",
+      "1 free range chicken, cut into 8 serving pieces, on the bone but skin removed (or 6 chicken thighs)",
+      "small bunch flatleaf parsley, chopped",
+      "salt and crushed black pepper"
+    ],
+    "method": [
+      "Heat a thick-bottomed casserole dish on the stove, add almost all the butter (reserving a knob of the butter) and the shallots. Cook until just browned; then stir in the garlic. Add the bacon and thyme and cook for 2-3 minutes.",
+      "Add the mushrooms, turn up the heat and add the red wine, chicken stock and vinegar. Add the chicken pieces, bring the sauce to the boil and then simmer gently for about 25 minutes or until the chicken is tender and cooked through. For a thicker sauce, remove the chicken once it is cooked and keep warm. Cook the sauce over a high heat for a few minutes until the volume of liquid has reduced. Return the chicken back to the pan.",
+      "Add the parsley, together with the reserved knob of butter. Season with salt and freshly ground black pepper and serve with a dressed green salad and olive oil mash or crusty bread."
+    ],
+    "url": "www_bbc_com_food_recipes_coqauvin_10455",
+    "title": "Coq au vin",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "30 mins to 1 hour30 mins to 1 hour",
+      "cookingMins": 60,
+      "totalMins": 90
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/coqauvin_10455_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Steak pasty": {
+    "ingredients": [
+      "225g/½lb plain flour, plus extra for dusting",
+      "1 tsp baking powder",
+      "½ tsp salt",
+      "60g/2½oz unsalted butter",
+      "1 free-range egg, yolk only",
+      "60ml/2½fl oz water",
+      "1 free-range egg, beaten, for glazing",
+      "50g/2oz swede, finely chopped",
+      "150g/5½oz potato, peeled and cut into cubes",
+      "50g/2oz onion, finely chopped ",
+      "100g/3½oz rib-eye steak, cut into small pieces",
+      "1 tbsp chopped fresh parsley",
+      "salt and freshly ground black pepper"
+    ],
+    "method": [
+      "For the pastry, pulse the flour, baking powder, salt, butter and egg yolk in a food processor until the mixture resembles breadcrumbs. ",
+      "Gradually add the water, a tablespoon at a time, mixing continuously until the mixture just comes together as a dough. (You may not need to use all the water.) Roll the dough into a ball, then wrap it in cling film and chill in the fridge for an hour. ",
+      "Meanwhile, for the filling, bring a pan of salted, boiling water to the boil. Add the chopped swede and potato and cook for 4-5 minutes, until tender, then drain well, refresh in cold water and set aside.",
+      "Preheat the oven to 180C/350F/Gas 4.",
+      "Roll the chilled pastry out onto a clean, floured work surface. Cut a large disc from the pastry using a dinner plate as a template. Place the onions in a line down the middle of the pastry disc. Spoon the chopped steak on top, then spoon the cooked potato and swede over it. Sprinkle with the chopped parsley and season, to taste, with salt and freshly ground black pepper.",
+      "Brush the edge of the pastry disc with some of the beaten egg. Draw the edges of the pastry together and crimp them with your fingers to seal so that the seal sits on top of the filling. Using a knife, make a small hole in the top of the pasty and brush all over with the remaining beaten egg.",
+      "Place the pasty onto a baking tray and bake in the oven for 25-30 minutes, or until golden-brown."
+    ],
+    "url": "www_bbc_com_food_recipes_cornishpasty_89627",
+    "title": "Steak pasty",
+    "time": {
+      "preparation": "1-2 hours1-2 hours",
+      "preparationMins": 120,
+      "cooking": "30 mins to 1 hour30 mins to 1 hour",
+      "cookingMins": 60,
+      "totalMins": 180
+    },
+    "serves": "Makes 1 large pastyMakes 1 large pasty",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cornishpasty_89627_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
 }
