@@ -1,4 +1,4 @@
-const { session, driver } = require('../db/neo');
+const { runQuery } = require('../db/neo');
 
 const neo4j = require('neo4j-driver').v1;
 const router = require('express').Router();
@@ -6,13 +6,12 @@ const router = require('express').Router();
 module.exports = router;
 
 router.get('/singleview/:name', async (req, res, next) => {
-  console.log(req.params.name);
   try {
-    const { records } = await session.run(
+    const { records } = await runQuery(
       `match (l:Recipe {name:"${req.params.name}"})
       optional match (l)-[r:hasIngredient]->(i) return l,i,r`
     );
-    session.close();
+
     const returnObject = {};
     //grab list info
     const props = records[0].get('l').properties;
@@ -46,7 +45,7 @@ router.get('/singleview/:name', async (req, res, next) => {
         }
       }
     });
-    console.log(returnObject);
+
     res.json(returnObject);
   } catch (err) {
     next(err);

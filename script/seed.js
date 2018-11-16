@@ -59,12 +59,13 @@ const recipeSeeder = async db => {
         const recipeObj = db[recipe];
         //create recipe node
         await runQuery(
-          'MERGE (a:Recipe {name:$name, instructions:$instructions, time:$time, serves:$serves}) RETURN a',
+          'MERGE (a:Recipe {name:$name, instructions:$instructions, time:$time, serves:$serves, image:$image}) RETURN a',
           {
             name: recipe, //string
             instructions: recipeObj.method, //array of strings
             time: recipeObj.time.totalMins, //string number
-            serves: recipeObj.serves //string
+            serves: recipeObj.serves,
+            image: recipeObj.image || '' //string
           }
         );
         const ingredientsObj = recipeObj.ingredients;
