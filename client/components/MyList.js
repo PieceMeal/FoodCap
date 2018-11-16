@@ -55,7 +55,7 @@ const MyList = props => {
 											</td>
 											<td>
 												<small>
-													{ingredient.quant}&ensp;{ingredient.unit}
+													{ingredient.quantity}&ensp;{ingredient.type}
 												</small>
 											</td>
 											<td>{ingredient.note ? ingredient.note : null}</td>
