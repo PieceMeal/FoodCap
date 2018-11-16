@@ -19,7 +19,7 @@ router.post('/', async (req, res, next) => {
 		const { records } = await session.run(
 			`MATCH (a:Person {uuid: '${
 				req.user.uuid
-			}'}) CREATE (l:List {name:'${listName}', uuid: '${uuidv1()}'}) MERGE (a)-[:HAS_LIST{status:'IN_DEVELOPMENT'}]->(l) RETURN l`
+			}'}) CREATE (l:List {name:'${listName}', uuid: '${uuidv1()}'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
 		);
 		console.log(records);
 		session.close();
@@ -124,7 +124,7 @@ router.put('/favorite', async (req, res, next) => {
 		const { records } = await session.run(
 			`MATCH (a:Person {uuid: '${
 				req.user.uuid
-			}'}) MATCH(l:List {uuid: '${uuid}'}) MERGE (a)-[r:IS_FAVORITE]->(l) RETURN r`
+			}'}) MATCH(l:List {uuid: '${uuid}'}) MERGE (a)-[r:isFavorite]->(l) RETURN r`
 		);
 		session.close();
 		console.log();
