@@ -184,6 +184,7 @@ async function seed() {
     console.log(`seeded ${users.length} users`);
     console.log(`seeded successfully`);
     await runQuery(
+      // CHANGE random num for more frequent likes
       `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .2 then [1] else [] end | merge (x)-[:HASFAVORITE]->(y))`
     );
   } catch (err) {
