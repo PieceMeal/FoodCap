@@ -145,8 +145,22 @@ const listSeeder = async () => {
 			MERGE (l)-[:hasRecipe]->(r)
 			SET newIngredient += properties(z)
 			`
+<<<<<<< HEAD
     );
     console.log('done recipes to list');
+=======
+		);
+		await runQuery(
+			`MATCH (l:List {uuid: '1111'})
+			MATCH(r:Recipe {name: '15 minute pasta'})
+			MATCH (r)-[z:hasIngredient]->(i)
+      MERGE (l)-[newIngredient:hasIngredient]->(i)
+			MERGE (l)-[:hasRecipe]->(r)
+			SET newIngredient += properties(z)
+			`
+		);
+		console.log('done recipes to list');
+>>>>>>> c9c94cf2d987c0372d5c18438e3579a3e783f6cc
 
     //driver.close();
   } catch (err) {
