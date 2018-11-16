@@ -41,7 +41,8 @@ const testRecipe = {
 
 //maps through json database and creates recipe nodes (run by seed function)
 const recipeSeeder = async db => {
-	try {
+
+	try{
 		await runQuery('MATCH (n) DETACH DELETE n');
 
 		//check that recipe name is unique before creating the node
@@ -110,23 +111,44 @@ const listSeeder = async () => {
 				name: 'murphy@email.com',
 				listName: 'Muphy List',
 				uuid: '1111',
-				status: 'incomplete',
+				status: 'primary',
 			}
 		);
-		console.log(' list 1');
 		await runQuery(
-			`MATCH (a:Person {name: 'cody@email.com'}) CREATE (l:List {name: 'Cody List', uuid: '2222'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
+			`MATCH (a:Person {name: $name}) CREATE (l:List {name: $listName, uuid: $uuid}) MERGE (a)-[:hasList{status: $status}]->(l) RETURN l`,
+			{
+				name: 'cody@email.com',
+				listName: 'Cody List',
+				uuid: '2222',
+				status: 'primary',
+			}
 		);
-		console.log(' list 2');
-
 		await runQuery(
-			`MATCH (a:Person {name: 'cody@email.com'}) CREATE (l:List {name: 'Cody 2nd List', uuid: '3333'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
+			`MATCH (a:Person {name: $name}) CREATE (l:List {name: $listName, uuid: $uuid}) MERGE (a)-[:hasList{status: $status}]->(l) RETURN l`,
+			{
+				name: 'murphy@email.com',
+				listName: 'Side Muphy List',
+				uuid: '3333',
+				status: 'inProgress',
+			}
 		);
-		console.log(' list 3');
-
-		// session.close();
 
 		console.log('done seeding lists');
+
+		console.log('adding recipes to list');
+		//lets add a recipe to cody and murphys primary list
+		// //add lemon curd ice cream to murphy primary list
+		await runQuery(
+			`MATCH (l:List {uuid: '1111'})
+			MATCH(r:Recipe {name: 'Lemon curd ice cream'})
+			MATCH (r)-[z:hasIngredient]->(i)
+      MERGE (l)-[newIngredient:hasIngredient]->(i)
+			MERGE (l)-[:hasRecipe]->(r)
+			SET newIngredient += properties(z)
+			`
+		);
+		console.log('done recipes to list');
+
 		//driver.close();
 	} catch (err) {
 		console.log(err);
