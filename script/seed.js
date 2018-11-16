@@ -4,6 +4,7 @@ const db = require('../server/db');
 const { User } = require('../server/db/models');
 const database = require('./database.json');
 let { session, driver, runQuery } = require('../server/db/neo');
+let random = require('random-name');
 
 const testRecipe = {
   'Sixteen-minute pizza': {
@@ -145,22 +146,17 @@ const listSeeder = async () => {
 			MERGE (l)-[:hasRecipe]->(r)
 			SET newIngredient += properties(z)
 			`
-<<<<<<< HEAD
     );
-    console.log('done recipes to list');
-=======
-		);
-		await runQuery(
-			`MATCH (l:List {uuid: '1111'})
+    await runQuery(
+      `MATCH (l:List {uuid: '1111'})
 			MATCH(r:Recipe {name: '15 minute pasta'})
 			MATCH (r)-[z:hasIngredient]->(i)
       MERGE (l)-[newIngredient:hasIngredient]->(i)
 			MERGE (l)-[:hasRecipe]->(r)
 			SET newIngredient += properties(z)
 			`
-		);
-		console.log('done recipes to list');
->>>>>>> c9c94cf2d987c0372d5c18438e3579a3e783f6cc
+    );
+    console.log('done recipes to list');
 
     //driver.close();
   } catch (err) {
@@ -177,9 +173,19 @@ async function seed() {
       User.create({ email: 'cody@email.com', password: '123' }),
       User.create({ email: 'murphy@email.com', password: '123' })
     ]);
-
+    let userArr = [];
+    // Set # of users here
+    for (let i = 0; i <= 15; i++) {
+      let name = random.first();
+      name += '@email.com';
+      userArr.push(User.create({ email: name, password: '123' }));
+    }
+    await Promise.all(userArr);
     console.log(`seeded ${users.length} users`);
     console.log(`seeded successfully`);
+    await runQuery(
+      `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .25 then [1] else [] end | merge (x)-[:HASFAVORITE]->(y))`
+    );
   } catch (err) {
     console.log(err);
   }
