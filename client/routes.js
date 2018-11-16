@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
+
   Login,
   Signup,
   UserHome,
   Preferences,
-  ListById,
   LandingPage,
   SingleRecipe
+
 } from './components';
 import { me } from './store';
 import { MyList, MyLists } from './components';
@@ -18,6 +19,7 @@ import { MyList, MyLists } from './components';
  * COMPONENT
  */
 class Routes extends Component {
+
   componentDidMount() {
     this.props.loadInitialData();
   }
@@ -48,6 +50,7 @@ class Routes extends Component {
       </Switch>
     );
   }
+
 }
 
 /**

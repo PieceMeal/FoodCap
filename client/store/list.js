@@ -4,101 +4,94 @@ import history from '../history';
 /**
  * ACTION TYPES
  */
-import {
-  SET_LIST,
-  INCREMENT_LIST,
-  DELETE_LIST,
-  REMOVE_LIST_ITEM,
-  ADD_LIST_ITEM
-} from './constants';
+import { SET_LIST, LIST_REMOVE_ITEM, LIST_UPDATE_ITEMS } from './constants';
 
 /**
  * INITIAL STATE
  */
-const defaultList = { uuid: null, ingredients: [] };
+const defaultList = {};
 
 /**
  * ACTION CREATORS
  */
 const setList = list => ({
-  type: SET_LIST,
-  list
-});
-const addListItem = ingredientObj => ({
-  type: ADD_LIST_ITEM,
-  ingredientObj
-});
-const deleteSingleItem = name => ({
-  type: REMOVE_LIST_ITEM,
-  name
-});
-const deleteList = () => ({
-  type: DELETE_LIST
+	type: SET_LIST,
+	list,
 });
 
+const removeListItem = ingredient => ({
+	type: LIST_REMOVE_ITEM,
+	ingredient,
+});
+
+const updateListItems = updatedItems => ({
+	type: LIST_UPDATE_ITEMS,
+	updatedItems,
+});
 /**
  * THUNK CREATORS
  */
 export const setListThunk = id => async dispatch => {
-  try {
-    const { data } = await axios.get(`/api/lists/${id}`);
-    dispatch(setList(data));
-  } catch (err) {
-    console.error(err);
-  }
+	try {
+		const { data } = await axios.get(`/api/lists/${id}`);
+		dispatch(setList(data));
+	} catch (err) {
+		console.error(err);
+	}
 };
 
-export const addListItemThunk = ingredientObj => async dispatch => {
-  try {
-    const { data } = await axios.put('/api/lists/addingredient', ingredientObj);
-    dispatch(addListItem(data));
-  } catch (err) {
-    console.error(err);
-  }
+export const removeListItemThunk = (uuid, ingredient) => async dispatch => {
+	try {
+		const { data } = await axios.put('/api/lists/removeingredient', {
+			uuid,
+			ingredient,
+		});
+		dispatch(removeListItem(ingredient));
+	} catch (err) {
+		console.error(err);
+	}
 };
 
-export const deleteSingleItemThunk = name => async dispatch => {
-  try {
-    await axios.delete(`/api/lists/deleteIngredient/${name}`);
-    dispatch(deleteSingleItem(name));
-  } catch (err) {
-    console.error(err);
-  }
+export const updateListQuantityThunk = (
+	uuid,
+	updatedItems
+) => async dispatch => {
+	try {
+		updatedItems.forEach(async update => {
+			console.log('attempt ', update);
+			await axios.put('/api/lists/updateingredient', {
+				uuid,
+				ingredient: update.name,
+				quantity: update.quantity,
+				type: update.type,
+			});
+		});
+		dispatch(updateListItems(updatedItems));
+	} catch (err) {
+		console.error(err);
+	}
 };
-
-export const deleteListThunk = uuid => async dispatch => {
-  try {
-    await axios.delete(`/api/lists/${uuid}`);
-    dispatch(deleteList());
-  } catch (err) {
-    console.error(err);
-  }
-};
-
 /**
  * REDUCER
  */
 
 export default function(state = defaultList, action) {
-  switch (action.type) {
-    case SET_LIST:
-      return action.list;
-    case ADD_LIST_ITEM:
-      return {
-        ...state,
-        ingredients: [...state.ingredients, action.ingredientObj]
-      };
-    case REMOVE_LIST_ITEM:
-      return {
-        ...state,
-        ingredients: state.ingredients.filter(
-          ingredient => ingredient.name !== action.name
-        )
-      };
-
-    case DELETE_LIST:
-      return defaultList;
-    default:
-      return state;
-  }
+	switch (action.type) {
+		case SET_LIST:
+			return action.list;
+		case LIST_REMOVE_ITEM: {
+			const newList = { ...state };
+			newList.ingredients = newList.ingredients.filter(
+				ingredient => ingredient.name !== action.ingredient
+			);
+			return newList;
+		}
+		case LIST_UPDATE_ITEMS: {
+			const newList = { ...state };
+			return newList;
+			//NEED TO make this accurate
+		}
+		default:
+			return state;
+	}
 }
