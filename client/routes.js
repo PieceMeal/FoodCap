@@ -32,7 +32,10 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route path="/list" component={MyList} />
         <Route path="/lists/:id" component={ListById} />
-        <Route path="/single" component={SingleRecipe} />
+        <Route
+          path="/recipes/singleview/:recipename"
+          component={SingleRecipe}
+        />
         <Route path="/lists/" component={MyLists} />
 
         {isLoggedIn && (

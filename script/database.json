@@ -123,16 +123,16 @@
     "ingredients": {
       "potato": { "quantity": 9, "type": "oz" },
       "spring onion": { "quantity": 4, "type": "oz" },
-      "apple": { "quantity": 1, "type": null },
-      "horseradish": { "quantity": null, "type": null },
+      "apple": { "quantity": 1, "type": "" },
+      "horseradish": { "quantity": "", "type": "" },
       "anchovy": { "quantity": 1, "type": "oz" },
-      "lettuce": { "quantity": 1, "type": null },
-      "carrot": { "quantity": 2, "type": null },
-      "beetroot": { "quantity": 4, "type": null },
-      "egg": { "quantity": 2, "type": null },
-      "cornichon": { "quantity": 6, "type": null },
-      "dill": { "quantity": null, "type": null },
-      "salt": { "quantity": null, "type": null }
+      "lettuce": { "quantity": 1, "type": "" },
+      "carrot": { "quantity": 2, "type": "" },
+      "beetroot": { "quantity": 4, "type": "" },
+      "egg": { "quantity": 2, "type": "" },
+      "cornichon": { "quantity": 6, "type": "" },
+      "dill": { "quantity": "", "type": "" },
+      "salt": { "quantity": "", "type": "" }
     },
 
     "method": [
@@ -161,7 +161,7 @@
     "ingredients": {
       "olive oil": { "quantity": 3, "type": "tbsp" },
       "garlic": { "quantity": 2, "type": "cloves" },
-      "red chilli": { "quantity": 1, "type": null },
+      "red chilli": { "quantity": 1, "type": "" },
       "linguine": { "quantity": 7, "type": "oz" },
       "basil": { "quantity": 6, "type": "leaves" }
     },

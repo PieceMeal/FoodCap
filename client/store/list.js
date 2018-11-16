@@ -29,11 +29,11 @@ const addListItem = ingredientObj => ({
   ingredientObj
 });
 const deleteSingleItem = name => ({
-  type: LIST_REMOVE_ITEM,
+  type: REMOVE_LIST_ITEM,
   name
 });
 const deleteList = () => ({
-  type: LIST_DELETE
+  type: DELETE_LIST
 });
 
 /**
@@ -81,14 +81,14 @@ export const deleteListThunk = uuid => async dispatch => {
 
 export default function(state = defaultList, action) {
   switch (action.type) {
-    case LIST_SET:
+    case SET_LIST:
       return action.list;
-    case LIST_ADD_ITEM:
+    case ADD_LIST_ITEM:
       return {
         ...state,
         ingredients: [...state.ingredients, action.ingredientObj]
       };
-    case LIST_REMOVE_ITEM:
+    case REMOVE_LIST_ITEM:
       return {
         ...state,
         ingredients: state.ingredients.filter(
@@ -96,7 +96,7 @@ export default function(state = defaultList, action) {
         )
       };
 
-    case LIST_DELETE:
+    case DELETE_LIST:
       return defaultList;
     default:
       return state;

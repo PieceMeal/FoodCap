@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Segment, Divider, Button } from 'semantic-ui-react';
+import { setRecipeThunk, deleteRecipe } from '../store/singlerecipe';
 
-const mapStateToProps = state => {};
+const mapStateToProps = state => {
+  return {
+    recipe: state.singlerecipe
+  };
+};
 
-const mapDispatchToProps = dispatch => {};
+const mapDispatchToProps = dispatch => {
+  return {
+    setRecipe: searchTerm => dispatch(setRecipeThunk(searchTerm)),
+    deleteStore: () => dispatch(deleteRecipe())
+  };
+};
 
 const data = {
   '15 minute pasta': {
@@ -57,96 +67,102 @@ const style = {
   buttonMargin: { marginTop: '30px' }
 };
 class SingleRecipe extends Component {
-  componentDidMount() {}
-  render() {
-    return (
-      <div style={style.wholeTray}>
-        <Segment
-          style={{
-            display: 'flex',
-            alignItems: 'baseline',
-            justifyContent: 'center'
-          }}
-        >
-          <h2>
-            <b>{Object.keys(data)[0]}</b>
-          </h2>
-        </Segment>
-        <img src={data['15 minute pasta'].image} />
-        <div style={{ textAlign: 'left' }} className="ui horizontal segments">
-          <div
-            style={{ paddingBottom: '30px', fontSize: '1.25rem' }}
-            className="ui container"
-          >
-            <Segment>
-              &emsp;&emsp;&emsp;Preparation Time:{' '}
-              {data['15 minute pasta'].time.totalMins} min
-              &emsp;&emsp;&emsp;Cooking Time:{' '}
-              {data['15 minute pasta'].time.cookingMins} min
-            </Segment>
+  async componentDidMount() {
+    await this.props.setRecipe(this.props.match.params.recipename);
+  }
 
-            <div
-              style={style.ingredientContainer}
-              role="list"
-              className="ui bulleted list"
-            >
-              <h2>
-                <b>INGREDIENTS</b>
-              </h2>
-              {Object.keys(data['15 minute pasta'].ingredients).map(
-                ingredient => {
-                  return (
-                    <div role="listitem" className="item" key={ingredient}>
-                      {data['15 minute pasta'].ingredients[ingredient].quantity}{' '}
-                      &emsp;
-                      {
-                        data['15 minute pasta'].ingredients[ingredient].type
-                      }&emsp;
-                      {ingredient}
-                    </div>
-                  );
-                }
-              )}
-              <Divider />
-            </div>
-            <div
-              role="list"
-              className="ui ordered list"
-              style={style.ingredientContainer}
-            >
-              <h2>
-                <b>PREPARATION</b>
-              </h2>
-              {data['15 minute pasta'].method.map((step, i) => {
-                return (
-                  <li role="listitem" className="item" key={i}>
-                    {step}
-                  </li>
-                );
-              })}
-            </div>
-          </div>
-          <div
+  componentWillUnmount() {
+    this.props.deleteStore();
+  }
+
+  render() {
+    const { recipe } = this.props;
+    if (recipe.name) {
+      return (
+        <div style={style.wholeTray}>
+          <Segment
             style={{
               display: 'flex',
-              flexDirection: 'column',
-              alignContent: 'space-between'
+              alignItems: 'baseline',
+              justifyContent: 'center'
             }}
-            class="ui grey inverted segment"
           >
-            <Button type="button" style={style.buttonMargin}>
-              Add to List
-            </Button>
-            <Button type="button" style={style.buttonMargin}>
-              Bookmark
-            </Button>
-            <div className="ui button" style={style.buttonMargin}>
-              <i className="heart icon" /> Like
+            <h2>
+              <b>{recipe.name}</b>
+            </h2>
+          </Segment>
+          <img src={recipe.image} alt="no image" />
+          <div style={{ textAlign: 'left' }} className="ui horizontal segments">
+            <div
+              style={{ paddingBottom: '30px', fontSize: '1.25rem' }}
+              className="ui container"
+            >
+              <Segment>
+                &emsp;&emsp;&emsp;Preparation Time:&emsp;
+                {recipe.time} min
+              </Segment>
+
+              <div
+                style={style.ingredientContainer}
+                role="list"
+                className="ui bulleted list"
+              >
+                <h2>
+                  <b>INGREDIENTS</b>
+                </h2>
+                {Object.keys(recipe.ingredients).map(ingredient => {
+                  return (
+                    <div role="listitem" className="item" key={ingredient}>
+                      {recipe.ingredients[ingredient].quantity}
+                      &emsp;
+                      {recipe.ingredients[ingredient].type}&emsp;
+                      {recipe.ingredients[ingredient].name}
+                    </div>
+                  );
+                })}
+                <Divider />
+              </div>
+              <div
+                role="list"
+                className="ui ordered list"
+                style={style.ingredientContainer}
+              >
+                <h2>
+                  <b>PREPARATION</b>
+                </h2>
+                {recipe.instructions.map((step, i) => {
+                  return (
+                    <li role="listitem" className="item" key={i}>
+                      {step}
+                    </li>
+                  );
+                })}
+              </div>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignContent: 'space-between'
+              }}
+              className="ui grey inverted segment"
+            >
+              <Button type="button" style={style.buttonMargin}>
+                Add to List
+              </Button>
+              <Button type="button" style={style.buttonMargin}>
+                Bookmark
+              </Button>
+              <div className="ui button" style={style.buttonMargin}>
+                <i className="heart icon" /> Like
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return <h1>LOADING!!! WAIT!</h1>;
+    }
   }
 }
 
