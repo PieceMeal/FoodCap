@@ -3,7 +3,7 @@
 const db = require('../server/db');
 const { User } = require('../server/db/models');
 const database = require('./database.json');
-let { session, driver } = require('../server/db/neo');
+let { session, driver, runQuery } = require('../server/db/neo');
 
 const testRecipe = {
   'Sixteen-minute pizza': {
@@ -42,14 +42,14 @@ const testRecipe = {
 //maps through json database and creates recipe nodes (run by seed function)
 const recipeSeeder = async db => {
   try {
-    await session.run('MATCH (n) DETACH DELETE n');
+    await runQuery('MATCH (n) DETACH DELETE n');
 
     //check that recipe name is unique before creating the node
     //we are not sure why it works, but it works
-    await session.run(
+    await runQuery(
       `CREATE CONSTRAINT ON (recipe:Recipe) ASSERT recipe.name IS UNIQUE`
     );
-    await session.run(
+    await runQuery(
       `CREATE CONSTRAINT ON (ingredient:Ingredient) ASSERT ingredient.name IS UNIQUE`
     );
     // session.close();
@@ -58,27 +58,26 @@ const recipeSeeder = async db => {
       if (db.hasOwnProperty(recipe)) {
         const recipeObj = db[recipe];
         //create recipe node
-        await session.run(
-          'CREATE (a:Recipe {name:$name, instructions:$instructions, time:$time, serves:$serves, image:$image}) RETURN a',
+        await runQuery(
+          'MERGE (a:Recipe {name:$name, instructions:$instructions, time:$time, serves:$serves}) RETURN a',
           {
             name: recipe, //string
             instructions: recipeObj.method, //array of strings
             time: recipeObj.time.totalMins, //string number
-            serves: recipeObj.serves, //string
-            image: recipeObj.image || ''
+            serves: recipeObj.serves //string
           }
         );
         const ingredientsObj = recipeObj.ingredients;
         for (let ingredient in ingredientsObj) {
           if (ingredientsObj.hasOwnProperty(ingredient)) {
             //create ingredient nodes that don't already exist
-            await session.run('MERGE (b:Ingredient {name:$name}) RETURN b', {
+            await runQuery('MERGE (b:Ingredient {name:$name}) RETURN b', {
               name: ingredient
             });
             // session.close();
 
             //establish relationship between recipe and ingredient
-            await session.run(
+            await runQuery(
               `MATCH (a:Recipe), (b:Ingredient)
             WHERE a.name = $aName AND b.name = $bName
             MERGE (a)-[r:hasIngredient {quantity: $quantity, type: $type} ]->(b) RETURN r`,
@@ -104,23 +103,50 @@ const listSeeder = async () => {
   console.log('seeding lists');
   //now that we have some seed data...lets seed a list for cody and 2 lists for murphy
   try {
-    await session.run(
-      `MATCH (a:Person {name: 'murphy@email.com'}) CREATE (l:List {name: 'Muphy List', uuid: '1111'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
+    await runQuery(
+      `MATCH (a:Person {name: $name}) CREATE (l:List {name: $listName, uuid: $uuid}) MERGE (a)-[:hasList{status: $status}]->(l) RETURN l`,
+      {
+        name: 'murphy@email.com',
+        listName: 'Muphy List',
+        uuid: '1111',
+        status: 'primary'
+      }
     );
-    console.log(' list 1');
-    await session.run(
-      `MATCH (a:Person {name: 'cody@email.com'}) CREATE (l:List {name: 'Cody List', uuid: '2222'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
+    await runQuery(
+      `MATCH (a:Person {name: $name}) CREATE (l:List {name: $listName, uuid: $uuid}) MERGE (a)-[:hasList{status: $status}]->(l) RETURN l`,
+      {
+        name: 'cody@email.com',
+        listName: 'Cody List',
+        uuid: '2222',
+        status: 'primary'
+      }
     );
-    console.log(' list 2');
-
-    await session.run(
-      `MATCH (a:Person {name: 'cody@email.com'}) CREATE (l:List {name: 'Cody 2nd List', uuid: '3333'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
+    await runQuery(
+      `MATCH (a:Person {name: $name}) CREATE (l:List {name: $listName, uuid: $uuid}) MERGE (a)-[:hasList{status: $status}]->(l) RETURN l`,
+      {
+        name: 'murphy@email.com',
+        listName: 'Side Muphy List',
+        uuid: '3333',
+        status: 'inProgress'
+      }
     );
-    console.log(' list 3');
-
-    // session.close();
 
     console.log('done seeding lists');
+
+    console.log('adding recipes to list');
+    //lets add a recipe to cody and murphys primary list
+    // //add lemon curd ice cream to murphy primary list
+    await runQuery(
+      `MATCH (l:List {uuid: '1111'})
+			MATCH(r:Recipe {name: 'Lemon curd ice cream'})
+			MATCH (r)-[z:hasIngredient]->(i)
+      MERGE (l)-[newIngredient:hasIngredient]->(i)
+			MERGE (l)-[:hasRecipe]->(r)
+			SET newIngredient += properties(z)
+			`
+    );
+    console.log('done recipes to list');
+
     //driver.close();
   } catch (err) {
     console.log(err);
@@ -154,7 +180,7 @@ async function runSeed() {
     await recipeSeeder(database);
     await seed();
     await listSeeder();
-    await session.close();
+    //await session.close();
     await driver.close();
     console.log('done');
   } catch (err) {

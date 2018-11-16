@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
 import {
   Login,
   Signup,
   UserHome,
   Preferences,
   ListById,
+  LandingPage,
   SingleRecipe
 } from './components';
 import { me } from './store';
@@ -21,13 +21,11 @@ class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData();
   }
-
   render() {
-    const { isLoggedIn } = this.props;
-
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        <Route exact path="/" component={LandingPage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/list" component={MyList} />
@@ -37,7 +35,6 @@ class Routes extends Component {
           component={SingleRecipe}
         />
         <Route path="/lists/" component={MyLists} />
-
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}

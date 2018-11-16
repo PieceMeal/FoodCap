@@ -58,7 +58,7 @@ const style = {
 class ListById extends Component {
 	componentDidMount() {
 		const { id } = this.props.match.params;
-		//console.log(this.props)
+
 		this.props.setList(id);
 	}
 	render() {
