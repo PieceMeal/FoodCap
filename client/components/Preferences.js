@@ -2,20 +2,22 @@ import React from 'react'
 import { Button, Form } from 'semantic-ui-react'
 import {setPreference} from '../store/user'
 import {connect} from 'react-redux'
+import history from '../history'
 class Preference extends React.Component{
 state = {
     favoriteFood: ''
 }
 handleChange = (e) => {
-    console.log('this is my hcange =====', this.state.favoriteFood)
+
     this.setState({
         favoriteFood : e.target.value
     })
 }
 handleSubmit = (e) => {
     e.preventDefault()
-    console.log('this is our thunk', this.state.favoriteFood)
+
     this.props.setPreference(this.state.favoriteFood, this.props.user.id)
+    history.push('/home');
 }
 
 render(){

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../db/models');
 const { createUser } = require('../utils/createUsers');
-const { session, driver } = require('../db/neo');
+const { runQuery, driver } = require('../db/neo');
 const uuidv1 = require('uuid/v1');
 const neo4j = require('neo4j-driver').v1;
 
@@ -16,13 +16,12 @@ module.exports = router;
 router.post('/', async (req, res, next) => {
 	try {
 		const { listName } = req.body;
-		const { records } = await session.run(
+		const { records } = await runQuery(
 			`MATCH (a:Person {uuid: '${
 				req.user.uuid
 			}'}) CREATE (l:List {name:'${listName}', uuid: '${uuidv1()}'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
 		);
 		console.log(records);
-		session.close();
 
 		res.json(records[0].get('l'));
 	} catch (err) {
@@ -36,10 +35,10 @@ router.post('/', async (req, res, next) => {
 // only returns name and uuid
 router.get('/', async (req, res, next) => {
 	try {
-		const { records } = await session.run(
+		console.log();
+		const { records } = await runQuery(
 			`MATCH (a:Person {uuid: '${req.user.uuid}'})-[:hasList]-(l:List) RETURN l`
 		);
-		session.close();
 		console.log(records.length);
 		const returnObject = [];
 
@@ -66,14 +65,13 @@ router.get('/:listId', async (req, res, next) => {
 	try {
 		const { listId } = req.params;
 		console.log(listId);
-		const { records } = await session.run(
+		const { records } = await runQuery(
 			`MATCH (a:Person {uuid: '${
 				req.user.uuid
 			}'})-[:hasList]-(l:List {uuid: '${listId}'})
      OPTIONAL MATCH (l)-[r:hasIngredient]-(i:Ingredient) RETURN l,i,r`
 		);
 
-		session.close();
 		const returnObject = {};
 		//grab list info
 		const props = records[0].get('l').properties;
@@ -121,12 +119,11 @@ router.put('/favorite', async (req, res, next) => {
 		console.log('in route ');
 		console.log(req.body);
 
-		const { records } = await session.run(
+		const { records } = await runQuery(
 			`MATCH (a:Person {uuid: '${
 				req.user.uuid
 			}'}) MATCH(l:List {uuid: '${uuid}'}) MERGE (a)-[r:isFavorite]->(l) RETURN r`
 		);
-		session.close();
 		console.log();
 		res.json({ relationship: records[0].get('r').type });
 	} catch (err) {
@@ -144,7 +141,7 @@ router.put('/addrecipe', async (req, res, next) => {
 		console.log('in route ');
 		console.log(req.body);
 
-		const { records } = await session.run(
+		const { records } = await runQuery(
 			`MATCH (l:List {uuid: '${uuid}'})
       MATCH(r:Recipe {name: '${recipe}'})
       MATCH (r)-[z:hasIngredient]->(i)
@@ -153,7 +150,6 @@ router.put('/addrecipe', async (req, res, next) => {
       SET newIngredient += properties(z)
        RETURN l,r,i`
 		);
-		session.close();
 		console.log(records);
 		res.json({ records });
 		// set ingredient += properties(z)
@@ -186,13 +182,12 @@ router.put('/addingredient', async (req, res, next) => {
 		console.log('in route ');
 		console.log(req.body);
 
-		const { records } = await session.run(
+		const { records } = await runQuery(
 			`MATCH (l:List {uuid: '${uuid}'})
       MERGE(i:Ingredient {name: '${ingredient}'})
       MERGE (l)-[:hasIngredient{quantity: ${quantity}, type: ${type}}]->(i)
        RETURN l,i`
 		);
-		session.close();
 		console.log(records);
 		res.json({ records });
 	} catch (err) {
@@ -216,11 +211,10 @@ router.put('/removeingredient', async (req, res, next) => {
 		console.log('in route ');
 		console.log(req.body);
 
-		const { records } = await session.run(
+		const { records } = await runQuery(
 			`MATCH (l:List {uuid: '${uuid}'})-[r:hasIngredient]->(i:Ingredient{name:'${ingredient}'}) DELETE r
        RETURN l`
 		);
-		session.close();
 		console.log(records);
 		res.json({ records });
 	} catch (err) {
@@ -246,12 +240,11 @@ router.put('/updateingredient', async (req, res, next) => {
 		console.log('in route ');
 		console.log(req.body);
 
-		const { records } = await session.run(
+		const { records } = await runQuery(
 			`MATCH (l:List {uuid: '${uuid}'})-[r:hasIngredient]->(i:Ingredient{name:'${ingredient}'}) SET r.quantity='${quantity}', r.type='${type}'
        RETURN l`
 		);
 
-		session.close();
 		console.log(records);
 		res.json({ records });
 	} catch (err) {
