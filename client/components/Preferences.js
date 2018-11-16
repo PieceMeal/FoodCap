@@ -7,14 +7,11 @@ import history from '../history'
 
 class Preference extends React.Component{
 state = {
-    favoriteFood: ''
+    favCuisines: [],
+    favIngredients: [],
+    mealTypes: []
 }
-handleChange = (e) => {
 
-    this.setState({
-        favoriteFood : e.target.value
-    })
-}
 handleSubmit = (e) => {
     e.preventDefault()
 
@@ -22,40 +19,52 @@ handleSubmit = (e) => {
     history.push('/home');
 }
 
+handleCheck = (e) => {
+    if (e.target.checked === true) {
+        this.state[`${e.target.value}`].push(e.target.name)
+    } else {
+        const index = this.state[`${e.target.value}`].indexOf(e.target.name)
+        this.state[`${e.target.value}`].splice(index, 1)
+    }
+}
+
+cuisines = ["Chinese Food", "Italian Food", "Mexican Food", "American Food", "Indian Food"]
+ingredients = ["Chicken", "Beef", "Pork", "Seafood", "Cheese", "Mushrooms", "Pesto", "Tomatoes"]
+statements = ["I am vegetarian.", "I prefer low-calorie recipes.", "I prefer easy, quicky recipes."]
+
 render(){
     return (
-  <div>
     <Form unstackable onSubmit={this.handleSubmit}>
-        <Form.Group widths={2}>
-        <Form.Input
-        onChange={this.handleChange}
-        value={this.state.favoriteFood}
-        label='favorite food'
-        placeholder='favorite food' />
-        </Form.Group>
+
         <h3>Select Your Favorite Cuisines:</h3>
-        <Form.Field label='Chinese Food' control='input' type='checkbox' /><br />
-        <Form.Field label='Italian Food' control='input' type='checkbox' /><br />
-        <Form.Field label='Mexican Food' control='input' type='checkbox' /><br />
-        <Form.Field label='American Food' control='input' type='checkbox' /><br />
-        <Form.Field label='Indian Food' control='input' type='checkbox' /><br />
+        {this.cuisines.map(cuisine => {
+            return (
+                <div>
+                    <Form.Field label={cuisine} name={cuisine} value='favCuisines' control='input' type='checkbox' onChange={this.handleCheck} defaultChecked={false} /><br />
+                </div>
+            )
+        })}
+
         <h3>Select Ingredients You Love:</h3>
-        <Form.Field label='Chicken' control='input' type='checkbox' /><br />
-        <Form.Field label='Beef' control='input' type='checkbox' /><br />
-        <Form.Field label='Pork' control='input' type='checkbox' /><br />
-        <Form.Field label='Seafood' control='input' type='checkbox' /><br />
-        <Form.Field label='Cheese' control='input' type='checkbox' /><br />
-        <Form.Field label='Mushrooms' control='input' type='checkbox' /><br />
-        <Form.Field label='Pesto' control='input' type='checkbox' /><br />
-        <Form.Field label='Tomatoes' control='input' type='checkbox' /><br />
+        {this.ingredients.map(ingredient => {
+            return (
+                <div>
+                    <Form.Field label={ingredient} name={ingredient} value='favIngredients' control='input' type='checkbox' onChange={this.handleCheck} defaultChecked={false} /><br />
+                </div>
+            )
+        })}
+
         <h3>Select the Statements that Apply to You:</h3>
-        <Form.Field label='I am vegetarian.' control='input' type='checkbox' /><br />
-        <Form.Field label='I prefer low-calorie recipes' control='input' type='checkbox' /><br />
-        <Form.Field label='I prefer easy, quick recipes' control='input' type='checkbox' /><br />
+        {this.statements.map(statement => {
+            return (
+                <div>
+                    <Form.Field label={statement} name={statement} value='mealTypes' control='input' type='checkbox' onChange={this.handleCheck} defaultChecked={false} /><br />
+                </div>
+            )
+        })}
+
         <Button type='submit'>Submit</Button>
     </Form>
-
-  </div>
 )
 }
 }
