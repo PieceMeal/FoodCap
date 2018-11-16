@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Segment, Divider } from 'semantic-ui-react';
+import { Segment, Divider, Button } from 'semantic-ui-react';
 
 const mapStateToProps = state => {};
 
@@ -44,28 +44,40 @@ const data = {
 const style = {
   wholeTray: {
     backgroundColor: '#A9A9A9',
+    marginTop: '5vh',
     marginLeft: '10vw',
     marginRight: '10vw',
-    padding: '12px',
+    padding: '20px',
+
     border: '2px solid black',
     borderRadius: '15px',
     textAlign: 'center'
   },
-  ingredientContainer: { paddingLeft: '60px', paddingRight: '80px' }
+  ingredientContainer: { paddingLeft: '60px', paddingRight: '80px' },
+  buttonMargin: { marginTop: '30px' }
 };
 class SingleRecipe extends Component {
   componentDidMount() {}
   render() {
     return (
       <div style={style.wholeTray}>
-        <Segment style={{ display: 'flex' }}>
-          <h3 style={{ flexBasis: '15em' }}>{Object.keys(data)[0]}</h3>
-          <button style={{ flexBasis: '10em' }}>Bookmark</button>
-          <button style={{ flexBasis: '10em' }}>Add to Tray</button>
+        <Segment
+          style={{
+            display: 'flex',
+            alignItems: 'baseline',
+            justifyContent: 'center'
+          }}
+        >
+          <h2>
+            <b>{Object.keys(data)[0]}</b>
+          </h2>
         </Segment>
         <img src={data['15 minute pasta'].image} />
         <div style={{ textAlign: 'left' }} className="ui horizontal segments">
-          <div className="ui container">
+          <div
+            style={{ paddingBottom: '30px', fontSize: '1.25rem' }}
+            className="ui container"
+          >
             <Segment>
               &emsp;&emsp;&emsp;Preparation Time:{' '}
               {data['15 minute pasta'].time.totalMins} min
@@ -105,19 +117,33 @@ class SingleRecipe extends Component {
               <h2>
                 <b>PREPARATION</b>
               </h2>
-              {data['15 minute pasta'].method.map(step => {
+              {data['15 minute pasta'].method.map((step, i) => {
                 return (
-                  <li role="listitem" class="item">
+                  <li role="listitem" className="item" key={i}>
                     {step}
                   </li>
                 );
               })}
             </div>
           </div>
-          <Segment>
-            <button style={{ flexBasis: '10em' }}>Bookmark</button>
-            <button style={{ flexBasis: '10em' }}>Add to Tray</button>
-          </Segment>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignContent: 'space-between'
+            }}
+            class="ui grey inverted segment"
+          >
+            <Button type="button" style={style.buttonMargin}>
+              Add to List
+            </Button>
+            <Button type="button" style={style.buttonMargin}>
+              Bookmark
+            </Button>
+            <div className="ui button" style={style.buttonMargin}>
+              <i className="heart icon" /> Like
+            </div>
+          </div>
         </div>
       </div>
     );
