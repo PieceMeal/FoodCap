@@ -1,15 +1,15 @@
 {
 	"Ten-minute pizza": {
 		"ingredients": {
-			"sugar": { "quantity": 1, "type": "tbsp" },
-			"flour": { "quantity": 1, "type": "cup" },
-			"olive oil": { "quantity": 8, "type": "tbsp" },
-			"salt": { "quantity": 1, "type": "tsp" },
-			"tomato paste": { "quantity": 1, "type": "can" },
-			"mushrooms": { "quantity": 1, "type": "package" },
-			"prosciutto": { "quantity": 4, "type": "slices" },
-			"gorgonzola": { "quantity": 4, "type": "oz" },
-			"egg": { "quantity": 1, "type": "egg" }
+			"sugar": { "quantity": "1", "type": "tbsp" },
+			"flour": { "quantity": "1", "type": "cup" },
+			"olive oil": { "quantity": "8", "type": "tbsp" },
+			"salt": { "quantity": "1", "type": "tsp" },
+			"tomato paste": { "quantity": "1", "type": "can" },
+			"mushrooms": { "quantity": "1", "type": "package" },
+			"prosciutto": { "quantity": "4", "type": "slices" },
+			"gorgonzola": { "quantity": "4", "type": "oz" },
+			"egg": { "quantity": "1", "type": "egg" }
 		},
 		"method": [
 			"Preheat the oven to 200C/400F/Gas 6.",
@@ -23,25 +23,25 @@
 		"url": "www_bbc_com_food_recipes_10minutepizza_87314",
 		"title": "Ten-minute pizza",
 		"time": {
-			"preparationMins": 30,
-			"cookingMins": 10,
-			"totalMins": 40
+			"preparationMins": "10",
+			"cookingMins": "10",
+			"totalMins": "40"
 		},
 		"serves": "Makes 1",
 		"isVegetarian": false,
-		"recommendations": 0
+		"recommendations": "0"
 	},
 
 	"15 minute pasta": {
 		"ingredients": {
-			"flour": { "quantity": 1, "type": "cup" },
-			"olive oil": { "quantity": 8, "type": "tbsp" },
-			"penne pasta": { "quantity": 1, "type": "package" },
-			"Parma ham": { "quantity": 2, "type": "package" },
-			"small brown chestnut mushrooms": { "quantity": 1, "type": "package" },
-			"crème fraîche": { "quantity": 7, "type": "oz" },
-			"Parmesan": { "quantity": 3.5, "type": "oz" },
-			"parsley": { "quantity": 2, "type": "tbsp" }
+			"flour": { "quantity": "1", "type": "cup" },
+			"olive oil": { "quantity": "8", "type": "tbsp" },
+			"penne pasta": { "quantity": "1", "type": "package" },
+			"Parma ham": { "quantity": "2", "type": "package" },
+			"small brown chestnut mushrooms": { "quantity": "1", "type": "package" },
+			"crème fraîche": { "quantity": "7", "type": "oz" },
+			"Parmesan": { "quantity": "3.5", "type": "oz" },
+			"parsley": { "quantity": "2", "type": "tbsp" }
 		},
 		"method": [
 			"Cook the pasta in a pan of boiling salted water according to the packet instructions. Drain and set aside",
@@ -52,23 +52,23 @@
 		"title": "15 minute pasta",
 		"time": {
 			"preparation": "less than 30 minsless than 30 mins",
-			"preparationMins": 30,
+			"preparationMins": "30",
 			"cooking": "10 to 30 mins10 to 30 mins",
-			"cookingMins": 30,
-			"totalMins": 60
+			"cookingMins": "30",
+			"totalMins": "60"
 		},
 		"serves": "Serves 6Serves 6",
 		"image":
 			"https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/15_minute_pasta_33407_16x9.jpg",
 		"isVegetarian": false,
-		"recommendations": 0,
+		"recommendations": "0",
 		"categories": ["pasta", "italian", "quick"]
 	},
 	"Lemon curd ice cream": {
 		"ingredients": {
-			"heavy cream": { "quantity": 8, "type": "oz" },
-			"lemon curd": { "quantity": 12, "type": "oz" },
-			"lemon": { "quantity": 1, "type": "" }
+			"heavy cream": { "quantity": "8", "type": "oz" },
+			"lemon curd": { "quantity": "12", "type": "oz" },
+			"lemon": { "quantity": "1", "type": "" }
 		},
 		"method": [
 			"Whisk the cream until floppy,  then whisk in the lemon curd along with the lemon juice and zest. ",
@@ -78,24 +78,24 @@
 		"title": "Lemon curd ice cream",
 		"time": {
 			"preparation": "over 2 hoursover 2 hours",
-			"preparationMins": 120,
+			"preparationMins": "120",
 			"cooking": "no cooking requiredno cooking required",
-			"cookingMins": 0,
-			"totalMins": 120
+			"cookingMins": "0",
+			"totalMins": "120"
 		},
 		"serves": "Makes 290ml/½ pintMakes 290ml/½ pint",
 		"isVegetarian": true,
-		"recommendations": 0,
+		"recommendations": "0",
 		"categories": ["dessert"]
 	},
 	"Mary Berry's mulled wine": {
 		"ingredients": {
-			"orange": { "quantity": 1, "type": "" },
-			"lemon": { "quantity": 3, "type": "" },
-			"cloves": { "quantity": 12, "type": "" },
-			"clementines": { "quantity": 2, "type": "" },
-			"red wine": { "quantity": 2, "type": "bottles" },
-			"cinnamon": { "quantity": 2, "type": "sticks" }
+			"orange": { "quantity": "1", "type": "" },
+			"lemon": { "quantity": "3", "type": "" },
+			"cloves": { "quantity": "12", "type": "" },
+			"clementines": { "quantity": "2", "type": "" },
+			"red wine": { "quantity": "2", "type": "bottles" },
+			"cinnamon": { "quantity": "2", "type": "sticks" }
 		},
 
 		"method": [
@@ -108,10 +108,10 @@
 		"title": "Mary Berry's mulled wine",
 		"time": {
 			"preparation": "less than 30 minsless than 30 mins",
-			"preparationMins": 30,
+			"preparationMins": "30",
 			"cooking": "30 mins to 1 hour30 mins to 1 hour",
-			"cookingMins": 60,
-			"totalMins": 90
+			"cookingMins": "60",
+			"totalMins": "90"
 		},
 		"serves": "Serves 12Serves 12",
 		"image":
