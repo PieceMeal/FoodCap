@@ -184,7 +184,7 @@ async function seed() {
     console.log(`seeded ${users.length} users`);
     console.log(`seeded successfully`);
     await runQuery(
-      `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .25 then [1] else [] end | merge (x)-[:HASFAVORITE]->(y))`
+      `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .2 then [1] else [] end | merge (x)-[:HASFAVORITE]->(y))`
     );
   } catch (err) {
     console.log(err);
