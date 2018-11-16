@@ -45,20 +45,19 @@ export const auth = (email, password, method) => async dispatch => {
   try {
     res = await axios.post(`/auth/${method}`, {email, password})
   } catch (authError) {
-    // return dispatch(getUser({error: authError}))
+    return dispatch(getUser({error: authError}))
   }
-
   try {
-    if(res.data.user){
+    if (res.data.user){
     let user = res.data.user
     user['recipes'] = res.data.recipes
     dispatch(getUser(user))
-    }else {
+    } else {
       dispatch(getUser(res.data))
     }
-    if(!res.data.user.formFilled) {
+    if (!res.data.user.formFilled) {
     history.push('/home/preferences')
-    }else {
+    } else {
       history.push('/home')
     }
   } catch (dispatchOrHistoryErr) {
@@ -76,17 +75,16 @@ export const logout = () => async dispatch => {
   }
 }
 
-export const setPreference = (preferences, userId) => async dispatch => {
+export const setPreference = (preferencesObj, userId) => async dispatch => {
   try {
-    const {data} = await axios.put(`/api/users/${userId}`, {preferences})
-
+    const {data} = await axios.put(`/api/users/${userId}`, preferencesObj)
     dispatch(updateUser(data.user, data.recipes))
   } catch (err) {
     console.error(err)
   }
 }
 export const fetchRecipes = (userId) => async dispatch => {
-  //we need to create fetchRecipe thunk that is going to get our recipes on componentDidMount 
+  //we need to create fetchRecipe thunk that is going to get our recipes on componentDidMount
   //or on componentDidUpdate because now after refreshing the page they are gone.
 
   try {
@@ -105,8 +103,8 @@ export default function(state = defaultUser, action) {
     return action.user
     case REMOVE_USER:
       return defaultUser
-      case UPDATE_USER :
-      return {...state ,formFilled: action.user.formFilled ,recipes: action.recipes}
+      case UPDATE_USER:
+      return {...state, formFilled: action.user.formFilled, recipes: action.recipes}
       case GET_RECIPES:
       return {...state, recipes: action.recipes}
     default:
