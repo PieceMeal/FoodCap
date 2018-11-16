@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {User} = require('../db/models')
-const {session, driver} = require('../db/neo')
+const { runQuery, driver} = require('../db/neo')
+
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -21,7 +22,7 @@ router.get('/:userId', async (req, res, next) => {
     let id = req.params.userId
     let user = await User.findById(id)
     let uuid = user.uuid;
-    let recipes = await session.run(
+    let recipes = await runQuery(
       `MATCH (r:Recipe) -[:hasIngredient] -> (i:Ingredient),
       (i) <- [:like] - (a: Person {uuid: $uuid})
       Return r
@@ -35,7 +36,7 @@ router.get('/:userId', async (req, res, next) => {
         recipesArray[i][key] = props[key]
       }
     })
-    session.close()
+
     res.json(recipesArray)
   } catch (err) {
     next(err)
@@ -48,7 +49,7 @@ router.put('/:userId',async (req, res, next) => {
     let user = await User.findById(userId);
     let uuid = user.uuid;
 
-    await session.run(
+    await runQuery(
       `MATCH (a:Person), (b: Ingredient) 
        WHERE a.uuid = $uuid AND b.name = $ingName
        MERGE (a) -[r:like]->(b)
@@ -56,7 +57,7 @@ router.put('/:userId',async (req, res, next) => {
        {uuid: uuid, ingName: ingName}
        )
       //getting the favorite food using the like connection with ingredients
-    let recipes = await session.run(
+    let recipes = await runQuery(
       `MATCH (r:Recipe) -[:hasIngredient] -> (i:Ingredient),
       (i) <- [:like] - (a: Person {uuid: $uuid})
       Return r

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+import ListPreview from './ListPreview'
 import {connect} from 'react-redux'
 import {Container,Header, Icon, Divider, Grid,Card, Image,Button } from 'semantic-ui-react'
 import {fetchRecipes} from '../store/user'
@@ -20,8 +20,9 @@ componentDidMount(){
       <Icon name='users' circular />
       <Header.Content>Hello {this.props.email}</Header.Content>
     </Header>
-    <Image centered size='large' src='https://react.semantic-ui.com/images/wireframe/centered-paragraph.png' />
   </div>
+  <Divider />
+  <ListPreview />
   <Divider />
   <Grid columns={4}>
     <Grid.Row>
@@ -45,7 +46,7 @@ componentDidMount(){
   </Container>
   )}
   else {
-    return <div/>
+    return <h>Hello???</h>
   }
 }
 

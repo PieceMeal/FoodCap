@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const User = require('../db/models/user')
-const {session, driver} = require('../db/neo')
+const {runQuery, driver} = require('../db/neo')
 module.exports = router
 
 router.post('/login', async (req, res, next) => {
@@ -14,7 +14,7 @@ router.post('/login', async (req, res, next) => {
       res.status(401).send('Wrong username and/or password')
     } else {
       let uuid = user.uuid
-      let recipes = await session.run(
+      let recipes = await runQuery(
         `MATCH(r:Recipe) -[:hasIngredient]-> (i:Ingredient),
         (i) <-[:like] - (a: Person {uuid: $uuid})
         RETURN r`, {
