@@ -56,7 +56,7 @@ export const auth = (email, password, method) => async dispatch => {
     }else {
       dispatch(getUser(res.data))
     }
-    if(method.length === 6) {
+    if(!res.data.user.formFilled) {
     history.push('/home/preferences')
     }else {
       history.push('/home')
@@ -88,7 +88,7 @@ export const setPreference = (preferences, userId) => async dispatch => {
 export const fetchRecipes = (userId) => async dispatch => {
   //we need to create fetchRecipe thunk that is going to get our recipes on componentDidMount 
   //or on componentDidUpdate because now after refreshing the page they are gone.
-  console.log('we are getting some info here??', userId);
+
   try {
     const {data} = await axios.get(`/api/users/${userId}`);
     dispatch(getRecipes(data))

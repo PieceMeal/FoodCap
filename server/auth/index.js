@@ -29,7 +29,7 @@ router.post('/login', async (req, res, next) => {
           recipesArray[i][key] = props[key]
         }
       })
-      console.log('we are sending information back')
+
       req.login(user, err => (err ? next(err) : res.json({user: user, recipes: recipesArray})))
     }
   } catch (err) {
@@ -57,7 +57,7 @@ router.post('/logout', (req, res) => {
 })
 
 router.get('/me', (req, res) => {
-  console.log('is this a problem??? req.user', req.user);
+
   res.json(req.user)
 })
 

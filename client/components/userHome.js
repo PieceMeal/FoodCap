@@ -27,6 +27,7 @@ componentDidMount(){
   <Grid columns={4}>
     <Grid.Row>
    {this.props.recipes.map((rec, id) => {
+     console.log('this is my rec', rec)
      return (
       <Grid.Column key={id}>
       <Card>
@@ -46,7 +47,8 @@ componentDidMount(){
   </Container>
   )}
   else {
-    return <h>Hello???</h>
+    //loading page ??
+    return <div/>
   }
 }
 

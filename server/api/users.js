@@ -43,6 +43,7 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 router.put('/:userId',async (req, res, next) => {
+  debugger
   try{
     let ingName = req.body.preferences
     let userId = req.params.userId
@@ -82,7 +83,7 @@ router.put('/:userId',async (req, res, next) => {
     //mapping over the results of the query and taking the name's of ing into arr.
     // let ingredientsArray = ingredients.records.map( item => item.get('i').properties.name)
 
-    session.close()
+    // session.close()
     let updatedUser = await user.update({
       formFilled: true
     })
