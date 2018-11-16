@@ -37,40 +37,54 @@ router.get('/', async (req, res, next) => {
 	try {
 		console.log();
 		const { records } = await runQuery(
-			`MATCH (a:Person {uuid: '${req.user.uuid}'})-[:hasList]-(l:List) RETURN l`
+			`MATCH (a:Person {uuid: '${
+				req.user.uuid
+			}'})-[r:hasList]-(l:List) RETURN l,r`
 		);
-		console.log(records.length);
 		const returnObject = [];
 
 		records.forEach((record, i) => {
 			const props = record.get('l').properties;
+			const relationship = record.get('r').properties;
+			console.log(relationship);
 			returnObject[i] = {};
 			for (let key in props) {
 				returnObject[i][key] = props[key];
 			}
+			for (let key in relationship) {
+				returnObject[i][key] = relationship[key];
+			}
 		});
-
 		res.json(returnObject);
 	} catch (err) {
 		next(err);
 	}
 });
 
-//ADD A ROUTE FOR GETTING LIST BY ID
 //GET (/api/lists)
 //expects: nothing required
 //returns the current logged in user (req.user)'s lists
 //returns ingredients
+
+//a: Person
+//l: list
+//r: relationship for hasIngredient
+//i: ingredient
+//z: recipe to add to
 router.get('/:listId', async (req, res, next) => {
 	try {
 		const { listId } = req.params;
 		console.log(listId);
-		const { records } = await runQuery(
+		let { records } = await runQuery(
 			`MATCH (a:Person {uuid: '${
 				req.user.uuid
 			}'})-[:hasList]-(l:List {uuid: '${listId}'})
-     OPTIONAL MATCH (l)-[r:hasIngredient]-(i:Ingredient) RETURN l,i,r`
+		 OPTIONAL MATCH (l)-[r:hasIngredient|hasRecipe]-(i:Ingredient)
+
+
+		 RETURN l,i,r`
 		);
+		//	OPTIONAL MATCH (l)-[:hasRecipe]-(y:Recipe)
 
 		const returnObject = {};
 		//grab list info
@@ -104,6 +118,20 @@ router.get('/:listId', async (req, res, next) => {
 					}
 				}
 			}
+		});
+		//.....ok...now let's try to get the recipes....
+		const q2 = await runQuery(
+			`MATCH (a:Person {uuid: '${
+				req.user.uuid
+			}'})-[:hasList]-(l:List {uuid: '${listId}'})
+			OPTIONAL MATCH (l)-[:hasRecipe]-(y:Recipe)
+
+		 RETURN y.name`
+		);
+		returnObject.recipes = [];
+
+		q2.records.forEach((record, i) => {
+			returnObject.recipes[i] = record.get('y.name');
 		});
 		res.json(returnObject);
 	} catch (err) {

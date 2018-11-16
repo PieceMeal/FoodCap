@@ -6,9 +6,10 @@
 export { default as Navbar } from './navbar';
 export { default as UserHome } from './userHome';
 export { Login, Signup } from './auth-form';
-export {default as LandingPage} from './LandingPage'
+export { default as LandingPage } from './LandingPage';
 export { default as Preferences } from './Preferences';
 export { default as MyList } from './MyList';
 export { default as MyLists } from './MyLists';
 export { default as ListById } from './ListById';
-export { default as ListPreview } from './ListPreview'
+export { default as SingleRecipe } from './SingleRecipe';
+export { default as ListPreview } from './ListPreview';
