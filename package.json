@@ -50,6 +50,7 @@
     "pg": "^6.1.2",
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.6.2",
+    "random-name": "^0.1.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-drag-drop-container": "^6.1.1",
