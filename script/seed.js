@@ -67,11 +67,11 @@ session.run(`CREATE CONSTRAINT ON (ingredient:Ingredient) ASSERT ingredient.name
           await session.run(
             `MATCH (a:Recipe), (b:Ingredient)
             WHERE a.name = $aName AND b.name = $bName
-            CREATE (a)-[r:hasIngredient {quantity: $quantity, type: $type} ]->(b) RETURN r`,
+            MERGE (a)-[r:hasIngredient {quantity: $quantity, type: $type} ]->(b) RETURN r`,
             { aName: recipe,
               bName: ingredient,
               quantity: ingredientsObj[ingredient]['quantity'],
-              type: ingredientsObj[ingredient]['type']
+              type: ingredientsObj[ingredient]['type'] 
             }
           )
         }
