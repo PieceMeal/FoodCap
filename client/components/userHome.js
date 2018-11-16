@@ -12,7 +12,7 @@ componentDidMount(){
   this.props.fetchRecipes(this.props.user.id)
 }
   render(){
-    if(this.props.recipes) {
+  if (this.props.recipes) {
   return (
    <Container>
        <div>
@@ -61,7 +61,7 @@ const mapState = state => {
     email: state.user.email,
     user : state.user,
     recipes: state.user.recipes
-  } 
+  }
 }
 const dispatchState = dispatch => ({
   fetchRecipes : (id) => dispatch(fetchRecipes(id))
