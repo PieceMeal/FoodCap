@@ -3,6 +3,7 @@ const { User } = require('../db/models');
 const { createUser } = require('../utils/createUsers');
 const { session, driver } = require('../db/neo');
 const uuidv1 = require('uuid/v1');
+const neo4j = require('neo4j-driver').v1;
 
 module.exports = router;
 //TODO:
@@ -18,7 +19,7 @@ router.post('/', async (req, res, next) => {
 		const { records } = await session.run(
 			`MATCH (a:Person {uuid: '${
 				req.user.uuid
-			}'}) CREATE (l:List {name:'${listName}', uuid: '${uuidv1()}'}) MERGE (a)-[:HAS_LIST{status:'IN_DEVELOPMENT'}]->(l) RETURN l`
+			}'}) CREATE (l:List {name:'${listName}', uuid: '${uuidv1()}'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
 		);
 		console.log(records);
 		session.close();
@@ -32,6 +33,7 @@ router.post('/', async (req, res, next) => {
 //GET (/api/lists)
 //expects: nothing required
 //returns the current logged in user (req.user)'s lists
+// only returns name and uuid
 router.get('/', async (req, res, next) => {
 	try {
 		const { records } = await session.run(
@@ -59,6 +61,7 @@ router.get('/', async (req, res, next) => {
 //GET (/api/lists)
 //expects: nothing required
 //returns the current logged in user (req.user)'s lists
+//returns ingredients
 router.get('/:listId', async (req, res, next) => {
 	try {
 		const { listId } = req.params;
@@ -67,12 +70,11 @@ router.get('/:listId', async (req, res, next) => {
 			`MATCH (a:Person {uuid: '${
 				req.user.uuid
 			}'})-[:hasList]-(l:List {uuid: '${listId}'})
-     OPTIONAL MATCH (l)-[:hasIngredient]-(i:Ingredient) RETURN l,i`
+     OPTIONAL MATCH (l)-[r:hasIngredient]-(i:Ingredient) RETURN l,i,r`
 		);
 
 		session.close();
 		const returnObject = {};
-
 		//grab list info
 		const props = records[0].get('l').properties;
 		for (let key in props) {
@@ -89,11 +91,19 @@ router.get('/:listId', async (req, res, next) => {
 			//grab properties for each ingredient
 			if (record.get('i')) {
 				const props = record.get('i').properties;
+				const relationship = record.get('r').properties;
 				//make each element of array an object
 				returnObject.ingredients[i] = {};
 				//loop through and add all properties to the array element
 				for (let key in props) {
 					returnObject.ingredients[i][key] = props[key];
+				}
+				for (let key in relationship) {
+					returnObject.ingredients[i][key] = relationship[key];
+
+					if (neo4j.isInt(relationship[key])) {
+						returnObject.ingredients[i][key] = relationship[key].toString();
+					}
 				}
 			}
 		});
@@ -114,7 +124,7 @@ router.put('/favorite', async (req, res, next) => {
 		const { records } = await session.run(
 			`MATCH (a:Person {uuid: '${
 				req.user.uuid
-			}'}) MATCH(l:List {uuid: '${uuid}'}) MERGE (a)-[r:IS_FAVORITE]->(l) RETURN r`
+			}'}) MATCH(l:List {uuid: '${uuid}'}) MERGE (a)-[r:isFavorite]->(l) RETURN r`
 		);
 		session.close();
 		console.log();
