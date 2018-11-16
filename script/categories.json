@@ -3,6 +3,15 @@
   "pasta": {"name": "Pasta"},
   "quick": {"name": "Quick"},
   "dessert": {"name": "Dessert"},
-  "alcohol": {"name": "Alcoholic"}
+  "alcohol": {"name": "Alcoholic"},
+  "comfort": {"name": "Comfort Food"},
+  "lowCal": {"name": "Low Calorie"},
+  "breakfast": {"name": "Breakfast"},
+  "dinner": {"name": "Dinnner"},
+  "appetizer": {"name": "Appetizer"},
+  "soup": {"name": "Soup"},
+  "indian": {"name": "Indian"},
+  "chinese": {"name": "Chinese"},
+  "mexican": {"name": "Mexican"}
 
 }

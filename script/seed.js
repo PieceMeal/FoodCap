@@ -65,7 +65,8 @@ const recipeSeeder = async db => {
 						name: recipe, //string
 						instructions: recipeObj.method, //array of strings
 						time: recipeObj.time.totalMins, //string number
-						serves: recipeObj.serves, //string
+            serves: recipeObj.serves, //string
+            image: recipeObj.image
 					}
 				);
 				const ingredientsObj = recipeObj.ingredients;
@@ -140,6 +141,15 @@ const listSeeder = async () => {
 		await runQuery(
 			`MATCH (l:List {uuid: '1111'})
 			MATCH(r:Recipe {name: 'Lemon curd ice cream'})
+			MATCH (r)-[z:hasIngredient]->(i)
+      MERGE (l)-[newIngredient:hasIngredient]->(i)
+			MERGE (l)-[:hasRecipe]->(r)
+			SET newIngredient += properties(z)
+			`
+		);
+		await runQuery(
+			`MATCH (l:List {uuid: '1111'})
+			MATCH(r:Recipe {name: '15 minute pasta'})
 			MATCH (r)-[z:hasIngredient]->(i)
       MERGE (l)-[newIngredient:hasIngredient]->(i)
 			MERGE (l)-[:hasRecipe]->(r)
