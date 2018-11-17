@@ -51,7 +51,7 @@ describe('List routes', () => {
 			expect(res.body.length).to.be.equal(2);
 		});
 
-		it.only('PUT /api/lists/favorite creates an edge between logged in user and given list by uuid', async () => {
+		it('PUT /api/lists/favorite creates an edge between logged in user and given list by uuid', async () => {
 			const user = await createUser('user@user.com');
 			const { body } = await user
 				.post('/api/lists')
@@ -60,7 +60,7 @@ describe('List routes', () => {
 
 			const res = await user.put('/api/lists/favorite').send({ uuid });
 			console.log(res.body);
-			expect(res.body.relationship).to.be.equal('IS_FAVORITE');
+			expect(res.body.relationship).to.be.equal('isFavorite');
 		});
 	}); // end describe('/api/users')
 }); // end describe('User routes')
