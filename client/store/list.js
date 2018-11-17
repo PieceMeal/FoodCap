@@ -88,6 +88,15 @@ export default function(state = defaultList, action) {
 		}
 		case LIST_UPDATE_ITEMS: {
 			const newList = { ...state };
+			console.log(newList);
+
+			// newList.ingredients = [...newList.ingredients, ...action.updatedItems];
+			action.updatedItems.forEach(update => {
+				newList.ingredients[
+					newList.ingredients.findIndex(x => x.name === update.name)
+				] = update;
+			});
+			console.log(newList);
 			return newList;
 			//NEED TO make this accurate
 		}
