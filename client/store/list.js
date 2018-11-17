@@ -18,6 +18,7 @@ const setList = list => ({
   type: SET_LIST,
   list
 })
+
 /**
  * THUNK CREATORS
  */
@@ -29,6 +30,7 @@ export const setListThunk = (id) => async dispatch => {
     console.error(err)
   }
 }
+
 /**
  * REDUCER
  */
