@@ -76,13 +76,15 @@ router.get('/:listId', async (req, res, next) => {
 		const { listId } = req.params;
 		console.log(listId);
 		let { records } = await runQuery(
-			`MATCH (a:Person {uuid: '${
-				req.user.uuid
-			}'})-[:hasList]-(l:List {uuid: '${listId}'})
+			`MATCH (a:Person {uuid: $uuid})-[:hasList]-(l:List {uuid: $listuuid})
 		 OPTIONAL MATCH (l)-[r:hasIngredient|hasRecipe]-(i:Ingredient)
 
 
-		 RETURN l,i,r`
+		 RETURN l,i,r`,
+			{
+				listuuid: listId,
+				uuid: req.user.uuid,
+			}
 		);
 		//	OPTIONAL MATCH (l)-[:hasRecipe]-(y:Recipe)
 
@@ -166,8 +168,6 @@ router.put('/addrecipe', async (req, res, next) => {
 	try {
 		//list uuid and recipe name
 		const { uuid, recipe } = req.body;
-		console.log('in route ');
-		console.log(req.body);
 
 		const { records } = await runQuery(
 			`MATCH (l:List {uuid: '${uuid}'})
@@ -211,10 +211,16 @@ router.put('/addingredient', async (req, res, next) => {
 		console.log(req.body);
 
 		const { records } = await runQuery(
-			`MATCH (l:List {uuid: '${uuid}'})
-      MERGE(i:Ingredient {name: '${ingredient}'})
-      MERGE (l)-[:hasIngredient{quantity: ${quantity}, type: ${type}}]->(i)
-       RETURN l,i`
+			`MATCH (l:List {uuid: $uuid})
+      MERGE(i:Ingredient {name: $ingredient})
+      MERGE (l)-[:hasIngredient{quantity: $quantity, type: $type}]->(i)
+			 RETURN l,i`,
+			{
+				uuid,
+				ingredient,
+				quantity,
+				type,
+			}
 		);
 		console.log(records);
 		res.json({ records });

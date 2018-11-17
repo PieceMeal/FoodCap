@@ -74,7 +74,6 @@ class MyList extends Component {
 		this.setState({ [evt.target.name]: evt.target.value });
 	};
 	handleUpdate = async uuid => {
-		console.log('LETS TRY TO UPDATE');
 		const updatedItems = [];
 		this.props.list.ingredients.forEach(ingredient => {
 			if (+ingredient.quantity !== +this.state[ingredient.name]) {
@@ -89,9 +88,8 @@ class MyList extends Component {
 			this.setState({ loading: true });
 
 			await this.props.updateItems(uuid, updatedItems);
-			this.setState({ loading: true });
+			this.setState({ loading: false });
 		}
-		console.log(updatedItems);
 	};
 
 	render() {
@@ -155,7 +153,7 @@ class MyList extends Component {
 								: null}
 							<tr>
 								<td>
-									<button style={{ backgroundColor: '#f5f5f5' }}>
+									<button type="button" style={{ backgroundColor: '#f5f5f5' }}>
 										<i aria-hidden="true" className="plus icon" />
 										&emsp;ADD
 									</button>
