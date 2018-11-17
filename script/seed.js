@@ -146,10 +146,9 @@ const listSeeder = async () => {
 			MERGE (l)-[:hasRecipe]->(r)
 			SET newIngredient += properties(z)
 			`
-
-    );
-    await runQuery(
-      `MATCH (l:List {uuid: '1111'})
+		);
+		await runQuery(
+			`MATCH (l:List {uuid: '1111'})
 
 
 			MATCH(r:Recipe {name: '15 minute pasta'})
@@ -158,10 +157,8 @@ const listSeeder = async () => {
 			MERGE (l)-[:hasRecipe]->(r)
 			SET newIngredient += properties(z)
 			`
-
-    );
-    console.log('done recipes to list');
-
+		);
+		console.log('done recipes to list');
 
 		//driver.close();
 	} catch (err) {
@@ -170,33 +167,31 @@ const listSeeder = async () => {
 };
 
 async function seed() {
+	try {
+		await db.sync({ force: true });
+		console.log('db synced!');
 
-  try {
-    await db.sync({ force: true });
-    console.log('db synced!');
-
-    const users = await Promise.all([
-      User.create({ email: 'cody@email.com', password: '123' }),
-      User.create({ email: 'murphy@email.com', password: '123' })
-    ]);
-    let userArr = [];
-    // Set # of users here
-    for (let i = 0; i <= 15; i++) {
-      let name = random.first();
-      name += '@email.com';
-      userArr.push(User.create({ email: name, password: '123' }));
-    }
-    await Promise.all(userArr);
-    console.log(`seeded ${users.length} users`);
-    console.log(`seeded successfully`);
-    await runQuery(
-      // CHANGE random num for more frequent likes
-      `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .2 then [1] else [] end | merge (x)-[:HASFAVORITE]->(y))`
-    );
-  } catch (err) {
-    console.log(err);
-  }
-
+		const users = await Promise.all([
+			User.create({ email: 'cody@email.com', password: '123' }),
+			User.create({ email: 'murphy@email.com', password: '123' }),
+		]);
+		let userArr = [];
+		// Set # of users here
+		for (let i = 0; i <= 15; i++) {
+			let name = random.first();
+			name += '@email.com';
+			userArr.push(User.create({ email: name, password: '123' }));
+		}
+		await Promise.all(userArr);
+		console.log(`seeded ${users.length} users`);
+		console.log(`seeded successfully`);
+		await runQuery(
+			// CHANGE random num for more frequent likes
+			`match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .2 then [1] else [] end | merge (x)-[:HASFAVORITE]->(y))`
+		);
+	} catch (err) {
+		console.log(err);
+	}
 }
 
 // We've separated the `seed` function from the `runSeed` function.
@@ -210,7 +205,7 @@ async function runSeed() {
 		await seed();
 		await listSeeder();
 		//await session.close();
-		await driver.close();
+
 		console.log('done');
 	} catch (err) {
 		console.error(err);
@@ -218,7 +213,7 @@ async function runSeed() {
 	} finally {
 		console.log('closing db connection');
 		await db.close();
-
+		await driver.close();
 		console.log('db connection closed');
 	}
 }
