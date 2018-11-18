@@ -21,9 +21,9 @@ router.post('/', async (req, res, next) => {
 				req.user.uuid
 			}'}) CREATE (l:List {name:'${listName}', uuid: '${uuidv1()}'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
 		);
-		console.log(records);
-
-		res.json(records[0].get('l'));
+		//console.log(records);
+		const { name, uuid } = records[0].get('l').properties;
+		res.json({ name, uuid });
 	} catch (err) {
 		next(err);
 	}
@@ -76,64 +76,33 @@ router.get('/:listId', async (req, res, next) => {
 		const { listId } = req.params;
 		console.log(listId);
 		let { records } = await runQuery(
-			`MATCH (a:Person {uuid: $uuid})-[:hasList]-(l:List {uuid: $listuuid})
-		 OPTIONAL MATCH (l)-[r:hasIngredient|hasRecipe]-(i:Ingredient)
-
-
-		 RETURN l,i,r`,
+			`MATCH (a:Person {uuid: $uuid})-[:hasList]-(l:List {uuid: $listuuid}) OPTIONAL MATCH (l)-[r:hasIngredient]-(x) RETURN l,x.name,r UNION MATCH (a:Person {uuid: $uuid})-[:hasList]-(l:List {uuid: $listuuid}) OPTIONAL MATCH (l)-[r:hasRecipe]-(x)RETURN l, x.name, r`,
 			{
 				listuuid: listId,
 				uuid: req.user.uuid,
 			}
 		);
-		//	OPTIONAL MATCH (l)-[:hasRecipe]-(y:Recipe)
 
-		const returnObject = {};
-		//grab list info
-		const props = records[0].get('l').properties;
-		for (let key in props) {
-			returnObject[key] = props[key];
-		}
-		//NOTE: if you return multiple ingredients, there is some redundant info
-		//records will be the same list
-
-		//make ingredients key an array
-		returnObject.ingredients = [];
-
-		//loop to get all ingredients
-		records.forEach((record, i) => {
-			//grab properties for each ingredient
-			if (record.get('i')) {
-				const props = record.get('i').properties;
-				const relationship = record.get('r').properties;
-				//make each element of array an object
-				returnObject.ingredients[i] = {};
-				//loop through and add all properties to the array element
-				for (let key in props) {
-					returnObject.ingredients[i][key] = props[key];
+		const { name, uuid } = records[0].get('l').properties;
+		const returnObject = { name, uuid, ingredients: [], recipies: [] };
+		records.forEach(record => {
+			switch (record.get('r').type) {
+				case 'hasIngredient': {
+					const { type, quantity } = record.get('r').properties;
+					returnObject.ingredients.push({
+						name: record.get('x.name'),
+						type,
+						quantity,
+					});
+					break;
 				}
-				for (let key in relationship) {
-					returnObject.ingredients[i][key] = relationship[key];
-
-					if (neo4j.isInt(relationship[key])) {
-						returnObject.ingredients[i][key] = relationship[key].toString();
-					}
+				case 'hasRecipe': {
+					returnObject.recipies.push(record.get('x.name'));
+					break;
 				}
+				default:
+					break;
 			}
-		});
-		//.....ok...now let's try to get the recipes....
-		const q2 = await runQuery(
-			`MATCH (a:Person {uuid: '${
-				req.user.uuid
-			}'})-[:hasList]-(l:List {uuid: '${listId}'})
-			OPTIONAL MATCH (l)-[:hasRecipe]-(y:Recipe)
-
-		 RETURN y.name`
-		);
-		returnObject.recipes = [];
-
-		q2.records.forEach((record, i) => {
-			returnObject.recipes[i] = record.get('y.name');
 		});
 		res.json(returnObject);
 	} catch (err) {
