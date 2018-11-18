@@ -5,6 +5,7 @@ const router = require('express').Router();
 
 module.exports = router;
 
+// Retrieve single recipe information
 router.get('/singleview/:name', async (req, res, next) => {
   try {
     const { records } = await runQuery(
@@ -47,6 +48,59 @@ router.get('/singleview/:name', async (req, res, next) => {
     });
 
     res.json(returnObject);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Retrieve array of recipes based on similar likes and page views, pass uuid as params.
+// returned array is sorted by highest relevance at index 0
+router.get('/matchonhistory/:uuid', async (req, res, next) => {
+  try {
+    const recommendations = {};
+    const user = req.params.uuid;
+    const orderRec = [];
+
+    let { records } = await runQuery(
+      `match (u:Person {uuid: "${user}"})-[:HAS_VIEWED]->(:Recipe)<-[:HAS_VIEWED]-(:Person)-[:HAS_VIEWED]->(f:Recipe) where not (u)-[:HAS_FAVORITE]->(f) with f.name as name, f.image as image, count(f) as importance  return name, image, importance order by importance desc`
+    );
+
+    Object.keys(records).forEach(key => {
+      const recipe = records[key].get('name');
+      const importance = records[key].get('importance').low;
+      const image = records[key].get('image');
+
+      if (recommendations[recipe]) {
+        recommendations[recipe].importance += importance;
+      } else {
+        recommendations[recipe] = { name: recipe, image, importance };
+      }
+    });
+
+    let match = await runQuery(
+      `match (u:Person {uuid: "${user}"})-[:HAS_FAVORITE]->(:Recipe)<-[:HAS_FAVORITE]-(:Person)-[:HAS_FAVORITE]->(f:Recipe) where not (u)-[:HAS_FAVORITE]->(f) with f.name as name, f.image as image, (count(f) * 4) as importance  return name, image, importance order by importance desc`
+    );
+    records = match.records;
+    Object.keys(records).forEach(key => {
+      const recipe = records[key].get('name');
+      const importance = records[key].get('importance').low;
+      const image = records[key].get('image');
+      if (recommendations[recipe]) {
+        recommendations[recipe].importance += importance;
+      } else {
+        recommendations[recipe] = { name: recipe, image, importance };
+      }
+    });
+    Object.keys(recommendations).forEach(recipe => {
+      orderRec.push(recommendations[recipe]);
+    });
+    const sortedRec = orderRec.sort(function(a, b) {
+      a = a.importance;
+      b = b.importance;
+      return b - a;
+    });
+
+    res.send(sortedRec, 201);
   } catch (err) {
     next(err);
   }

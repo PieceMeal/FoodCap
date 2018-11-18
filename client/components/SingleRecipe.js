@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
 
 const style = {
   wholeTray: {
-    backgroundColor: '#A9A9A9',
+    backgroundColor: '#E6E6FA',
     marginTop: '5vh',
     marginLeft: '10vw',
     marginRight: '10vw',
@@ -49,15 +49,33 @@ class SingleRecipe extends Component {
             style={{
               display: 'flex',
               alignItems: 'baseline',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              border: '1px solid black'
             }}
           >
             <h2>
               <b>{recipe.name}</b>
             </h2>
           </Segment>
-          <img src={recipe.image} alt="no image" />
-          <div style={{ textAlign: 'left' }} className="ui horizontal segments">
+          <img
+            src={recipe.image}
+            style={{
+              maxHeight: '550px',
+              marginTop: '30px',
+              border: '13px solid #3e2b14',
+              padding: '7px',
+              backgroundColor: 'white'
+            }}
+            alt="no image"
+          />
+          <div
+            style={{
+              textAlign: 'left',
+              border: '3px solid black',
+              borderRadius: '10px'
+            }}
+            className="ui horizontal segments"
+          >
             <div
               style={{ paddingBottom: '30px', fontSize: '1.25rem' }}
               className="ui container"
@@ -80,7 +98,9 @@ class SingleRecipe extends Component {
                     <div role="listitem" className="item" key={ingredient}>
                       {recipe.ingredients[ingredient].quantity}
                       &emsp;
-                      {recipe.ingredients[ingredient].type}&emsp;
+                      {recipe.ingredients[ingredient].type ? (
+                        <span>{recipe.ingredients[ingredient].type} </span>
+                      ) : null}
                       {recipe.ingredients[ingredient].name}
                     </div>
                   );
@@ -89,7 +109,7 @@ class SingleRecipe extends Component {
               </div>
               <div
                 role="list"
-                className="ui ordered list"
+                className="ui list"
                 style={style.ingredientContainer}
               >
                 <h2>
@@ -97,8 +117,13 @@ class SingleRecipe extends Component {
                 </h2>
                 {recipe.instructions.map((step, i) => {
                   return (
-                    <li role="listitem" className="item" key={i}>
-                      {step}
+                    <li
+                      role="listitem"
+                      className="item"
+                      key={i}
+                      style={{ lineHeight: '1.5' }}
+                    >
+                      <b>{i + 1}:</b>&emsp;{step}
                     </li>
                   );
                 })}
@@ -108,13 +133,15 @@ class SingleRecipe extends Component {
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                alignContent: 'space-between'
+                alignContent: 'space-between',
+                width: '175px'
               }}
               className="ui grey inverted segment"
             >
               <Button type="button" style={style.buttonMargin}>
                 Add to List
               </Button>
+
               <Button type="button" style={style.buttonMargin}>
                 Bookmark
               </Button>
