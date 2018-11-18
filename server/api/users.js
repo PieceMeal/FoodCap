@@ -28,7 +28,7 @@ router.get('/:userId', async (req, res, next) => {
       Return r
       `,{uuid: uuid}
     )
-    const recipesArray =[]
+    const recipesArray = []
     recipes.records.forEach((rec, i) => {
       const props = rec.get('r').properties
       recipesArray[i]= {}
@@ -42,39 +42,48 @@ router.get('/:userId', async (req, res, next) => {
     next(err)
   }
 })
-router.put('/:userId',async (req, res, next) => {
 
-  try{
-    let ingName = req.body.preferences
+router.put('/:userId', async (req, res, next) => {
+
+  try {
+    const { favCuisines, favIngredients, mealTypes } = req.body
     let userId = req.params.userId
     let user = await User.findById(userId);
     let uuid = user.uuid;
 
-    await runQuery(
-      `MATCH (a:Person), (b: Ingredient) 
-       WHERE a.uuid = $uuid AND b.name = $ingName
-       MERGE (a) -[r:like]->(b)
-       RETURN r`,
-       {uuid: uuid, ingName: ingName}
-       )
-      //getting the favorite food using the like connection with ingredients
+    //map through favIngredients and draw a like connection between user and ingredient
+    for (let i = 0; i < favIngredients.length; i++ ) {
+      let ingredient = favIngredients[i]
+      await runQuery(
+        `MATCH (a:Person), (b: Ingredient)
+         WHERE a.uuid = $uuid AND b.name = $ingName
+         MERGE (a) -[r:like]->(b)
+         RETURN r`,
+         {uuid: uuid, ingName: ingredient}
+      )
+    }
+
+    //collect all recipes that include the ingredient the user likes
     let recipes = await runQuery(
       `MATCH (r:Recipe) -[:hasIngredient] -> (i:Ingredient),
       (i) <- [:like] - (a: Person {uuid: $uuid})
-      Return r
-      `,{uuid: uuid}
+      Return r`,
+      {uuid: uuid}
     )
-    //recipe object with properties name, instruction(arr) and time
-    const recipesArray =[]
+
+    //parse the response from the query so it's an array of recipes
+    const recipesArray = []
     recipes.records.forEach((rec, i) => {
       const props = rec.get('r').properties
-      recipesArray[i]= {}
-      for(let key in props) {
-        recipesArray[i][key] = props[key]
+      recipesArray[i] = {}
+      for (let key in props) {
+        if (Object.hasOwnProperty(key)) {
+          recipesArray[i][key] = props[key]
+        }
       }
     })
 
-    //query to get all the ingredients from the recipe above 
+    //query to get all the ingredients from the recipe above
     // const ingredients = await session.run(
     //   `MATCH (r:Recipe {name: $name}) -[:hasIngredient] - (i:Ingredient)
     //   RETURN i`,
@@ -89,7 +98,7 @@ router.put('/:userId',async (req, res, next) => {
     })
 
     res.json({user: updatedUser, recipes: recipesArray})
-  }catch(err){
+  } catch (err){
     next(err)
   }
 })

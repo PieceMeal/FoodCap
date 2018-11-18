@@ -36,7 +36,7 @@ router.post('/', async (req, res, next) => {
 // only returns name and uuid
 router.get('/', async (req, res, next) => {
 	try {
-		console.log();
+		console.log('are we getting here??');
 		const { records } = await runQuery(
 			`MATCH (a:Person {uuid: '${
 				req.user.uuid
@@ -77,13 +77,15 @@ router.get('/:listId', async (req, res, next) => {
 		const { listId } = req.params;
 		console.log(listId);
 		let { records } = await runQuery(
-			`MATCH (a:Person {uuid: '${
-				req.user.uuid
-			}'})-[:hasList]-(l:List {uuid: '${listId}'})
+			`MATCH (a:Person {uuid: $uuid})-[:hasList]-(l:List {uuid: $listuuid})
 		 OPTIONAL MATCH (l)-[r:hasIngredient|hasRecipe]-(i:Ingredient)
 
 
-		 RETURN l,i,r`
+		 RETURN l,i,r`,
+			{
+				listuuid: listId,
+				uuid: req.user.uuid,
+			}
 		);
 		//	OPTIONAL MATCH (l)-[:hasRecipe]-(y:Recipe)
 
@@ -167,8 +169,6 @@ router.put('/addrecipe', async (req, res, next) => {
 	try {
 		//list uuid and recipe name
 		const { uuid, recipe } = req.body;
-		console.log('in route ');
-		console.log(req.body);
 
 		const { records } = await runQuery(
 			`MATCH (l:List {uuid: '${uuid}'})
@@ -212,10 +212,16 @@ router.put('/addingredient', async (req, res, next) => {
 		console.log(req.body);
 
 		const { records } = await runQuery(
-			`MATCH (l:List {uuid: '${uuid}'})
-      MERGE(i:Ingredient {name: '${ingredient}'})
-      MERGE (l)-[:hasIngredient{quantity: ${quantity}, type: ${type}}]->(i)
-       RETURN l,i`
+			`MATCH (l:List {uuid: $uuid})
+      MERGE(i:Ingredient {name: $ingredient})
+      MERGE (l)-[:hasIngredient{quantity: $quantity, type: $type}]->(i)
+			 RETURN l,i`,
+			{
+				uuid,
+				ingredient,
+				quantity,
+				type,
+			}
 		);
 		console.log(records);
 		res.json({ records });
@@ -257,11 +263,10 @@ router.put('/removeingredient', async (req, res, next) => {
 }'})-[:HAS_LIST]->
 */
 
-//PUT (/api/lists/removeingredient)
+//PUT (/api/lists/updateingredient)
 //expects: req.body.uuid to match the uuic of list
 //         req.body.ingredient to be the name of ingredient
 //         req.body.quantity to be new quantity #
-//         req.body.type to be new quantity type
 router.put('/updateingredient', async (req, res, next) => {
 	try {
 		//list uuid and recipe name
@@ -286,3 +291,36 @@ router.put('/updateingredient', async (req, res, next) => {
   req.user.uuid
 }'})-[:HAS_LIST]->
 */
+
+
+router.delete('/', async (req, res, next) => {
+	try {
+		let {uuid} = req.body
+		console.log('my boddy -------------', req.body)
+		await runQuery(
+			`MATCH(l:List {uuid: '${uuid}'}) DETACH DELETE l`
+		)
+		const { records } = await runQuery(
+			`MATCH (a:Person {uuid: '${
+				req.user.uuid
+			}'})-[r:hasList]-(l:List) RETURN l,r`
+		);
+		const returnObject = [];
+
+		records.forEach((record, i) => {
+			const props = record.get('l').properties;
+			const relationship = record.get('r').properties;
+			console.log(relationship);
+			returnObject[i] = {};
+			for (let key in props) {
+				returnObject[i][key] = props[key];
+			}
+			for (let key in relationship) {
+				returnObject[i][key] = relationship[key];
+			}
+		});
+		res.json(returnObject);
+	} catch (err) {
+		next(err)
+	}
+})

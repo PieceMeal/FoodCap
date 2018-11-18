@@ -11,9 +11,7 @@ import {createList, setListsThunk, addRecipeToListThunk} from '../store/lists'
 class UserHome extends React.Component {
 state = {
   listName : '',
-  checked : {
-
-  }, 
+  checked : {}
 }
 componentDidMount(){
   this.props.fetchRecipes(this.props.user.id)
@@ -22,7 +20,8 @@ componentDidMount(){
 handleSubmit = (e) => {
 //have a thunk in lists.js that will take this action and dispatch post request for list api
 //clear the state after submit so input is empty
-
+e.preventDefault()
+debugger;
 this.props.createList(this.state.listName)
 this.setState({
   listName: ''
@@ -47,11 +46,17 @@ handleSubmitList = (e) => {
   let body = {uuid, recipe}
   //dispatch thank for sending list info, recipe info 
   this.props.addRecipeToListThunk(body)
+  this.setState({[recipe]: false})
+}
+handleOpen = (name) => {
+  this.setState({[name]: true})
+}
+handleClose = (name) => {
+  this.setState({[name]:false})
 }
   render(){
-
-
-    if(this.props.recipes) {
+    const disableSubmitButton= Object.keys(this.state.checked).length
+  if (this.props.recipes) {
   return (
    <Container>
        <div>
@@ -82,9 +87,13 @@ handleSubmitList = (e) => {
      {
        this.props.lists ? 
      <Popup
+      on='click'
+      open={this.state[rec.name]}
+      onOpen={() => this.handleOpen(rec.name)}
+      onClose={() => this.handleClose(rec.name)}
       trigger={<Button icon='add'/>}
       content={  
-      <Form onSubmit={this.handleSubmitList}>
+      <Form onSubmit={this.handleSubmitList} >
         {this.props.lists.map(list => {
         return (
         <Form.Field key={list.uuid} >
@@ -97,7 +106,7 @@ handleSubmitList = (e) => {
         </Form.Field>
         )
         })}
-        <Button type='submit'>Submit</Button>
+        <Button disabled={!disableSubmitButton} type='submit'>Submit</Button>
       </Form>
       } 
       on='click'
@@ -105,7 +114,6 @@ handleSubmitList = (e) => {
       : <Button icon='x' /> }
     </Container>
       <Card.Meta>Time: {rec.time}</Card.Meta>
-
     </Card.Content>
   </Card>
       </Grid.Column>

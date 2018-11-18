@@ -2,9 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Login, Signup, UserHome, Preferences, ListById, LandingPage} from './components';
+import {
+	MyList,
+	MyLists,
+	Login,
+	Signup,
+	UserHome,
+	Preferences,
+	LandingPage,
+	SingleRecipe,
+} from './components';
 import { me } from './store';
-import { MyList, MyLists } from './components';
+
 /**
  * COMPONENT
  */
@@ -12,18 +21,19 @@ class Routes extends Component {
 	componentDidMount() {
 		this.props.loadInitialData();
 	}
-
 	render() {
 		const { isLoggedIn } = this.props;
-
 		return (
 			<Switch>
 				{/* Routes placed here are available to all visitors */}
-				<Route exact path='/' component={LandingPage} />
+				<Route exact path="/" component={LandingPage} />
 				<Route path="/login" component={Login} />
 				<Route path="/signup" component={Signup} />
-				<Route path="/list" component={MyList} />
-				<Route path="/lists/:id" component={ListById} />
+				<Route path="/lists/:id" component={MyList} />
+				<Route
+					path="/recipes/singleview/:recipename"
+					component={SingleRecipe}
+				/>
 				<Route path="/lists/" component={MyLists} />
 				{isLoggedIn && (
 					<Switch>

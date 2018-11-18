@@ -4,7 +4,7 @@ import history from '../history'
 /**
  * ACTION TYPES
  */
-import {SET_LISTS, CREATE_LIST, ADD_RECIPE_TO_LIST} from './constants'
+import {SET_LISTS, CREATE_LIST, ADD_RECIPE_TO_LIST, DELETE_LIST} from './constants'
 
 /**
  * INITIAL STATE
@@ -22,9 +22,11 @@ const createLists = lists => ({
   type: CREATE_LIST,
   lists
 })
-const addRecipeToList = lists => ({
-  type: ADD_RECIPE_TO_LIST,
-  lists
+const addRecipeToList = () => ({
+  type: ADD_RECIPE_TO_LIST
+})
+const deleteList = () => ({
+  type: DELETE_LIST
 })
 /**
  * THUNK CREATORS
@@ -42,7 +44,7 @@ export const setListsThunk = () => async dispatch => {
 export const createList = (listName) => async dispatch => {
   try {
     const {data} = await axios.post('/api/lists', {listName})
-
+    debugger
     dispatch(createLists(data.properties))
   } catch (err) {
     console.error(err)
@@ -51,8 +53,23 @@ export const createList = (listName) => async dispatch => {
 export const addRecipeToListThunk = (body) => async dispatch => {
   try {
     const {data} = await axios.put('/api/lists/addrecipe', body)
-    debugger;
-    dispatch(addRecipeToList(data))
+    //do we need to change anything in our `allListView`?
+    //the data we are getting back from the express is 
+    //an array of objects representing the ingredients
+    //we just want to create connection between the list and the recipe
+    //which will show list of ingredients on the single view list
+
+    dispatch(addRecipeToList())
+  } catch (err) {
+    console.error(err)
+  }
+}
+export const deleteListThunk = (uuid) => async dispatch => {
+  try {
+    const {data} = await axios.delete(`/api/lists`, {data:{uuid}})
+
+    console.log('data000', data);
+    dispatch(setLists(data))
   } catch (err) {
     console.error(err)
   }
