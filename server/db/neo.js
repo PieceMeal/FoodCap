@@ -19,7 +19,7 @@ async function runQuery(cypher, params = {}) {
 		session.close();
 		return results;
 	} catch (error) {
-		session.close();
+		//	session.close();
 		throw error;
 	}
 }
