@@ -1,5 +1,4 @@
 import axios from 'axios';
-import history from '../history';
 
 /**
  * ACTION TYPES
@@ -7,6 +6,7 @@ import history from '../history';
 import { SET_LIST, LIST_REMOVE_ITEM, LIST_UPDATE_ITEMS } from './constants';
 
 const ADD_ITEM_TO_LIST = 'ADD_ITEM_TO_LIST';
+const ADD_NOTE_TO_ITEM = 'ADD_NOTE_TO_ITEM';
 /**
  * INITIAL STATE
  */
@@ -36,6 +36,12 @@ const addItemToList = (uuid, ingredient, quantity, type, note) => ({
 	ingredient,
 	quantity,
 	ingredientType: type,
+	note,
+});
+
+const addNote = (ingredient, note) => ({
+	type: ADD_NOTE_TO_ITEM,
+	ingredient,
 	note,
 });
 /**
@@ -99,6 +105,19 @@ export const addItemToListThunk = (
 		console.error(err);
 	}
 };
+
+export const addNoteThunk = (uuid, ingredient, note) => async dispatch => {
+	try {
+		await axios.put('/api/lists/updatenote', {
+			uuid,
+			ingredient,
+			note,
+		});
+		dispatch(addNote(ingredient, note));
+	} catch (err) {
+		console.error(err);
+	}
+};
 /**
  * REDUCER
  */
@@ -136,10 +155,26 @@ export default function(state = defaultList, action) {
 				type: ingredientType,
 				note,
 			};
-			console.log(newItem);
 			const newState = { ...state };
 			const ingredients = [...newState.ingredients, newItem];
 			return { ...newState, ingredients };
+		}
+		case ADD_NOTE_TO_ITEM: {
+			console.log('i add note');
+			const { ingredient, note } = action;
+			const newList = { ...state };
+			console.log(newList, '!!!');
+
+			// newList.ingredients = [...newList.ingredients, ...action.updatedItems];
+			const newIngredRef =
+				newList.ingredients[
+					newList.ingredients.findIndex(x => x.name === ingredient)
+				];
+			if (!newIngredRef.note) newIngredRef.note = '';
+
+			newIngredRef.note = note;
+			console.log(newList, ',,,,');
+			return newList;
 		}
 		default:
 			return state;

@@ -205,6 +205,7 @@ router.put('/addingredient', async (req, res, next) => {
 		next(err);
 	}
 });
+
 //add below to above when adding user autentication
 /*
 `MATCH (:Person {uuid: '${
@@ -293,6 +294,24 @@ router.delete('/', async (req, res, next) => {
 			}
 		});
 		res.json(returnObject);
+	} catch (err) {
+		next(err);
+	}
+});
+
+router.put('/updatenote', async (req, res, next) => {
+	try {
+		//list uuid and recipe name
+		const { uuid, ingredient, note } = req.body;
+		console.log('in route ');
+		console.log(req.body);
+
+		const { records } = await runQuery(
+			`MATCH (l:List {uuid: '${uuid}'})-[r:hasIngredient]->(i:Ingredient{name:'${ingredient}'}) SET r.note='${note}'`
+		);
+
+		console.log(records);
+		res.json({ records });
 	} catch (err) {
 		next(err);
 	}

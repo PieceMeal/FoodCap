@@ -1,7 +1,7 @@
-const db = require('../db')
-const app = require('../index')
-const User = db.model('user')
-const request = require('supertest')
+const db = require('../db');
+const app = require('../index');
+const User = db.model('user');
+//const request = require('supertest')
 
 // const createAuthUser = async email => {
 //   //create a user that is in the DB that is an admin
@@ -24,23 +24,23 @@ const request = require('supertest')
 // }
 
 const createUser = async email => {
-  //create a user that is in the DB that is an admin
-  try {
-    await User.create({
-      email,
-      password: 'test'
-    })
+	//create a user that is in the DB that is an admin
+	try {
+		await User.create({
+			email,
+			password: 'test',
+		});
 
-    //crete user and connect to our express app
-    const notAuthUser = request.agent(app)
+		//crete user and connect to our express app
+		const notAuthUser = request.agent(app);
 
-    //log the user in
-    await notAuthUser.post('/auth/login').send({email, password: 'test'})
-    return notAuthUser
-  } catch (err) {
-    console.error(err)
-  }
-}
+		//log the user in
+		await notAuthUser.post('/auth/login').send({ email, password: 'test' });
+		return notAuthUser;
+	} catch (err) {
+		console.error(err);
+	}
+};
 
 // const createUserWithCart = async email => {
 //   try {
@@ -84,5 +84,5 @@ const createUser = async email => {
 // }
 
 module.exports = {
-  createUser
-}
+	createUser,
+};
