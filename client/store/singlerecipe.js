@@ -4,7 +4,11 @@ import history from '../history';
 /**
  * ACTION TYPES
  */
-import { SET_SINGLE_RECIPE, DELETE_SINGLE_RECIPE } from './constants';
+import {
+  SET_SINGLE_RECIPE,
+  DELETE_SINGLE_RECIPE,
+  TOGGLE_LIKE
+} from './constants';
 
 /**
  * INITIAL STATE
@@ -17,6 +21,9 @@ const defaultSingleRecipe = {};
 const setRecipe = recipe => ({
   type: SET_SINGLE_RECIPE,
   recipe
+});
+const toggleLike = () => ({
+  type: TOGGLE_LIKE
 });
 export const deleteRecipe = () => ({
   type: DELETE_SINGLE_RECIPE
@@ -34,6 +41,15 @@ export const setRecipeThunk = searchTerm => async dispatch => {
   }
 };
 
+export const toggleLikeThunk = recipeName => async dispatch => {
+  try {
+    const putObj = { recipeName };
+    await axios.put('/api/recipes/toggle', putObj);
+    dispatch(toggleLike());
+  } catch (err) {
+    console.error(err);
+  }
+};
 /**
  * REDUCER
  */
@@ -44,6 +60,8 @@ export default function(state = defaultSingleRecipe, action) {
       return action.recipe;
     case DELETE_SINGLE_RECIPE:
       return defaultSingleRecipe;
+    case TOGGLE_LIKE:
+      return { ...state, hasLike: !state.hasLike };
     default:
       return state;
   }

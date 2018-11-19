@@ -56,7 +56,7 @@ const recipeSeeder = async db => {
     // session.close();
 
     for (let recipe in db) {
-      console.log(db[recipe]['categories']);
+      // console.log(db[recipe]['categories']);
       if (db.hasOwnProperty(recipe)) {
         const recipeObj = db[recipe];
         //create recipe node

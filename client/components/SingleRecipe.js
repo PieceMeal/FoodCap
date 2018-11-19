@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Segment, Divider, Button } from 'semantic-ui-react';
-import { setRecipeThunk, deleteRecipe } from '../store/singlerecipe';
+import {
+  setRecipeThunk,
+  deleteRecipe,
+  toggleLikeThunk
+} from '../store/singlerecipe';
 
 const mapStateToProps = state => {
   return {
@@ -12,7 +16,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     setRecipe: searchTerm => dispatch(setRecipeThunk(searchTerm)),
-    deleteStore: () => dispatch(deleteRecipe())
+    deleteStore: () => dispatch(deleteRecipe()),
+    toggleLike: name => dispatch(toggleLikeThunk(name))
   };
 };
 
@@ -39,6 +44,10 @@ class SingleRecipe extends Component {
   componentWillUnmount() {
     this.props.deleteStore();
   }
+
+  handleAddLike = () => {
+    this.props.toggleLike(this.props.recipe.name);
+  };
 
   render() {
     const { recipe } = this.props;
@@ -146,8 +155,12 @@ class SingleRecipe extends Component {
               <Button type="button" style={style.buttonMargin}>
                 Bookmark
               </Button>
-              <div className="ui button" style={style.buttonMargin}>
-                <i className="heart icon" /> Like
+              <div
+                className={recipe.hasLike ? 'ui green button' : 'ui button'}
+                style={style.buttonMargin}
+                onClick={this.handleAddLike}
+              >
+                <i className="heart icon" /> {recipe.hasLike ? 'Liked' : 'Like'}
               </div>
             </div>
           </div>
