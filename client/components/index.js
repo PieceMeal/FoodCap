@@ -6,7 +6,7 @@
 export { default as Navbar } from './navbar';
 export { default as UserHome } from './userHome';
 export { Login, Signup } from './auth-form';
-export { default as LandingPage } from './LandingPage';
+export { default as LoginForm } from './LoginForm';
 export { default as Preferences } from './Preferences';
 export { default as MyList } from './MyList';
 export { default as MyLists } from './MyLists';

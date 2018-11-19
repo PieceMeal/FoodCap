@@ -48,14 +48,15 @@ export const auth = (email, password, method) => async dispatch => {
     return dispatch(getUser({error: authError}))
   }
   try {
-    if (res.data.user){
-    let user = res.data.user
-    user['recipes'] = res.data.recipes
-    dispatch(getUser(user))
+    if (res.data.user) {
+      let user = res.data.user
+      user['recipes'] = res.data.recipes
+      dispatch(getUser(user))
     } else {
       dispatch(getUser(res.data))
     }
-    if (!res.data.user.formFilled) {
+    console.log(res.data)
+    if (!res.data.formFilled) {
     history.push('/home/preferences')
     } else {
       history.push('/home')
