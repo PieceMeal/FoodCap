@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListPreview from './ListPreview';
 import { connect } from 'react-redux';
+import Navbar from './navbar'
 import {
 	Container,
 	Header,
@@ -76,6 +77,8 @@ class UserHome extends React.Component {
 		const disableSubmitButton = Object.keys(this.state.checked).length;
 		if (this.props.recipes) {
 			return (
+        <div>
+        <Navbar />
 				<Container>
 					<div>
 						<Header as="h2" icon textAlign="center">
@@ -156,6 +159,7 @@ class UserHome extends React.Component {
 						</Grid.Row>
 					</Grid>
 				</Container>
+        </div>
 			);
 		} else {
 			//loading page ??
