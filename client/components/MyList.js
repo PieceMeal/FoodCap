@@ -8,16 +8,15 @@ import {
 	Divider,
 	Input,
 	Popup,
-	Dropdown,
 	Form,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-
 
 import {
 	setListThunk,
 	removeListItemThunk,
 	updateListQuantityThunk,
+	addItemToListThunk,
 } from '../store/list';
 import {
 	setIngredientsThunk,
@@ -43,16 +42,6 @@ const style = {
 	},
 };
 
-const selectStyle = {
-	option: () => ({ padding: 50 }),
-	contorl: () => ({ width: 200 }),
-};
-
-const options = [
-	{ value: 'chocolate', label: 'Chocolate' },
-	{ value: 'strawberry', label: 'Strawberry' },
-	{ value: 'vanilla', label: 'Vanilla' },
-];
 class MyList extends Component {
 	constructor() {
 		super();
@@ -63,18 +52,16 @@ class MyList extends Component {
 			ingredientsOptions: [],
 			addItemName: '',
 			addItemType: '',
-			addItemQuantity: null,
+			addItemQuantity: '',
+			addItemNote: '',
+			openPopup: false,
 		};
 	}
 	async componentDidMount() {
 		const { id } = this.props.match.params;
 
 		await this.props.setList(id);
-		const newState = { ...this.state };
-		this.props.list.ingredients.forEach(ingredient => {
-			newState.ingredients[ingredient.name] = ingredient.quantity;
-		});
-		this.setState(newState);
+		this.populateFields();
 		this.setState({ loading: false });
 	}
 	//handle state for form
@@ -118,7 +105,7 @@ class MyList extends Component {
 		const ingredientsOptions = this.props.ingredients.map((ingredient, i) => {
 			return { key: i, value: ingredient, text: ingredient };
 		});
-		this.setState({ disableForm: false, ingredientsOptions });
+		this.setState({ disableForm: false, ingredientsOptions, openPopup: true });
 	};
 
 	handleCreate = async (evt, { value }) => {
@@ -142,6 +129,51 @@ class MyList extends Component {
 		this.setState({ addItemName: value });
 	};
 
+	handleAddChange = (evt, { name, value }) => {
+		this.setState({ [name]: value });
+	};
+
+	handleClosePopup = () => {
+		this.setState({ openPopup: false });
+	};
+
+	addItemButton = async () => {
+		const { id } = this.props.match.params;
+		const {
+			addItemName,
+			addItemQuantity,
+			addItemType,
+			addItemNote,
+		} = this.state;
+		console.log('!!!!');
+		if (this.state.addItemName.length > 0) {
+			if (+this.state.addItemQuantity > 0) {
+				await this.props.addItem(
+					id,
+					addItemName,
+					addItemQuantity,
+					addItemType,
+					addItemNote
+				);
+				this.setState({
+					openPopup: false,
+					addItemName: '',
+					addItemType: '',
+					addItemQuantity: '',
+					addItemNote: '',
+				});
+				this.populateFields();
+			}
+		}
+	};
+
+	populateFields = () => {
+		const newState = { ...this.state };
+		this.props.list.ingredients.forEach(ingredient => {
+			newState.ingredients[ingredient.name] = ingredient.quantity;
+		});
+		this.setState(newState);
+	};
 	render() {
 		//dont display until loaded
 		if (this.state.loading === true) {
@@ -212,6 +244,8 @@ class MyList extends Component {
 										on="click"
 										style={{ width: '300px' }}
 										onOpen={this.handleFetchIngredients}
+										onClose={this.handleClosePopup}
+										open={this.state.openPopup}
 									>
 										<Popup.Content>
 											<Form>
@@ -228,18 +262,48 @@ class MyList extends Component {
 														onChange={this.ingredientSelect}
 													/>
 												</Form.Group>
+												<Form.Group>
+													<Form.Field>
+														<label> #</label>
+														<Input
+															placeholder="#"
+															width="1"
+															onChange={this.handleAddChange}
+															value={this.state.addItemQuantity}
+															name="addItemQuantity"
+														/>
+													</Form.Field>
+													<Form.Field>
+														<label> Type</label>
+														<Input
+															placeholder="type"
+															width="6"
+															onChange={this.handleAddChange}
+															value={this.state.addItemType}
+															name="addItemType"
+														/>
+													</Form.Field>
+												</Form.Group>
+												<Form.Group>
+													<Form.Field>
+														<label> Note</label>
+														<Input
+															placeholder="type"
+															width="6"
+															onChange={this.handleAddChange}
+															value={this.state.addItemNote}
+															name="addItemNote"
+														/>
+													</Form.Field>
+												</Form.Group>
+												<Form.Group>
+													<Button type="button" onClick={this.addItemButton}>
+														Submit
+													</Button>
+												</Form.Group>
 											</Form>
 										</Popup.Content>
 									</Popup>
-
-									{/* <button
-										type="button"
-										style={{ backgroundColor: '#f5f5f5' }}
-										onClick={this.handleFetchIngredients}
-									>
-										<i aria-hidden="true" className="plus icon" />
-										&emsp;ADD
-									</button> */}
 								</td>
 							</tr>
 						</tbody>
@@ -289,6 +353,8 @@ const mapDispatchToProps = dispatch => {
 			dispatch(updateListQuantityThunk(uuid, updatedItems)),
 		setIngredients: () => dispatch(setIngredientsThunk()),
 		createIngredient: name => dispatch(createIngredientThunk(name)),
+		addItem: (uuid, ingredient, quantity, type, note) =>
+			dispatch(addItemToListThunk(uuid, ingredient, quantity, type, note)),
 	};
 };
 
