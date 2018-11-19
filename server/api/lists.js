@@ -90,7 +90,8 @@ router.get('/:listId', async (req, res, next) => {
 		//for each relationship (store recipe name or ingredients)
 		records.forEach(record => {
 			const rel = record.get('r');
-			if (rel.type) {
+			console.log('this is my rel', rel);
+			if (rel) {
 				switch (rel.type) {
 					case 'hasIngredient': {
 						const { type, quantity } = record.get('r').properties;

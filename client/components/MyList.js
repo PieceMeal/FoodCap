@@ -12,7 +12,7 @@ import {
 	Form,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import CreatableSelect from 'react-select/lib/Creatable';
+
 
 import {
 	setListThunk,
