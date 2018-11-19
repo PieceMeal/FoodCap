@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './navbar';
+import { Link } from 'react-router-dom';
 import {
 	Button,
 	Icon,
@@ -8,6 +9,8 @@ import {
 	Input,
 	Popup,
 	Form,
+	Card,
+	Image,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
@@ -23,6 +26,7 @@ import {
 	createIngredientThunk,
 } from '../store/ingredients';
 
+import { ProductCard } from './';
 const style = {
 	h3: {
 		padding: '2em 0em',
@@ -200,8 +204,8 @@ class MyList extends Component {
 		}
 
 		const list = this.props.list;
-		const ingredients = list.ingredients;
-
+		const { ingredients, recipes } = list;
+		console.log(recipes);
 		if (ingredients) {
 			return (
 				<React.Fragment>
@@ -214,6 +218,22 @@ class MyList extends Component {
 							style={style.h3}
 							textAlign="center"
 						/>
+						<Card.Group centered itemsPerRow={4}>
+							{recipes.map(recipe => {
+								return (
+									<RecipeCard key={recipe.name} recipe={recipe} />
+									// <Card key={recipe.name}>
+									// 	<Link to={`/recipes/singleview/${recipe.name}`}>
+									// 		<Image src={recipe.image} />
+									// 	</Link>
+
+									// 	<Card.Content>
+									// 		<Card.Header>{recipe.name}</Card.Header>
+									// 	</Card.Content>
+									// </Card>
+								);
+							})}
+						</Card.Group>
 						<Divider />
 
 						<table className="ui inverted olive table">
