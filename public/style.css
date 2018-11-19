@@ -19,3 +19,65 @@ nav a {
   margin: 1em;
   display: inline-block;
 } */
+
+
+.box_item_component {
+  width: 100%;
+}
+
+.box_item_component .outer {
+  border-top: none;
+  min-width: 140px;
+  max-width: 140px;
+  overflow: hidden;
+}
+
+.box_item_component .highlighted .outer {
+  border-top: 40px solid #ddd;
+}
+
+.box_item_component .item {
+  color: black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 3px;
+  background-color: white;
+  border: 2px solid green
+}
+
+.box_item_component .grabber {
+  font-size: 14px;
+  font-weight: bold;
+  padding-right: 6px;
+}
+
+.drag_things_to_boxes .boxes {
+  display: flex
+}
+
+.drag_things_to_boxes .headers {
+  display: flex
+}
+
+.drag_things_to_boxes .component_box {
+  flex: 50%
+}
+
+.drag_things_to_boxes .options {
+  background: white;
+  border-radius: 4px;
+  width: 25%;
+  height: 200px;
+  border-style: solid
+}
+
+.drag_things_to_boxes .box {
+  background: rgb(12, 54, 54);
+  border-radius: 4px;
+  width: 50%;
+  height: 200px;
+}
+
+.drag_things_to_boxes .highlighted .box {
+box-shadow: inset 0 0 4px #00f;
+}
