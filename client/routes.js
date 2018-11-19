@@ -34,9 +34,9 @@ class Routes extends Component {
             <Route exact path="/home" component={UserHome} />
 
             <Route path="/home/preferences" component={Preferences} />
-
-            <Route path="/lists/" component={MyLists} />
             <Route path="/lists/:id" component={MyList} />
+
+
 
             <Route
               path="/recipes/singleview/:recipename"
