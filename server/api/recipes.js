@@ -95,6 +95,7 @@ router.get('/matchonhistory', async (req, res, next) => {
         recommendations[recipe] = { name: recipe, image, importance };
       }
     });
+    console.log(recommendations);
     Object.keys(recommendations).forEach(recipe => {
       orderRec.push(recommendations[recipe]);
     });
