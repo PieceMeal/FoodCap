@@ -3,6 +3,7 @@ import { Button, Form } from 'semantic-ui-react'
 import {setPreference} from '../store/user'
 import {connect} from 'react-redux'
 import history from '../history'
+import {DragDropContainer, DropTarget} from 'react-drag-drop-container'
 
 
 class Preference extends React.Component{
