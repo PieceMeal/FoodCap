@@ -48,10 +48,10 @@ export const auth = (email, password, method) => async dispatch => {
     return dispatch(getUser({error: authError}))
   }
   try {
-    if (res.data.user){
-    let user = res.data.user
-    user['recipes'] = res.data.recipes
-    dispatch(getUser(user))
+    if (res.data.user) {
+      let user = res.data.user
+      user['recipes'] = res.data.recipes
+      dispatch(getUser(user))
     } else {
       dispatch(getUser(res.data))
     }
@@ -79,7 +79,6 @@ export const setPreference = (preferencesObj, userId) => async dispatch => {
   try {
 
     const {data} = await axios.put(`/api/users/${userId}`, preferencesObj)
-    debugger;
     dispatch(updateUser(data.user, data.recipes))
   } catch (err) {
     console.error(err)

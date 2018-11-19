@@ -14,7 +14,6 @@ module.exports = router;
 //creates a list node that is has a relationship to
 //req.user.uuid
 router.post('/', async (req, res, next) => {
-
 	try {
 		const { listName } = req.body;
 		const { records } = await runQuery(
@@ -22,7 +21,7 @@ router.post('/', async (req, res, next) => {
 				req.user.uuid
 			}'}) CREATE (l:List {name:'${listName}', uuid: '${uuidv1()}'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
 		);
-			//status??
+		//status??
 		const { name, uuid } = records[0].get('l').properties;
 		res.json({ name, uuid });
 	} catch (err) {
@@ -94,11 +93,12 @@ router.get('/:listId', async (req, res, next) => {
 			if (rel) {
 				switch (rel.type) {
 					case 'hasIngredient': {
-						const { type, quantity } = record.get('r').properties;
+						const { type, quantity, note } = record.get('r').properties;
 						returnObject.ingredients.push({
 							name: record.get('x.name'),
 							type,
 							quantity,
+							note,
 						});
 						break;
 					}
@@ -182,20 +182,21 @@ const {records} = await session.run(
 router.put('/addingredient', async (req, res, next) => {
 	try {
 		//list uuid and recipe name
-		const { uuid, ingredient, quantity, type } = req.body;
+		const { uuid, ingredient, quantity, type, note } = req.body;
 		console.log('in route ');
 		console.log(req.body);
 
 		const { records } = await runQuery(
 			`MATCH (l:List {uuid: $uuid})
       MERGE(i:Ingredient {name: $ingredient})
-      MERGE (l)-[:hasIngredient{quantity: $quantity, type: $type}]->(i)
+      MERGE (l)-[:hasIngredient{quantity: $quantity, type: $type, note: $note}]->(i)
 			 RETURN l,i`,
 			{
 				uuid,
 				ingredient,
 				quantity,
 				type,
+				note,
 			}
 		);
 		console.log(records);
@@ -267,14 +268,11 @@ router.put('/updateingredient', async (req, res, next) => {
 }'})-[:HAS_LIST]->
 */
 
-
 router.delete('/', async (req, res, next) => {
 	try {
-		let {uuid} = req.body
-		console.log('my boddy -------------', req.body)
-		await runQuery(
-			`MATCH(l:List {uuid: '${uuid}'}) DETACH DELETE l`
-		)
+		let { uuid } = req.body;
+		console.log('my boddy -------------', req.body);
+		await runQuery(`MATCH(l:List {uuid: '${uuid}'}) DETACH DELETE l`);
 		const { records } = await runQuery(
 			`MATCH (a:Person {uuid: '${
 				req.user.uuid
@@ -296,6 +294,6 @@ router.delete('/', async (req, res, next) => {
 		});
 		res.json(returnObject);
 	} catch (err) {
-		next(err)
+		next(err);
 	}
-})
+});

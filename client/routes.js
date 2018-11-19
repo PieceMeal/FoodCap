@@ -5,18 +5,15 @@ import PropTypes from 'prop-types';
 import {
 	MyList,
 	MyLists,
-	Login,
 	Signup,
 	UserHome,
 	Preferences,
-	LandingPage,
 	SingleRecipe,
+	LoginForm,
 } from './components';
 import { me } from './store';
 
-/**
- * COMPONENT
- */
+//component
 class Routes extends Component {
 	componentDidMount() {
 		this.props.loadInitialData();
@@ -26,8 +23,7 @@ class Routes extends Component {
 		return (
 			<Switch>
 				{/* Routes placed here are available to all visitors */}
-				<Route exact path="/" component={LandingPage} />
-				<Route path="/login" component={Login} />
+				<Route exact path="/" component={LoginForm} />
 				<Route path="/signup" component={Signup} />
 				<Route path="/lists/:id" component={MyList} />
 				<Route
@@ -43,7 +39,7 @@ class Routes extends Component {
 					</Switch>
 				)}
 				{/* Displays our Login component as a fallback */}
-				<Route component={Login} />
+				<Route component={LoginForm} />
 			</Switch>
 		);
 	}
