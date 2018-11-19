@@ -21,7 +21,7 @@ router.post('/', async (req, res, next) => {
 				req.user.uuid
 			}'}) CREATE (l:List {name:'${listName}', uuid: '${uuidv1()}'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
 		);
-		//console.log(records);
+		//status??
 		const { name, uuid } = records[0].get('l').properties;
 		res.json({ name, uuid });
 	} catch (err) {
@@ -35,7 +35,7 @@ router.post('/', async (req, res, next) => {
 // only returns name and uuid
 router.get('/', async (req, res, next) => {
 	try {
-		console.log();
+		console.log('are we getting here??');
 		const { records } = await runQuery(
 			`MATCH (a:Person {uuid: '${
 				req.user.uuid
@@ -61,10 +61,9 @@ router.get('/', async (req, res, next) => {
 	}
 });
 
-//GET (/api/lists)
+//GET (/api/lists/:listId)
 //expects: nothing required
-//returns the current logged in user (req.user)'s lists
-//returns ingredients
+//returns the details for one list
 
 //a: Person
 //l: list
@@ -85,23 +84,31 @@ router.get('/:listId', async (req, res, next) => {
 
 		const { name, uuid } = records[0].get('l').properties;
 		const returnObject = { name, uuid, ingredients: [], recipies: [] };
+
+		//switch the relationship type and do something different
+		//for each relationship (store recipe name or ingredients)
 		records.forEach(record => {
-			switch (record.get('r').type) {
-				case 'hasIngredient': {
-					const { type, quantity } = record.get('r').properties;
-					returnObject.ingredients.push({
-						name: record.get('x.name'),
-						type,
-						quantity,
-					});
-					break;
+			const rel = record.get('r');
+			console.log('this is my rel', rel);
+			if (rel) {
+				switch (rel.type) {
+					case 'hasIngredient': {
+						const { type, quantity, note } = record.get('r').properties;
+						returnObject.ingredients.push({
+							name: record.get('x.name'),
+							type,
+							quantity,
+							note,
+						});
+						break;
+					}
+					case 'hasRecipe': {
+						returnObject.recipies.push(record.get('x.name'));
+						break;
+					}
+					default:
+						break;
 				}
-				case 'hasRecipe': {
-					returnObject.recipies.push(record.get('x.name'));
-					break;
-				}
-				default:
-					break;
 			}
 		});
 		res.json(returnObject);
@@ -175,20 +182,21 @@ const {records} = await session.run(
 router.put('/addingredient', async (req, res, next) => {
 	try {
 		//list uuid and recipe name
-		const { uuid, ingredient, quantity, type } = req.body;
+		const { uuid, ingredient, quantity, type, note } = req.body;
 		console.log('in route ');
 		console.log(req.body);
 
 		const { records } = await runQuery(
 			`MATCH (l:List {uuid: $uuid})
       MERGE(i:Ingredient {name: $ingredient})
-      MERGE (l)-[:hasIngredient{quantity: $quantity, type: $type}]->(i)
+      MERGE (l)-[:hasIngredient{quantity: $quantity, type: $type, note: $note}]->(i)
 			 RETURN l,i`,
 			{
 				uuid,
 				ingredient,
 				quantity,
 				type,
+				note,
 			}
 		);
 		console.log(records);
@@ -259,3 +267,33 @@ router.put('/updateingredient', async (req, res, next) => {
   req.user.uuid
 }'})-[:HAS_LIST]->
 */
+
+router.delete('/', async (req, res, next) => {
+	try {
+		let { uuid } = req.body;
+		console.log('my boddy -------------', req.body);
+		await runQuery(`MATCH(l:List {uuid: '${uuid}'}) DETACH DELETE l`);
+		const { records } = await runQuery(
+			`MATCH (a:Person {uuid: '${
+				req.user.uuid
+			}'})-[r:hasList]-(l:List) RETURN l,r`
+		);
+		const returnObject = [];
+
+		records.forEach((record, i) => {
+			const props = record.get('l').properties;
+			const relationship = record.get('r').properties;
+			console.log(relationship);
+			returnObject[i] = {};
+			for (let key in props) {
+				returnObject[i][key] = props[key];
+			}
+			for (let key in relationship) {
+				returnObject[i][key] = relationship[key];
+			}
+		});
+		res.json(returnObject);
+	} catch (err) {
+		next(err);
+	}
+});
