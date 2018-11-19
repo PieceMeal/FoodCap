@@ -44,8 +44,8 @@ export const setListsThunk = () => async dispatch => {
 export const createList = (listName) => async dispatch => {
   try {
     const {data} = await axios.post('/api/lists', {listName})
-
-    dispatch(createLists(data.properties))
+    console.log('this is my data from createList in lists.js', data)
+    dispatch(createLists(data))
   } catch (err) {
     console.error(err)
   }
@@ -67,8 +67,6 @@ export const addRecipeToListThunk = (body) => async dispatch => {
 export const deleteListThunk = (uuid) => async dispatch => {
   try {
     const {data} = await axios.delete(`/api/lists`, {data:{uuid}})
-
-    console.log('data000', data);
     dispatch(setLists(data))
   } catch (err) {
     console.error(err)

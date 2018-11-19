@@ -16,6 +16,7 @@ state = {
 componentDidMount(){
   this.props.fetchRecipes(this.props.user.id)
   this.props.setListsThunk()
+  
 }
 handleSubmit = (e) => {
 //have a thunk in lists.js that will take this action and dispatch post request for list api
@@ -55,6 +56,7 @@ handleClose = (name) => {
   this.setState({[name]:false})
 }
   render(){
+    console.log('lists should be like this', this.props.lists)
     const disableSubmitButton= Object.keys(this.state.checked).length
   if (this.props.recipes) {
   return (
