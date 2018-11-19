@@ -72,7 +72,7 @@ router.get('/:listId', async (req, res, next) => {
 	try {
 		const { listId } = req.params;
 		let { records } = await runQuery(
-			`MATCH (a:Person {uuid: $uuid})-[:hasList]-(l:List {uuid: $listuuid}) OPTIONAL MATCH (l)-[r:hasIngredient]-(x) RETURN l,x.name,r UNION MATCH (a:Person {uuid: $uuid})-[:hasList]-(l:List {uuid: $listuuid}) OPTIONAL MATCH (l)-[r:hasRecipe]-(x)RETURN l, x.name, r`,
+			`MATCH (a:Person {uuid: $uuid})-[:hasList]-(l:List {uuid: $listuuid}) OPTIONAL MATCH (l)-[r:hasIngredient]-(x) RETURN l,x,r UNION MATCH (a:Person {uuid: $uuid})-[:hasList]-(l:List {uuid: $listuuid}) OPTIONAL MATCH (l)-[r:hasRecipe]-(x)RETURN l, x, r`,
 			{
 				listuuid: listId,
 				uuid: req.user.uuid,
@@ -80,18 +80,19 @@ router.get('/:listId', async (req, res, next) => {
 		);
 
 		const { name, uuid } = records[0].get('l').properties;
-		const returnObject = { name, uuid, ingredients: [], recipies: [] };
+		const returnObject = { name, uuid, ingredients: [], recipes: [] };
 
 		//switch the relationship type and do something different
 		//for each relationship (store recipe name or ingredients)
 		records.forEach(record => {
 			const rel = record.get('r');
+			console.log(record.get('x'));
 			if (rel) {
 				switch (rel.type) {
 					case 'hasIngredient': {
 						const { type, quantity, note } = record.get('r').properties;
 						returnObject.ingredients.push({
-							name: record.get('x.name'),
+							name: record.get('x').properties.name,
 							type,
 							quantity,
 							note,
@@ -99,7 +100,8 @@ router.get('/:listId', async (req, res, next) => {
 						break;
 					}
 					case 'hasRecipe': {
-						returnObject.recipies.push(record.get('x.name'));
+						const { name, image } = record.get('x').properties;
+						returnObject.recipes.push({ name, image });
 						break;
 					}
 					default:
