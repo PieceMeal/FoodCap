@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Segment, Divider, Button } from 'semantic-ui-react';
 import { setRecipeThunk, deleteRecipe } from '../store/singlerecipe';
+import Navbar from './navbar'
 
 const mapStateToProps = state => {
   return {
@@ -44,6 +45,8 @@ class SingleRecipe extends Component {
     const { recipe } = this.props;
     if (recipe.name) {
       return (
+        <React.Fragment >
+        <Navbar />
         <div style={style.wholeTray}>
           <Segment
             style={{
@@ -152,6 +155,7 @@ class SingleRecipe extends Component {
             </div>
           </div>
         </div>
+        </React.Fragment>
       );
     } else {
       return <h1>LOADING!!! WAIT!</h1>;

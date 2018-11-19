@@ -55,7 +55,10 @@ export const auth = (email, password, method) => async dispatch => {
     } else {
       dispatch(getUser(res.data))
     }
-    if (!res.data.formFilled) {
+    if(method === 'signup') {
+      history.push('/home/preferences');
+    }
+    else if (!res.data.user.formFilled) {
     history.push('/home/preferences')
     } else {
       history.push('/home')
