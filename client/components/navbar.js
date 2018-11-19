@@ -14,6 +14,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
 			<Link to="/home">
 				<Menu.Item name="User Home" />
 			</Link>
+			<Link to="/lists">
+				<Menu.Item name="User Lists" />
+			</Link>
 			<Menu.Menu position="right">
 				{isLoggedIn ? (
 					<Button primary onClick={handleClick}>
