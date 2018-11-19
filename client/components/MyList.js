@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import {
 	Button,
 	Grid,
@@ -6,29 +7,22 @@ import {
 	Header,
 	Divider,
 	Input,
+	Popup,
+	Dropdown,
+	Form,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+
+
 import {
 	setListThunk,
 	removeListItemThunk,
 	updateListQuantityThunk,
 } from '../store/list';
-const mapStateToProps = state => {
-	console.log('map state');
-	return {
-		list: state.list,
-	};
-};
-
-const mapDispatchToProps = dispatch => {
-	return {
-		setList: id => dispatch(setListThunk(id)),
-		removeListItem: (uuid, ingredient) =>
-			dispatch(removeListItemThunk(uuid, ingredient)),
-		updateItems: (uuid, updatedItems) =>
-			dispatch(updateListQuantityThunk(uuid, updatedItems)),
-	};
-};
+import {
+	setIngredientsThunk,
+	createIngredientThunk,
+} from '../store/ingredients';
 
 const style = {
 	h3: {
@@ -49,51 +43,111 @@ const style = {
 	},
 };
 
+const selectStyle = {
+	option: () => ({ padding: 50 }),
+	contorl: () => ({ width: 200 }),
+};
+
+const options = [
+	{ value: 'chocolate', label: 'Chocolate' },
+	{ value: 'strawberry', label: 'Strawberry' },
+	{ value: 'vanilla', label: 'Vanilla' },
+];
 class MyList extends Component {
 	constructor() {
 		super();
-		this.state = { loading: false };
+		this.state = {
+			loading: true,
+			ingredients: [],
+			disableForm: false,
+			ingredientsOptions: [],
+			addItemName: '',
+			addItemType: '',
+			addItemQuantity: null,
+		};
 	}
 	async componentDidMount() {
 		const { id } = this.props.match.params;
 
 		await this.props.setList(id);
+		const newState = { ...this.state };
 		this.props.list.ingredients.forEach(ingredient => {
-			this.setState({ [ingredient.name]: ingredient.quantity });
+			newState.ingredients[ingredient.name] = ingredient.quantity;
 		});
-	}
-	handleClick = async (uuid, ingredient) => {
-		console.log(uuid, ingredient);
-		this.setState({ loading: true });
-		await this.props.removeListItem(uuid, ingredient);
+		this.setState(newState);
 		this.setState({ loading: false });
+	}
+	//handle state for form
+	handleChange = evt => {
+		const newState = { ...this.state };
+		newState.ingredients[evt.target.name] = evt.target.value;
+		this.setState(newState);
 	};
 
-	handleChange = evt => {
-		console.log(evt.target.name, evt.target.value);
-		this.setState({ [evt.target.name]: evt.target.value });
+	//dispatch remove item from list thunk
+	handleRemoveItem = async (uuid, ingredient) => {
+		this.setState({ disableForm: true });
+		await this.props.removeListItem(uuid, ingredient);
+		this.setState({ disableForm: false });
 	};
+
+	//dispatch update list thunk
 	handleUpdate = async uuid => {
 		const updatedItems = [];
 		this.props.list.ingredients.forEach(ingredient => {
-			if (+ingredient.quantity !== +this.state[ingredient.name]) {
+			if (+ingredient.quantity !== +this.state.ingredients[ingredient.name]) {
 				updatedItems.push({
 					name: ingredient.name,
-					quantity: this.state[ingredient.name],
+					quantity: this.state.ingredients[ingredient.name],
 					type: ingredient.type,
 				});
 			}
 		});
 		if (updatedItems.length > 0) {
-			this.setState({ loading: true });
+			this.setState({ disableForm: true });
 
 			await this.props.updateItems(uuid, updatedItems);
-			this.setState({ loading: false });
+			this.setState({ disableForm: false });
 		}
 	};
 
+	handleFetchIngredients = async () => {
+		this.setState({ disableForm: true });
+
+		await this.props.setIngredients();
+		const ingredientsOptions = this.props.ingredients.map((ingredient, i) => {
+			return { key: i, value: ingredient, text: ingredient };
+		});
+		this.setState({ disableForm: false, ingredientsOptions });
+	};
+
+	handleCreate = async (evt, { value }) => {
+		console.log('creating new ingredient');
+		this.setState({ disableForm: true });
+		await this.props.createIngredient(value);
+		const ingredientsOptions = this.props.ingredients.map((ingredient, i) => {
+			return { key: i, value: ingredient, text: ingredient };
+		});
+		console.log('made new ingredients');
+
+		this.setState({
+			disableForm: false,
+			ingredientsOptions,
+			addItemName: value,
+		});
+	};
+
+	ingredientSelect = (evt, { value }) => {
+		console.log('set to new value ', value);
+		this.setState({ addItemName: value });
+	};
+
 	render() {
-		console.log('render');
+		//dont display until loaded
+		if (this.state.loading === true) {
+			return <div />;
+		}
+
 		const list = this.props.list;
 		const ingredients = list.ingredients;
 
@@ -130,9 +184,9 @@ class MyList extends Component {
 														name={ingredient.name}
 														label={{ basic: true, content: ingredient.type }}
 														labelPosition="right"
-														value={this.state[ingredient.name]}
+														value={this.state.ingredients[ingredient.name]}
 														onChange={this.handleChange}
-														disabled={this.state.loading}
+														disabled={this.state.disableForm}
 													/>
 												</td>
 												<td>{ingredient.note ? ingredient.note : null}</td>
@@ -141,7 +195,7 @@ class MyList extends Component {
 														style={style.listButtons}
 														type="button"
 														onClick={() =>
-															this.handleClick(list.uuid, ingredient.name)
+															this.handleRemoveItem(list.uuid, ingredient.name)
 														}
 													>
 														Take off shopping list
@@ -153,10 +207,39 @@ class MyList extends Component {
 								: null}
 							<tr>
 								<td>
-									<button type="button" style={{ backgroundColor: '#f5f5f5' }}>
+									<Popup
+										trigger={<Button icon="add" />}
+										on="click"
+										style={{ width: '300px' }}
+										onOpen={this.handleFetchIngredients}
+									>
+										<Popup.Content>
+											<Form>
+												<Form.Group>
+													<Form.Dropdown
+														search
+														selection
+														allowAdditions
+														disabled={this.state.disableForm}
+														placeholder="Choose Ingredient"
+														value={this.state.addItemName}
+														options={this.state.ingredientsOptions}
+														onAddItem={this.handleCreate}
+														onChange={this.ingredientSelect}
+													/>
+												</Form.Group>
+											</Form>
+										</Popup.Content>
+									</Popup>
+
+									{/* <button
+										type="button"
+										style={{ backgroundColor: '#f5f5f5' }}
+										onClick={this.handleFetchIngredients}
+									>
 										<i aria-hidden="true" className="plus icon" />
 										&emsp;ADD
-									</button>
+									</button> */}
 								</td>
 							</tr>
 						</tbody>
@@ -188,5 +271,25 @@ class MyList extends Component {
 		}
 	}
 }
+
+const mapStateToProps = state => {
+	const { list, ingredients } = state;
+	return {
+		list,
+		ingredients,
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		setList: id => dispatch(setListThunk(id)),
+		removeListItem: (uuid, ingredient) =>
+			dispatch(removeListItemThunk(uuid, ingredient)),
+		updateItems: (uuid, updatedItems) =>
+			dispatch(updateListQuantityThunk(uuid, updatedItems)),
+		setIngredients: () => dispatch(setIngredientsThunk()),
+		createIngredient: name => dispatch(createIngredientThunk(name)),
+	};
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyList);

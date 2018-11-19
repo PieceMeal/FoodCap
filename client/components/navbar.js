@@ -17,6 +17,7 @@ const Navbar = ({ handleClick }) => (
 					Log out
 				</Button>
 			</Menu.Item>
+
 		</Menu>
 );
 
