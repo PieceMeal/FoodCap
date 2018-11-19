@@ -3,13 +3,15 @@ import { Button, Form } from 'semantic-ui-react'
 import {setPreference} from '../store/user'
 import {connect} from 'react-redux'
 import history from '../history'
+import {DragDropContainer, DropTarget} from 'react-drag-drop-container'
 
 
 class Preference extends React.Component{
 state = {
     favCuisines: [],
     favIngredients: [],
-    mealTypes: []
+    mealTypes: [],
+    favCategory: []
 }
 
 handleSubmit = (e) => {
@@ -17,7 +19,8 @@ handleSubmit = (e) => {
     const preferencesObj = {
         favCuisines: this.state.favCuisines,
         favIngredients: this.state.favIngredients,
-        mealTypes: this.state.mealTypes
+        mealTypes: this.state.mealTypes,
+        favCategory: this.state.favCategory
     }
     this.props.setPreference(preferencesObj, this.props.user.id)
     history.push('/home');
@@ -32,8 +35,9 @@ handleCheck = (e) => {
     }
 }
 
-cuisines = ["Chinese Food", "Italian Food", "Mexican Food", "American Food", "Indian Food"]
+cuisines = ["chinese", "italian", "mexican", "american", "indian","german", "japanese", "british", "french"]
 ingredients = ["chicken", "beef", "pork", "seafood", "cheese", "mushrooms", "pesto", "tomatoes", "potatoes"]
+categories = ["pasta", "quick", "dessert", "alcohol", "salad", "baking", "roast", "breakfast","appetizer"]
 statements = ["I am vegetarian.", "I prefer low-calorie recipes.", "I prefer easy, quicky recipes."]
 
 render(){
@@ -45,6 +49,14 @@ render(){
             return (
                 <div>
                     <Form.Field label={cuisine} name={cuisine} value='favCuisines' control='input' type='checkbox' onChange={this.handleCheck} defaultChecked={false} /><br />
+                </div>
+            )
+        })}
+         <h3>Select Your Favorite categories:</h3>
+        {this.categories.map(category => {
+            return (
+                <div>
+                    <Form.Field label={category} name={category} value='favCategory' control='input' type='checkbox' onChange={this.handleCheck} defaultChecked={false} /><br />
                 </div>
             )
         })}

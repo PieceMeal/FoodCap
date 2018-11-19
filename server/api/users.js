@@ -24,15 +24,13 @@ router.get('/:userId', async (req, res, next) => {
     let user = await User.findById(id);
     let uuid = user.uuid;
     let recipes = await runQuery(
-      `MATCH (r:Recipe) -[:hasIngredient] -> (i:Ingredient),
-      (i) <- [:like] - (a: Person {uuid: $uuid})
-      Return r
-      `,
+      `Match (a:Person {uuid: $uuid})-[:like]->(n)-[]-(x:Recipe)
+      RETURN DISTINCT x, count(x) AS number, a ORDER BY number DESC LIMIT 8`,
       { uuid: uuid }
     );
     const recipesArray = [];
     recipes.records.forEach((rec, i) => {
-      const props = rec.get('r').properties;
+      const props = rec.get('x').properties;
       recipesArray[i] = {};
       for (let key in props) {
         recipesArray[i][key] = props[key];
@@ -47,7 +45,7 @@ router.get('/:userId', async (req, res, next) => {
 
 router.put('/:userId', async (req, res, next) => {
   try {
-    const { favCuisines, favIngredients, mealTypes } = req.body;
+    const { favCuisines, favIngredients, mealTypes, favCategory } = req.body;
     let userId = req.params.userId;
     let user = await User.findById(userId);
     let uuid = user.uuid;
@@ -63,41 +61,40 @@ router.put('/:userId', async (req, res, next) => {
         { uuid: uuid, ingName: ingredient }
       );
     }
+    for (let i = 0; i < favCategory.length; i++) {
+      let category = favCategory[i];
+      await runQuery(`
+      MATCH (a: Person {uuid: "${uuid}"}), (b:Category {name: "${category}"})
+      MERGE (a)-[:like]->(b)`);
+    }
+    for (let i = 0; i < favCuisines.length; i++) {
+      let cuisine = favCuisines[i];
+      await runQuery(`
+      MATCH (a: Person {uuid: "${uuid}"}), (b:Cuisine {name: "${cuisine}"})
+      MERGE (a)-[:like]-> (b)`);
+    }
 
     //collect all recipes that include the ingredient the user likes
     let recipes = await runQuery(
-      `MATCH (r:Recipe) -[:hasIngredient] -> (i:Ingredient),
-      (i) <- [:like] - (a: Person {uuid: $uuid})
-      Return r`,
+      `Match (a:Person {uuid: $uuid})-[:like]->(n)-[]-(x:Recipe)
+      RETURN DISTINCT x, count(x) AS number, a ORDER BY number DESC LIMIT 8`,
       { uuid: uuid }
     );
-
+    console.log('recipes------', recipes);
     //parse the response from the query so it's an array of recipes
     const recipesArray = [];
     recipes.records.forEach((rec, i) => {
-      const props = rec.get('r').properties;
+      const props = rec.get('x').properties;
       recipesArray[i] = {};
       for (let key in props) {
-        if (Object.hasOwnProperty(key)) {
-          recipesArray[i][key] = props[key];
-        }
+        recipesArray[i][key] = props[key];
       }
     });
 
-    //query to get all the ingredients from the recipe above
-    // const ingredients = await session.run(
-    //   `MATCH (r:Recipe {name: $name}) -[:hasIngredient] - (i:Ingredient)
-    //   RETURN i`,
-    //   {name: recipe.name}
-    // )
-    //mapping over the results of the query and taking the name's of ing into arr.
-    // let ingredientsArray = ingredients.records.map( item => item.get('i').properties.name)
-
-    // session.close()
     let updatedUser = await user.update({
       formFilled: true
     });
-
+    console.log('records for recipes -----------', recipesArray);
     res.json({ user: updatedUser, recipes: recipesArray });
   } catch (err) {
     next(err);

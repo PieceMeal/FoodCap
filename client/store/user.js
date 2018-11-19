@@ -48,14 +48,17 @@ export const auth = (email, password, method) => async dispatch => {
     return dispatch(getUser({error: authError}))
   }
   try {
-    if (res.data.user){
-    let user = res.data.user
-    user['recipes'] = res.data.recipes
-    dispatch(getUser(user))
+    if (res.data.user) {
+      let user = res.data.user
+      user['recipes'] = res.data.recipes
+      dispatch(getUser(user))
     } else {
       dispatch(getUser(res.data))
     }
-    if (!res.data.user.formFilled) {
+    if(method === 'signup') {
+      history.push('/home/preferences');
+    }
+    else if (!res.data.user.formFilled) {
     history.push('/home/preferences')
     } else {
       history.push('/home')
@@ -77,6 +80,7 @@ export const logout = () => async dispatch => {
 
 export const setPreference = (preferencesObj, userId) => async dispatch => {
   try {
+
     const {data} = await axios.put(`/api/users/${userId}`, preferencesObj)
     dispatch(updateUser(data.user, data.recipes))
   } catch (err) {

@@ -93,7 +93,26 @@ const recipeSeeder = async db => {
             );
             // session.close();
           }
-        }
+		}
+		const categoriesObj = recipeObj.categories;
+
+		for(let category in categoriesObj) {
+
+			if(categoriesObj.hasOwnProperty(category)){
+				await runQuery(`MERGE (a:Category {name: "${categoriesObj[category]}"})`)
+				await runQuery(`MATCH (a:Recipe {name: "${recipe}"}), (b:Category {name: "${categoriesObj[category]}"})
+				MERGE (a)-[:belongsToCategory]->(b)`)
+			}
+		}
+		const cuisineObj = recipeObj.cuisine
+		for(let cuisine in cuisineObj) {
+			console.log('we are in cuisine forloop', cuisineObj)
+			if(cuisineObj.hasOwnProperty(cuisine)){
+				await runQuery(`MERGE (a:Cuisine {name: "${cuisineObj[cuisine]}"})`)
+				await runQuery(`MATCH (a:Recipe {name: "${recipe}"}), (b:Cuisine {name: "${cuisineObj[cuisine]}"})
+				MERGE (a) -[:belongsToCuisine]->(b)`)
+			}
+		}
         // session.close();
       }
     }
