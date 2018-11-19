@@ -12,7 +12,11 @@ router.get('/singleview/:name', async (req, res, next) => {
       `match (l:Recipe {name:"${req.params.name}"})
       optional match (l)-[r:hasIngredient]->(i) return l,i,r`
     );
-
+    await runQuery(
+      `match (r:Recipe {name:"${req.params.name}"}),(p:Person {uuid:"${
+        req.user.uuid
+      }"}) merge (r)<-[:HAS_VIEWED]-(p)`
+    );
     const returnObject = {};
     //grab list info
     const props = records[0].get('l').properties;
@@ -55,10 +59,10 @@ router.get('/singleview/:name', async (req, res, next) => {
 
 // Retrieve array of recipes based on similar likes and page views, pass uuid as params.
 // returned array is sorted by highest relevance at index 0
-router.get('/matchonhistory/:uuid', async (req, res, next) => {
+router.get('/matchonhistory', async (req, res, next) => {
   try {
     const recommendations = {};
-    const user = req.params.uuid;
+    const user = req.user.uuid;
     const orderRec = [];
 
     let { records } = await runQuery(

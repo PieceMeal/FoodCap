@@ -61,6 +61,7 @@ class SingleRecipe extends Component {
             src={recipe.image}
             style={{
               maxHeight: '550px',
+              minHeight: '375px',
               marginTop: '30px',
               border: '13px solid #3e2b14',
               padding: '7px',
