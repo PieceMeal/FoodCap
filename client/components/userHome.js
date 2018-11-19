@@ -1,3 +1,4 @@
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import ListPreview from './ListPreview'
@@ -5,10 +6,12 @@ import {connect} from 'react-redux'
 import {Container,Header, Icon, Divider, Grid,Card, Image,Button, Popup, Input ,Form, Checkbox} from 'semantic-ui-react'
 import {fetchRecipes} from '../store/user'
 import {createList, setListsThunk, addRecipeToListThunk} from '../store/lists'
+
 /**
  * COMPONENT
  */
 class UserHome extends React.Component {
+
 state = {
   listName : '',
   checked : {}
@@ -130,14 +133,13 @@ handleClose = (name) => {
     return <div/>
   }
 }
-
-}
 /**
  * CONTAINER
  */
 const mapState = state => {
   return {
     email: state.user.email,
+
     user : state.user,
     recipes: state.user.recipes,
     lists: state.lists
@@ -150,11 +152,11 @@ const dispatchState = dispatch => ({
   addRecipeToListThunk: (body) => dispatch(addRecipeToListThunk(body))
 })
 
-export default connect(mapState, dispatchState)(UserHome)
+export default connect(mapState, dispatchState)(UserHome);
 
 /**
  * PROP TYPES
  */
 UserHome.propTypes = {
   email: PropTypes.string
-}
+};
