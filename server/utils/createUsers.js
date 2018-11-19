@@ -1,7 +1,7 @@
 const db = require('../db');
 const app = require('../index');
 const User = db.model('user');
-//const request = require('supertest')
+const request = require('supertest');
 
 // const createAuthUser = async email => {
 //   //create a user that is in the DB that is an admin
@@ -26,6 +26,7 @@ const User = db.model('user');
 const createUser = async email => {
 	//create a user that is in the DB that is an admin
 	try {
+		console.log('create user');
 		await User.create({
 			email,
 			password: 'test',
