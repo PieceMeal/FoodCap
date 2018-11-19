@@ -21,7 +21,7 @@ handleSubmit = (e) => {
 //have a thunk in lists.js that will take this action and dispatch post request for list api
 //clear the state after submit so input is empty
 e.preventDefault()
-debugger;
+
 this.props.createList(this.state.listName)
 this.setState({
   listName: ''

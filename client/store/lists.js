@@ -44,7 +44,7 @@ export const setListsThunk = () => async dispatch => {
 export const createList = (listName) => async dispatch => {
   try {
     const {data} = await axios.post('/api/lists', {listName})
-    debugger
+
     dispatch(createLists(data.properties))
   } catch (err) {
     console.error(err)
