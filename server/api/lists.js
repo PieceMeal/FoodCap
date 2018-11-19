@@ -14,6 +14,7 @@ module.exports = router;
 //creates a list node that is has a relationship to
 //req.user.uuid
 router.post('/', async (req, res, next) => {
+
 	try {
 		const { listName } = req.body;
 		const { records } = await runQuery(
@@ -21,7 +22,7 @@ router.post('/', async (req, res, next) => {
 				req.user.uuid
 			}'}) CREATE (l:List {name:'${listName}', uuid: '${uuidv1()}'}) MERGE (a)-[:hasList{status:'incomplete'}]->(l) RETURN l`
 		);
-		//console.log(records);
+			//status??
 		const { name, uuid } = records[0].get('l').properties;
 		res.json({ name, uuid });
 	} catch (err) {
@@ -35,7 +36,7 @@ router.post('/', async (req, res, next) => {
 // only returns name and uuid
 router.get('/', async (req, res, next) => {
 	try {
-		console.log();
+		console.log('are we getting here??');
 		const { records } = await runQuery(
 			`MATCH (a:Person {uuid: '${
 				req.user.uuid
@@ -89,7 +90,8 @@ router.get('/:listId', async (req, res, next) => {
 		//for each relationship (store recipe name or ingredients)
 		records.forEach(record => {
 			const rel = record.get('r');
-			if (rel.type) {
+			console.log('this is my rel', rel);
+			if (rel) {
 				switch (rel.type) {
 					case 'hasIngredient': {
 						const { type, quantity } = record.get('r').properties;
@@ -264,3 +266,36 @@ router.put('/updateingredient', async (req, res, next) => {
   req.user.uuid
 }'})-[:HAS_LIST]->
 */
+
+
+router.delete('/', async (req, res, next) => {
+	try {
+		let {uuid} = req.body
+		console.log('my boddy -------------', req.body)
+		await runQuery(
+			`MATCH(l:List {uuid: '${uuid}'}) DETACH DELETE l`
+		)
+		const { records } = await runQuery(
+			`MATCH (a:Person {uuid: '${
+				req.user.uuid
+			}'})-[r:hasList]-(l:List) RETURN l,r`
+		);
+		const returnObject = [];
+
+		records.forEach((record, i) => {
+			const props = record.get('l').properties;
+			const relationship = record.get('r').properties;
+			console.log(relationship);
+			returnObject[i] = {};
+			for (let key in props) {
+				returnObject[i][key] = props[key];
+			}
+			for (let key in relationship) {
+				returnObject[i][key] = relationship[key];
+			}
+		});
+		res.json(returnObject);
+	} catch (err) {
+		next(err)
+	}
+})
