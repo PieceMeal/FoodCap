@@ -53,6 +53,7 @@ class MyList extends Component {
 			addItemName: '',
 			addItemType: '',
 			addItemQuantity: '',
+			addItemNote: '',
 			openPopup: false,
 		};
 	}
@@ -137,23 +138,29 @@ class MyList extends Component {
 	};
 
 	addItemButton = async () => {
-		//addItem: (uuid, ingredient, quantity, type)
-		/*
-					addItemName: '',
-			addItemType: '',
-			addItemQuantity: '',
-			*/
 		const { id } = this.props.match.params;
-		const { addItemName, addItemQuantity, addItemType } = this.state;
+		const {
+			addItemName,
+			addItemQuantity,
+			addItemType,
+			addItemNote,
+		} = this.state;
 		console.log('!!!!');
 		if (this.state.addItemName.length > 0) {
 			if (+this.state.addItemQuantity > 0) {
-				await this.props.addItem(id, addItemName, addItemQuantity, addItemType);
+				await this.props.addItem(
+					id,
+					addItemName,
+					addItemQuantity,
+					addItemType,
+					addItemNote
+				);
 				this.setState({
 					openPopup: false,
 					addItemName: '',
 					addItemType: '',
 					addItemQuantity: '',
+					addItemNote: '',
 				});
 				this.populateFields();
 			}
@@ -278,6 +285,18 @@ class MyList extends Component {
 													</Form.Field>
 												</Form.Group>
 												<Form.Group>
+													<Form.Field>
+														<label> Note</label>
+														<Input
+															placeholder="type"
+															width="6"
+															onChange={this.handleAddChange}
+															value={this.state.addItemNote}
+															name="addItemNote"
+														/>
+													</Form.Field>
+												</Form.Group>
+												<Form.Group>
 													<Button type="button" onClick={this.addItemButton}>
 														Submit
 													</Button>
@@ -334,8 +353,8 @@ const mapDispatchToProps = dispatch => {
 			dispatch(updateListQuantityThunk(uuid, updatedItems)),
 		setIngredients: () => dispatch(setIngredientsThunk()),
 		createIngredient: name => dispatch(createIngredientThunk(name)),
-		addItem: (uuid, ingredient, quantity, type) =>
-			dispatch(addItemToListThunk(uuid, ingredient, quantity, type)),
+		addItem: (uuid, ingredient, quantity, type, note) =>
+			dispatch(addItemToListThunk(uuid, ingredient, quantity, type, note)),
 	};
 };
 

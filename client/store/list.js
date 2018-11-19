@@ -30,12 +30,13 @@ const updateListItems = updatedItems => ({
 	updatedItems,
 });
 
-const addItemToList = (uuid, ingredient, quantity, type) => ({
+const addItemToList = (uuid, ingredient, quantity, type, note) => ({
 	type: ADD_ITEM_TO_LIST,
 	uuid,
 	ingredient,
 	quantity,
 	ingredientType: type,
+	note,
 });
 /**
  * THUNK CREATORS
@@ -61,10 +62,7 @@ export const removeListItemThunk = (uuid, ingredient) => async dispatch => {
 	}
 };
 
-export const updateListQuantityThunk = (
-	uuid,
-	updatedItems
-) => async dispatch => {
+export const updateListQuantityThunk = (uuid, updatedItems) => dispatch => {
 	try {
 		updatedItems.forEach(async update => {
 			console.log('attempt ', update);
@@ -85,7 +83,8 @@ export const addItemToListThunk = (
 	uuid,
 	ingredient,
 	quantity,
-	type
+	type,
+	note
 ) => async dispatch => {
 	try {
 		await axios.put('/api/lists/addingredient', {
@@ -93,8 +92,9 @@ export const addItemToListThunk = (
 			ingredient,
 			quantity,
 			type,
+			note,
 		});
-		dispatch(addItemToList(uuid, ingredient, quantity, type));
+		dispatch(addItemToList(uuid, ingredient, quantity, type, note));
 	} catch (err) {
 		console.error(err);
 	}
@@ -129,8 +129,13 @@ export default function(state = defaultList, action) {
 			//NEED TO make this accurate
 		}
 		case ADD_ITEM_TO_LIST: {
-			const { ingredient, quantity, ingredientType } = action;
-			const newItem = { name: ingredient, quantity, type: ingredientType };
+			const { ingredient, quantity, ingredientType, note } = action;
+			const newItem = {
+				name: ingredient,
+				quantity,
+				type: ingredientType,
+				note,
+			};
 			console.log(newItem);
 			const newState = { ...state };
 			const ingredients = [...newState.ingredients, newItem];
