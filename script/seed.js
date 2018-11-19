@@ -56,6 +56,7 @@ const recipeSeeder = async db => {
     // session.close();
 
     for (let recipe in db) {
+      console.log(db[recipe]['categories']);
       if (db.hasOwnProperty(recipe)) {
         const recipeObj = db[recipe];
         //create recipe node
@@ -149,6 +150,8 @@ const listSeeder = async () => {
     );
     await runQuery(
       `MATCH (l:List {uuid: '1111'})
+
+
 			MATCH(r:Recipe {name: '15 minute pasta'})
 			MATCH (r)-[z:hasIngredient]->(i)
       MERGE (l)-[newIngredient:hasIngredient]->(i)
