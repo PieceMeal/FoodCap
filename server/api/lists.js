@@ -61,10 +61,9 @@ router.get('/', async (req, res, next) => {
 	}
 });
 
-//GET (/api/lists)
+//GET (/api/lists/:listId)
 //expects: nothing required
-//returns the current logged in user (req.user)'s lists
-//returns ingredients
+//returns the details for one list
 
 //a: Person
 //l: list
@@ -85,23 +84,29 @@ router.get('/:listId', async (req, res, next) => {
 
 		const { name, uuid } = records[0].get('l').properties;
 		const returnObject = { name, uuid, ingredients: [], recipies: [] };
+
+		//switch the relationship type and do something different
+		//for each relationship (store recipe name or ingredients)
 		records.forEach(record => {
-			switch (record.get('r').type) {
-				case 'hasIngredient': {
-					const { type, quantity } = record.get('r').properties;
-					returnObject.ingredients.push({
-						name: record.get('x.name'),
-						type,
-						quantity,
-					});
-					break;
+			const rel = record.get('r');
+			if (rel.type) {
+				switch (rel.type) {
+					case 'hasIngredient': {
+						const { type, quantity } = record.get('r').properties;
+						returnObject.ingredients.push({
+							name: record.get('x.name'),
+							type,
+							quantity,
+						});
+						break;
+					}
+					case 'hasRecipe': {
+						returnObject.recipies.push(record.get('x.name'));
+						break;
+					}
+					default:
+						break;
 				}
-				case 'hasRecipe': {
-					returnObject.recipies.push(record.get('x.name'));
-					break;
-				}
-				default:
-					break;
 			}
 		});
 		res.json(returnObject);

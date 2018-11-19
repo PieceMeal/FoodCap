@@ -149,8 +149,6 @@ const listSeeder = async () => {
     );
     await runQuery(
       `MATCH (l:List {uuid: '1111'})
-
-
 			MATCH(r:Recipe {name: '15 minute pasta'})
 			MATCH (r)-[z:hasIngredient]->(i)
       MERGE (l)-[newIngredient:hasIngredient]->(i)

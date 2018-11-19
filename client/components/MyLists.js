@@ -3,27 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { setListsThunk } from '../store/lists';
-import { Button, Grid, Segment, Header, Divider } from 'semantic-ui-react';
 
-// let dummyData = [
-//   { name: 'turkey', unit: 'lb', quant: 5, id: 1 },
-//   {
-//     name: 'smoked streaky bacon',
-//     unit: 'pieces',
-//     quant: 6,
-//     id: 2,
-//     note: 'high-fat plox'
-//   },
-//   { name: 'sunflower oil', unit: null, quant: null, id: 3 },
-//   {
-//     name: 'flour',
-//     unit: 'oz',
-//     quant: 8,
-//     id: 4,
-//     note: '00 baking flour, preferably this brand'
-//   },
-//   { name: 'olive oil', unit: 'tbsp', quant: 8, id: 5 }
-// ];
+import { Button, Grid, Segment, Header, Divider } from 'semantic-ui-react';
 
 const mapStateToProps = state => {
 	const { lists } = state;
@@ -58,15 +39,19 @@ const style = {
 	},
 };
 
+const selectStyle = {
+	option: () => ({ padding: 50 }),
+	contorl: () => ({ width: 200 }),
+};
+
 class MyLists extends Component {
 	componentDidMount() {
 		console.log('MyLists Mount');
 		this.props.setLists();
 	}
 	render() {
-		let { lists } = this.props;
+		let { lists, ingredients } = this.props;
 
-		//DUMMY VERSION
 		return (
 			<div>
 				{this.props.lists.map(list => {
