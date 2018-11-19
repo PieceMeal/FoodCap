@@ -6,15 +6,27 @@
 	"salad": { "name": "Salad" },
 	"baking": { "name": "Baking" },
 	"hearty": { "name": "Hearty" },
-	"italian": { "name": "Italian" },
+	"meat" : { "name": "Meat"},
 	"comfort": { "name": "Comfort Food" },
 	"lowCal": { "name": "Low Calorie" },
 	"breakfast": { "name": "Breakfast" },
 	"dinner": { "name": "Dinnner" },
 	"appetizer": { "name": "Appetizer" },
 	"soup": { "name": "Soup" },
-	"indian": { "name": "Indian" },
-	"chinese": { "name": "Chinese" },
-	"mexican": { "name": "Mexican" },
-	"spanish": { "name": "Spanish" }
+	"roast" : {"name": "Roast"}
+	
+}
+,
+{
+"indian": { "name": "Indian" },
+"chinese": { "name": "Chinese" },
+"mexican": { "name": "Mexican" },
+"spanish": { "name": "Spanish" }
+"italian": { "name": "Italian" },
+"german" : {"name" : "German"},
+"japanese" : {"name" : "Japanese"},
+"american" : { "name" : "American"},
+"british" : {"name" : "British"},
+"french": {"name": "French"}
+
 }
