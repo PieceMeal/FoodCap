@@ -55,7 +55,6 @@ export const auth = (email, password, method) => async dispatch => {
     } else {
       dispatch(getUser(res.data))
     }
-    console.log(res.data)
     if (!res.data.formFilled) {
     history.push('/home/preferences')
     } else {
@@ -78,6 +77,7 @@ export const logout = () => async dispatch => {
 
 export const setPreference = (preferencesObj, userId) => async dispatch => {
   try {
+
     const {data} = await axios.put(`/api/users/${userId}`, preferencesObj)
     dispatch(updateUser(data.user, data.recipes))
   } catch (err) {
