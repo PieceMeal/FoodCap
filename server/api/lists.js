@@ -86,7 +86,6 @@ router.get('/:listId', async (req, res, next) => {
 		//for each relationship (store recipe name or ingredients)
 		records.forEach(record => {
 			const rel = record.get('r');
-			console.log(record.get('x'));
 			if (rel) {
 				switch (rel.type) {
 					case 'hasIngredient': {
@@ -142,7 +141,7 @@ router.put('/addrecipe', async (req, res, next) => {
 
 		const { records } = await runQuery(
 			`MATCH (l:List {uuid: '${uuid}'})
-      MATCH(r:Recipe {name: '${recipe}'})
+      MATCH(r:Recipe {name: "${recipe}"})
       MATCH (r)-[z:hasIngredient]->(i)
       MERGE (l)-[newIngredient:hasIngredient]->(i)
       MERGE (l)-[:hasRecipe]->(r)
@@ -291,6 +290,35 @@ router.put('/updatenote', async (req, res, next) => {
 		);
 
 		res.json({ records });
+	} catch (err) {
+		next(err);
+	}
+});
+
+//PUT (/api/lists/resolve)
+//expects: req.body.uuid to match the uuid of list
+//				 req.body.ingredient to match name of ingredient
+//         req.body.quantity to be new quantity
+//         req.body.type to be new type
+router.put('/resolve', async (req, res, next) => {
+	try {
+		const { uuid, ingredient, quantity, type } = req.body;
+
+		const { records } = await runQuery(
+			`
+		MATCH (l:List {uuid: $uuid})-[r:hasIngredient]->(i:Ingredient {name: $ingredient})
+		DELETE r
+		MERGE (l)-[:hasIngredient{quantity: $quantity, type:$type}]->(i)
+		`,
+			{
+				userID: req.user.uuid,
+				uuid,
+				ingredient,
+				quantity,
+				type,
+			}
+		);
+		res.json({ status: true });
 	} catch (err) {
 		next(err);
 	}
