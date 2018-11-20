@@ -35,6 +35,10 @@ class Preference extends React.Component {
     }
   };
 
+  handleDrop = (name, type) => {
+    this.state[`${type}`].push(name)
+  }
+
   cuisines = [
     "chinese",
     "italian",
@@ -80,9 +84,24 @@ class Preference extends React.Component {
             <Navbar />
             <Form onSubmit={this.handleSubmit} >
                 <div className="drag_things_to_boxes">
-                <PrefCard name="Cuisines" items={this.cuisines} />
-                <PrefCard name="Ingredients" items={this.ingredients} />
-                <PrefCard name="Categories" items={this.categories} />
+                <PrefCard
+                  name="Cuisines"
+                  items={this.cuisines}
+                  handleDrop={this.handleDrop}
+                  type="favCuisines"
+                />
+                <PrefCard
+                  name="Ingredients"
+                  items={this.ingredients}
+                  handleDrop={this.handleDrop}
+                  type="favIngredients"
+                />
+                <PrefCard
+                  name="Categories"
+                  items={this.categories}
+                  handleDrop={this.handleDrop}
+                  type="favCategory"
+                />
                 </div>
                 <Button type="submit">Submit</Button>
             </Form>

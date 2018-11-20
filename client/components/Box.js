@@ -59,8 +59,18 @@ export default class Box extends React.Component {
                 <div className="box">
                   {this.state.items.map((item, index) => {
                     return (
-                      <BoxItem key={item.uid} uid={item.uid} kill={this.kill} index={index} swap={this.swap}>
+                      <BoxItem
+                        key={item.uid}
+                        uid={item.uid}
+                        kill={this.kill}
+                        index={index}
+                        swap={this.swap}>
                         {item.label}
+                        <button
+                          type="button"
+                          onClick={() => this.props.handleX(item)}
+                        > X
+                        </button>
                       </BoxItem>
                     )
                   })}

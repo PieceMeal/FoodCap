@@ -10,11 +10,7 @@ export default class Boxable extends React.Component {
             targetKey={this.props.targetKey}
             dragData={{label: this.props.label}}
             customDragElement={this.props.customDragElement}
-            onDragStart={()=>(console.log('start'))}
-            onDrag={()=>(console.log('dragging'))}
-            onDragEnd={()=>(console.log('end'))}
-            onDrop={(e)=>(console.log(e))}
-
+            onDrop={(e) => (this.props.handleDrop(e.dragData.label, this.props.type))}
           >
             <Label height="45">{this.props.label}</Label>
           </DragDropContainer>
