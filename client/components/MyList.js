@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-
+import Navbar from './navbar';
+import { Link } from 'react-router-dom';
 import {
 	Button,
-	Grid,
-	Segment,
+	Icon,
 	Header,
 	Divider,
 	Input,
 	Popup,
 	Form,
+	Card,
+	Image,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
@@ -17,12 +19,14 @@ import {
 	removeListItemThunk,
 	updateListQuantityThunk,
 	addItemToListThunk,
+	addNoteThunk,
 } from '../store/list';
 import {
 	setIngredientsThunk,
 	createIngredientThunk,
 } from '../store/ingredients';
 
+import { RecipeCard } from './';
 const style = {
 	h3: {
 		padding: '2em 0em',
@@ -55,6 +59,8 @@ class MyList extends Component {
 			addItemQuantity: '',
 			addItemNote: '',
 			openPopup: false,
+			itemNote: '',
+			itemNotePopup: [],
 		};
 	}
 	async componentDidMount() {
@@ -87,6 +93,7 @@ class MyList extends Component {
 					name: ingredient.name,
 					quantity: this.state.ingredients[ingredient.name],
 					type: ingredient.type,
+					note: ingredient.note,
 				});
 			}
 		});
@@ -145,7 +152,6 @@ class MyList extends Component {
 			addItemType,
 			addItemNote,
 		} = this.state;
-		console.log('!!!!');
 		if (this.state.addItemName.length > 0) {
 			if (+this.state.addItemQuantity > 0) {
 				await this.props.addItem(
@@ -167,10 +173,27 @@ class MyList extends Component {
 		}
 	};
 
+	toggleNotePopup = i => {
+		const pops = [...this.state.itemNotePopup];
+		pops[i] = !pops[i];
+		const itemNote = pops[i] ? this.props.list.ingredients[i].note || '' : '';
+		this.setState({ itemNotePopup: pops, itemNote });
+	};
+
+	saveNote = async (fieldId, ingredient) => {
+		const { id } = this.props.match.params;
+		const newIngreds = [...this.state.ingredients];
+
+		await this.props.addNote(id, ingredient, this.state.itemNote);
+		this.toggleNotePopup(fieldId);
+
+		console.log(id, fieldId, ingredient, this.state.itemNote);
+	};
 	populateFields = () => {
 		const newState = { ...this.state };
-		this.props.list.ingredients.forEach(ingredient => {
+		this.props.list.ingredients.forEach((ingredient, i) => {
 			newState.ingredients[ingredient.name] = ingredient.quantity;
+			newState.itemNotePopup[i] = false;
 		});
 		this.setState(newState);
 	};
@@ -181,154 +204,212 @@ class MyList extends Component {
 		}
 
 		const list = this.props.list;
-		const ingredients = list.ingredients;
-
+		const { ingredients, recipes } = list;
+		console.log(recipes);
 		if (ingredients) {
 			return (
-				<div style={style.wholeTray}>
-					<Header
-						as="h3"
-						content="Your Tray"
-						style={style.h3}
-						textAlign="center"
-					/>
-					<Divider />
+				<React.Fragment>
+					<Navbar />
 
-					<table className="ui inverted olive table">
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Amount</th>
-								<th>Notes</th>
-								<th />
-							</tr>
-						</thead>
-						<tbody>
-							{ingredients.length
-								? ingredients.map((ingredient, i) => {
-										return (
-											<tr key={i}>
-												<td>
-													<b>{ingredient.name}</b>
-												</td>
-												<td>
-													<Input
-														name={ingredient.name}
-														label={{ basic: true, content: ingredient.type }}
-														labelPosition="right"
-														value={this.state.ingredients[ingredient.name]}
-														onChange={this.handleChange}
-														disabled={this.state.disableForm}
-													/>
-												</td>
-												<td>{ingredient.note ? ingredient.note : null}</td>
-												<td>
-													<button
-														style={style.listButtons}
-														type="button"
-														onClick={() =>
-															this.handleRemoveItem(list.uuid, ingredient.name)
-														}
-													>
-														Take off shopping list
-													</button>
-												</td>
-											</tr>
-										);
-								  })
-								: null}
-							<tr>
-								<td>
-									<Popup
-										trigger={<Button icon="add" />}
-										on="click"
-										style={{ width: '300px' }}
-										onOpen={this.handleFetchIngredients}
-										onClose={this.handleClosePopup}
-										open={this.state.openPopup}
-									>
-										<Popup.Content>
-											<Form>
-												<Form.Group>
-													<Form.Dropdown
-														search
-														selection
-														allowAdditions
-														disabled={this.state.disableForm}
-														placeholder="Choose Ingredient"
-														value={this.state.addItemName}
-														options={this.state.ingredientsOptions}
-														onAddItem={this.handleCreate}
-														onChange={this.ingredientSelect}
-													/>
-												</Form.Group>
-												<Form.Group>
-													<Form.Field>
-														<label> #</label>
-														<Input
-															placeholder="#"
-															width="1"
-															onChange={this.handleAddChange}
-															value={this.state.addItemQuantity}
-															name="addItemQuantity"
-														/>
-													</Form.Field>
-													<Form.Field>
-														<label> Type</label>
-														<Input
-															placeholder="type"
-															width="6"
-															onChange={this.handleAddChange}
-															value={this.state.addItemType}
-															name="addItemType"
-														/>
-													</Form.Field>
-												</Form.Group>
-												<Form.Group>
-													<Form.Field>
-														<label> Note</label>
-														<Input
-															placeholder="type"
-															width="6"
-															onChange={this.handleAddChange}
-															value={this.state.addItemNote}
-															name="addItemNote"
-														/>
-													</Form.Field>
-												</Form.Group>
-												<Form.Group>
-													<Button type="button" onClick={this.addItemButton}>
-														Submit
-													</Button>
-												</Form.Group>
-											</Form>
-										</Popup.Content>
-									</Popup>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+					<div style={style.wholeTray}>
+						<Header
+							as="h3"
+							content="Your Tray"
+							style={style.h3}
+							textAlign="center"
+						/>
+						<Card.Group centered itemsPerRow={4}>
+							{recipes.map(recipe => {
+								return (
+									<RecipeCard key={recipe.name} recipe={recipe} />
+									// <Card key={recipe.name}>
+									// 	<Link to={`/recipes/singleview/${recipe.name}`}>
+									// 		<Image src={recipe.image} />
+									// 	</Link>
 
-					<Divider />
-					<span>
-						<Button animated style={{ backgroundColor: 'red' }}>
-							<Button.Content visible>
-								<i aria-hidden="true" className="trash alternate icon" />
-							</Button.Content>
-							<Button.Content hidden>Delete</Button.Content>
-						</Button>
-						<Button
-							animated
-							style={{ backgroundColor: 'green' }}
-							onClick={() => this.handleUpdate(list.uuid)}
-						>
-							<Button.Content visible>
-								<i aria-hidden="true" className="trash alternate icon" />
-							</Button.Content>
-							<Button.Content hidden>Update </Button.Content>
-						</Button>
-					</span>
-				</div>
+									// 	<Card.Content>
+									// 		<Card.Header>{recipe.name}</Card.Header>
+									// 	</Card.Content>
+									// </Card>
+								);
+							})}
+						</Card.Group>
+						<Divider />
+
+						<table className="ui inverted olive table">
+							<thead>
+								<tr>
+									<th>Item</th>
+									<th>Amount</th>
+									<th>Notes</th>
+									<th />
+								</tr>
+							</thead>
+							<tbody>
+								{ingredients.length
+									? ingredients.map((ingredient, i) => {
+											return (
+												<tr key={i}>
+													<td>
+														<b>{ingredient.name}</b>
+													</td>
+													<td>
+														<Input
+															name={ingredient.name}
+															label={ingredient.type || false}
+															labelPosition="right corner"
+															value={this.state.ingredients[ingredient.name]}
+															onChange={this.handleChange}
+															disabled={this.state.disableForm}
+														/>
+													</td>
+													<td>{ingredient.note ? ingredient.note : null}</td>
+													<td>
+														<Button
+															size="mini"
+															negative
+															floated="right"
+															icon={<Icon name="remove circle" />}
+															onClick={() =>
+																this.handleRemoveItem(
+																	list.uuid,
+																	ingredient.name
+																)
+															}
+														/>
+														<Popup
+															on="click"
+															onOpen={() => this.toggleNotePopup(i)}
+															onClose={() => this.toggleNotePopup(i)}
+															open={this.state.itemNotePopup[i]}
+															trigger={
+																<Button
+																	size="mini"
+																	floated="right"
+																	positive
+																	icon={<Icon name="sticky note outline" />}
+																/>
+															}
+															style={{ width: '300px' }}
+														>
+															<Popup.Content>
+																<Form>
+																	<Input
+																		placeholder="note"
+																		width="1"
+																		onChange={this.handleAddChange}
+																		value={this.state.itemNote}
+																		name="itemNote"
+																	/>
+																	<Button
+																		size="mini"
+																		positive
+																		icon={<Icon name="save" />}
+																		onClick={() =>
+																			this.saveNote(i, ingredient.name)
+																		}
+																	/>
+																</Form>
+															</Popup.Content>
+														</Popup>
+													</td>
+												</tr>
+											);
+									  })
+									: null}
+								<tr>
+									<td>
+										<Popup
+											trigger={<Button icon="add" />}
+											on="click"
+											style={{ width: '300px' }}
+											onOpen={this.handleFetchIngredients}
+											onClose={this.handleClosePopup}
+											open={this.state.openPopup}
+										>
+											<Popup.Content>
+												<Form>
+													<Form.Group>
+														<Form.Dropdown
+															search
+															selection
+															allowAdditions
+															disabled={this.state.disableForm}
+															placeholder="Choose Ingredient"
+															value={this.state.addItemName}
+															options={this.state.ingredientsOptions}
+															onAddItem={this.handleCreate}
+															onChange={this.ingredientSelect}
+														/>
+													</Form.Group>
+													<Form.Group>
+														<Form.Field>
+															<label> #</label>
+															<Input
+																placeholder="#"
+																width="1"
+																onChange={this.handleAddChange}
+																value={this.state.addItemQuantity}
+																name="addItemQuantity"
+															/>
+														</Form.Field>
+														<Form.Field>
+															<label> Type</label>
+															<Input
+																placeholder="type"
+																width="6"
+																onChange={this.handleAddChange}
+																value={this.state.addItemType}
+																name="addItemType"
+															/>
+														</Form.Field>
+													</Form.Group>
+													<Form.Group>
+														<Form.Field>
+															<label> Note</label>
+															<Input
+																placeholder="type"
+																width="6"
+																onChange={this.handleAddChange}
+																value={this.state.addItemNote}
+																name="addItemNote"
+															/>
+														</Form.Field>
+													</Form.Group>
+													<Form.Group>
+														<Button type="button" onClick={this.addItemButton}>
+															Submit
+														</Button>
+													</Form.Group>
+												</Form>
+											</Popup.Content>
+										</Popup>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<Divider />
+						<span>
+							<Button animated style={{ backgroundColor: 'red' }}>
+								<Button.Content visible>
+									<i aria-hidden="true" className="trash alternate icon" />
+								</Button.Content>
+								<Button.Content hidden>Delete</Button.Content>
+							</Button>
+							<Button
+								animated
+								style={{ backgroundColor: 'green' }}
+								onClick={() => this.handleUpdate(list.uuid)}
+							>
+								<Button.Content visible>
+									<i aria-hidden="true" className="trash alternate icon" />
+								</Button.Content>
+								<Button.Content hidden>Update </Button.Content>
+							</Button>
+						</span>
+					</div>
+				</React.Fragment>
 			);
 		} else {
 			return <div>LOADING</div>;
@@ -355,6 +436,8 @@ const mapDispatchToProps = dispatch => {
 		createIngredient: name => dispatch(createIngredientThunk(name)),
 		addItem: (uuid, ingredient, quantity, type, note) =>
 			dispatch(addItemToListThunk(uuid, ingredient, quantity, type, note)),
+		addNote: (uuid, ingredient, note) =>
+			dispatch(addNoteThunk(uuid, ingredient, note)),
 	};
 };
 
