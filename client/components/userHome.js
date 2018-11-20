@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
 import ListPreview from './ListPreview';
 import { connect } from 'react-redux';
+import Navbar from './navbar'
 import {
 	Container,
 	Header,
@@ -23,7 +24,6 @@ import {
 	setListsThunk,
 	addRecipeToListThunk,
 } from '../store/lists';
-import Navbar from './navbar'
 
 /**
  * COMPONENT
@@ -78,8 +78,8 @@ class UserHome extends React.Component {
 		const disableSubmitButton = Object.keys(this.state.checked).length;
 		if (this.props.recipes) {
 			return (
-				<div>
-					<Navbar />
+        <div>
+        <Navbar />
 					<Container>
 						<div>
 							<Header as="h2" icon textAlign="center">
@@ -160,7 +160,7 @@ class UserHome extends React.Component {
 							</Grid.Row>
 						</Grid>
 					</Container>
-				</div>
+        </div>
 			);
 		} else {
 			//loading page ??
@@ -168,6 +168,7 @@ class UserHome extends React.Component {
 		}
 	}
 }
+
 /**
  * CONTAINER
  */
