@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logout } from '../store';
-import { Menu, Input, Icon, Form} from 'semantic-ui-react';
+import { Link } from 'react-router-dom'
+import { Menu, Input, Icon, Form } from 'semantic-ui-react';
 
 
 class Navbar extends React.Component {
@@ -33,16 +34,12 @@ class Navbar extends React.Component {
 			return (
 				<Menu>
 
-					<Menu.Item name='home' active={active === 'home'} onClick={this.handleItemClick}>
+					<Menu.Item as={Link} to='/home' name='home' active={active === 'home'} onClick={this.handleItemClick}>
           	Home
      			</Menu.Item>
 
-					<Menu.Item name='preferences' active={active === 'preferences'} onClick={this.handleItemClick}>
+					<Menu.Item as={Link} to='/home/preferences'name='preferences' active={active === 'preferences'} onClick={this.handleItemClick}>
           	My Preferences
-     			</Menu.Item>
-
-					 <Menu.Item name='account' active={active === 'account'} onClick={this.handleItemClick}>
-          	My Account
      			</Menu.Item>
 
 					<Menu.Item >
