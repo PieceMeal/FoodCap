@@ -15,7 +15,7 @@ export default class Box extends React.Component {
       let items = this.state.items.slice();
       items.push({label: e.dragData.label, uid: shortid.generate()});
       this.setState({items: items});
-      e.containerElem.style.visibility="hidden";
+      e.containerElem.style.visibility = "hidden";
     };
 
     swap = (fromIndex, toIndex, dragData) => {
@@ -25,7 +25,8 @@ export default class Box extends React.Component {
       this.setState({items: items});
     };
 
-    kill = (uid) => {
+    kill = (item, uid) => {
+      this.props.handleX(item)
       let items = this.state.items.slice();
       const index = items.findIndex((item) => {
         return item.uid == uid
@@ -37,11 +38,7 @@ export default class Box extends React.Component {
     };
 
     render() {
-      /*
-          Note the two layers of DropTarget.
-          This enables it to handle dropped items from
-          outside AND items dragged between boxes.
-      */
+
       return (
         <div className="component_box">
             <DropTarget
@@ -68,7 +65,7 @@ export default class Box extends React.Component {
                         {item.label}
                         <button
                           type="button"
-                          onClick={() => this.props.handleX(item)}
+                          onClick={() => this.kill(item, item.uid)}
                         > X
                         </button>
                       </BoxItem>
