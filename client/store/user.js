@@ -51,14 +51,15 @@ export const auth = (email, password, method) => async dispatch => {
       let user = res.data.user
       user['recipes'] = res.data.recipes
       dispatch(getUser(user))
+      console.log('DATAAA', res.data)
     } else {
       dispatch(getUser(res.data))
     }
-    if(method === 'signup') {
+    if (method === 'signup') {
       history.push('/home/preferences');
     }
     else if (!res.data.user.formFilled) {
-    history.push('/home/preferences')
+      history.push('/home/preferences')
     } else {
       history.push('/home')
     }

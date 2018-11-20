@@ -15,7 +15,85 @@ nav a {
   margin: 1em;
 }
 
-/* form div {
-  margin: 1em;
-  display: inline-block;
-} */
+.box_item_component .outer {
+  border-top: none;
+  min-width: 140px;
+  max-width: 140px;
+  overflow: hidden;
+}
+
+.box_item_component .highlighted .outer {
+  border-top: 40px solid #ddd;
+}
+
+.box_item_component .item {
+  color: black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 3px;
+  background-color: white;
+  border: 2px solid green
+}
+
+.box_item_component .grabber {
+  font-size: 14px;
+  font-weight: bold;
+  padding-right: 6px;
+}
+
+.drag_things_to_boxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* individual row */
+.drag_things_to_boxes .boxes {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.drag_things_to_boxes .boxes h3 {
+  width: 110px
+}
+
+/* individual label */
+.drag_things_to_boxes .boxable_component {
+  flex-grow: 1;
+  align-self: center;
+}
+
+/* options box */
+.drag_things_to_boxes .options {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: white;
+  border-radius: 4px;
+  width: 200px;
+  height: 500px;
+  border-style: solid
+}
+
+/* drop target box */
+.drag_things_to_boxes .component_box {
+  width: 200px;
+  flex-wrap: wrap;
+}
+
+
+.drag_things_to_boxes .box {
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgb(12, 54, 54);
+  border-radius: 4px;
+  width: 200px;
+  height: 500px;
+}
+
+.drag_things_to_boxes .highlighted .box {
+box-shadow: inset 0 0 4px #00f;
+}

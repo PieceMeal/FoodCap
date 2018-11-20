@@ -10,16 +10,16 @@ class Navbar extends React.Component{
 	state={
 		value:''
 	}
-	handleChange = (e) => {
-		console.log('we are getting this from navbar----->>', this.state.value)
-		this.setState({value: e.target.value})
-	}
-	handleSubmit = async(e) => {
-		console.log('is this happenign??')
-		e.preventDefault()
-		const {data} = await axios.get(`/api/recipes?key=${this.state.value}`)
-		console.log('data from axios.get recipes', data)
-	}
+	// handleChange = (e) => {
+	// 	console.log('we are getting this from navbar----->>', this.state.value)
+	// 	this.setState({value: e.target.value})
+	// }
+	// handleSubmit = async(e) => {
+	// 	console.log('is this happenign??')
+	// 	e.preventDefault()
+	// 	const {data} = await axios.get(`/api/recipes?key=${this.state.value}`)
+	// 	console.log('data from axios.get recipes', data)
+	// }
 
 	render(){
 		return(
