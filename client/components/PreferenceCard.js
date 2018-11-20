@@ -4,12 +4,8 @@ import Box from "./Box";
 
 const PrefCard = props => {
   return (
-    <div>
-      <div className="headers">
-        <h3>Favorite {props.name}:</h3>
-        <br />
-      </div>
-      <div className="boxes">
+    <div className="boxes">
+      <h3>Favorite {props.name}:</h3>
         <div className="options">
           {props.items.map(item => {
           return (
@@ -18,7 +14,6 @@ const PrefCard = props => {
           })}
         </div>
         <Box targetKey={props.name} />
-      </div>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-var shortid = require('shortid')
+const shortid = require('shortid')
 import { DropTarget } from 'react-drag-drop-container';
 import BoxItem from './BoxItem';
 

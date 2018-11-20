@@ -15,16 +15,6 @@ nav a {
   margin: 1em;
 }
 
-/* form div {
-  margin: 1em;
-  display: inline-block;
-} */
-
-
-.box_item_component {
-  width: 100%;
-}
-
 .box_item_component .outer {
   border-top: none;
   min-width: 140px;
@@ -51,31 +41,57 @@ nav a {
   padding-right: 6px;
 }
 
+.drag_things_to_boxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* individual row */
 .drag_things_to_boxes .boxes {
-  display: flex
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
 }
 
-.drag_things_to_boxes .headers {
-  display: flex
+.drag_things_to_boxes .boxes h3 {
+  width: 110px
 }
 
-.drag_things_to_boxes .component_box {
-  flex: 50%
+/* individual label */
+.drag_things_to_boxes .boxable_component {
+  flex-grow: 1;
+  align-self: center;
 }
 
+/* options box */
 .drag_things_to_boxes .options {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   background: white;
   border-radius: 4px;
-  width: 25%;
-  height: 200px;
+  width: 200px;
+  height: 500px;
   border-style: solid
 }
 
+/* drop target box */
+.drag_things_to_boxes .component_box {
+  width: 200px;
+  flex-wrap: wrap;
+}
+
+
 .drag_things_to_boxes .box {
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   background: rgb(12, 54, 54);
   border-radius: 4px;
-  width: 50%;
-  height: 200px;
+  width: 200px;
+  height: 500px;
 }
 
 .drag_things_to_boxes .highlighted .box {

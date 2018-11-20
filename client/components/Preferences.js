@@ -81,11 +81,8 @@ class Preference extends React.Component {
             <Form onSubmit={this.handleSubmit} >
                 <div className="drag_things_to_boxes">
                 <PrefCard name="Cuisines" items={this.cuisines} />
-                <br />
                 <PrefCard name="Ingredients" items={this.ingredients} />
-                <br />
                 <PrefCard name="Categories" items={this.categories} />
-                <br />
                 </div>
                 <Button type="submit">Submit</Button>
             </Form>

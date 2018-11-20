@@ -24,7 +24,6 @@ import {
 	setListsThunk,
 	addRecipeToListThunk,
 } from '../store/lists';
-import Navbar from './navbar'
 
 /**
  * COMPONENT
@@ -81,23 +80,6 @@ class UserHome extends React.Component {
 			return (
         <div>
         <Navbar />
-				<Container>
-					<div>
-						<Header as="h2" icon textAlign="center">
-							<Icon name="users" circular />
-							<Header.Content>Hello {this.props.email}</Header.Content>
-						</Header>
-						<Form onSubmit={this.handleSubmit}>
-							<Input
-								size="large"
-								icon="add"
-								placeholder="create new list..."
-								onChange={this.handleChange}
-								value={this.state.listName}
-							/>
-						</Form>
-					</div>
-					<Divider />
 					<Container>
 						<div>
 							<Header as="h2" icon textAlign="center">
@@ -161,26 +143,6 @@ class UserHome extends React.Component {
 																		>
 																			Submit
 																	</Button>
-<<<<<<< HEAD
-																</Form>
-															}
-															on="click"
-														/>
-													) : (
-														<Button icon="x" />
-													)}
-												</Container>
-												<Card.Meta>Time: {rec.time}</Card.Meta>
-											</Card.Content>
-										</Card>
-									</Grid.Column>
-								);
-							})}
-						</Grid.Row>
-					</Grid>
-				</Container>
-        </div>
-=======
 																	</Form>
 																}
 																on="click"
@@ -198,8 +160,7 @@ class UserHome extends React.Component {
 							</Grid.Row>
 						</Grid>
 					</Container>
-				</div>
->>>>>>> master
+        </div>
 			);
 		} else {
 			//loading page ??
@@ -207,6 +168,7 @@ class UserHome extends React.Component {
 		}
 	}
 }
+
 /**
  * CONTAINER
  */
