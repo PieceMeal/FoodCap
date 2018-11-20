@@ -56,7 +56,6 @@ const recipeSeeder = async db => {
     // session.close();
 
     for (let recipe in db) {
-      // console.log(db[recipe]['categories']);
       if (db.hasOwnProperty(recipe)) {
         const recipeObj = db[recipe];
         //create recipe node
@@ -93,26 +92,33 @@ const recipeSeeder = async db => {
             );
             // session.close();
           }
-		}
-		const categoriesObj = recipeObj.categories;
+        }
+        const categoriesObj = recipeObj.categories;
 
-		for(let category in categoriesObj) {
-
-			if(categoriesObj.hasOwnProperty(category)){
-				await runQuery(`MERGE (a:Category {name: "${categoriesObj[category]}"})`)
-				await runQuery(`MATCH (a:Recipe {name: "${recipe}"}), (b:Category {name: "${categoriesObj[category]}"})
-				MERGE (a)-[:belongsToCategory]->(b)`)
-			}
-		}
-		const cuisineObj = recipeObj.cuisine
-		for(let cuisine in cuisineObj) {
-			console.log('we are in cuisine forloop', cuisineObj)
-			if(cuisineObj.hasOwnProperty(cuisine)){
-				await runQuery(`MERGE (a:Cuisine {name: "${cuisineObj[cuisine]}"})`)
-				await runQuery(`MATCH (a:Recipe {name: "${recipe}"}), (b:Cuisine {name: "${cuisineObj[cuisine]}"})
-				MERGE (a) -[:belongsToCuisine]->(b)`)
-			}
-		}
+        for (let category in categoriesObj) {
+          if (categoriesObj.hasOwnProperty(category)) {
+            await runQuery(
+              `MERGE (a:Category {name: "${categoriesObj[category]}"})`
+            );
+            await runQuery(`MATCH (a:Recipe {name: "${recipe}"}), (b:Category {name: "${
+              categoriesObj[category]
+            }"})
+				MERGE (a)-[:belongsToCategory]->(b)`);
+          }
+        }
+        const cuisineObj = recipeObj.cuisine;
+        for (let cuisine in cuisineObj) {
+          console.log('we are in cuisine forloop', cuisineObj);
+          if (cuisineObj.hasOwnProperty(cuisine)) {
+            await runQuery(
+              `MERGE (a:Cuisine {name: "${cuisineObj[cuisine]}"})`
+            );
+            await runQuery(`MATCH (a:Recipe {name: "${recipe}"}), (b:Cuisine {name: "${
+              cuisineObj[cuisine]
+            }"})
+				MERGE (a) -[:belongsToCuisine]->(b)`);
+          }
+        }
         // session.close();
       }
     }
@@ -169,8 +175,6 @@ const listSeeder = async () => {
     );
     await runQuery(
       `MATCH (l:List {uuid: '1111'})
-
-
 			MATCH(r:Recipe {name: '15 minute pasta'})
 			MATCH (r)-[z:hasIngredient]->(i)
       MERGE (l)-[newIngredient:hasIngredient]->(i)
