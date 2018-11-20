@@ -26,7 +26,7 @@ import {
 	createIngredientThunk,
 } from '../store/ingredients';
 
-import { ProductCard } from './';
+import { RecipeCard } from './';
 const style = {
 	h3: {
 		padding: '2em 0em',
