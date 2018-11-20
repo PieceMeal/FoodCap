@@ -6,6 +6,7 @@ const database = require('./database.json');
 let { session, driver, runQuery } = require('../server/db/neo');
 let random = require('random-name');
 
+
 const testRecipe = {
 	'Sixteen-minute pizza': {
 		ingredients: {
@@ -42,45 +43,57 @@ const testRecipe = {
 
 //maps through json database and creates recipe nodes (run by seed function)
 const recipeSeeder = async db => {
-	try {
-		await runQuery('MATCH (n) DETACH DELETE n');
+  const testReview = {
+    title: 'An aweasome pasta!',
+    content: 'this was such a great choice, I am so happy with this recipe'
+  }
+  
+  try {
+    await runQuery('MATCH (n) DETACH DELETE n');
 
-		//check that recipe name is unique before creating the node
-		//we are not sure why it works, but it works
-		await runQuery(
-			`CREATE CONSTRAINT ON (recipe:Recipe) ASSERT recipe.name IS UNIQUE`
-		);
-		await runQuery(
-			`CREATE CONSTRAINT ON (ingredient:Ingredient) ASSERT ingredient.name IS UNIQUE`
-		);
-		// session.close();
+    //check that recipe name is unique before creating the node
+    //we are not sure why it works, but it works
+    await runQuery(
+      `CREATE CONSTRAINT ON (recipe:Recipe) ASSERT recipe.name IS UNIQUE`
+    );
+    await runQuery(
+      `CREATE CONSTRAINT ON (ingredient:Ingredient) ASSERT ingredient.name IS UNIQUE`
+    );
+    // session.close();
+    await runQuery(`MERGE (a:Review {title: $title, content: $content})`, {
+      title: testReview.title,
+      content: testReview.content
+    })
+  
 
-		for (let recipe in db) {
-			if (db.hasOwnProperty(recipe)) {
-				const recipeObj = db[recipe];
-				//create recipe node
-				await runQuery(
-					'MERGE (a:Recipe {name:$name, instructions:$instructions, time:$time, serves:$serves, image:$image}) RETURN a',
-					{
-						name: recipe, //string
-						instructions: recipeObj.method, //array of strings
-						time: recipeObj.time.totalMins, //string number
-						serves: recipeObj.serves,
-						image: recipeObj.image || '', //string
-					}
-				);
-				const ingredientsObj = recipeObj.ingredients;
-				for (let ingredient in ingredientsObj) {
-					if (ingredientsObj.hasOwnProperty(ingredient)) {
-						//create ingredient nodes that don't already exist
-						await runQuery('MERGE (b:Ingredient {name:$name}) RETURN b', {
-							name: ingredient,
-						});
-						// session.close();
+    for (let recipe in db) {
+      if (db.hasOwnProperty(recipe)) {
+        const recipeObj = db[recipe];
+        //create recipe node
+        await runQuery(
+          'MERGE (a:Recipe {name:$name, instructions:$instructions, time:$time, serves:$serves, image:$image}) RETURN a',
+          {
+            name: recipe, //string
+            instructions: recipeObj.method, //array of strings
+            time: recipeObj.time.totalMins, //string number
+            serves: recipeObj.serves,
+            image: recipeObj.image || '' //string
+          }
+        );
+        await runQuery(`MATCH (a:Recipe {name: "15 minute pasta"}), (b:Review)
+        MERGE (a)-[:hasReview]->(b)`)
+        const ingredientsObj = recipeObj.ingredients;
+        for (let ingredient in ingredientsObj) {
+          if (ingredientsObj.hasOwnProperty(ingredient)) {
+            //create ingredient nodes that don't already exist
+            await runQuery('MERGE (b:Ingredient {name:$name}) RETURN b', {
+              name: ingredient
+            });
+            // session.close();
 
-						//establish relationship between recipe and ingredient
-						await runQuery(
-							`MATCH (a:Recipe), (b:Ingredient)
+            //establish relationship between recipe and ingredient
+            await runQuery(
+              `MATCH (a:Recipe), (b:Ingredient)
             WHERE a.name = $aName AND b.name = $bName
             MERGE (a)-[r:hasIngredient {quantity: $quantity, type: $type} ]->(b) RETURN r`,
 							{
@@ -191,35 +204,43 @@ const listSeeder = async () => {
 };
 
 async function seed() {
-	try {
-		await db.sync({ force: true });
-		console.log('db synced!');
+  try {
+    await db.sync({ force: true });
+    console.log('db synced!');
 
-		const users = await Promise.all([
-			User.create({ email: 'cody@email.com', password: '123' }),
-			User.create({ email: 'murphy@email.com', password: '123' }),
-		]);
-		let userArr = [];
-		// Set # of users here
-		for (let i = 0; i <= 15; i++) {
-			let name = random.first();
-			name += '@email.com';
-			userArr.push(User.create({ email: name, password: '123' }));
-		}
-		await Promise.all(userArr);
-		console.log(`seeded ${users.length} users`);
-		console.log(`seeded successfully`);
-		await runQuery(
-			// CHANGE random num for more frequent likes
-			`match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .2 then [1] else [] end | merge (x)-[:HAS_FAVORITE]->(y))`
-		);
-		await runQuery(
-			// CHANGE random num for more frequent likes
-			`match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .3 then [1] else [] end | merge (x)-[:HAS_VIEWED]->(y))`
-		);
-	} catch (err) {
-		console.log(err);
-	}
+    const users = await Promise.all([
+      User.create({ email: 'cody@email.com', password: '123' }),
+      User.create({ email: 'murphy@email.com', password: '123' })
+    ]);
+    let userArr = [];
+    // Set # of users here
+    for (let i = 0; i <= 15; i++) {
+      let name = random.first();
+      name += '@email.com';
+      userArr.push(User.create({ email: name, password: '123' }));
+    }
+    await Promise.all(userArr);
+    console.log(`seeded ${users.length} users`);
+    console.log(`seeded successfully`);
+    await runQuery(
+      // CHANGE random num for more frequent likes
+      `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .2 then [1] else [] end | merge (x)-[:HAS_FAVORITE]->(y))`
+    );
+    await runQuery(
+      // CHANGE random num for more frequent likes
+      `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .3 then [1] else [] end | merge (x)-[:HAS_VIEWED]->(y))`
+    );
+    await runQuery(
+      // CHANGE random num for more frequent likes
+      `match (r:Category) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .4 then [1] else [] end | merge (x)-[:like]->(y))`
+    );
+    await runQuery(
+      // CHANGE random num for more frequent likes
+      `match (r:Cuisine) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .4 then [1] else [] end | merge (x)-[:like]->(y))`
+    );
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 // We've separated the `seed` function from the `runSeed` function.
