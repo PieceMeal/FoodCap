@@ -5,21 +5,41 @@ import { Link } from 'react-router-dom';
 import { logout } from '../store';
 import { Menu, Button, Image } from 'semantic-ui-react';
 
-const Navbar = ({ handleClick }) => (
-		<Menu>
-			<Menu.Item>
-				<Link to="/home">
-					<Image src='/logo.png' height="100" />
-				</Link>
-			</Menu.Item>
-			<Menu.Item position="right">
-				<Button onClick={handleClick} position="right" color="green" >
-					Log out
-				</Button>
-			</Menu.Item>
+class Navbar extends React.Component {
+	constructor() {
+		super()
+		this.state = {
+			active: ''
+		}
+	}
 
-		</Menu>
-);
+	handleItemClick = (e, { name }) => this.setState({ active: name })
+
+		render() {
+			const { active } = this.state
+			return (
+				<Menu>
+
+					<Menu.Item name='home' active={active === 'home'} onClick={this.handleItemClick}>
+          	Home
+     			</Menu.Item>
+
+					<Menu.Item name='preferences' active={active === 'preferences'} onClick={this.handleItemClick}>
+          	My Preferences
+     			</Menu.Item>
+
+					 <Menu.Item name='account' active={active === 'account'} onClick={this.handleItemClick}>
+          	My Account
+     			</Menu.Item>
+
+					<Menu.Item onClick={this.props.handleClick} position="right">
+						Log out
+					</Menu.Item>
+
+				</Menu>
+			)
+		}
+}
 
 const mapState = state => {
 	return {
