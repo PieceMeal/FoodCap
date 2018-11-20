@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { logout } from '../store';
-import { Menu, Button, Image, Input, Icon, Form} from 'semantic-ui-react';
+import { Menu, Input, Icon, Form} from 'semantic-ui-react';
 
 
 class Navbar extends React.Component {
@@ -48,7 +47,7 @@ class Navbar extends React.Component {
 
 					<Menu.Item >
 						<Form onSubmit={this.handleSubmit}>
-							<Input onChange={this.handleChange} icon={<Icon name='search' inverted circular link />} placeholder='Search...' value={this.state.value}/>
+							<Input onChange={this.handleChange} icon={<Icon name='search' inverted circular link />} placeholder='Search Recipes...' value={this.state.value}/>
 						</Form>
 					</Menu.Item>
 
