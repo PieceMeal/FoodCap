@@ -18,10 +18,9 @@ const defaultUser = {}
  */
 const getUser = (user) => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
-const updateUser = (user,recipes) => ({
+const updateUser = (user) => ({
   type: UPDATE_USER,
-  user,
-  recipes
+  user
 })
 const getRecipes = (recipes) => ({
   type: GET_RECIPES,
@@ -82,7 +81,7 @@ export const setPreference = (preferencesObj, userId) => async dispatch => {
   try {
 
     const {data} = await axios.put(`/api/users/${userId}`, preferencesObj)
-    dispatch(updateUser(data.user, data.recipes))
+    dispatch(getUser(data.user))
   } catch (err) {
     console.error(err)
   }
@@ -108,7 +107,7 @@ export default function(state = defaultUser, action) {
     case REMOVE_USER:
       return defaultUser
       case UPDATE_USER:
-      return {...state, formFilled: action.user.formFilled, recipes: action.recipes}
+      return {...state, formFilled: action.user.formFilled}
       case GET_RECIPES:
       return {...state, recipes: action.recipes}
     default:

@@ -74,7 +74,6 @@ class UserHome extends React.Component {
 		this.setState({ [name]: false });
 	};
 	render() {
-		console.log('lists should be like this', this.props.lists);
 		const disableSubmitButton = Object.keys(this.state.checked).length;
 		if (this.props.recipes) {
 			return (
@@ -174,7 +173,6 @@ class UserHome extends React.Component {
 const mapState = state => {
 	return {
 		email: state.user.email,
-
 		user: state.user,
 		recipes: state.user.recipes,
 		lists: state.lists,

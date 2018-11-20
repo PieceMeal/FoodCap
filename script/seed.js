@@ -6,6 +6,7 @@ const database = require('./database.json');
 let { session, driver, runQuery } = require('../server/db/neo');
 let random = require('random-name');
 
+
 const testRecipe = {
   'Sixteen-minute pizza': {
     ingredients: {
@@ -42,6 +43,11 @@ const testRecipe = {
 
 //maps through json database and creates recipe nodes (run by seed function)
 const recipeSeeder = async db => {
+  const testReview = {
+    title: 'An aweasome pasta!',
+    content: 'this was such a great choice, I am so happy with this recipe'
+  }
+  
   try {
     await runQuery('MATCH (n) DETACH DELETE n');
 
@@ -54,6 +60,11 @@ const recipeSeeder = async db => {
       `CREATE CONSTRAINT ON (ingredient:Ingredient) ASSERT ingredient.name IS UNIQUE`
     );
     // session.close();
+    await runQuery(`MERGE (a:Review {title: $title, content: $content})`, {
+      title: testReview.title,
+      content: testReview.content
+    })
+  
 
     for (let recipe in db) {
       if (db.hasOwnProperty(recipe)) {
@@ -69,6 +80,8 @@ const recipeSeeder = async db => {
             image: recipeObj.image || '' //string
           }
         );
+        await runQuery(`MATCH (a:Recipe {name: "15 minute pasta"}), (b:Review)
+        MERGE (a)-[:hasReview]->(b)`)
         const ingredientsObj = recipeObj.ingredients;
         for (let ingredient in ingredientsObj) {
           if (ingredientsObj.hasOwnProperty(ingredient)) {
@@ -209,6 +222,14 @@ async function seed() {
     await runQuery(
       // CHANGE random num for more frequent likes
       `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .3 then [1] else [] end | merge (x)-[:HAS_VIEWED]->(y))`
+    );
+    await runQuery(
+      // CHANGE random num for more frequent likes
+      `match (r:Category) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .4 then [1] else [] end | merge (x)-[:like]->(y))`
+    );
+    await runQuery(
+      // CHANGE random num for more frequent likes
+      `match (r:Cuisine) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .4 then [1] else [] end | merge (x)-[:like]->(y))`
     );
   } catch (err) {
     console.log(err);
