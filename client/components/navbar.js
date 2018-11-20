@@ -3,15 +3,29 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../store';
-import { Menu, Button, Image } from 'semantic-ui-react';
+import { Menu, Button, Image, Input, Icon, Form} from 'semantic-ui-react';
+
 
 class Navbar extends React.Component {
 	constructor() {
 		super()
 		this.state = {
-			active: ''
+			active: '',
+			value: ''
 		}
 	}
+
+	// handleChange = (e) => {
+	// 	console.log('we are getting this from navbar----->>', this.state.value)
+	// 	this.setState({value: e.target.value})
+	// }
+
+	// handleSubmit = async(e) => {
+	// 	console.log('is this happenign??')
+	// 	e.preventDefault()
+	// 	const {data} = await axios.get(`/api/recipes?key=${this.state.value}`)
+	// 	console.log('data from axios.get recipes', data)
+	// }
 
 	handleItemClick = (e, { name }) => this.setState({ active: name })
 
@@ -32,6 +46,12 @@ class Navbar extends React.Component {
           	My Account
      			</Menu.Item>
 
+					<Menu.Item >
+						<Form onSubmit={this.handleSubmit}>
+							<Input onChange={this.handleChange} icon={<Icon name='search' inverted circular link />} placeholder='Search...' value={this.state.value}/>
+						</Form>
+					</Menu.Item>
+
 					<Menu.Item onClick={this.props.handleClick} position="right">
 						Log out
 					</Menu.Item>
@@ -39,13 +59,13 @@ class Navbar extends React.Component {
 				</Menu>
 			)
 		}
-}
+	}
 
 const mapState = state => {
 	return {
-		isLoggedIn: !!state.user.id,
-	};
-};
+		isLoggedIn: !!state.user.id
+	}
+}
 
 const mapDispatch = dispatch => {
 	return {
