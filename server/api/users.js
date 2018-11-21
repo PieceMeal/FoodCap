@@ -18,11 +18,11 @@ router.get('/', async (req, res, next) => {
   }
 });
 // grab user recommendations based on liked categories
-router.get('/:userId', async (req, res, next) => {
+router.get('/userrec', async (req, res, next) => {
   try {
-    let id = req.params.userId;
-    let user = await User.findById(id);
-    let uuid = user.uuid;
+    // let id = req.params.userId;
+    // let user = await User.findById(id);
+    let uuid = req.user.uuid;
     let recipes = await runQuery(
       `Match (a:Person {uuid: $uuid})-[:like]->(n)-[]-(x:Recipe)
       RETURN DISTINCT x, count(x) AS number, a ORDER BY number DESC LIMIT 8`,

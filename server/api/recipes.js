@@ -63,6 +63,26 @@ router.get('/singleview/:name', async (req, res, next) => {
   }
 });
 
+router.get('/popular', async (req, res, next) => {
+  try {
+    const popularRecArray = [];
+    const { records } = await runQuery(
+      `match (:Person)-[n:HAS_FAVORITE]->(r:Recipe)  with r, (count(n)*4) as popularity match (:Person)-[f:HAS_VIEWED]->(r) with r, count(f) as views, popularity return r.name as name,r.image as image,r.time as time,(popularity + views) as totalPop order by totalPop desc limit 4`
+    );
+
+    Object.keys(records).forEach(key => {
+      const name = records[key].get('name');
+      const image = records[key].get('image');
+      const time = records[key].get('time');
+      const recipeObject = { name, image, time };
+      popularRecArray.push(recipeObject);
+    });
+
+    res.json(popularRecArray);
+  } catch (err) {
+    next(err);
+  }
+});
 // Retrieve array of recipes based on similar likes and page views, pass uuid as params.
 // returned array is sorted by highest relevance at index 0
 router.get('/matchonhistory', async (req, res, next) => {
