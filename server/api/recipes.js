@@ -50,13 +50,39 @@ router.get('/singleview/:name', async (req, res, next) => {
         }
       }
     });
+    let hasFavorite = await runQuery(
+      `match (p:Person {uuid:"${req.user.uuid}"}), (r:Recipe {name: "${
+        req.params.name
+      }"}) return exists ((p)-[:HAS_FAVORITE]-(r)) as exists`
+    );
 
+    returnObject.hasLike = hasFavorite.records[0].get('exists');
     res.json(returnObject);
   } catch (err) {
     next(err);
   }
 });
 
+router.get('/popular', async (req, res, next) => {
+  try {
+    const popularRecArray = [];
+    const { records } = await runQuery(
+      `match (:Person)-[n:HAS_FAVORITE]->(r:Recipe)  with r, (count(n)*4) as popularity match (:Person)-[f:HAS_VIEWED]->(r) with r, count(f) as views, popularity return r.name as name,r.image as image,r.time as time,(popularity + views) as totalPop order by totalPop desc limit 4`
+    );
+
+    Object.keys(records).forEach(key => {
+      const name = records[key].get('name');
+      const image = records[key].get('image');
+      const time = records[key].get('time');
+      const recipeObject = { name, image, time };
+      popularRecArray.push(recipeObject);
+    });
+
+    res.json(popularRecArray);
+  } catch (err) {
+    next(err);
+  }
+});
 // Retrieve array of recipes based on similar likes and page views, pass uuid as params.
 // returned array is sorted by highest relevance at index 0
 router.get('/matchonhistory', async (req, res, next) => {
@@ -95,6 +121,7 @@ router.get('/matchonhistory', async (req, res, next) => {
         recommendations[recipe] = { name: recipe, image, importance };
       }
     });
+    console.log(recommendations);
     Object.keys(recommendations).forEach(recipe => {
       orderRec.push(recommendations[recipe]);
     });
@@ -109,21 +136,38 @@ router.get('/matchonhistory', async (req, res, next) => {
     next(err);
   }
 });
+
+//TOGGLE HAS_FAVORITE
+router.put('/toggle', async (req, res, next) => {
+  const recipe = req.body.recipeName;
+  try {
+    await runQuery(
+      `match (p:Person {uuid: "${
+        req.user.uuid
+      }"}),(r:Recipe {name: "${recipe}"}) Create (p)-[:HAS_FAVORITE]->(r) with p,r match (p)-[x:HAS_FAVORITE]->(r), (p)-[:HAS_FAVORITE]->(r) delete x`
+    );
+  } catch (err) {
+    next(err);
+  }
+  res.send(201);
+});
+
+//TOGGLE BOOKMARK FOR LATER
 router.get('/', async (req, res, next) => {
   try {
     let key = req.query.key;
 
-    console.log('key from req.query', key)
-    console.log(' from req.query', req.query)
-    const {records} = await runQuery(`
+    console.log('key from req.query', key);
+    console.log(' from req.query', req.query);
+    const { records } = await runQuery(`
     MATCH (n)-[1..3:a]-(r:Recipe)
-    WHERE n.name CONTAINS "${key}" OR n.content CONTAINS "${key}" OR n.title CONTAINS "${key}" 
-    RETURN n, r`)
+    WHERE n.name CONTAINS "${key}" OR n.content CONTAINS "${key}" OR n.title CONTAINS "${key}"
+    RETURN n, r`);
     // console.log('our records from query', records[0].get('r'))
-    const recc = records.map(rec => rec.get('r'))
+    const recc = records.map(rec => rec.get('r'));
     console.log('my record', recc);
-    res.json(records)
+    res.json(records);
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
