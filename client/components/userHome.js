@@ -10,6 +10,7 @@ import {
   Divider,
   Input,
   Form
+
 } from 'semantic-ui-react';
 import { fetchRecipes } from '../store/user';
 import {
@@ -98,6 +99,7 @@ class UserHome extends React.Component {
     if (this.props.recipes) {
       return (
         <div>
+
           <Navbar />
           <Container>
             <div>
@@ -128,6 +130,7 @@ class UserHome extends React.Component {
             <PopularList />
             <Divider />
           </Container>
+
         </div>
       );
     } else {
