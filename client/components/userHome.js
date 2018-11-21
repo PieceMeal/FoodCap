@@ -7,7 +7,6 @@ import Navbar from './navbar'
 import {
 	Container,
 	Header,
-	Icon,
 	Divider,
 	Grid,
 	Card,
@@ -81,9 +80,9 @@ class UserHome extends React.Component {
         <Navbar />
 					<Container>
 						<div>
+							<Image src='/logo.png' height="200" centered />
 							<Header as="h2" icon textAlign="center">
-								<Icon name="users" circular />
-								<Header.Content>Hello {this.props.email}</Header.Content>
+								<Header.Content>Hello {this.props.email}!</Header.Content>
 							</Header>
 							<Form onSubmit={this.handleSubmit}>
 								<Input

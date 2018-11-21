@@ -1,19 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { logout } from '../store';
-import { Menu, Button, Image, Input, Icon, Form} from 'semantic-ui-react';
-import axios from 'axios';
+import { Link } from 'react-router-dom'
+import { Menu, Input, Icon, Form } from 'semantic-ui-react';
 
-class Navbar extends React.Component{
-	state={
-		value:''
+
+class Navbar extends React.Component {
+	constructor() {
+		super()
+		this.state = {
+			active: '',
+			value: ''
+		}
 	}
+
 	// handleChange = (e) => {
 	// 	console.log('we are getting this from navbar----->>', this.state.value)
 	// 	this.setState({value: e.target.value})
 	// }
+
 	// handleSubmit = async(e) => {
 	// 	console.log('is this happenign??')
 	// 	e.preventDefault()
@@ -21,35 +27,41 @@ class Navbar extends React.Component{
 	// 	console.log('data from axios.get recipes', data)
 	// }
 
-	render(){
-		return(
-		<Menu >
-			<Menu.Item>
-				<Link to="/home">
-					<Image src='/logo.png' height="100" />
-				</Link>
-			</Menu.Item>
-			<Menu.Item >
-				<Form onSubmit={this.handleSubmit}>
-			<Input onChange={this.handleChange} icon={<Icon name='search' inverted circular link />} placeholder='Search...' value={this.state.value}/>
-			</Form>
-			</Menu.Item>
-			<Menu.Item position="right">
-				<Button onClick={this.props.handleClick} position="right" color="green" >
-					Log out
-				</Button>
-			</Menu.Item>
+	handleItemClick = (e, { name }) => this.setState({ active: name })
 
-		</Menu>
-		)
+		render() {
+			const { active } = this.state
+			return (
+				<Menu>
+
+					<Menu.Item as={Link} to='/home' name='home' active={active === 'home'} onClick={this.handleItemClick}>
+          	Home
+     			</Menu.Item>
+
+					<Menu.Item as={Link} to='/home/preferences'name='preferences' active={active === 'preferences'} onClick={this.handleItemClick}>
+          	My Preferences
+     			</Menu.Item>
+
+					<Menu.Item >
+						<Form onSubmit={this.handleSubmit}>
+							<Input onChange={this.handleChange} icon={<Icon name='search' inverted circular link />} placeholder='Search Recipes...' value={this.state.value}/>
+						</Form>
+					</Menu.Item>
+
+					<Menu.Item onClick={this.props.handleClick} position="right">
+						Log out
+					</Menu.Item>
+
+				</Menu>
+			)
+		}
 	}
-}
 
 const mapState = state => {
 	return {
-		isLoggedIn: !!state.user.id,
-	};
-};
+		isLoggedIn: !!state.user.id
+	}
+}
 
 const mapDispatch = dispatch => {
 	return {
