@@ -95,13 +95,13 @@ class RecipeList extends Component {
       return (
         <div
           style={{
-            backgroundColor: '#E6E6FA',
+            backgroundColor: '#00004d',
             marginTop: '5vh',
             marginLeft: '10vw',
             marginRight: '10vw',
             padding: '20px',
 
-            border: '2px solid black',
+            border: '2px solid #00cc00',
             borderRadius: '15px'
           }}
         >
