@@ -7,6 +7,7 @@ import { SET_LIST, LIST_REMOVE_ITEM, LIST_UPDATE_ITEMS } from './constants';
 
 const ADD_ITEM_TO_LIST = 'ADD_ITEM_TO_LIST';
 const ADD_NOTE_TO_ITEM = 'ADD_NOTE_TO_ITEM';
+const RESOLVE_LIST_CONFLICT = 'RESOLVE_LIST_CONFLCIT';
 /**
  * INITIAL STATE
  */
@@ -44,6 +45,14 @@ const addNote = (ingredient, note) => ({
 	ingredient,
 	note,
 });
+
+const resolveListConflict = (uuid, ingredient, quantity, type) => ({
+	type: RESOLVE_LIST_CONFLICT,
+	uuid,
+	ingredient,
+	quantity,
+	ingredientType: type,
+});
 /**
  * THUNK CREATORS
  */
@@ -71,7 +80,6 @@ export const removeListItemThunk = (uuid, ingredient) => async dispatch => {
 export const updateListQuantityThunk = (uuid, updatedItems) => dispatch => {
 	try {
 		updatedItems.forEach(async update => {
-			console.log('attempt ', update);
 			await axios.put('/api/lists/updateingredient', {
 				uuid,
 				ingredient: update.name,
@@ -118,6 +126,26 @@ export const addNoteThunk = (uuid, ingredient, note) => async dispatch => {
 		console.error(err);
 	}
 };
+
+export const resolveConflictThunk = (
+	uuid,
+	ingredient,
+	quantity,
+	type
+) => async dispatch => {
+	try {
+		await axios.put('/api/lists/resolve', {
+			uuid,
+			ingredient,
+			quantity,
+			type,
+		});
+		dispatch(resolveListConflict(uuid, ingredient, quantity, type));
+	} catch (err) {
+		console.error(err);
+	}
+};
+
 /**
  * REDUCER
  */
@@ -160,10 +188,8 @@ export default function(state = defaultList, action) {
 			return { ...newState, ingredients };
 		}
 		case ADD_NOTE_TO_ITEM: {
-			console.log('i add note');
 			const { ingredient, note } = action;
 			const newList = { ...state };
-			console.log(newList, '!!!');
 
 			// newList.ingredients = [...newList.ingredients, ...action.updatedItems];
 			const newIngredRef =
@@ -173,7 +199,22 @@ export default function(state = defaultList, action) {
 			if (!newIngredRef.note) newIngredRef.note = '';
 
 			newIngredRef.note = note;
-			console.log(newList, ',,,,');
+			return newList;
+		}
+		case RESOLVE_LIST_CONFLICT: {
+			console.log('in reducer...');
+			const { ingredient, quantity, ingredientType } = action;
+			const newList = { ...state };
+			const newIngreds = newList.ingredients.filter(
+				item => item.name !== ingredient
+			);
+			console.log(newIngreds);
+			newList.ingredients = newIngreds;
+			newList.ingredients.push({
+				name: ingredient,
+				quantity,
+				type: ingredientType,
+			});
 			return newList;
 		}
 		default:

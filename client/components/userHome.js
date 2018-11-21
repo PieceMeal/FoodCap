@@ -62,9 +62,30 @@ class UserHome extends React.Component {
     let uuid = this.state.checked[recipe];
     let body = { uuid, recipe };
 
+    this.props.createList(this.state.listName);
+    this.setState({
+      listName: ''
+    });
+  };
+  handleChange = e => {
+    this.setState({
+      listName: e.target.value
+    });
+  };
+  handleChangeList = (e, { value, name }) => {
+    //have a thunk that sends information about the list and information about
+    this.setState(prevState => {
+      return { checked: { ...prevState.checked, [name]: value } };
+    });
+  };
+  handleSubmitList = e => {
+    e.preventDefault();
+    let recipe = Object.keys(this.state.checked).toString();
+    let uuid = this.state.checked[recipe];
+    let body = { uuid, recipe };
     //dispatch thank for sending list info, recipe info
     this.props.addRecipeToListThunk(body);
-    this.setState({ [recipe]: false, checked: {} });
+    this.setState({ [recipe]: false });
   };
   handleOpen = name => {
     this.setState({ [name]: true });
@@ -122,7 +143,6 @@ class UserHome extends React.Component {
 const mapState = state => {
   return {
     email: state.user.email,
-
     user: state.user,
     recipes: state.user.recipes,
     lists: state.lists

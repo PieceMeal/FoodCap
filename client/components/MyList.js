@@ -10,6 +10,7 @@ import {
   Popup,
   Form,
   Card,
+  Modal,
   Image
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
@@ -26,7 +27,7 @@ import {
   createIngredientThunk
 } from '../store/ingredients';
 
-import { RecipeCard } from './';
+import { RecipeCard, AddIngredientsMenu, ItemsConflictModal } from './';
 const style = {
   h3: {
     padding: '2em 0em'
@@ -60,7 +61,10 @@ class MyList extends Component {
       addItemNote: '',
       openPopup: false,
       itemNote: '',
-      itemNotePopup: []
+      itemNotePopup: [],
+
+      showConfirmPopup: false,
+      showConflictModal: false
     };
   }
   async componentDidMount() {
@@ -69,6 +73,37 @@ class MyList extends Component {
     await this.props.setList(id);
     this.populateFields();
     this.setState({ loading: false });
+    this.updatedItems = [];
+
+    this.itemsHash = [];
+    this.flaggedItems = [];
+  }
+
+  async componentDidUpdate(prevProps) {
+    console.log('did pdate' + this.state.showConflictModal);
+    this.itemsHash = [];
+    if (prevProps.list !== this.props.list) {
+      this.props.list.ingredients.forEach(ingred => {
+        if (!this.itemsHash[ingred.name]) {
+          this.itemsHash[ingred.name] = [];
+        }
+        this.itemsHash[ingred.name].push(ingred);
+      });
+      this.flaggedItems = Object.keys(this.itemsHash)
+        .filter(index => this.itemsHash[index].length > 1)
+        .map(item => this.itemsHash[item]);
+      console.log(this.flaggedItems.length);
+      if (this.flaggedItems.length > 0) {
+        console.log('AHHH IT IS TRUE');
+        await this.setState({ showConflictModal: true });
+      } else {
+        console.log('no conflict :)');
+        await this.setState({ showConflictModal: false });
+        console.log('yo!!!');
+        this.populateFields();
+      }
+      console.log(this.flaggedItems);
+    }
   }
   //handle state for form
   handleChange = evt => {
@@ -85,11 +120,12 @@ class MyList extends Component {
   };
 
   //dispatch update list thunk
-  handleUpdate = async uuid => {
-    const updatedItems = [];
+  // OLD: rewriting completely using modals and stuff
+  handleUpdate = uuid => {
+    this.updatedItems = [];
     this.props.list.ingredients.forEach(ingredient => {
       if (+ingredient.quantity !== +this.state.ingredients[ingredient.name]) {
-        updatedItems.push({
+        this.updatedItems.push({
           name: ingredient.name,
           quantity: this.state.ingredients[ingredient.name],
           type: ingredient.type,
@@ -97,11 +133,11 @@ class MyList extends Component {
         });
       }
     });
-    if (updatedItems.length > 0) {
-      this.setState({ disableForm: true });
+    if (this.updatedItems.length > 0) {
+      this.setState({ showConfirmPopup: true, disableForm: true });
 
-      await this.props.updateItems(uuid, updatedItems);
-      this.setState({ disableForm: false });
+      // 	await this.props.updateItems(uuid, updatedItems);
+      // 	this.setState({ disableForm: false });
     }
   };
 
@@ -116,13 +152,11 @@ class MyList extends Component {
   };
 
   handleCreate = async (evt, { value }) => {
-    console.log('creating new ingredient');
     this.setState({ disableForm: true });
     await this.props.createIngredient(value);
     const ingredientsOptions = this.props.ingredients.map((ingredient, i) => {
       return { key: i, value: ingredient, text: ingredient };
     });
-    console.log('made new ingredients');
 
     this.setState({
       disableForm: false,
@@ -132,7 +166,6 @@ class MyList extends Component {
   };
 
   ingredientSelect = (evt, { value }) => {
-    console.log('set to new value ', value);
     this.setState({ addItemName: value });
   };
 
@@ -186,18 +219,20 @@ class MyList extends Component {
 
     await this.props.addNote(id, ingredient, this.state.itemNote);
     this.toggleNotePopup(fieldId);
-
-    console.log(id, fieldId, ingredient, this.state.itemNote);
   };
   populateFields = () => {
     const newState = { ...this.state };
-    this.props.list.ingredients.forEach((ingredient, i) => {
-      newState.ingredients[ingredient.name] = ingredient.quantity;
+    const ingredList = this.props.list.ingredients;
+    Object.keys(ingredList).forEach((ingredient, i) => {
+      newState.ingredients[ingredList[ingredient].name] =
+        ingredList[ingredient].quantity;
       newState.itemNotePopup[i] = false;
     });
     this.setState(newState);
   };
   render() {
+    console.log('rerender');
+    console.log(this.state);
     //dont display until loaded
     if (this.state.loading === true) {
       return <div />;
@@ -205,11 +240,30 @@ class MyList extends Component {
 
     const list = this.props.list;
     const { ingredients, recipes } = list;
-    console.log(recipes);
     if (ingredients) {
       return (
         <React.Fragment>
           <Navbar />
+          <Modal
+            closeOnDimmerClick={false}
+            open={this.state.showConflictModal}
+            onClose={() => console.log('ahhh')}
+          >
+            {this.flaggedItems.length > 0 && (
+              <ItemsConflictModal
+                item={this.flaggedItems[0]}
+                uuid={list.uuid}
+              />
+            )}
+          </Modal>
+          <Modal
+            open={this.state.showConfirmPopup}
+            onClose={() =>
+              this.setState({ showConfirmPopup: false, disableForm: false })
+            }
+          >
+            <AddIngredientsMenu items={this.updatedItems} />
+          </Modal>
 
           <div style={style.wholeTray}>
             <Header
@@ -248,6 +302,11 @@ class MyList extends Component {
               <tbody>
                 {ingredients.length
                   ? ingredients.map((ingredient, i) => {
+                      const ingredientHash = {};
+                      if (!ingredientHash[ingredient.name]) {
+                        ingredientHash[ingredient.name] = [];
+                      }
+                      ingredientHash[ingredient.name].push(ingredient);
                       return (
                         <tr key={i}>
                           <td>
