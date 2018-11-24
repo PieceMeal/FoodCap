@@ -7,7 +7,6 @@ import {
   toggleLikeThunk
 } from '../store/singlerecipe';
 import Navbar from './navbar';
-
 const mapStateToProps = state => {
   return {
     recipe: state.singlerecipe

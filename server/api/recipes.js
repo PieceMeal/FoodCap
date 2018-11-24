@@ -5,6 +5,19 @@ const router = require('express').Router();
 
 module.exports = router;
 
+// function for grabbing recipe info from query results
+const recipeArrayMaker = recordsObj => {
+  const recipeArray = [];
+  Object.keys(recordsObj).forEach(key => {
+    const name = recordsObj[key].get('name');
+    const image = recordsObj[key].get('image');
+    const time = recordsObj[key].get('time');
+    const recipeObject = { name, image, time };
+    recipeArray.push(recipeObject);
+  });
+  return recipeArray;
+};
+
 // Retrieve single recipe information
 router.get('/singleview/:name', async (req, res, next) => {
   try {
@@ -65,20 +78,24 @@ router.get('/singleview/:name', async (req, res, next) => {
 
 router.get('/popular', async (req, res, next) => {
   try {
-    const popularRecArray = [];
     const { records } = await runQuery(
       `match (:Person)-[n:HAS_FAVORITE]->(r:Recipe)  with r, (count(n)*4) as popularity match (:Person)-[f:HAS_VIEWED]->(r) with r, count(f) as views, popularity return r.name as name,r.image as image,r.time as time,(popularity + views) as totalPop order by totalPop desc limit 4`
     );
 
-    Object.keys(records).forEach(key => {
-      const name = records[key].get('name');
-      const image = records[key].get('image');
-      const time = records[key].get('time');
-      const recipeObject = { name, image, time };
-      popularRecArray.push(recipeObject);
-    });
+    res.json(recipeArrayMaker(records));
+  } catch (err) {
+    next(err);
+  }
+});
 
-    res.json(popularRecArray);
+// PAST LIKES
+router.get('/pastliked', async (req, res, next) => {
+  try {
+    const user = req.user.uuid;
+    const { records } = await runQuery(
+      `match (:Person {uuid:'${user}'})-[:HAS_FAVORITE]->(r) return r.name as name, r.image as image, r.time as time`
+    );
+    res.json(recipeArrayMaker(records));
   } catch (err) {
     next(err);
   }
@@ -137,7 +154,7 @@ router.get('/matchonhistory', async (req, res, next) => {
   }
 });
 
-//TOGGLE HAS_FAVORITE
+//TOGGLE HAS_FAVORITE on or off
 router.put('/toggle', async (req, res, next) => {
   const recipe = req.body.recipeName;
   try {

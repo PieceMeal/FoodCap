@@ -25,7 +25,8 @@ router.get('/', async (req, res, next) => {
     next(err);
   }
 });
-// grab user recommendations based on liked categories
+
+// grab user recommendations based on [:similar] connections to other users
 router.get('/userrec', async (req, res, next) => {
   try {
     let uuid = req.user.uuid;
@@ -48,6 +49,8 @@ router.get('/userrec', async (req, res, next) => {
     next(err);
   }
 });
+
+// Set user [:like] to ingredient, category and cuisine & set [:similar] with Jaccard
 
 router.put('/:userId', async (req, res, next) => {
   try {
@@ -80,6 +83,7 @@ router.put('/:userId', async (req, res, next) => {
       MERGE (a)-[:like]-> (b)`);
     }
 
+    // Define similars with Jaccard
     let records = await runQuery(
       `MATCH(p:Person)-[:like|:HAS_VIEWED|:HAS_FAVORITE]-(n) WITH {item:id(p), categories:collect(id(n))} AS userdata WITH collect(userdata) AS data CALL algo.similarity.jaccard.stream(data, {topK:3, similarityCutoff:0.1}) YIELD item1, item2, count1, count2, intersection, similarity MATCH (z:Person {uuid: algo.getNodeById(item1).uuid}),(y:Person {uuid: algo.getNodeById(item2).uuid}) MERGE (z)-[c:similar]->(y) RETURN z`
     );
@@ -87,7 +91,6 @@ router.put('/:userId', async (req, res, next) => {
     let updatedUser = await user.update({
       formFilled: true
     });
-    // console.log('records for recipes -----------',recipesArray);
     res.json({ user: updatedUser });
   } catch (err) {
     next(err);
