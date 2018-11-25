@@ -1,21 +1,60 @@
 {
-	"Chicken in white wine sauce": {
-		"ingredients": [
-			"4 chicken breasts",
-			"1 onion",
-			"1 carrot",
-			"1 stick celery",
-			"1 bay leaf",
-			"6 peppercorns",
-			"30g/1oz butter",
-			"30g/1oz plain flour",
-			"140ml/5fl oz white wine",
-			"1 free-range egg yolk",
-			"2-3 tbsp double cream",
-			"squeeze lemon juice",
-			"salt and freshly ground black pepper ",
-			"small handful fresh parsley, chopped"
+	"Andalucian pork with apricots, prunes and herbs, rolled in paprika": {
+		"ingredients": {
+			"pork fillet": { "quantity": 1, "type": "" },
+			"dried apricots": { "quantity": "1.75", "type": "oz" },
+			"prunes": { "quantity": "1.75", "type": "oz" },
+			"paprika": { "quantity": 2, "type": "tbsp" },
+			"fresh parsley": { "quantity": 0.5, "type": "oz" },
+			"oregano": { "quantity": 1, "type": "tsp" },
+			"thyme": { "quantity": 1, "type": "tsp" },
+			"garlic": { "quantity": 1, "type": "clove" },
+			"olive oil": { "quantity": 2, "type": "tbsp" },
+			"lemon": { "quantity": 1, "type": "" }
+		},
+
+		"method": [
+			"Cut the pork open with a sharp knife and open the fillet out along its length, being careful not to cut all the way through the fillet.",
+			"In a bowl, mix together the prunes, apricots and parsley and insert along the length of the fillet. Season well.",
+			"Roll the fillet up and securely fasten with string.",
+			"Mix up the paprika, the remaining herbs, the garlic, the salt and the oil to make a thick paste. Spread over the surface of the meat, and leave it in the fridge, ideally overnight.",
+			"Preheat the oven to 200C/400C/Gas 6. Season the meat and sear on all sides in a heavy pan. Place in the oven for fifteen minutes.",
+			"Rest the meat before serving with lemon wedges."
 		],
+		"url": "www_bbc_com_food_recipes_andalucianporkwithap_72080",
+		"title":
+			"Andalucian pork with apricots, prunes and herbs, rolled in paprika",
+		"time": {
+			"preparation": "overnightovernight",
+			"preparationMins": 720,
+			"cooking": "10 to 30 mins10 to 30 mins",
+			"cookingMins": 30,
+			"totalMins": 750
+		},
+		"serves": "Serves 2Serves 2",
+		"isVegetarian": false,
+		"recommendations": 0,
+		"image":
+			"https://i.pinimg.com/originals/0a/7a/11/0a7a11aa7855cf36fb8cc854f4748477.jpg",
+		"categories": ["spanish"]
+	},
+
+	"Chicken in white wine sauce": {
+		"ingredients": {
+			"chicken breasts": { "quantity": 4, "type": "breast" },
+			"onion": { "quantity": 1, "type": "medium" },
+			"carrot": { "quantity": 1, "type": "carrot" },
+			"celery": { "quantity": 1, "type": "stalk" },
+			"bay leaf": { "quantity": 1, "type": "leaf" },
+			"peppercorns": { "quantity": 6, "type": "tsp" },
+			"butter": { "quantity": 1, "type": "oz" },
+			"flour": { "quantity": 1, "type": "cup" },
+			"white wine": { "quantity": 5, "type": "fl oz" },
+			"egg": { "quantity": 1, "type": "egg" },
+			"cream": { "quantity": 6, "type": "tbsp" },
+			"lemon juice": { "quantity": 1, "type": "tsp" },
+			"parsley ": { "quantity": 1, "type": "tbsp" }
+		},
 		"method": [
 			"Place the chicken breasts in a pan with the vegetables and peppercorns and cover with water. ",
 			"Bring gradually to the boil and simmer until the chicken is cooked all the way through - about 30 minutes. ",
@@ -42,23 +81,27 @@
 		"isVegetarian": false,
 		"recommendations": 0,
 		"image":
-			"https://www.monpetitfour.com/wp-content/uploads/2017/05/Chicken-in-White-Wine-Sauce_3-copy.jpg"
+			"https://www.monpetitfour.com/wp-content/uploads/2017/05/Chicken-in-White-Wine-Sauce_3-copy.jpg",
+		"categories": ["chicken"],
+		"cuisine": ["italian"]
 	},
-
 	"Feijoada": {
-		"ingredients": [
-			"1kg/2lb 4oz dried black beans",
-			"4 tbsp olive oil",
-			"500g/1lb 2oz dry-smoked pork ribs, fat trimmed, cut into individual ribs",
-			"1kg/2lb 4oz unsmoked pork ribs, fat trimmed, cut into individual ribs",
-			"1 large onion, roughly chopped",
-			"1 head garlic, cloves finely chopped",
-			"500g/1lb 2oz smoked bacon, cut into medium-sized pieces",
-			"500g/1lb 2oz pork belly, cut into medium-sized chunks",
-			"200g/7oz smoked pork sausage, cut into medium-sized chunks",
-			"salt and freshly ground black pepper",
-			"2 tbsp dried chilli flakes (optional)"
-		],
+		"ingredients": {
+			"dried black beans": { "quantity": 4, "type": "oz" },
+			"olive oil": { "quantity": 4, "type": "tbsp" },
+			"pork ribs": { "quantity": 4, "type": "oz" },
+			"ribs": { "quantity": 1, "type": "rack" },
+			"onion": { "quantity": 1, "type": "large" },
+			"garlic": { "quantity": 1, "type": "head" },
+			"bacon": { "quantity": 2, "type": "oz" },
+			"pork belly": { "quantity": 2, "type": "oz" },
+			"smoked pork sausage": {
+				"quantity": 1,
+				"type": "link"
+			},
+
+			"chilli": { "quantity": 2, "type": "tbsp" }
+		},
 		"method": [
 			"Soak the black beans in 2 litres/3½ pints of cold water overnight.",
 			"When the beans have soaked, heat half of the oil in a lidded frying pan (large enough to fit all the ribs in at once) over a medium heat. ",

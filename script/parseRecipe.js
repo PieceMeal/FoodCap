@@ -36,7 +36,7 @@ async function parseIngredients() {
 	const ingredientsList = {};
 	const keys = Object.keys(recipes);
 
-	const recipe = recipes[keys[0]];
+	const recipe = recipes[keys[2]];
 	const ingredients = recipe.ingredients.join(', ');
 	try {
 		const responseData = await getNutrition(ingredients);
@@ -46,7 +46,7 @@ async function parseIngredients() {
 				type: item.serving_unit,
 			};
 		});
-		console.log(ingredientsList);
+		console.log(JSON.stringify(ingredientsList));
 	} catch (e) {
 		console.error(e);
 	}
