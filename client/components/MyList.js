@@ -27,7 +27,10 @@ import {
 	createIngredientThunk,
 } from '../store/ingredients';
 
-import { RecipeCard, AddIngredientsMenu, ItemsConflictModal } from './';
+import { getIngredientsThunk } from '../store/singlerecipe';
+
+import { RecipeCard, ConfirmIngredientsMenu, ItemsConflictModal } from './';
+import { throws } from 'assert';
 const style = {
 	h3: {
 		padding: '2em 0em',
@@ -62,7 +65,7 @@ class MyList extends Component {
 			openPopup: false,
 			itemNote: '',
 			itemNotePopup: [],
-
+			updatedItems: [],
 			showConfirmPopup: false,
 			showConflictModal: false,
 		};
@@ -73,15 +76,14 @@ class MyList extends Component {
 		await this.props.setList(id);
 		this.populateFields();
 		this.setState({ loading: false });
-		this.updatedItems = [];
 
 		this.itemsHash = [];
 		this.flaggedItems = [];
 	}
 
 	async componentDidUpdate(prevProps) {
-		console.log('did pdate' + this.state.showConflictModal);
 		this.itemsHash = [];
+
 		if (prevProps.list !== this.props.list) {
 			this.props.list.ingredients.forEach(ingred => {
 				if (!this.itemsHash[ingred.name]) {
@@ -92,17 +94,17 @@ class MyList extends Component {
 			this.flaggedItems = Object.keys(this.itemsHash)
 				.filter(index => this.itemsHash[index].length > 1)
 				.map(item => this.itemsHash[item]);
-			console.log(this.flaggedItems.length);
+
 			if (this.flaggedItems.length > 0) {
-				console.log('AHHH IT IS TRUE');
+				console.log(
+					'there are this many conflicts: ' + this.flaggedItems.length
+				);
+				console.log('first in line ' + this.flaggedItems[0][0].name);
 				await this.setState({ showConflictModal: true });
 			} else {
-				console.log('no conflict :)');
 				await this.setState({ showConflictModal: false });
-				console.log('yo!!!');
 				this.populateFields();
 			}
-			console.log(this.flaggedItems);
 		}
 	}
 	//handle state for form
@@ -119,13 +121,16 @@ class MyList extends Component {
 		this.setState({ disableForm: false });
 	};
 
-	//dispatch update list thunk
-	// OLD: rewriting completely using modals and stuff
+	//checks all ingredients if they are updated or not
+	//creates a list of updated ingredients and stores in this.updatedItems
+	//changes state to open a confirm modal if there are items to be
+	//updated
 	handleUpdate = uuid => {
-		this.updatedItems = [];
+		//this.updatedItems = [];
+		const updatedItems = [];
 		this.props.list.ingredients.forEach(ingredient => {
 			if (+ingredient.quantity !== +this.state.ingredients[ingredient.name]) {
-				this.updatedItems.push({
+				updatedItems.push({
 					name: ingredient.name,
 					quantity: this.state.ingredients[ingredient.name],
 					type: ingredient.type,
@@ -133,9 +138,12 @@ class MyList extends Component {
 				});
 			}
 		});
-		if (this.updatedItems.length > 0) {
-			this.setState({ showConfirmPopup: true, disableForm: true });
-
+		if (updatedItems.length > 0) {
+			this.setState({
+				showConfirmPopup: true,
+				disableForm: true,
+				updatedItems,
+			});
 			// 	await this.props.updateItems(uuid, updatedItems);
 			// 	this.setState({ disableForm: false });
 		}
@@ -220,6 +228,38 @@ class MyList extends Component {
 		await this.props.addNote(id, ingredient, this.state.itemNote);
 		this.toggleNotePopup(fieldId);
 	};
+
+	handleRemoveRecipe = async recipeName => {
+		//populate 'singlerecipe props with information to
+		//use for confirmation modal
+		await this.props.getIngredients(recipeName);
+		console.log(this.props.singlerecipe);
+	};
+
+	//when a user tries to update their items a confirmation menu pops up
+	//this is passed to ConfirmIngredientsMenu for rejecting update
+	handleReject = itemName => {
+		const newState = { ...this.state };
+
+		const updatedItems = this.state.updatedItems.filter(
+			item => item.name !== itemName
+		);
+		newState.updatedItems = updatedItems;
+		const oldItemQuantity = this.props.list.ingredients.filter(
+			i => i.name === itemName
+		)[0].quantity;
+
+		newState.ingredients[itemName] = oldItemQuantity;
+
+		if (updatedItems.length === 0) {
+			newState.showConfirmPopup = false;
+			newState.disableForm = false;
+			newState.updatedItems = [];
+		}
+
+		this.setState(newState);
+	};
+
 	populateFields = () => {
 		const newState = { ...this.state };
 		const ingredList = this.props.list.ingredients;
@@ -228,16 +268,13 @@ class MyList extends Component {
 				ingredList[ingredient].quantity;
 			newState.itemNotePopup[i] = false;
 		});
-		this.setState(newState);
+		this.setState(newState.ingredients);
 	};
 	render() {
-		console.log('rerender');
-		console.log(this.state);
 		//dont display until loaded
 		if (this.state.loading === true) {
 			return <div />;
 		}
-
 		const list = this.props.list;
 		const { ingredients, recipes } = list;
 		if (ingredients) {
@@ -247,7 +284,7 @@ class MyList extends Component {
 					<Modal
 						closeOnDimmerClick={false}
 						open={this.state.showConflictModal}
-						onClose={() => console.log('ahhh')}
+						onClose={() => console.log('closing stuff')}
 					>
 						{this.flaggedItems.length > 0 && (
 							<ItemsConflictModal
@@ -262,7 +299,10 @@ class MyList extends Component {
 							this.setState({ showConfirmPopup: false, disableForm: false })
 						}
 					>
-						<AddIngredientsMenu items={this.updatedItems} />
+						<ConfirmIngredientsMenu
+							items={this.state.updatedItems}
+							reject={this.handleReject}
+						/>
 					</Modal>
 
 					<div style={style.wholeTray}>
@@ -275,16 +315,12 @@ class MyList extends Component {
 						<Card.Group centered itemsPerRow={4}>
 							{recipes.map(recipe => {
 								return (
-									<RecipeCard key={recipe.name} recipe={recipe} />
-									// <Card key={recipe.name}>
-									// 	<Link to={`/recipes/singleview/${recipe.name}`}>
-									// 		<Image src={recipe.image} />
-									// 	</Link>
-
-									// 	<Card.Content>
-									// 		<Card.Header>{recipe.name}</Card.Header>
-									// 	</Card.Content>
-									// </Card>
+									<RecipeCard
+										key={recipe.name}
+										recipe={recipe}
+										toggleButtons="true"
+										removeRecipe={this.handleRemoveRecipe}
+									/>
 								);
 							})}
 						</Card.Group>
@@ -477,10 +513,11 @@ class MyList extends Component {
 }
 
 const mapStateToProps = state => {
-	const { list, ingredients } = state;
+	const { list, ingredients, singlerecipe } = state;
 	return {
 		list,
 		ingredients,
+		singlerecipe,
 	};
 };
 
@@ -497,6 +534,7 @@ const mapDispatchToProps = dispatch => {
 			dispatch(addItemToListThunk(uuid, ingredient, quantity, type, note)),
 		addNote: (uuid, ingredient, note) =>
 			dispatch(addNoteThunk(uuid, ingredient, note)),
+		getIngredients: name => dispatch(getIngredientsThunk(name)),
 	};
 };
 

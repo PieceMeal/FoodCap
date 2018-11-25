@@ -202,13 +202,11 @@ export default function(state = defaultList, action) {
 			return newList;
 		}
 		case RESOLVE_LIST_CONFLICT: {
-			console.log('in reducer...');
 			const { ingredient, quantity, ingredientType } = action;
 			const newList = { ...state };
 			const newIngreds = newList.ingredients.filter(
 				item => item.name !== ingredient
 			);
-			console.log(newIngreds);
 			newList.ingredients = newIngreds;
 			newList.ingredients.push({
 				name: ingredient,
