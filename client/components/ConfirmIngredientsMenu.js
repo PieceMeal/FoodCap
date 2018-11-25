@@ -27,7 +27,7 @@ const ConfirmIngredientsMenu = props => {
 									<Button
 										size="mini"
 										icon={<Icon name="check circle" />}
-										onClick={() => console.log('accept ' + item.name)}
+										onClick={() => props.accept(item.name)}
 									/>
 								</Grid.Column>
 								<Grid.Column>

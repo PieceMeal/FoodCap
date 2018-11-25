@@ -126,7 +126,6 @@ class MyList extends Component {
 	//changes state to open a confirm modal if there are items to be
 	//updated
 	handleUpdate = uuid => {
-		//this.updatedItems = [];
 		const updatedItems = [];
 		this.props.list.ingredients.forEach(ingredient => {
 			if (+ingredient.quantity !== +this.state.ingredients[ingredient.name]) {
@@ -260,6 +259,27 @@ class MyList extends Component {
 		this.setState(newState);
 	};
 
+	handleAccept = async itemName => {
+		const newState = { ...this.state };
+
+		const updatedItems = this.state.updatedItems.filter(
+			item => item.name !== itemName
+		);
+		newState.updatedItems = updatedItems;
+
+		if (updatedItems.length === 0) {
+			newState.showConfirmPopup = false;
+			newState.disableForm = false;
+			newState.updatedItems = [];
+		}
+
+		const updatedItem = this.state.updatedItems.filter(
+			item => item.name === itemName
+		);
+
+		await this.props.updateItems(this.props.list.uuid, updatedItem);
+		this.setState(newState);
+	};
 	populateFields = () => {
 		const newState = { ...this.state };
 		const ingredList = this.props.list.ingredients;
@@ -302,6 +322,7 @@ class MyList extends Component {
 						<ConfirmIngredientsMenu
 							items={this.state.updatedItems}
 							reject={this.handleReject}
+							accept={this.handleAccept}
 						/>
 					</Modal>
 
