@@ -69,8 +69,14 @@ router.get('/singleview/:name', async (req, res, next) => {
         req.params.name
       }"}) return exists ((p)-[:HAS_FAVORITE]-(r)) as exists`
     );
+    let hasBookmark = await runQuery(
+      `match (p:Person {uuid:"${req.user.uuid}"}), (r:Recipe {name: "${
+        req.params.name
+      }"}) return exists ((p)-[:bookmark]-(r)) as exists`
+    );
 
     returnObject.hasLike = hasFavorite.records[0].get('exists');
+    returnObject.hasBookmark = hasBookmark.records[0].get('exists');
     res.json(returnObject);
   } catch (err) {
     next(err);
@@ -95,6 +101,18 @@ router.get('/pastliked', async (req, res, next) => {
     const user = req.user.uuid;
     const { records } = await runQuery(
       `match (:Person {uuid:'${user}'})-[:HAS_FAVORITE]->(r) return r.name as name, r.image as image, r.time as time`
+    );
+    res.json(recipeArrayMaker(records));
+  } catch (err) {
+    next(err);
+  }
+});
+// BOOKMARKS
+router.get('/bookmarks', async (req, res, next) => {
+  try {
+    const user = req.user.uuid;
+    const { records } = await runQuery(
+      `match (:Person {uuid:'${user}'})-[:bookmark]->(r) return r.name as name, r.image as image, r.time as time`
     );
     res.json(recipeArrayMaker(records));
   } catch (err) {
@@ -157,7 +175,7 @@ router.get('/matchonhistory', async (req, res, next) => {
 });
 
 //TOGGLE HAS_FAVORITE on or off
-router.put('/toggle', async (req, res, next) => {
+router.put('/togglelike', async (req, res, next) => {
   const recipe = req.body.recipeName;
   try {
     await runQuery(
@@ -172,6 +190,19 @@ router.put('/toggle', async (req, res, next) => {
 });
 
 //TOGGLE BOOKMARK FOR LATER
+router.put('/togglebookmark', async (req, res, next) => {
+  const recipe = req.body.recipeName;
+  try {
+    await runQuery(
+      `match (p:Person {uuid: "${
+        req.user.uuid
+      }"}),(r:Recipe {name: "${recipe}"}) Create (p)-[:bookmark]->(r) with p,r match (p)-[x:bookmark]->(r), (p)-[:bookmark]->(r) delete x`
+    );
+  } catch (err) {
+    next(err);
+  }
+  res.send(201);
+});
 router.get('/', async (req, res, next) => {
 	try {
 		let key = req.query.key;
