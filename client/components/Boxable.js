@@ -12,7 +12,7 @@ export default class Boxable extends React.Component {
             customDragElement={this.props.customDragElement}
             onDrop={(e) => (this.props.handleDrop(e.dragData.label, this.props.type))}
           >
-            <Label height="45">{this.props.label}</Label>
+            <Label className="option" height="45">{this.props.label}</Label>
           </DragDropContainer>
         </div>
       );
