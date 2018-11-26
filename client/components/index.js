@@ -14,5 +14,8 @@ export { default as ListPreview } from './ListPreview';
 export { default as RecipeCard } from './RecipeCard';
 export { default as ConfirmIngredientsMenu } from './ConfirmIngredientsMenu';
 export { default as ItemsConflictModal } from './ItemsConflictModal';
+export {
+	default as RemoveRecipeIngredientsMenu,
+} from './RemoveRecipeIngredientsMenu';
 
 export { default as IngredientRow } from './IngredientRow';

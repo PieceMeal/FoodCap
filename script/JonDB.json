@@ -36,7 +36,7 @@
 		"recommendations": 0,
 		"image":
 			"https://i.pinimg.com/originals/0a/7a/11/0a7a11aa7855cf36fb8cc854f4748477.jpg",
-		"categories": ["spanish"]
+		"cuisines": ["spanish"]
 	},
 
 	"Chicken in white wine sauce": {
@@ -129,23 +129,18 @@
 	},
 
 	"Angel food cake with lemon curd": {
-		"ingredients": [
-			"125g/4½oz plain flour",
-			"300g/10½oz caster sugar",
-			"10 large free-range egg whites",
-			"2 large lemons, grated zest only",
-			"1 tbsp lemon juice",
-			"1 tsp cream of tartar ",
-			"½ tsp salt",
-			"10 large free-range egg yolks",
-			"400g/14oz caster sugar",
-			"4 large lemons, juice only (approximately 200ml/7fl oz) ",
-			"2 large lemons, grated zest only",
-			"175g/6oz unsalted butter, cubed",
-			"2 passion fruit",
-			"300ml/10fl oz whipping cream",
-			"½ tsp vanilla extract"
-		],
+		"ingredients": {
+			"flour": { "quantity": 2, "type": "oz" },
+			"sugar": { "quantity": 1, "type": "oz" },
+			"egg": { "quantity": 11, "type": "eggs" },
+			"lemons": { "quantity": 2, "type": "lemons" },
+			"lemon juice": { "quantity": 1, "type": "tbsp" },
+			"cream of tartar": { "quantity": 1, "type": "tsp" },
+			"unsalted butter": { "quantity": 1, "type": "tbsp" },
+			"passion fruit": { "quantity": 1, "type": "cup" },
+			"whipping cream": { "quantity": 1, "type": "fl oz" },
+			"vanilla extract": { "quantity": 0.5, "type": "tsp" }
+		},
 		"method": [
 			"Preheat the oven to 180C/350F/Gas 4 (fan 160C) and arrange an oven shelf in the bottom third of the oven. Sift the flour and 100g/3½oz of the caster sugar together in a bowl and set aside.",
 			"Whisk the egg whites in a large bowl with an electric hand whisk or mixer on a high speed for one minute until frothy. Add the lemon zest, lemon juice, cream of tartar and salt and continue whisking for 2-3 minutes, or until soft peaks form when the whisk is removed from the bowl. Increase the speed and add the remaining 200g/7oz of caster sugar, one tablespoon at a time to form firm, but not stiff peaks. ",
@@ -175,18 +170,21 @@
 	},
 
 	"Swedish Christmas Glögg": {
-		"ingredients": [
-			"1 bottle red wine (quality doesn’t matter) ",
-			"1-2 sticks cinnamon ",
-			"5g dried root ginger ",
-			"5g dried Seville orange peel (or other orange if you can't get Seville) ",
-			"7 green cardamom pods ",
-			"15-16 whole cloves ",
-			"80g/3oz sugar ",
-			"flaked almonds  ",
-			"raisins ",
-			"splash of either vodka, aquavit, rum or cognac (optional)"
-		],
+		"ingredients": {
+			"red wine": { "quantity": 1, "type": "bottle" },
+			"sticks cinnamon": { "quantity": 2, "type": "stick" },
+			"ginger": { "quantity": 5, "type": "g" },
+			"orange peel": { "quantity": 5, "type": "g" },
+			"orange": { "quantity": 1, "type": "fruit (2-7/8\" dia)" },
+			"green cardamom": { "quantity": 7, "type": "pod" },
+			"whole cloves": { "quantity": 16, "type": "clove" },
+			"sugar": { "quantity": 1, "type": "tsp" },
+			"almonds": { "quantity": 2, "type": "oz" },
+			"raisins": { "quantity": 1.5, "type": "oz" },
+			"vodka": { "quantity": 1, "type": "splash" },
+			"rum": { "quantity": 1, "type": "shot" },
+			"cognac": { "quantity": 1, "type": "shot" }
+		},
 		"method": [
 			"Pour the wine into a pan, add the rest of the ingredients and heat to around 80C/176F, stirring to dissolve the sugar. ",
 			"Remove from the heat and leave to infuse for at least an hour. ",
