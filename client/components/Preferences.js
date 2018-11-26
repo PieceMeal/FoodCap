@@ -41,6 +41,14 @@ class Preference extends React.Component {
     }
   };
 
+  handleX = evt => {
+    this.setState((prevState) => {
+      const newItem = evt.label
+      const options = [...prevState.options, newItem]
+      return {...prevState, options }
+    })
+  }
+
   restore = (item) => {
     console.log('item', item)
   }
@@ -134,7 +142,12 @@ class Preference extends React.Component {
                     </Header.Content>
                   </Header>
 
-                  <Box name='love' targetKey="favCuisines" handleX={this.handleDrop} attached restoreOption={this.restore} />
+                  <Box
+                    name='love'
+                    targetKey="favCuisines"
+                    handleX={this.handleX}
+                    attached
+                    restoreOption={this.restore} />
                 </Grid.Column>
 
                 <Grid.Column>
@@ -147,7 +160,13 @@ class Preference extends React.Component {
                       </Header.Subheader>
                     </Header.Content>
                   </Header>
-                  <Box name='neutral' targetKey="favCuisines" handleX={this.handleDrop} attached restoreOption={this.restore} />
+                  <Box
+                    name='neutral'
+                    targetKey="favCuisines"
+                    handleX={this.handleX}
+                    attached
+                    restoreOption={this.restore}
+                  />
                 </Grid.Column>
 
                 <Grid.Column>
@@ -160,7 +179,13 @@ class Preference extends React.Component {
                       </Header.Subheader>
                     </Header.Content>
                   </Header>
-                  <Box name='hate' targetKey="favCuisines" handleX={this.handleDrop} attached restoreOption={this.restore} />
+                  <Box
+                    name='hate'
+                    targetKey="favCuisines"
+                    handleX={this.handleX}
+                    attached
+                    restoreOption={this.restore}
+                  />
                 </Grid.Column>
 
               </Grid.Row>

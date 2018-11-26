@@ -9,14 +9,6 @@ class PrefCard extends React.Component {
     };
   }
 
-  handleX = evt => {
-    this.setState(prevState => {
-      const newItem = evt.label;
-      const options = [...prevState.options, newItem];
-      return { ...prevState, options };
-    });
-  };
-
   render() {
     return (
       <div className="options">

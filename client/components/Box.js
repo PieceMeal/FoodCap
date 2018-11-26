@@ -22,7 +22,6 @@ export default class Box extends React.Component {
       items.push(newItem)
       this.setState({items: items});
       e.containerElem.style.visibility="hidden"
-      // this.props.handleDrop()
     };
 
     swap = (fromIndex, toIndex, dragData) => {
@@ -33,6 +32,7 @@ export default class Box extends React.Component {
     };
 
     kill = (item, uid) => {
+      this.props.handleX(item)
       let items = this.state.items.slice();
       const index = items.findIndex((item) => {
         return item.uid === uid
