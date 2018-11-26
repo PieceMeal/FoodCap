@@ -21,6 +21,7 @@ import {
 	updateListQuantityThunk,
 	addItemToListThunk,
 	addNoteThunk,
+	removeRecipeThunk,
 } from '../store/list';
 import {
 	setIngredientsThunk,
@@ -29,7 +30,12 @@ import {
 
 import { getIngredientsThunk } from '../store/singlerecipe';
 
-import { RecipeCard, ConfirmIngredientsMenu, ItemsConflictModal } from './';
+import {
+	RecipeCard,
+	ConfirmIngredientsMenu,
+	ItemsConflictModal,
+	RemoveRecipeIngredientsMenu,
+} from './';
 import { throws } from 'assert';
 const style = {
 	h3: {
@@ -66,6 +72,7 @@ class MyList extends Component {
 			itemNote: '',
 			itemNotePopup: [],
 			updatedItems: [],
+			recipeItems: [],
 			showConfirmPopup: false,
 			showConflictModal: false,
 		};
@@ -107,13 +114,14 @@ class MyList extends Component {
 			}
 		}
 	}
-	//handle state for form
+	//handle function for controlling form inputs for quantity
 	handleChange = evt => {
 		const newState = { ...this.state };
 		newState.ingredients[evt.target.name] = evt.target.value;
 		this.setState(newState);
 	};
 
+	//handle function for
 	//dispatch remove item from list thunk
 	handleRemoveItem = async (uuid, ingredient) => {
 		this.setState({ disableForm: true });
@@ -148,6 +156,7 @@ class MyList extends Component {
 		}
 	};
 
+	//grabs all ingredients for add item dropdown
 	handleFetchIngredients = async () => {
 		this.setState({ disableForm: true });
 
@@ -158,6 +167,7 @@ class MyList extends Component {
 		this.setState({ disableForm: false, ingredientsOptions, openPopup: true });
 	};
 
+	//create an ingredient not in the ingredients list
 	handleCreate = async (evt, { value }) => {
 		this.setState({ disableForm: true });
 		await this.props.createIngredient(value);
@@ -172,6 +182,7 @@ class MyList extends Component {
 		});
 	};
 
+	//selected an ingredient on add ingredient dropdown
 	ingredientSelect = (evt, { value }) => {
 		this.setState({ addItemName: value });
 	};
@@ -228,56 +239,103 @@ class MyList extends Component {
 		this.toggleNotePopup(fieldId);
 	};
 
+	//when a user clicks on the remove recipe button they should get prompted
+	//to remove each item on their list after removing the recipe
 	handleRemoveRecipe = async recipeName => {
 		//populate 'singlerecipe props with information to
 		//use for confirmation modal
 		await this.props.getIngredients(recipeName);
-		console.log(this.props.singlerecipe);
+		await this.props.removeRecipe(this.props.list.uuid, recipeName);
+		//recipeItems
+		const test = { ...this.state };
+		const currentListKeys = Object.keys(test.ingredients);
+		const ingredients = this.props.singlerecipe.ingredients.filter(i =>
+			currentListKeys.includes(i));
+		//ingredients = all ingredients in recipe that are still on list
+		console.log(ingredients);
+
+		// const removeIngredients = Object.keys(test.ingredients).filter(i =>
+		// 	this.props.singlerecipe.ingredients.includes(i));
+
+		let promptItems = [];
+
+		ingredients.forEach(i => {
+			promptItems.push({ name: i, quantity: this.state.ingredients[i] });
+		});
+		//console.log(promptItems);
+
+		this.setState({
+			recipeItems: promptItems,
+			showConfirmPopup: true,
+			disableForm: true,
+		});
 	};
 
 	//when a user tries to update their items a confirmation menu pops up
 	//this is passed to ConfirmIngredientsMenu for rejecting update
-	handleReject = itemName => {
+	handleReject = (itemName, type = 'update') => {
 		const newState = { ...this.state };
+		if (type === 'update') {
+			const updatedItems = this.state.updatedItems.filter(
+				item => item.name !== itemName
+			);
+			newState.updatedItems = updatedItems;
+			const oldItemQuantity = this.props.list.ingredients.filter(
+				i => i.name === itemName
+			)[0].quantity;
 
-		const updatedItems = this.state.updatedItems.filter(
-			item => item.name !== itemName
-		);
-		newState.updatedItems = updatedItems;
-		const oldItemQuantity = this.props.list.ingredients.filter(
-			i => i.name === itemName
-		)[0].quantity;
+			newState.ingredients[itemName] = oldItemQuantity;
 
-		newState.ingredients[itemName] = oldItemQuantity;
-
-		if (updatedItems.length === 0) {
-			newState.showConfirmPopup = false;
-			newState.disableForm = false;
-			newState.updatedItems = [];
+			if (updatedItems.length === 0) {
+				newState.showConfirmPopup = false;
+				newState.disableForm = false;
+				newState.updatedItems = [];
+			}
+		} else if (type === 'recipe') {
+			newState.recipeItems = newState.recipeItems.filter(
+				i => i.name !== itemName
+			);
+			if (newState.recipeItems.length === 0) {
+				newState.showConfirmPopup = false;
+				newState.disableForm = false;
+				newState.recipeItems = [];
+			}
 		}
-
 		this.setState(newState);
 	};
 
-	handleAccept = async itemName => {
+	handleAccept = async (itemName, type = 'update') => {
 		const newState = { ...this.state };
+		if (type === 'update') {
+			const updatedItems = this.state.updatedItems.filter(
+				item => item.name !== itemName
+			);
+			newState.updatedItems = updatedItems;
 
-		const updatedItems = this.state.updatedItems.filter(
-			item => item.name !== itemName
-		);
-		newState.updatedItems = updatedItems;
+			if (updatedItems.length === 0) {
+				newState.showConfirmPopup = false;
+				newState.disableForm = false;
+				newState.updatedItems = [];
+			}
 
-		if (updatedItems.length === 0) {
-			newState.showConfirmPopup = false;
-			newState.disableForm = false;
-			newState.updatedItems = [];
+			const updatedItem = this.state.updatedItems.filter(
+				item => item.name === itemName
+			);
+
+			await this.props.updateItems(this.props.list.uuid, updatedItem);
+		} else if (type === 'recipe') {
+			//remove item from menu
+			newState.recipeItems = newState.recipeItems.filter(
+				i => i.name !== itemName
+			);
+			//dispatch remove thunk to remove item
+			await this.handleRemoveItem(this.props.list.uuid, itemName);
+			if (newState.recipeItems.length === 0) {
+				newState.showConfirmPopup = false;
+				newState.disableForm = false;
+				newState.recipeItems = [];
+			}
 		}
-
-		const updatedItem = this.state.updatedItems.filter(
-			item => item.name === itemName
-		);
-
-		await this.props.updateItems(this.props.list.uuid, updatedItem);
 		this.setState(newState);
 	};
 	populateFields = () => {
@@ -288,8 +346,9 @@ class MyList extends Component {
 				ingredList[ingredient].quantity;
 			newState.itemNotePopup[i] = false;
 		});
-		this.setState(newState.ingredients);
+		this.setState(newState);
 	};
+
 	render() {
 		//dont display until loaded
 		if (this.state.loading === true) {
@@ -319,11 +378,21 @@ class MyList extends Component {
 							this.setState({ showConfirmPopup: false, disableForm: false })
 						}
 					>
-						<ConfirmIngredientsMenu
-							items={this.state.updatedItems}
-							reject={this.handleReject}
-							accept={this.handleAccept}
-						/>
+						{this.state.updatedItems.length > 0 && (
+							<ConfirmIngredientsMenu
+								items={this.state.updatedItems}
+								reject={this.handleReject}
+								accept={this.handleAccept}
+							/>
+						)}
+
+						{this.state.recipeItems.length > 0 && (
+							<RemoveRecipeIngredientsMenu
+								items={this.state.recipeItems}
+								reject={this.handleReject}
+								accept={this.handleAccept}
+							/>
+						)}
 					</Modal>
 
 					<div style={style.wholeTray}>
@@ -556,6 +625,7 @@ const mapDispatchToProps = dispatch => {
 		addNote: (uuid, ingredient, note) =>
 			dispatch(addNoteThunk(uuid, ingredient, note)),
 		getIngredients: name => dispatch(getIngredientsThunk(name)),
+		removeRecipe: (uuid, recipe) => dispatch(removeRecipeThunk(uuid, recipe)),
 	};
 };
 

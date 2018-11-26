@@ -324,3 +324,19 @@ router.put('/resolve', async (req, res, next) => {
 		next(err);
 	}
 });
+
+//PUT (/api/lists/removerecipe)
+//expects: req.body.uuid to match the uuid of list
+//         req.body.recipe to be the name of ingredient
+router.put('/removerecipe', async (req, res, next) => {
+	try {
+		const { uuid, recipe } = req.body;
+
+		await runQuery(
+			`MATCH (:List {uuid: '${uuid}'})-[r:hasRecipe]->(:Recipe{name:'${recipe}'}) DELETE r `
+		);
+		res.json({ status: true });
+	} catch (err) {
+		next(err);
+	}
+});
