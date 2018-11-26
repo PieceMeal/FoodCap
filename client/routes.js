@@ -10,6 +10,7 @@ import {
   LoginForm
 } from './components';
 import { me } from './store';
+import AccountHome from './components/UserAcct/AccountHome';
 //component
 class Routes extends Component {
   componentDidMount() {
@@ -38,6 +39,7 @@ class Routes extends Component {
               path="/recipes/singleview/:recipename"
               component={SingleRecipe}
             />
+            <Route path="/user/account" component={AccountHome} />
           </Switch>
         )}
       </div>
