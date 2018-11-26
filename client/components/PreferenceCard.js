@@ -1,6 +1,5 @@
 import React from "react";
 import Boxable from "./Boxable";
-import { Header } from "semantic-ui-react"
 
 class PrefCard extends React.Component {
   constructor(props) {
@@ -25,10 +24,12 @@ class PrefCard extends React.Component {
         {this.state.options.map(item => {
           return (
             <Boxable
-              targetKey={this.props.name}
+              key={this.props.items.indexOf(item)}
+              targetKey="target"
               label={item}
               handleDrop={this.props.handleDrop}
               type={this.props.type}
+              handleX={this.handleX}
             />
           );
         })}

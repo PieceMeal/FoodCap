@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, Grid, Header } from "semantic-ui-react";
+import { Button, Form, Grid, Header, Icon } from "semantic-ui-react";
 import { setPreference } from "../store/user";
 import { connect } from "react-redux";
 import history from "../history";
@@ -11,34 +11,39 @@ class Preference extends React.Component {
   state = {
     favCuisines: [],
     favIngredients: [],
-    mealTypes: [],
-    favCategory: []
+    favCategory: [],
+    hateCuisines: [],
+    hateIngredients: [],
+    hateCategory: []
   };
 
+  //preference object has changed: update
   handleSubmit = e => {
     e.preventDefault();
     const preferencesObj = {
       favCuisines: this.state.favCuisines,
       favIngredients: this.state.favIngredients,
-      mealTypes: this.state.mealTypes,
-      favCategory: this.state.favCategory
+      favCategory: this.state.favCategory,
+      hateCuisines: this.state.hateCuisines,
+      hateIngredients: this.state.hateIngredients,
+      hateCategory: this.state.hateCategory
     };
     this.props.setPreference(preferencesObj, this.props.user.id);
     history.push("/home");
   };
 
-  handleCheck = e => {
-    if (e.target.checked === true) {
-      this.state[`${e.target.value}`].push(e.target.name);
-    } else {
-      const index = this.state[`${e.target.value}`].indexOf(e.target.name);
-      this.state[`${e.target.value}`].splice(index, 1);
+  handleDrop = (item) => {
+    console.log('SET', item)
+    if (item.status === 'love') {
+      console.log('i love', item)
+    } else if (item.status === 'hate') {
+      console.log('i hate', item)
     }
   };
 
-  handleDrop = (name, type) => {
-    this.state[`${type}`].push(name);
-  };
+  restore = (item) => {
+    console.log('item', item)
+  }
 
   cuisines = [
     "chinese",
@@ -58,7 +63,7 @@ class Preference extends React.Component {
     "seafood",
     "cheese",
     "mushrooms",
-    "pesto",
+    "milk",
     "tomatoes",
     "potatoes"
   ];
@@ -76,7 +81,7 @@ class Preference extends React.Component {
   statements = [
     "I am vegetarian.",
     "I prefer low-calorie recipes.",
-    "I prefer easy, quicky recipes."
+    "I prefer easy, quick recipes."
   ];
 
   render() {
@@ -94,7 +99,7 @@ class Preference extends React.Component {
                     name="Cuisines"
                     items={this.cuisines}
                     handleDrop={this.handleDrop}
-                    type="favCuisines"
+                    type="cuisine"
                   />
                 </Grid.Column>
                 <Grid.Column>
@@ -103,7 +108,7 @@ class Preference extends React.Component {
                     name="Ingredients"
                     items={this.ingredients}
                     handleDrop={this.handleDrop}
-                    type="favIngredients"
+                    type="ingredient"
                   />
                 </Grid.Column>
                 <Grid.Column>
@@ -112,21 +117,52 @@ class Preference extends React.Component {
                     name="Categories"
                     items={this.categories}
                     handleDrop={this.handleDrop}
-                    type="favCategory"
+                    type="category"
                   />
                 </Grid.Column>
               </Grid.Row>
 
               <Grid.Row>
                 <Grid.Column>
-                  <Box targetKey="favCuisines" handleX={this.handleDrop} />
+                  <Header as='h3' attached="top">
+                    <Icon name='heart' />
+                    <Header.Content>
+                      Love:
+                      <Header.Subheader>
+                        Prioritize recommendations for your favorites!
+                      </Header.Subheader>
+                    </Header.Content>
+                  </Header>
+
+                  <Box name='love' targetKey="favCuisines" handleX={this.handleDrop} attached restoreOption={this.restore} />
                 </Grid.Column>
+
                 <Grid.Column>
-                  <Box targetKey="favCuisines" handleX={this.handleDrop} />
+                  <Header as='h3' attached="top">
+                    <Icon name='balance scale' />
+                    <Header.Content>
+                      Neutral:
+                      <Header.Subheader>
+                        You don't hate 'em, you don't love 'em.
+                      </Header.Subheader>
+                    </Header.Content>
+                  </Header>
+                  <Box name='neutral' targetKey="favCuisines" handleX={this.handleDrop} attached restoreOption={this.restore} />
                 </Grid.Column>
+
                 <Grid.Column>
-                  <Box targetKey="favCuisines" handleX={this.handleDrop} />
+                  <Header as='h3' attached="top">
+                    <Icon name='ban' />
+                    <Header.Content>
+                      Hate:
+                      <Header.Subheader>
+                        We won't recommend anything with these!
+                      </Header.Subheader>
+                    </Header.Content>
+                  </Header>
+                  <Box name='hate' targetKey="favCuisines" handleX={this.handleDrop} attached restoreOption={this.restore} />
                 </Grid.Column>
+
               </Grid.Row>
           </Grid>
         </div>
