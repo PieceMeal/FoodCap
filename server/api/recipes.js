@@ -5,6 +5,19 @@ const router = require('express').Router();
 
 module.exports = router;
 
+// function for grabbing recipe info from query results
+const recipeArrayMaker = recordsObj => {
+  const recipeArray = [];
+  Object.keys(recordsObj).forEach(key => {
+    const name = recordsObj[key].get('name');
+    const image = recordsObj[key].get('image');
+    const time = recordsObj[key].get('time');
+    const recipeObject = { name, image, time };
+    recipeArray.push(recipeObject);
+  });
+  return recipeArray;
+};
+
 // Retrieve single recipe information
 router.get('/singleview/:name', async (req, res, next) => {
 	try {
@@ -44,19 +57,50 @@ router.get('/singleview/:name', async (req, res, next) => {
 				for (let key in relationship) {
 					returnObject.ingredients[i][key] = relationship[key];
 
-					if (neo4j.isInt(relationship[key])) {
-						returnObject.ingredients[i][key] = relationship[key].toString();
-					}
-				}
-			}
-		});
 
-		res.json(returnObject);
-	} catch (err) {
-		next(err);
-	}
+          if (neo4j.isInt(relationship[key])) {
+            returnObject.ingredients[i][key] = relationship[key].toString();
+          }
+        }
+      }
+    });
+    let hasFavorite = await runQuery(
+      `match (p:Person {uuid:"${req.user.uuid}"}), (r:Recipe {name: "${
+        req.params.name
+      }"}) return exists ((p)-[:HAS_FAVORITE]-(r)) as exists`
+    );
+
+    returnObject.hasLike = hasFavorite.records[0].get('exists');
+    res.json(returnObject);
+  } catch (err) {
+    next(err);
+  }
 });
 
+router.get('/popular', async (req, res, next) => {
+  try {
+    const { records } = await runQuery(
+      `match (:Person)-[n:HAS_FAVORITE]->(r:Recipe)  with r, (count(n)*4) as popularity match (:Person)-[f:HAS_VIEWED]->(r) with r, count(f) as views, popularity return r.name as name,r.image as image,r.time as time,(popularity + views) as totalPop order by totalPop desc limit 4`
+    );
+
+    res.json(recipeArrayMaker(records));
+  } catch (err) {
+    next(err);
+  }
+});
+
+// PAST LIKES
+router.get('/pastliked', async (req, res, next) => {
+  try {
+    const user = req.user.uuid;
+    const { records } = await runQuery(
+      `match (:Person {uuid:'${user}'})-[:HAS_FAVORITE]->(r) return r.name as name, r.image as image, r.time as time`
+    );
+    res.json(recipeArrayMaker(records));
+  } catch (err) {
+    next(err);
+  }
+});
 // Retrieve array of recipes based on similar likes and page views, pass uuid as params.
 // returned array is sorted by highest relevance at index 0
 router.get('/matchonhistory', async (req, res, next) => {
@@ -81,34 +125,53 @@ router.get('/matchonhistory', async (req, res, next) => {
 			}
 		});
 
-		let match = await runQuery(
-			`match (u:Person {uuid: "${user}"})-[:HAS_FAVORITE]->(:Recipe)<-[:HAS_FAVORITE]-(:Person)-[:HAS_FAVORITE]->(f:Recipe) where not (u)-[:HAS_FAVORITE]->(f) with f.name as name, f.image as image, (count(f) * 4) as importance  return name, image, importance order by importance desc`
-		);
-		records = match.records;
-		Object.keys(records).forEach(key => {
-			const recipe = records[key].get('name');
-			const importance = records[key].get('importance').low;
-			const image = records[key].get('image');
-			if (recommendations[recipe]) {
-				recommendations[recipe].importance += importance;
-			} else {
-				recommendations[recipe] = { name: recipe, image, importance };
-			}
-		});
-		Object.keys(recommendations).forEach(recipe => {
-			orderRec.push(recommendations[recipe]);
-		});
-		const sortedRec = orderRec.sort(function(a, b) {
-			a = a.importance;
-			b = b.importance;
-			return b - a;
-		});
+
+    let match = await runQuery(
+      `match (u:Person {uuid: "${user}"})-[:HAS_FAVORITE]->(:Recipe)<-[:HAS_FAVORITE]-(:Person)-[:HAS_FAVORITE]->(f:Recipe) where not (u)-[:HAS_FAVORITE]->(f) with f.name as name, f.image as image, (count(f) * 4) as importance  return name, image, importance order by importance desc`
+    );
+    records = match.records;
+    Object.keys(records).forEach(key => {
+      const recipe = records[key].get('name');
+      const importance = records[key].get('importance').low;
+      const image = records[key].get('image');
+      if (recommendations[recipe]) {
+        recommendations[recipe].importance += importance;
+      } else {
+        recommendations[recipe] = { name: recipe, image, importance };
+      }
+    });
+    console.log(recommendations);
+    Object.keys(recommendations).forEach(recipe => {
+      orderRec.push(recommendations[recipe]);
+    });
+    const sortedRec = orderRec.sort(function(a, b) {
+      a = a.importance;
+      b = b.importance;
+      return b - a;
+    });
 
 		res.send(sortedRec, 201);
 	} catch (err) {
 		next(err);
 	}
 });
+
+//TOGGLE HAS_FAVORITE on or off
+router.put('/toggle', async (req, res, next) => {
+  const recipe = req.body.recipeName;
+  try {
+    await runQuery(
+      `match (p:Person {uuid: "${
+        req.user.uuid
+      }"}),(r:Recipe {name: "${recipe}"}) Create (p)-[:HAS_FAVORITE]->(r) with p,r match (p)-[x:HAS_FAVORITE]->(r), (p)-[:HAS_FAVORITE]->(r) delete x`
+    );
+  } catch (err) {
+    next(err);
+  }
+  res.send(201);
+});
+
+//TOGGLE BOOKMARK FOR LATER
 router.get('/', async (req, res, next) => {
 	try {
 		let key = req.query.key;
@@ -136,4 +199,5 @@ router.get('/ingredients/:name', async (req, res, next) => {
 		{ name }
 	);
 	res.json(records.map(record => record.get('i.name')));
+
 });

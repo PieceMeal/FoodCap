@@ -66,6 +66,7 @@ class MyList extends Component {
 			itemNote: '',
 			itemNotePopup: [],
 			updatedItems: [],
+			recipeItems: [],
 			showConfirmPopup: false,
 			showConflictModal: false,
 		};
@@ -228,56 +229,76 @@ class MyList extends Component {
 		this.toggleNotePopup(fieldId);
 	};
 
+	//when a user clicks on the remove recipe button they should get prompted
+	//to remove each item on their list after removing the recipe
 	handleRemoveRecipe = async recipeName => {
 		//populate 'singlerecipe props with information to
 		//use for confirmation modal
 		await this.props.getIngredients(recipeName);
 		console.log(this.props.singlerecipe);
+		//recipeItems
+		const test = { ...this.state };
+		const removeIngredients = Object.keys(test.ingredients).filter(i =>
+			this.props.singlerecipe.ingredients.includes(i));
+
+		let promptItems = [];
+
+		removeIngredients.forEach(i => {
+			promptItems.push({ name: i, quantity: this.state.ingredients[i] });
+		});
+		console.log(promptItems);
+
+		this.setState({
+			recipeItems: promptItems,
+			showConfirmPopup: true,
+			disableForm: true,
+		});
 	};
 
 	//when a user tries to update their items a confirmation menu pops up
 	//this is passed to ConfirmIngredientsMenu for rejecting update
-	handleReject = itemName => {
+	handleReject = (itemName, type = 'update') => {
 		const newState = { ...this.state };
+		if (type === 'update') {
+			const updatedItems = this.state.updatedItems.filter(
+				item => item.name !== itemName
+			);
+			newState.updatedItems = updatedItems;
+			const oldItemQuantity = this.props.list.ingredients.filter(
+				i => i.name === itemName
+			)[0].quantity;
 
-		const updatedItems = this.state.updatedItems.filter(
-			item => item.name !== itemName
-		);
-		newState.updatedItems = updatedItems;
-		const oldItemQuantity = this.props.list.ingredients.filter(
-			i => i.name === itemName
-		)[0].quantity;
+			newState.ingredients[itemName] = oldItemQuantity;
 
-		newState.ingredients[itemName] = oldItemQuantity;
-
-		if (updatedItems.length === 0) {
-			newState.showConfirmPopup = false;
-			newState.disableForm = false;
-			newState.updatedItems = [];
+			if (updatedItems.length === 0) {
+				newState.showConfirmPopup = false;
+				newState.disableForm = false;
+				newState.updatedItems = [];
+			}
 		}
-
 		this.setState(newState);
 	};
 
-	handleAccept = async itemName => {
+	handleAccept = async (itemName, type = 'update') => {
 		const newState = { ...this.state };
+		if (type === 'update') {
+			const updatedItems = this.state.updatedItems.filter(
+				item => item.name !== itemName
+			);
+			newState.updatedItems = updatedItems;
 
-		const updatedItems = this.state.updatedItems.filter(
-			item => item.name !== itemName
-		);
-		newState.updatedItems = updatedItems;
+			if (updatedItems.length === 0) {
+				newState.showConfirmPopup = false;
+				newState.disableForm = false;
+				newState.updatedItems = [];
+			}
 
-		if (updatedItems.length === 0) {
-			newState.showConfirmPopup = false;
-			newState.disableForm = false;
-			newState.updatedItems = [];
+			const updatedItem = this.state.updatedItems.filter(
+				item => item.name === itemName
+			);
+
+			await this.props.updateItems(this.props.list.uuid, updatedItem);
 		}
-
-		const updatedItem = this.state.updatedItems.filter(
-			item => item.name === itemName
-		);
-
-		await this.props.updateItems(this.props.list.uuid, updatedItem);
 		this.setState(newState);
 	};
 	populateFields = () => {
@@ -288,8 +309,9 @@ class MyList extends Component {
 				ingredList[ingredient].quantity;
 			newState.itemNotePopup[i] = false;
 		});
-		this.setState(newState.ingredients);
+		this.setState(newState);
 	};
+
 	render() {
 		//dont display until loaded
 		if (this.state.loading === true) {
@@ -319,11 +341,21 @@ class MyList extends Component {
 							this.setState({ showConfirmPopup: false, disableForm: false })
 						}
 					>
-						<ConfirmIngredientsMenu
-							items={this.state.updatedItems}
-							reject={this.handleReject}
-							accept={this.handleAccept}
-						/>
+						{this.state.updatedItems.length > 0 && (
+							<ConfirmIngredientsMenu
+								items={this.state.updatedItems}
+								reject={this.handleReject}
+								accept={this.handleAccept}
+							/>
+						)}
+
+						{this.state.recipeItems.length > 0 && (
+							<ConfirmIngredientsMenu
+								items={this.state.recipeItems}
+								reject={this.handleReject}
+								accept={this.handleAccept}
+							/>
+						)}
 					</Modal>
 
 					<div style={style.wholeTray}>
