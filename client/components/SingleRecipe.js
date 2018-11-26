@@ -4,7 +4,8 @@ import { Segment, Divider, Button } from 'semantic-ui-react';
 import {
   setRecipeThunk,
   deleteRecipe,
-  toggleLikeThunk
+  toggleLikeThunk,
+  toggleBookmarkThunk
 } from '../store/singlerecipe';
 import Navbar from './navbar';
 const mapStateToProps = state => {
@@ -17,7 +18,8 @@ const mapDispatchToProps = dispatch => {
   return {
     setRecipe: searchTerm => dispatch(setRecipeThunk(searchTerm)),
     deleteStore: () => dispatch(deleteRecipe()),
-    toggleLike: name => dispatch(toggleLikeThunk(name))
+    toggleLike: name => dispatch(toggleLikeThunk(name)),
+    toggleBookmark: name => dispatch(toggleBookmarkThunk(name))
   };
 };
 
@@ -47,6 +49,10 @@ class SingleRecipe extends Component {
 
   handleAddLike = () => {
     this.props.toggleLike(this.props.recipe.name);
+  };
+
+  handleBookmark = () => {
+    this.props.toggleBookmark(this.props.recipe.name);
   };
 
   render() {
@@ -154,8 +160,15 @@ class SingleRecipe extends Component {
                   Add to List
                 </Button>
 
-                <Button type="button" style={style.buttonMargin}>
-                  Bookmark
+                <Button
+                  className={
+                    recipe.hasBookmark ? 'ui yellow button' : 'ui button'
+                  }
+                  type="button"
+                  style={style.buttonMargin}
+                  onClick={this.handleBookmark}
+                >
+                  {recipe.hasBookmark ? 'Bookmarked' : 'Bookmark'}
                 </Button>
                 <div
                   className={recipe.hasLike ? 'ui green button' : 'ui button'}

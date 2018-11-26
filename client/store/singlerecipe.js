@@ -7,7 +7,8 @@ import history from '../history';
 import {
   SET_SINGLE_RECIPE,
   DELETE_SINGLE_RECIPE,
-  TOGGLE_LIKE
+  TOGGLE_LIKE,
+  TOGGLE_BOOKMARK
 } from './constants';
 
 /**
@@ -24,6 +25,9 @@ const setRecipe = recipe => ({
 });
 const toggleLike = () => ({
   type: TOGGLE_LIKE
+});
+const toggleBookmark = () => ({
+  type: TOGGLE_BOOKMARK
 });
 export const deleteRecipe = () => ({
   type: DELETE_SINGLE_RECIPE
@@ -44,8 +48,18 @@ export const setRecipeThunk = searchTerm => async dispatch => {
 export const toggleLikeThunk = recipeName => async dispatch => {
   try {
     const putObj = { recipeName };
-    await axios.put('/api/recipes/toggle', putObj);
+    await axios.put('/api/recipes/togglelike', putObj);
     dispatch(toggleLike());
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const toggleBookmarkThunk = recipeName => async dispatch => {
+  try {
+    const putObj = { recipeName };
+    await axios.put('/api/recipes/togglebookmark', putObj);
+    dispatch(toggleBookmark());
   } catch (err) {
     console.error(err);
   }
@@ -62,6 +76,8 @@ export default function(state = defaultSingleRecipe, action) {
       return defaultSingleRecipe;
     case TOGGLE_LIKE:
       return { ...state, hasLike: !state.hasLike };
+    case TOGGLE_BOOKMARK:
+      return { ...state, hasBookmark: !state.hasBookmark };
     default:
       return state;
   }

@@ -49,10 +49,19 @@ router.get('/userrec', async (req, res, next) => {
     next(err);
   }
 });
+router.put('/setaccountinfo', async (req, res, next) => {
+  const user = req.user.uuid;
+  const userInfo = await User.update(req.body, {
+    where: { uuid: user },
+    returning: true,
+    plain: true
+  });
 
+  res.json(userInfo[1], 201);
+});
 // Set user [:like] to ingredient, category and cuisine & set [:similar] with Jaccard
 
-router.put('/:userId', async (req, res, next) => {
+router.put('/setpref/:userId', async (req, res, next) => {
   try {
     const { favCuisines, favIngredients, mealTypes, favCategory } = req.body;
     let userId = req.params.userId;

@@ -7,13 +7,14 @@ import {
   SET_POPULAR_RECIPES,
   DELETE_POPULAR_RECIPES,
   SET_LIKED_RECIPES,
-  DELETE_LIKED_RECIPES
+  DELETE_LIKED_RECIPES,
+  SET_BOOKMARKED_RECIPES
 } from './constants';
 
 /**
  * INITIAL STATE
  */
-const defaultRecipeList = { popular: [], pastLikes: [] };
+const defaultRecipeList = { popular: [], pastLikes: [], bookmarks: [] };
 
 /**
  * ACTION CREATORS
@@ -25,6 +26,9 @@ export const deletePopular = () => ({ type: DELETE_POPULAR_RECIPES });
 // LIKED
 const setLiked = recipes => ({ type: SET_LIKED_RECIPES, recipes });
 export const deleteLiked = () => ({ type: DELETE_LIKED_RECIPES });
+
+//BOOKMARKS
+const setBookmarks = recipes => ({ type: SET_BOOKMARKED_RECIPES, recipes });
 /**
  * THUNK CREATORS
  */
@@ -47,6 +51,15 @@ export const setLikedRecipesThunk = () => async dispatch => {
     console.error(err);
   }
 };
+// BOOKMARK THUNK
+export const setBookmarkedRecipesThunk = () => async dispatch => {
+  try {
+    const { data } = await axios.get('/api/recipes/bookmarks');
+    dispatch(setBookmarks(data));
+  } catch (err) {
+    console.error(err);
+  }
+};
 /**
  * REDUCER
  */
@@ -60,6 +73,8 @@ export default function(state = defaultRecipeList, action) {
       return { ...state, pastLikes: action.recipes };
     case DELETE_LIKED_RECIPES:
       return { ...state, pastLikes: [] };
+    case SET_BOOKMARKED_RECIPES:
+      return { ...state, bookmarks: action.recipes };
     default:
       return state;
   }
