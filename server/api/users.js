@@ -6,6 +6,7 @@ module.exports = router;
 
 //Jaccard théoreme running every 5 min to delete connections between user nodes and recreate new ones taking in consideration new views and new favorites
 setInterval(async () => {
+
   await runQuery(`MATCH(:Person)-[s:similar]-(:Person) DELETE s`);
 
   await runQuery(

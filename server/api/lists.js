@@ -53,6 +53,7 @@ router.get('/', async (req, res, next) => {
 				returnObject[i][key] = relationship[key];
 			}
 		});
+		console.log(returnObject);
 		res.json(returnObject);
 	} catch (err) {
 		next(err);
@@ -143,7 +144,7 @@ router.put('/addrecipe', async (req, res, next) => {
 			`MATCH (l:List {uuid: '${uuid}'})
       MATCH(r:Recipe {name: "${recipe}"})
       MATCH (r)-[z:hasIngredient]->(i)
-      MERGE (l)-[newIngredient:hasIngredient]->(i)
+      CREATE (l)-[newIngredient:hasIngredient]->(i)
       MERGE (l)-[:hasRecipe]->(r)
       SET newIngredient += properties(z)
        RETURN l,r,i`

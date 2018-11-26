@@ -1,0 +1,88 @@
+{
+	"Andalucian pork with apricots, prunes and herbs, rolled in paprika": {
+		"ingredients": {
+			"pork fillet": { "quantity": 1, "type": "" },
+			"dried apricots": { "quantity": "1.75", "type": "oz" },
+			"prunes": { "quantity": "1.75", "type": "oz" },
+			"paprika": { "quantity": 2, "type": "tbsp" },
+			"fresh parsley": { "quantity": 0.5, "type": "oz" },
+			"oregano": { "quantity": 1, "type": "tsp" },
+			"thyme": { "quantity": 1, "type": "tsp" },
+			"garlic": { "quantity": 1, "type": "clove" },
+			"paprika": { "quantity": 2, "type": "tbsp" },
+			"olive oil": { "quantity": 2, "type": "tbsp" },
+			"lemon": { "quantity": 1, "type": "" }
+		},
+
+		"method": [
+			"Cut the pork open with a sharp knife and open the fillet out along its length, being careful not to cut all the way through the fillet.",
+			"In a bowl, mix together the prunes, apricots and parsley and insert along the length of the fillet. Season well.",
+			"Roll the fillet up and securely fasten with string.",
+			"Mix up the paprika, the remaining herbs, the garlic, the salt and the oil to make a thick paste. Spread over the surface of the meat, and leave it in the fridge, ideally overnight.",
+			"Preheat the oven to 200C/400C/Gas 6. Season the meat and sear on all sides in a heavy pan. Place in the oven for fifteen minutes.",
+			"Rest the meat before serving with lemon wedges."
+		],
+		"url": "www_bbc_com_food_recipes_andalucianporkwithap_72080",
+		"title":
+			"Andalucian pork with apricots, prunes and herbs, rolled in paprika",
+		"time": {
+			"preparation": "overnightovernight",
+			"preparationMins": 720,
+			"cooking": "10 to 30 mins10 to 30 mins",
+			"cookingMins": 30,
+			"totalMins": 750
+		},
+		"serves": "Serves 2Serves 2",
+		"isVegetarian": false,
+		"recommendations": 0,
+		"image":
+			"https://i.pinimg.com/originals/0a/7a/11/0a7a11aa7855cf36fb8cc854f4748477.jpg",
+		"categories": ["spanish"]
+	},
+	"Chicken in white wine sauce": {
+		"ingredients": {
+			"chicken breasts": { "quantity": 4, "type": "breast" },
+			"onion": { "quantity": 1, "type": "medium" },
+			"carrot": { "quantity": 1, "type": "carrot" },
+			"celery": { "quantity": 1, "type": "stalk" },
+			"bay leaf": { "quantity": 1, "type": "leaf" },
+			"peppercorns": { "quantity": 6, "type": "tsp" },
+			"butter": { "quantity": 1, "type": "oz" },
+			"flour": { "quantity": 1, "type": "cup" },
+			"white wine": { "quantity": 5, "type": "fl oz" },
+			"egg": { "quantity": 1, "type": "egg" },
+			"cream": { "quantity": 6, "type": "tbsp" },
+			"lemon juice": { "quantity": 1, "type": "tsp" },
+			"parsley ": { "quantity": 1, "type": "tbsp" }
+		},
+		"method": [
+			"Place the chicken breasts in a pan with the vegetables and peppercorns and cover with water. ",
+			"Bring gradually to the boil and simmer until the chicken is cooked all the way through - about 30 minutes. ",
+			"Carefully remove the chicken breasts from the cooking liquid and keep them warm. ",
+			"Strain the cooking liquid into a clean pan, discarding the cooked vegetables. Reserve about 450ml/16fl oz of the liquid.",
+			"Melt the butter in a separate pan and add the flour. Cook until the mixture forms a smooth paste which leaves the sides and base of pan cleanly.",
+			"Gradually add the reserved cooking liquid to the mixture, a ladle at a time, allowing to boil after each addition before beating well. Stir until the mixture blends smoothly.",
+			"Pour the white wine into the sauce and reduce the heat to low. ",
+			"In a small bowl, combine the egg yolk with the double cream. Stir the egg and cream into the sauce. ",
+			"Add a squeeze of lemon juice and salt and freshly ground black pepper to taste.",
+			"Cut the cooked chicken into bite-sized pieces and stir into the sauce. ",
+			"Garnish with chopped fresh parsley and serve at once."
+		],
+		"url": "www_bbc_com_food_recipes_mirandaschickeninwhi_85673",
+		"title": "Chicken in white wine sauce",
+		"time": {
+			"preparation": "less than 30 minsless than 30 mins",
+			"preparationMins": 30,
+			"cooking": "30 mins to 1 hour30 mins to 1 hour",
+			"cookingMins": 60,
+			"totalMins": 90
+		},
+		"serves": "Serves 4Serves 4",
+		"isVegetarian": false,
+		"recommendations": 0,
+		"image":
+			"https://www.monpetitfour.com/wp-content/uploads/2017/05/Chicken-in-White-Wine-Sauce_3-copy.jpg",
+		"categories": ["chicken"],
+		"cuisine": ["italian"]
+	}
+}
