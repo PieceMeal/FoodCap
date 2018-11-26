@@ -53,6 +53,7 @@ router.get('/', async (req, res, next) => {
 				returnObject[i][key] = relationship[key];
 			}
 		});
+		console.log(returnObject);
 		res.json(returnObject);
 	} catch (err) {
 		next(err);
@@ -143,7 +144,7 @@ router.put('/addrecipe', async (req, res, next) => {
 			`MATCH (l:List {uuid: '${uuid}'})
       MATCH(r:Recipe {name: "${recipe}"})
       MATCH (r)-[z:hasIngredient]->(i)
-      MERGE (l)-[newIngredient:hasIngredient]->(i)
+      CREATE (l)-[newIngredient:hasIngredient]->(i)
       MERGE (l)-[:hasRecipe]->(r)
       SET newIngredient += properties(z)
        RETURN l,r,i`
@@ -317,6 +318,22 @@ router.put('/resolve', async (req, res, next) => {
 				quantity,
 				type,
 			}
+		);
+		res.json({ status: true });
+	} catch (err) {
+		next(err);
+	}
+});
+
+//PUT (/api/lists/removerecipe)
+//expects: req.body.uuid to match the uuid of list
+//         req.body.recipe to be the name of ingredient
+router.put('/removerecipe', async (req, res, next) => {
+	try {
+		const { uuid, recipe } = req.body;
+
+		await runQuery(
+			`MATCH (:List {uuid: '${uuid}'})-[r:hasRecipe]->(:Recipe{name:'${recipe}'}) DELETE r `
 		);
 		res.json({ status: true });
 	} catch (err) {

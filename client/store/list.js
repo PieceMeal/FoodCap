@@ -8,6 +8,8 @@ import { SET_LIST, LIST_REMOVE_ITEM, LIST_UPDATE_ITEMS } from './constants';
 const ADD_ITEM_TO_LIST = 'ADD_ITEM_TO_LIST';
 const ADD_NOTE_TO_ITEM = 'ADD_NOTE_TO_ITEM';
 const RESOLVE_LIST_CONFLICT = 'RESOLVE_LIST_CONFLCIT';
+
+const LIST_REMOVE_RECIPE = 'LIST_REMOVE_RECIPE';
 /**
  * INITIAL STATE
  */
@@ -53,6 +55,12 @@ const resolveListConflict = (uuid, ingredient, quantity, type) => ({
 	quantity,
 	ingredientType: type,
 });
+
+const removeRecipe = (uuid, recipe) => ({
+	type: LIST_REMOVE_RECIPE,
+	uuid,
+	recipe,
+});
 /**
  * THUNK CREATORS
  */
@@ -71,6 +79,8 @@ export const removeListItemThunk = (uuid, ingredient) => async dispatch => {
 			uuid,
 			ingredient,
 		});
+		console.log('in thunk');
+		console.log(uuid, ingredient);
 		dispatch(removeListItem(ingredient));
 	} catch (err) {
 		console.error(err);
@@ -146,6 +156,15 @@ export const resolveConflictThunk = (
 	}
 };
 
+export const removeRecipeThunk = (uuid, recipe) => async dispatch => {
+	try {
+		await axios.put('/api/lists/removerecipe', { uuid, recipe });
+		dispatch(removeRecipe(uuid, recipe));
+	} catch (err) {
+		console.error(err);
+	}
+};
+
 /**
  * REDUCER
  */
@@ -202,19 +221,23 @@ export default function(state = defaultList, action) {
 			return newList;
 		}
 		case RESOLVE_LIST_CONFLICT: {
-			console.log('in reducer...');
 			const { ingredient, quantity, ingredientType } = action;
 			const newList = { ...state };
 			const newIngreds = newList.ingredients.filter(
 				item => item.name !== ingredient
 			);
-			console.log(newIngreds);
 			newList.ingredients = newIngreds;
 			newList.ingredients.push({
 				name: ingredient,
 				quantity,
 				type: ingredientType,
 			});
+			return newList;
+		}
+		case LIST_REMOVE_RECIPE: {
+			const newList = { ...state };
+			const { recipe } = action;
+			newList.recipes = newList.recipes.filter(r => r.name !== recipe);
 			return newList;
 		}
 		default:

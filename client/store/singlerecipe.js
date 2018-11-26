@@ -1,5 +1,4 @@
 import axios from 'axios';
-import history from '../history';
 
 /**
  * ACTION TYPES
@@ -11,6 +10,7 @@ import {
   TOGGLE_BOOKMARK
 } from './constants';
 
+const GET_RECIPE_INGREDIENTS = 'GET_RECIPE_INGREDIENTS';
 /**
  * INITIAL STATE
  */
@@ -23,18 +23,31 @@ const setRecipe = recipe => ({
   type: SET_SINGLE_RECIPE,
   recipe
 });
-const toggleLike = () => ({
-  type: TOGGLE_LIKE
-});
 const toggleBookmark = () => ({
   type: TOGGLE_BOOKMARK
 });
 export const deleteRecipe = () => ({
   type: DELETE_SINGLE_RECIPE
 });
+
+const getIngredients = (name, ingredients) => ({
+  type: GET_RECIPE_INGREDIENTS,
+  ingredients,
+  name
+});
+
 /**
  * THUNK CREATORS
  */
+export const getIngredientsThunk = name => async dispatch => {
+  try {
+    const { data } = await axios.get(`/api/recipes/ingredients/${name}`);
+    console.log(data);
+    dispatch(getIngredients(name, data));
+  } catch (err) {
+    console.error(err);
+  }
+};
 export const setRecipeThunk = searchTerm => async dispatch => {
   try {
     const { data } = await axios.get(`/api/recipes/singleview/${searchTerm}`);
@@ -74,6 +87,10 @@ export default function(state = defaultSingleRecipe, action) {
       return action.recipe;
     case DELETE_SINGLE_RECIPE:
       return defaultSingleRecipe;
+    case GET_RECIPE_INGREDIENTS: {
+      const { name, ingredients } = action;
+      return { name, ingredients };
+    }
     case TOGGLE_LIKE:
       return { ...state, hasLike: !state.hasLike };
     case TOGGLE_BOOKMARK:
