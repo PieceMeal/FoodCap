@@ -29,6 +29,9 @@ const toggleBookmark = () => ({
 export const deleteRecipe = () => ({
   type: DELETE_SINGLE_RECIPE
 });
+const toggleLike = () => ({
+  type: TOGGLE_LIKE
+});
 
 const getIngredients = (name, ingredients) => ({
   type: GET_RECIPE_INGREDIENTS,
