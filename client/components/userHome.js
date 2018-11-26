@@ -9,8 +9,9 @@ import {
   Icon,
   Divider,
   Input,
-  Form
-
+  Form,
+  Image,
+  Message
 } from 'semantic-ui-react';
 import { fetchRecipes } from '../store/user';
 import {
@@ -95,7 +96,6 @@ class UserHome extends React.Component {
     this.setState({ [name]: false });
   };
   render() {
-    const disableSubmitButton = Object.keys(this.state.checked).length;
     if (this.props.recipes) {
       return (
         <div>
@@ -103,8 +103,8 @@ class UserHome extends React.Component {
           <Navbar />
           <Container>
             <div>
+                <Image src='/logo.png' height='200' centered/>
               <Header as="h2" icon textAlign="center">
-                <Icon name="users" circular />
                 <Header.Content>Hello {this.props.email}</Header.Content>
               </Header>
               <Form onSubmit={this.handleSubmit}>
@@ -135,7 +135,15 @@ class UserHome extends React.Component {
       );
     } else {
       //loading page ??
-      return <div />;
+      return(
+      <Message icon>
+        <Icon name='circle notched' loading />
+         <Message.Content>
+           <Message.Header>Just one second</Message.Header>
+           We are fetching that content for you.
+        </Message.Content>
+      </Message>
+      )
     }
   }
 }

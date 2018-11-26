@@ -155,18 +155,15 @@ router.put('/toggle', async (req, res, next) => {
 //TOGGLE BOOKMARK FOR LATER
 router.get('/', async (req, res, next) => {
   try {
+    console.log('we are getting in???', req.query.key)
     let key = req.query.key;
-
-    console.log('key from req.query', key);
-    console.log(' from req.query', req.query);
     const { records } = await runQuery(`
-    MATCH (n)-[1..3:a]-(r:Recipe)
+    MATCH (n)-[*1]-(r:Recipe)
     WHERE n.name CONTAINS "${key}" OR n.content CONTAINS "${key}" OR n.title CONTAINS "${key}"
-    RETURN n, r`);
-    // console.log('our records from query', records[0].get('r'))
-    const recc = records.map(rec => rec.get('r'));
-    console.log('my record', recc);
-    res.json(records);
+    RETURN DISTINCT r
+    `);
+    const recc = records.map(rec => rec.get('r').properties);
+    res.json(recc);
   } catch (err) {
     next(err);
   }

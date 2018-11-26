@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { logout } from '../store';
 import { Link } from 'react-router-dom'
 import { Menu, Input, Icon, Form } from 'semantic-ui-react';
-
+import {searchRecipesThunk} from '../store/genericRecLists'
+import history from '../history'
 
 class Navbar extends React.Component {
 	constructor() {
@@ -14,18 +15,20 @@ class Navbar extends React.Component {
 			value: ''
 		}
 	}
+	handleClick = () => {
+		this.props.logout()
+	}
+	handleChange = (e) => {
+		this.setState({value: e.target.value})
+	}
 
-	// handleChange = (e) => {
-	// 	console.log('we are getting this from navbar----->>', this.state.value)
-	// 	this.setState({value: e.target.value})
-	// }
-
-	// handleSubmit = async(e) => {
-	// 	console.log('is this happenign??')
-	// 	e.preventDefault()
-	// 	const {data} = await axios.get(`/api/recipes?key=${this.state.value}`)
-	// 	console.log('data from axios.get recipes', data)
-	// }
+	handleSubmit = async(e) => {
+		e.preventDefault()
+		const query = this.state.value
+		this.props.searchRecipesThunk(query);
+		this.setState({value: ''})
+		history.push(`/search?key=${query}`)
+	}
 
 	handleItemClick = (e, { name }) => this.setState({ active: name })
 
@@ -48,7 +51,7 @@ class Navbar extends React.Component {
 						</Form>
 					</Menu.Item>
 
-					<Menu.Item onClick={this.props.handleClick} position="right">
+					<Menu.Item onClick={this.handleClick} position="right">
 						Log out
 					</Menu.Item>
 
@@ -57,23 +60,16 @@ class Navbar extends React.Component {
 		}
 	}
 
-const mapState = state => {
-	return {
-		isLoggedIn: !!state.user.id
-	}
-}
+const mapState = state => ({isLoggedIn: !!state.user.id})
 
-const mapDispatch = dispatch => {
-	return {
-		handleClick() {
-			dispatch(logout());
-		},
-	};
-};
+const mapDispatch = dispatch => ({
+	logout: () => dispatch(logout()),
+	searchRecipesThunk: (q) => dispatch(searchRecipesThunk(q))
+})
 
 export default connect(mapState, mapDispatch)(Navbar);
 
 Navbar.propTypes = {
-	handleClick: PropTypes.func.isRequired,
+	// handleClick: PropTypes.func.isRequired,
 	isLoggedIn: PropTypes.bool.isRequired,
 };

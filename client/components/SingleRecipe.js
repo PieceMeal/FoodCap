@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Segment, Divider, Button } from 'semantic-ui-react';
+import { Segment, Divider, Button, Message, Icon } from 'semantic-ui-react';
 import {
   setRecipeThunk,
   deleteRecipe,
@@ -172,7 +172,14 @@ class SingleRecipe extends Component {
         </React.Fragment>
       );
     } else {
-      return <h1>LOADING!!! WAIT!</h1>;
+      return   ( <Message icon>
+      <Icon name='circle notched' loading />
+       <Message.Content>
+         <Message.Header>Just one second</Message.Header>
+         We are fetching that content for you.
+      </Message.Content>
+    </Message>
+      )
     }
   }
 }

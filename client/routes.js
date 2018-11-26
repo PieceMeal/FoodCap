@@ -7,7 +7,8 @@ import {
   UserHome,
   Preferences,
   SingleRecipe,
-  LoginForm
+  LoginForm,
+  SearchResults
 } from './components';
 import { me } from './store';
 //component
@@ -30,7 +31,7 @@ class Routes extends Component {
             {/* Routes placed here are only available after logging in */}
             <Route exact path="/" component={UserHome} />
             <Route exact path="/home" component={UserHome} />
-
+            <Route path="/search" component={SearchResults} />
             <Route path="/home/preferences" component={Preferences} />
             <Route path="/lists/:id" component={MyList} />
 
