@@ -45,7 +45,7 @@ class AccountUpdateForm extends Component {
             />
           </Form.Field>
           <Form.Field>
-            <Label>Name</Label>
+            <Label>Handle</Label>
             <Form.Input
               type="text"
               name="userName"

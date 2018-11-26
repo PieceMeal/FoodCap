@@ -50,14 +50,14 @@ class AccountHome extends Component {
               <Grid.Column width={5} style={{ marginLeft: '4vw' }}>
                 <h4>User Info</h4>
                 <p>
-                  <b>Email:</b> {user.email}
+                  <b>Email:</b> &nbsp;{user.email}
                 </p>
                 <p>
-                  <b>Name:</b>
-                  {user.userName || 'Update your name below'}
+                  <b>Handle:</b> &nbsp;
+                  {user.userName || 'Add your handle below'}
                 </p>
                 <p>
-                  <b>Picture Url:</b>{' '}
+                  <b>Picture Url:</b>&nbsp;
                   {user.profilePicture === '/list.svg'
                     ? 'Update your picture below'
                     : user.profilePicture}
