@@ -1,4 +1,898 @@
 {
+  "Aloo panchporan (Stir-fried potatoes tempered with five spices)": {
+    "ingredients": {
+      "vegetable oil": { "quantity": 1, "type": "tbsp" },
+      "potatoes": { "quantity": 2, "type": "lb" },
+      "turmeric": { "quantity": 1, "type": "tsp" },
+      "cilli powder": { "quantity": 1, "type": "tsp" },
+      "cumin": { "quantity": 1, "type": "tbsp" },
+      "fennel": { "quantity": 1, "type": "tbsp" },
+      "fenugreek seeds": { "quantity": 1, "type": "tbsp" },
+      "nigella seeds": { "quantity": 1, "type": "tbsp" },
+      "black mustard seeds": { "quantity": 1, "type": "tbsp" },
+      "five spice mix": { "quantity": 2, "type": "tbsp" },
+      "green chilli": { "quantity": 1, "type": "tsp" },
+      "coriander": { "quantity": 1, "type": "tbsp" }
+    },
+    "method": [
+      "In a wide non-stick pan, heat the oil to a medium-high heat and add the potatoes.  ",
+      "Sauté the potatoes until they are nearly cooked. Add the turmeric, chilli powder and salt and fry until they are cooked through.",
+      "In a separate small shallow frying pan heat the oil until it begins to smoke. Mix together the five spice mix ingredients, and add two teaspoons to the hot pan. The seeds will crackle and pop, so be careful when handling the mixture. Add the green chillies and the chopped coriander and stir for a few seconds. Pour this mixture onto the cooked potatoes.  ",
+      "Serve immediately."
+    ],
+    "url": "www_bbc_com_food_recipes_aloopanchporanstirfr_77165",
+    "title": "Aloo panchporan (Stir-fried potatoes tempered with five spices)",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4-6Serves 4-6",
+    "isVegetarian": true,
+    "recommendations": 0,
+    "image": "https://www.yummytummyaarthi.com/wp-content/uploads/2013/03/1-5.jpg"
+  },
+
+  "Alpine pizza": {
+    "ingredients": {
+      "flour": { "quantity": 1, "type": "lb" },
+      "salt": { "quantity": 2, "type": "tsp" },
+      "sachet": { "quantity": 2, "type": "oz" },
+      "gruyere cheese": { "quantity": 3, "type": "oz" },
+      "crème fraîche": { "quantity": 9, "type": "oz" },
+      "red onion": { "quantity": 1, "type": "onion" },
+      "salami": { "quantity": 5, "type": "oz" }
+    },
+    "method": [
+      "For the pizza dough, combine the flour, salt and yeast in a large bowl. Gradually add the water, mixing well with your hands to obtain a dough. If you find the dough too sticky, simply add a little more flour. Shape into a ball, cover with a cloth and leave to rest for five minutes. ",
+      "Knead the dough for about 10 minutes and split it in half. Sprinkle some flour on a clean kitchen cloth and place the pieces of dough on it. Cover with a slightly damp cloth and leave to rise for at least 30 minutes in a warm place. ",
+      "Preheat the oven to 240C/475F/Gas 9. ",
+      "Meanwhile, for the topping, combine the gruyère and crème fraîche in a bowl, adding some salt and pepper to taste. Set aside. ",
+      "Once the dough has risen, sprinkle some flour on a clean work surface and spread one dough ball into a circle about 30cm/12in in diameter, making it as thin as possible (without tearing it), with the border slightly thicker. Repeat with the other dough ball. Sprinkle two flat baking trays with breadcrumbs or semolina and place the pizza bases on them. ",
+      "Spread the crème fraîche mixture over each base. Top with the onions and salami. Bake in the hot oven for 10 minutes. Remove from the oven, sprinkle with the marjoram and serve. "
+    ],
+    "url": "www_bbc_com_food_recipes_alpine_pizza_32132",
+    "title": "Alpine pizza",
+    "time": {
+      "preparation": "30 mins to 1 hour30 mins to 1 hour",
+      "preparationMins": 60,
+      "cooking": "less than 10 minsless than 10 mins",
+      "cookingMins": 10,
+      "totalMins": 70
+    },
+    "serves": "Makes 2 large pizzasMakes 2 large pizzas",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/alpine_pizza_32132_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Aloo gobi and jeera rice": {
+    "ingredients": {
+      "basmati rice": { "quantity": 12, "type": "oz" },
+      "sunflower oil": { "quantity": 2, "type": "tbsp" },
+      "onion": { "quantity": 1, "type": "onion" },
+      "cumin": { "quantity": 2, "type": "tsp" },
+      "bay leaf": { "quantity": 1, "type": "" },
+      "cinnamon stick": { "quantity": 1, "type": "" },
+      "butter": { "quantity": 1, "type": "oz" },
+      "ground turmeric": { "quantity": 2, "type": "tsp" },
+      "root ginger": { "quantity": 1, "type": "in" },
+      "chilli": { "quantity": 2, "type": "tsp" },
+      "fenugreek": { "quantity": 3, "type": "tbsp" },
+      "cauliflower": { "quantity": 1, "type": "" },
+      "potatoes": { "quantity": 2, "type": "potatoes" },
+      "masala": { "quantity": 2, "type": "tbsp" }
+    },
+    "method": [
+      "To make the jeera rice, wash and soak the rice while you prepare the spices. Place the oil in a large saucepan over a medium heat. Add the onion, cumin, bay, cinnamon and cardamom pods and gently fry for a few minutes. Drain and add the rice, then pour over 800ml/1 pint 8fl oz water. Bring to the boil, cover, reduce the heat and simmer for 15–20 minutes.",
+      "Meanwhile, to make the aloo gobi, heat the oil and butter in a large heavy-based saucepan over a medium heat. Add the cumin, turmeric, ginger, onions, chillies and fenugreek and fry for a few minutes. Add the cauliflower florets and leaves, stir to coat in the spices and cook for a few minutes. Add the potatoes, stir again, cover and steam for 10–15 minutes, or until the vegetables are tender. Sprinkle over the garam masala and season to taste. Garnish with coriander before serving with the rice."
+    ],
+    "url": "www_bbc_com_food_recipes_aloo_gobi_and_jeera_rice_60396",
+    "title": "Aloo gobi and jeera rice",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/aloo_gobi_and_jeera_rice_60396_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Amaretti biscuits": {
+    "ingredients": {
+      "eggs": { "quantity": 4, "type": "eggs" },
+      "sugar": { "quantity": 12, "type": "oz" },
+      "almonds": { "quantity": 12, "type": "oz" },
+      "amareto liquor": { "quantity": 1, "type": "fl oz" },
+      "butter": { "quantity": 1, "type": "tbsp" }
+    },
+    "method": [
+      "Preheat the oven to 170C/325F/Gas 3.",
+      "In a large bowl beat the eggs whites until firm.  ",
+      "Mix the sugar and the almonds gently into it.  ",
+      "Add the amaretto liquor and fold in gently until you have a smooth paste.",
+      "Place some baking paper on a baking tray and lightly brush with butter.   ",
+      "Using a teaspoon place small heaps of the mixture approximately 2cm/¾in apart, as they will expand whilst cooking.  ",
+      "Bake for approximately 15 minutes until golden brown. Leave to cool slightly then serve or store in an air-tight container."
+    ],
+    "url": "www_bbc_com_food_recipes_amarettibistcuits_67183",
+    "title": "Amaretti biscuits",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Makes approximately 20 biscuitsMakes approximately 20 biscuits",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/amarettibistcuits_67183_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+  "Amaretti tiramisu": {
+    "ingredients": {
+      "black coffee": { "quantity": 7, "type": "oz" },
+      "brandy": { "quantity": 1, "type": "fl oz" },
+      "amaretti": { "quantity": 6, "type": "" },
+      "double cream": { "quantity": 5, "type": "fl oz" },
+      "chocolate": { "quantity": 1, "type": "oz" },
+      "cherries": { "quantity": 1, "type": "oz" },
+      "cocoa": { "quantity": 1, "type": "tbsp" },
+      "milk": { "quantity": 9, "type": "oz" },
+      "sugar": { "quantity": 2, "type": "tbsp" },
+      "orange": { "quantity": 2, "type": "" }
+    },
+    "method": [
+      "Place the coffee and brandy into a bowl and mix together.",
+      "Dip the biscuits into the mixture, then place half of them into the base of a dessert glass.",
+      "Place the whipped cream into a bowl with the grated chocolate and cherries and stir to mix.",
+      "Spoon half of the cream mixture onto the biscuits, then repeat to make a second layer of biscuits followed by a final layer of cream. Dust with cocoa powder.",
+      "For the chocolate sauce, heat the milk in a saucepan, add the chocolate and simmer gently until the chocolate has melted. Stir in the icing sugar.",
+      "To serve, pour some of the chocolate sauce over the tiramisu and top with the orange slices."
+    ],
+    "url": "www_bbc_com_food_recipes_amarettitiramisu_84954",
+    "title": "Amaretti tiramisu",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "less than 10 minsless than 10 mins",
+      "cookingMins": 10,
+      "totalMins": 40
+    },
+    "serves": "Serves 1Serves 1",
+    "isVegetarian": true,
+    "recommendations": 0,
+    "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/2/4/2/RX-FNM_030111-Sugar-Fix-005_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371597326801.jpeg"
+  },
+  "Breakfast muffins": {
+    "ingredients": {
+      "flour": { "quantity": 10, "type": "oz" },
+      "baking powder": { "quantity": 1, "type": "tsp" },
+      "cinnamon": { "quantity": 1, "type": "tsp" },
+      "brown sugar": { "quantity": 5, "type": "oz" },
+      "milk": { "quantity": 10, "type": "oz" },
+      "eggs": { "quantity": 2, "type": "eggs" },
+      "butter": { "quantity": 3, "type": "oz" },
+      "hazelnuts": { "quantity": 3, "type": "oz" },
+      "cherries": { "quantity": 1, "type": "oz" },
+      "granola": { "quantity": 2, "type": "oz" }
+    },
+    "method": [
+      "Preheat the oven to 180C/350F/Gas 4 and line a muffin tray with paper muffin cases.",
+      "In a large bowl, sift together the flour, baking powder, salt and cinnamon and then stir in the sugar. In a separate bowl, whisk together the milk, eggs and melted butter, then pour into the dry ingredients and quickly mix together. Stir in the hazelnuts, dried cherries and dried cranberries. ",
+      "Divide the batter between the 12 muffin cases and sprinkle the top of each with the granola.",
+      "Bake for 20-25 minutes, or until a skewer inserted into the middle of the muffins comes out clean. Leave to cool for five minutes in the tin before serving warm or at room temperature."
+    ],
+    "url": "www_bbc_com_food_recipes_american-style_breakfast_66044",
+    "title": "Breakfast muffins",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Makes 12Makes 12",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/american-style_breakfast_66044_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+  "American-style pancakes with blueberries": {
+    "ingredients": {
+      "flour": { "quantity": 1, "type": "lb" },
+      "baking powder": { "quantity": 1, "type": "tsp" },
+      "cinnamon": { "quantity": 1, "type": "tsp" },
+      "buttermilk": { "quantity": 23, "type": "fl oz" },
+      "vanilla": { "quantity": 1, "type": "tsp" },
+      "eggs": { "quantity": 3, "type": "eggs" },
+      "butter": { "quantity": 1, "type": "oz" },
+      "blueberries": { "quantity": 10, "type": "oz" },
+      "maple syrup": { "quantity": 5, "type": "tbps" }
+    },
+    "method": [
+      "For the pancakes, put the flour, baking powder, cinnamon, if using, and salt in a large bowl, mix and make a well in the centre. Put the buttermilk, eggs yolks, melted butter and vanilla in a large bowl and whisk. In a separate, clean glass bowl, whisk the eggs whites until stiff peaks form.",
+      "Pour the buttermilk mixture into the well in the flour mixture and whisk. Add a large spoonful of the eggs whites and fold in with a metal spoon to loosen the batter a little. Stir in the rest of the eggs whites, preserving as much of the air as possible, until you have a fluffy, bubbly batter.",
+      "Heat a 20cm/8in frying pan to a medium heat and rub over a little butter. Pour one and a half ladlefuls of batter into the pan. Sprinkle a large handful of blueberries over the pancake; it will rise up around them as it cooks. When the pancake has browned on the bottom and is firm enough to flip (cooked through beyond halfway), turn it over quickly and cook for another minute on the other side. Transfer to a plate. Repeat with the rest of the batter and blueberries.",
+      "For the maple butter, put the butter, cinnamon and a pinch of salt into a bowl. Whisk with a hand whisk until white and fluffy. Gradually whisk in the maple syrup until it is all incorporated and has a whipped consistency."
+    ],
+    "url": "www_bbc_com_food_recipes_american_style_pancakes_94634",
+    "title": "American-style pancakes with blueberries",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Makes 8 x 20cm/8in pancakesMakes 8 x 20cm/8in pancakes",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/american_style_pancakes_94634_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+  "Anatra con melagrana (duck with pomegranate) and sautéed escarole": {
+    "ingredients": {
+      "duck": { "quantity": 4, "type": "" },
+      "black pepper": { "quantity": 1, "type": "tbsp" },
+      "butter": { "quantity": 1, "type": "oz" },
+      "flour": { "quantity": 1, "type": "oz" },
+      "olive oil": { "quantity": 4, "type": "tbsp" },
+      "pomegranates": { "quantity": 5, "type": "" },
+      "escarole": { "quantity": 1, "type": "" },
+      "garlic": { "quantity": 4, "type": "" }
+    },
+    "method": [
+      "Preheat the oven to 200C/400F/Gas 6.",
+      "Season the duck breast with salt and freshly ground black pepper and dust with flour, shaking off any excess.",
+      "Heat the butter and olive oil in a large ovenproof frying pan until the butter begins to foam. Add the duck and fry for two minutes on each side, then transfer to the oven to roast for 5-6 minutes, or until just cooked. The duck should be rare, but cook according to your preference.",
+      "Meanwhile, rub two of the whole pomegranates firmly on a work surface with the palm of your hand, then cut them in half and squeeze out the juice, as you would with a lemon, all over the cooked duck.",
+      "Open up the remaining pomegranates and remove the seeds. Sprinkle the pomegranate seeds over the duck.",
+      "Place the duck onto a plate and drizzle with the juices and seeds from the pan. Let the duck rest for 2-3 minutes then slice on the diagonal.",
+      "For the escarole, blanch the escarole leaves for a couple of minutes in boiling salted water. Drain and set aside.",
+      "Heat the olive oil in a frying pan, add the garlic and fry for one minute, or until soft, then add the escarole and gently sauté for 1-2 minutes. Reduce the heat, cover with a lid and cook for 5-6 minutes, or until the escarole is tender.",
+      "To serve, place the escarole onto the plate alongside the duck and spoon any remaining pan juices over."
+    ],
+    "url": "www_bbc_com_food_recipes_anatraconmelagranadu_84995",
+    "title": "Anatra con melagrana (duck with pomegranate) and sautéed escarole",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4Serves 4",
+    "isVegetarian": false,
+    "recommendations": 0,
+    "image": "https://assets.bonappetit.com/photos/57b03238f1c801a1038bd707/16:9/w_1000,c_limit/mare_roast_duck_breasts_with_pomegranate_chile_sauce_h.jpg"
+  },
+  "An authentic ragù bolognese": {
+    "ingredients": {
+      "beef": { "quantity": 1, "type": "lb" },
+      "pork": { "quantity": 1, "type": "lb" },
+      "olive oil": { "quantity": 4, "type": "tbsp" },
+      "chicken livers": { "quantity": 8, "type": "oz" },
+      "onion": { "quantity": 2, "type": "" },
+      "garlic": { "quantity": 4, "type": "" },
+      "pancetta": { "quantity": 1, "type": "oz" },
+      "tomatoes": { "quantity": 14, "type": "oz" },
+      "red wine": { "quantity": 14, "type": "fl oz" },
+      "basil": { "quantity": 1, "type": "oz" },
+      "nutmeg": { "quantity": 1, "type": "oz" }
+    },
+    "method": [
+      "Preheat the oven to 140C/275F/Gas 1.",
+      "First take a large frying pan, the largest you have, heat 3 tbsp of the oil and gently fry the onion and garlic over a medium heat for about 10 minutes, moving it around from time to time.",
+      "While the onion is softening, chop the pancetta: the best way to do this after opening the pack is to roll the contents into a sausage shape, then using a sharp knife slice it lengthways into four, then slice the lengths across as finely as possible. After 10 minutes, add this to the pan to join the onions and garlic and continue cooking them all for another 5 minutes. ",
+      "Now transfer this mixture to the casserole. Add another tbsp of oil to the pan, turn the heat up to its highest then add the minced beef and brown it, breaking it up and moving it round in the pan. When the beef is browned tip it into the casserole. Heat another tbsp of the oil and do exactly the same with the minced pork. While the pork is browning, trim the chicken livers, rinse them under cold running water, dry them thoroughly with kitchen paper and chop them minutely small. When the pork is browned, transfer it to the casserole, then heat the remaining tbsp of oil and brown the pieces of chicken liver. Add these to the casserole.",
+      "Now you've finished with the frying pan, so get rid of that and place the casserole over the direct heat, give everything a good stir together, then add the contents of the tins of tomatoes, the tomato purée, red wine and a really good seasoning of salt, pepper and nutmeg.",
+      "Allow this to come up to simmering point. Then strip the leaves from half the basil, chop them very finely and add them to the pot. As soon as everything is simmering, place the casserole on the centre shelf of the oven and leave it to cook slowly, without a lid, for 4 hours.  It's a good idea to have a look after 3 hours to make sure all is well, but what you should end up with is a thick, concentrated sauce with only a trace of liquid left in it, then remove it from the oven, taste to check the seasoning, strip the leaves off the remainng basil, chop them small and stir them in.",
+      "Then when the sauce is absolutely cold, divide it, using scales, by spooning 225g/8oz into polythene freezer bags. Seal them leaving a little bit of air at the top to allow room for expansion. Each 225g/8oz pack, thoroughly defrosted and re-heated, will provide enough ragù for 225g/8oz pasta, which will serve 2 people."
+    ],
+    "url": "www_bbc_com_food_recipes_anauthenticragubolog_66229",
+    "title": "An authentic ragù bolognese",
+    "time": {
+      "preparation": "over 2 hoursover 2 hours",
+      "preparationMins": 120,
+      "cooking": "over 2 hoursover 2 hours",
+      "cookingMins": 120,
+      "totalMins": 240
+    },
+    "serves": "Makes 8 x 225g/8oz portionsMakes 8 x 225g/8oz portions",
+    "isVegetarian": false,
+    "recommendations": 0,
+    "image": "https://assets.epicurious.com/photos/58a4bff7f43b8f08235e5588/master/pass/classic-ragu-bolognese-021517-2.jpg"
+  },
+  "Pork chops with celeriac mash and apple and ale gravy": {
+    "ingredients": {
+      "celeriac": { "quantity": 1, "type": "" },
+      "pork": { "quantity": 4, "type": "lb" },
+      "olive oil": { "quantity": 2, "type": "tbsp" },
+      "butter": { "quantity": 4, "type": "oz" },
+      "onion": { "quantity": 1, "type": "" },
+      "black pepper": { "quantity": 1, "type": "tbsp" },
+      "apple": { "quantity": 3, "type": "" },
+      "beer": { "quantity": 16, "type": "oz" },
+      "vegetable oil": { "quantity": 2, "type": "tbsp" },
+      "dijon mustard": { "quantity": 1, "type": "tbsp" },
+      "vinegar": { "quantity": 1, "type": "tbsp" }
+    },
+    "method": [
+      "Peel the celeriac, chop into 2.5cm/1-inch chunks and place in a pan of cold water. Place on the hob, bring to the boil and simmer until tender, about 20 minutes. Mash the celeriac with 100g/3½oz of the butter and season with salt and freshly ground black pepper. Keep covered and warm.",
+      "Meanwhile, peel, halve and thinly slice the onion lengthways into semicircles. Heat the olive oil in a heavy-bottomed frying pan and cook the onions on a medium high heat until soft and lightly coloured. ",
+      "Cut the apples into quarters and cut out the cores out, then cut them again into eighths. ",
+      "Remove the onions from the pan, add the remaining 50g/1½oz butter and place the apples in. Cook over a medium heat. When they are golden brown turn them over so that they are beautifully coloured on both sides. ",
+      "Return the onions to the pan with the apples, raise the heat and add the ale to the pan. Adjust the seasoning and continue cooking until the apples begin to break down a little and the liquid has reduced by at least half and has thickened somewhat.",
+      "With a sharp knife score the skin of the chops and season them. This will help the chop to crisp when it is cooked.",
+      "Heat a griddle pan until smoking hot. Rub the pork chops with some vegetable oil (this will help prevent sticking) and place the chops on the hot griddle. Cook, turning as necessary, until the meat is cooked through (cooking time will depend on the thickness of the chops; it will be cooked when the juices run clear when pierced with a sharp knife near the bone).",
+      "For the salad, make the vinaigrette. Place the mustard, vinegar and olive oil in a bowl and whisk. Season to taste.",
+      "When the chops are cooked, remove from the griddle, and put covered on a plate in a warm place for five minutes. Meanwhile, whisk a knob of butter into the sauce to thicken it slightly. ",
+      "To serve, divide the mash among four plates, place a chop on each dollop of mash and pour the mustard and ale sauce over it. Dress the rocket with the vinaigrette and serve on the side."
+    ],
+    "url": "www_bbc_com_food_recipes_amershamporkchopswit_80661",
+    "title": "Pork chops with celeriac mash and apple and ale gravy",
+    "time": {
+      "preparation": "30 mins to 1 hour30 mins to 1 hour",
+      "preparationMins": 60,
+      "cooking": "30 mins to 1 hour30 mins to 1 hour",
+      "cookingMins": 60,
+      "totalMins": 120
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/amershamporkchopswit_80661_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+  "Anardana chana (pomegranate and chickpea curry)": {
+    "ingredients": {
+      "chickpeas": { "quantity": 7, "type": "oz" },
+      "chana dal": { "quantity": 3, "type": "oz" },
+      "sunflower oil": { "quantity": 2, "type": "tbsp" },
+      "root ginger": { "quantity": 1, "type": "in" },
+      "cumin": { "quantity": 2, "type": "tbsp" },
+      "cinnamon": { "quantity": 1, "type": "" },
+      "cardamoms": { "quantity": 2, "type": "" },
+      "cloves": { "quantity": 2, "type": "" },
+      " chilli": { "quantity": 1, "type": "" },
+      "salt": { "quantity": 1, "type": "tbsp" },
+      "anardana": { "quantity": 1, "type": "tbsp" },
+      "masala": { "quantity": 1, "type": "tsp" },
+      "pomegranate": { "quantity": 1, "type": "" }
+    },
+    "method": [
+      "Drain the chickpeas and place in a saucepan. Cover with water and bring to the boil. Reduce the heat and simmer for 45 minutes, or until tender. Drain and set aside.",
+      "Meanwhile, heat the oil in a heavy bottomed saucepan over a medium heat. When hot, add the onions and cook for a few minutes until starting to soften. Add the ginger, spices, chilli and salt. ",
+      "Drain the chana dal and add to the pan with 400ml/14fl oz water. Bring to the boil, then simmer for 35–40 minutes, or until the dal is tender. Add a little more water if needed. ",
+      "Stir in the anardana, garam masala and chickpeas, heat through and adjust the seasoning.",
+      "To serve, pick out the whole spices if you wish and garnish with the coriander and pomegranate seeds. "
+    ],
+    "url": "www_bbc_com_food_recipes_anardana_channa_chickpea_14037",
+    "title": "Anardana chana (pomegranate and chickpea curry)",
+    "time": {
+      "preparation": "overnightovernight",
+      "preparationMins": 720,
+      "cooking": "1 to 2 hours1 to 2 hours",
+      "cookingMins": 120,
+      "totalMins": 840
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/anardana_channa_chickpea_14037_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Asparagus and puff pastry cigars": {
+    "ingredients": {
+      "pastry": { "quantity": 7, "type": "oz" },
+      "flour": { "quantity": 3, "type": "tbsp" },
+      "cream cheese": { "quantity": 1, "type": "oz" },
+      "asparagus": { "quantity": 1, "type": "oz" },
+      "eggs": { "quantity": 1, "type": "eggs" },
+      "parmesan": { "quantity": 2, "type": "tbsp" }
+    },
+    "method": [
+      "Preheat the oven to 200C/400F/Gas 6.",
+      "Roll the puff pastry out on a floured surface into an 15cmx25cm/6inx10in rectangle and spread all over with the cream cheese.",
+      "Using a sharp knife, cut the pastry into 10 long, thin strips.",
+      "Wrap one pastry strip in a spiral around each asparagus spear and place onto a baking tray. Lightly brush each with beaten eggs then scatter over the parmesan.",
+      "Bake the cigars in the oven for 15-20 minutes, or until the pastry has risen and is golden-brown."
+    ],
+    "url": "www_bbc_com_food_recipes_asparagus_and_puff_00402",
+    "title": "Asparagus and puff pastry cigars",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Makes 10Makes 10",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/asparagus_and_puff_00402_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Asparagus and poached eggs puff tarts with parmesan and basil": {
+    "ingredients": {
+      "pastry": { "quantity": 1, "type": "lb" },
+      "flour": { "quantity": 3, "type": "tbsp" },
+      "cream cheese": { "quantity": 1, "type": "oz" },
+      "asparagus": { "quantity": 1, "type": "oz" },
+      "eggs": { "quantity": 7, "type": "eggs" },
+      "parmesan": { "quantity": 2, "type": "tbsp" },
+      "lemon": { "quantity": 2, "type": "" },
+      "black pepper": { "quantity": 2, "type": "" },
+      "basil ": { "quantity": 2, "type": "" },
+      "olive oil": { "quantity": 2, "type": "" }
+    },
+    "method": [
+      "Line a large baking tray with baking parchment and set aside.",
+      "Dust a little flour on a clean work surface and roll out the puff pastry to a 28x30cm/11x12in rectangle about the thickness of a £1 coin. Trim the edges so that the sides are nice and straight and neat. Cut the pastry in half down the length and then into thirds across the width to give six 10x14cm/4x5½in rectangles.",
+      "Put the pastry rectangles on the baking tray, cover with cling film and refrigerate for 20 minutes (or freeze for 10 minutes) for the pastry to firm up. It is important to do this so that when the puff pastry goes into the oven the flour cooks before the butter melts ensuring a much lighter pastry.",
+      "Preheat the oven to 220C/425F/Gas 7 (200C fan).  Mix the cream cheese and lemon zest together in a small bowl and season to taste with salt and pepper. Trim the asparagus so that each stem is 10cm/4in long (you can use the trimmings to make a quick soup or add to a pasta sauce).",
+      "Once firm, remove the pastry from the fridge (or freezer) and use a sharp knife to mark a 1cm/½in wide border around each rectangle. Then, using a crosshatch pattern, mark the border so each pastry shape resembles a picture frame. Take a fork and prick the centre of each shape about 10 times, right through to the baking tray. Brush the border with the beaten eggs (or milk), making sure that it does not go down the sides of the pastry (if this happens, wipe it away with your finger otherwise the eggs will stick the layers of the pastry together and stop the pastry from rising). ",
+      "Divide the lemony cream cheese between the six tarts, spreading it out with the back of the spoon and making sure that it stays inside the ‘frame’. Lay five asparagus spears in a single layer, touching each other and pointing in the same direction on each tart, and push them down slightly. ",
+      "Bake the tarts in the oven for 18-20 minutes, or until the pastry has puffed up nicely and is firm and golden-brown where it has risen.",
+      "About 10 minutes before the tart is ready, pour about 4cm/1½in of water into a sauté pan or a deep frying pan and bring to the boil over a high heat. Turn the heat down to bring the water to a gentle simmer. Crack an eggs into a very small bowl or tea cup and then slide the eggs into the water. Repeat with all of the eggs, spacing them apart. Cook them for about 3-4 minutes, or until the white is cooked but the yolk still soft. Remove with a slotted spoon onto a warm plate. ",
+      "Remove the tarts from the oven and divide between six serving plates. Sit a poached eggs on top of each tart and scatter over the parmesan and basil leaves. Sprinkle with a little salt and pepper and drizzle with a little olive oil, if liked, and serve."
+    ],
+    "url": "www_bbc_com_food_recipes_asparagus_and_poached_80127",
+    "title": "Asparagus and poached eggs puff tarts with parmesan and basil",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 6Serves 6",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/asparagus_and_poached_80127_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Avocado salad": {
+    "ingredients": {
+      "onion": { "quantity":1, "type": "oz" },
+      "cannellini beans": { "quantity": 1, "type": "lb" },
+      "avocado": { "quantity": 1, "type": "" },
+      "cherry tomatoes": { "quantity": 1, "type": "oz" },
+      "basil": { "quantity": 1, "type": "oz" },
+      "lemon": { "quantity": 2, "type": "" },
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "salt": { "quantity": 2, "type": "" }
+    },
+    "method": [
+      "Soak the onion in a small bowl of cold water for 5 minutes to remove some of the heat.",
+      "Toss the cannellini beans, avocado, cherry tomatoes and basil together in a bowl.",
+      "Drain the onion and pat dry with kitchen paper then mix into the salad.",
+      "Drizzle over the lemon juice and oil, season with salt and pepper and serve."
+    ],
+    "url": "www_bbc_com_food_recipes_avocado_salad_60227",
+    "title": "Avocado salad",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "no cooking requiredno cooking required",
+      "cookingMins": 0,
+      "totalMins": 30
+    },
+    "serves": "Serves 1Serves 1",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/avocado_salad_60227_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Avocado pasta with peas and mint": {
+    "ingredients": {
+      "pasta": { "quantity": 13, "type": "oz" },
+      "avocado": { "quantity": 1, "type": "" },
+      "garlic": { "quantity": 2, "type": "" },
+      "coconut": { "quantity": 2, "type": "tbsp" },
+      "salt": { "quantity": 1, "type": "tsp" },
+      "mint": { "quantity": 2, "type": "" },
+      "peas": { "quantity": 5, "type": "oz" },
+      "chilli": { "quantity": 1, "type": "" }
+    },
+    "method": [
+      "Cook the pasta according to the packet instructions. Drain and set aside. ",
+      "Destone the avocado, then put the avocado flesh, garlic, coconut oil, salt, lemon juice, zest and mint leaves into a blender with 4 tablespoons of water. (Alternatively, you can put everything in a bowl or pan and use a stick blender.)",
+      "Blend until you get a smooth paste. If you find the mixture is struggling to move, add another tablespoon of water and try again. Put the pasta into a serving bowl and pour over the sauce. Add the peas and mix until all the pasta is coated in green goodness. ",
+      "For a little kick, I like to take a red chilli and grate it over the top. This is optional, but worth doing if you like chilli!"
+    ],
+    "url": "www_bbc_com_food_recipes_avocado_pasta_with_peas_31700",
+    "title": "Avocado pasta with peas and mint",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "less than 10 minsless than 10 mins",
+      "cookingMins": 10,
+      "totalMins": 40
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/avocado_pasta_with_peas_31700_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Simple baba ganoush": {
+    "ingredients": {
+      "aubergine": { "quantity": 2, "type": "oz" },
+      "olive oil": { "quantity": 5, "type": "tbsp" },
+      "onion": { "quantity": 2, "type": "" },
+      "garlic": { "quantity": 2, "type": "" },
+      "cibatta": { "quantity": 1, "type": "" }
+    },
+    "method": [
+      "Heat the oil in an oven-proof frying pan over a medium heat. Add the aubergine and onion and fry for fifteen minutes to soften. Add the garlic and fry for two minutes",
+      "Meanwhile, heat a griddle pan. Brush the ciabatta with oil and grill the bread on each side for 1-2 minutes, or until brown stripes appear.",
+      "Place the aubergine mixture into a food processor with the basil and a splash of oil. Blend to a rough paste and pour out into a bowl.",
+      "Serve the aubergine mixture with the griddled bread."
+    ],
+    "url": "www_bbc_com_food_recipes_babaganoush_78707",
+    "title": "Simple baba ganoush",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/babaganoush_78707_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Bacon and eggs bites": {
+    "ingredients": {
+      "bacon": { "quantity": 12, "type": "" },
+      "eggs": { "quantity": 12, "type": "eggs" },
+      "cherry tomatoes": { "quantity": 12, "type": "" },
+      "black pepper": { "quantity": 2, "type": "tbsp" },
+      "bread": { "quantity": 5, "type": "" },
+      "butter": { "quantity": 1, "type": "tbsp" }
+    },
+    "method": [
+      "Preheat the oven to 220C/200C Fan/Gas 8 and lightly grease a 12-hole muffin tin. ",
+      "Put the bacon medallions between two sheets of cling film and roll out using a rolling pin. Put them into the muffin tin, creating a case shape.",
+      "Crack the eggs into the centre of each bacon case, season with black pepper and top with two tomato halves.",
+      "Bake in the oven for 10 minutes until the bacon is cooked and the eggs just cooked on the inside. If you like your eggs well done, cook for 15 minutes.",
+      "Toast the bread to your liking and then butter lightly. Serve two eggs bites with one piece of toast per person."
+    ],
+    "url": "www_bbc_com_food_recipes_bacon_and_eggs_bites_26820",
+    "title": "Bacon and eggs bites",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 6Serves 6",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/bacon_and_eggs_bites_26820_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Bacon and white bean soup": {
+    "ingredients": {
+      "bacon": { "quantity": 2, "type": "" },
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "onion": { "quantity": 2, "type": "" },
+      "garlic": { "quantity": 2, "type": "" },
+      "thyme": { "quantity": 3, "type": "" },
+      "cannellini beans": { "quantity": 2, "type": "lb" },
+      "vegetable stock": { "quantity": 24, "type": "oz" },
+      "parsley": { "quantity": 2, "type": "oz" },
+      "black pepper": { "quantity": 2, "type": "tbsp" }
+    },
+    "method": [
+      "Heat the oil in a large saucepan over a medium heat. Add the bacon, garlic and onion and fry for 3-4 minutes, or until the bacon begins to brown and the onion softens.",
+      "Add the thyme and fry for a further minute. Add the beans and stock to the pan and bring to the boil, then reduce the heat and simmer for 10 minutes.",
+      "Transfer the soup to a blender or food processor and blend with the parsley and pepper until smooth.",
+      "Return the soup to the pan and heat through, then ladle into 4 bowls and serve immediately."
+    ],
+    "url": "www_bbc_com_food_recipes_bacon_and_white_bean_06748",
+    "title": "Bacon and white bean soup",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4Serves 4",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/bacon_and_white_bean_06748_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Bacon and cheese straws": {
+    "ingredients": {
+      "bacon": { "quantity": 12, "type": "" },
+      "eggs": { "quantity": 1, "type": "" },
+      "black pepper": { "quantity": 2, "type": "tbsp" },
+      "pastry": { "quantity": 13, "type": "oz" },
+      "flour": { "quantity": 2, "type": "" },
+      "mustard": { "quantity": 3, "type": "tbsp" },
+      "cheddar": { "quantity": 2, "type": "oz" }
+
+    },
+    "method": [
+      "Line a baking tray with greaseproof paper.",
+      "Roll the pastry out on a lightly floured work surface to a large rectangle of 0.5cm/¼in thickness. ",
+      "Turn the pastry so that the longest side is facing you, spread over the mustard, sprinkle with the cheese and season with freshly ground black pepper. Place the pieces of bacon onto the pastry, leaving a small gap between each piece. ",
+      "Cut the pastry between each slice of bacon. Carefully twist each piece of pastry 4-5 times so it looks like a curly straw, then place on the baking tray.",
+      "Repeat the process until all of the bacon has been used up. Chill the pastry twists in the fridge for 15-20 minutes.",
+      "Preheat the oven to 220C/425F/Gas 7.",
+      "Remove the twists from the fridge and brush with the beaten eggs. ",
+      "Reduce the oven to 200C/400F/Gas 6 and bake the twists for 20-25 minutes, or until the pastry is well risen and golden-brown. Remove from the oven and set aside to cool."
+    ],
+    "url": "www_bbc_com_food_recipes_bacon_and_mature_cheddar_58920",
+    "title": "Bacon and cheese straws",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Makes 14 cheese strawsMakes 14 cheese straws",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/bacon_and_mature_cheddar_58920_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Bacon and Brussels sprout salad": {
+    "ingredients": {
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "bacon": { "quantity": 3, "type": "oz" },
+      "brussels sprouts": { "quantity": 1, "type": "lb" },
+      "cranberries": { "quantity": 1, "type": "oz" },
+      "marsala": { "quantity": 2, "type": "oz" },
+      "mustard": { "quantity": 1, "type": "tbsp" },
+      "honey": { "quantity": 1, "type": "tsp" },
+      "walnut oil": { "quantity": 3, "type": "tbsp" },
+      "pecans": { "quantity": 1, "type": "oz" },
+      "sherry vinegard": { "quantity": 1, "type": "tsp" }
+
+    },
+    "method": [
+      "Heat the olive oil in a large sauté pan. Add the bacon and cook until very crisp and the fat has rendered off. Remove with a slotted spoon and drain on kitchen paper.",
+      "Thinly slice the Brussels sprouts and add to the pan. Cook on a high heat until the sprouts are starting to brown around the edges. Add 100ml/3½fl oz water and continue to cook, stirring regularly, until the water has evaporated off and the Brussels are just cooked – they should have wilted a little but still be a very fresh looking green. Keep warm.",
+      "Meanwhile, put the cranberries in a small saucepan and cover with the marsala. Bring to the boil and simmer until all the liquid has been absorbed by the cranberries – they will be glossy and plump.",
+      "Whisk the walnut oil and sherry vinegar together with the honey and mustard, if using. Season with salt and pepper. ",
+      "To assemble the salad, arrange the leaves in a bowl or serving platter. Add the Brussels sprouts and most of the dressing and toss gently. Sprinkle over the bacon, pecans and cranberries and serve."
+    ],
+    "url": "www_bbc_com_food_recipes_baconbutteredbrussel_84617",
+    "title": "Bacon and Brussels sprout salad",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 6Serves 6",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/baconbutteredbrussel_84617_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Bagels": {
+    "ingredients": {
+      "flour": { "quantity": 1, "type": "lb" },
+      "salt": { "quantity": 2, "type": "tsp" },
+      "eggs": { "quantity": 1, "type": "" },
+      "polenta": { "quantity": 2, "type": "tbsp" },
+      "honey": { "quantity": 2, "type": "tbsp" },
+      "vegetable oil": { "quantity": 1, "type": "tbsp" },
+      "black treacle": { "quantity": 3, "type": "tbps" },
+      "sesame seeds": { "quantity": 3, "type": "tbps" }
+    },
+    "method": [
+      "Sift the flour and salt into a large mixing bowl, then add the yeast and mix well.",
+      "Measure 250ml/9fl oz warm water in a measuring jug and then stir in the honey and oil.",
+      "Make a well in the centre of the flour and pour the liquid in gradually, bringing the dough together with your hands.",
+      "Turn the dough out onto a clean, dry and floured work surface. Start kneading the dough, stretching it away with the palm of one hand and folding it back again with the other. Knead for approximately 10 minutes, adding more flour if the dough becomes too sticky. Continue kneading until the dough is firm and elastic.",
+      "Shape the dough into a large ball and place in a lightly oiled, large bowl. Turn the dough in the oil to coat. Cover with cling film or a plastic bag and put in a warm, dry place for 1–3 hours, or until the dough has doubled in size.",
+      "When the dough has proved, bring a large saucepan of water to the boil and add the treacle or molasses. Cover and turn off the heat.",
+      "Lightly oil two baking trays and sprinkle with polenta. Remove the dough from the bowl, then punch it down and knead it briefly. Roll it into a rough sausage shape and divide into seven equal chunks. As you work with one chunk, keep the others covered with a clean tea towel.",
+      "Firmly roll out each chunk into a long, slender sausage shape. Bring the ends together, splash the ends with a tiny bit of water and squeeze them together to seal. Place on the prepared baking trays and repeat with the remaining the dough.",
+      "Cover and set aside to prove for a further 10–20 minutes.",
+      "Preheat the oven to 220C/425F/Gas 7.",
+      "Bring the saucepan of molasses and water back to a gentle simmer. Gently drop each bagel into the water (do this in batches of no more than three at a time) and turn over after 1-2 minutes. Simmer for another 1-2 minutes, then remove the bagels from the water, and drain.",
+      "Place the bagels on the prepared baking trays, spacing them widely apart. Brush the tops with the beaten eggs and sprinkle with sesame seeds, sea salt, poppy seeds or a savoury topping of your choice. Bake in the oven for 15 minutes, or until golden-brown, then turn them upside down for a further ten minutes to cook the bases. Transfer to a wire rack to cool before serving."
+    ],
+    "url": "www_bbc_com_food_recipes_bagels_47163",
+    "title": "Bagels",
+    "time": {
+      "preparation": "over 2 hoursover 2 hours",
+      "preparationMins": 120,
+      "cooking": "30 mins to 1 hour30 mins to 1 hour",
+      "cookingMins": 60,
+      "totalMins": 180
+    },
+    "serves": "Serves 7Serves 7",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/bagels_47163_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Chai muffins": {
+    "ingredients": {
+      "almond milk": { "quantity": 8, "type": "fl oz" },
+      "eggs": { "quantity": 2, "type": "" },
+      "chai": { "quantity": 2, "type": "" },
+      "cinnamon": { "quantity": 1, "type": "tsp" },
+      "flour": { "quantity": 2, "type": "tsp" },
+      "baking powder": { "quantity": 3, "type": "tbsp" },
+      "brown sugar": { "quantity": 5, "type": "oz" },
+      "sunflower oil": { "quantity": 5, "type": "fl oz" }
+    },
+    "method": [
+      "Warm the almond milk with the contents of the 2 teabags (I just rip them open over the pan) and cinnamon – stirring to mix – and leave to cool.",
+      "While the milk’s cooling, preheat the oven to 200C/180C Fan/Gas 6 and line a 12-hole muffin tin with paper cases.",
+      "In a large bowl, measure out the flour, baking powder, sugar and all but 2 tablespoons of the chopped almonds, and combine well.",
+      "When the milk has cooled, add the eggs and oil, then whisk well. ",
+      "Add the liquid ingredients to the dry ingredients, using a wooden spoon. Don’t be too efficient about this: a slightly lumpy batter makes for lighter muffins. Divide the mixture between the muffin cases (it will fill them well), then sprinkle equally with the remaining almonds and bake for 20–25 minutes, or until a cake tester comes out clean and the muffins are slightly risen and pleasingly golden-brown on top.",
+      "Remove to a wire rack to cool for about 10 minutes before devouring."
+    ],
+    "url": "www_bbc_com_food_recipes_chai_muffins_06244",
+    "title": "Chai muffins",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "30 mins to 1 hour30 mins to 1 hour",
+      "cookingMins": 60,
+      "totalMins": 90
+    },
+    "serves": "Makes 12 muffinsMakes 12 muffins",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chai_muffins_06244_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Chargrilled broccoli pasta with chilli and garlic": {
+    "ingredients": {
+      "spaghetti": { "quantity": 3, "type": "oz" },
+      "olive oil": { "quantity": 3, "type": "tbps" },
+      "broccoli": { "quantity": 3, "type": "oz" },
+      "garlic": { "quantity": 1, "type": "" },
+      "chilli": { "quantity": 1, "type": "" },
+      "almonds": { "quantity": 1, "type": "tbsp" }
+    },
+    "method": [
+      "Bring a large pan of salted water to the boil and cook the spaghetti for 8 minutes, until al dente. ",
+      "Meanwhile, heat the olive oil in a saucepan over a high heat and add the broccoli. Leave it for 1 minute before moving so the broccoli chars, then turn and char on the other sides for about 3 minutes. ",
+      "Add the garlic, chilli and almonds and stir-fry for a further 3 minutes. Season with salt and pepper. ",
+      "Drain the spaghetti and add to the broccoli pan, stir well to combine and serve. "
+    ],
+    "url": "www_bbc_com_food_recipes_chargrilled_broccoli_69096",
+    "title": "Chargrilled broccoli pasta with chilli and garlic",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 1Serves 1",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chargrilled_broccoli_69096_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Chargrilled courgette with basil, mint, chilli and lemon": {
+    "ingredients": {
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "chilli": { "quantity": 1, "type": "" },
+      "black pepper": { "quantity": 2, "type": "tbsp" },
+      "lemon": { "quantity": 1, "type": "" },
+      "mint": { "quantity": 1, "type": "" },
+      "basil": { "quantity": 3, "type": "" },
+      "courgettes": { "quantity": 2, "type": "oz" }
+
+    },
+    "method": [
+      "Toss the courgette strips in a bowl with the olive oil (just enough to coat the courgette), chilli, sea salt and freshly ground black pepper.",
+      "Heat a ridged grill pan until smoking hot and griddle the courgettes in batches, about four minutes per side, being careful not to crowd the grill pan. They should be tender, but with a crunch to them in the middle. If the strips are not quite cooked, leave them on the grill pan for longer, but watch the heat as you don't want them to burn. Don't be tempted to move the courgette while it is cooking or you won't get the chargrill marks across the flesh. Drain on kitchen paper.",
+      "Toss the griddled courgettes in the lemon juice, mint, basil and a good slug of your best extra virgin olive oil."
+    ],
+    "url": "www_bbc_com_food_recipes_chargrilledcourgette_85172",
+    "title": "Chargrilled courgette with basil, mint, chilli and lemon",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4-6Serves 4-6",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chargrilledcourgette_85172_16x9.jpg",
+    "isVegetarian": true,
+    "recommendations": 0
+  },
+
+  "Chargrilled sweet and sour prawns": {
+    "ingredients": {
+      "prawns": { "quantity": 6, "type": "" },
+      "salt": { "quantity": 1, "type": "" },
+      "vegetable oil": { "quantity": 2, "type": "tbsp" },
+      "coriander": { "quantity": 3, "type": "" },
+      "lime": { "quantity": 2, "type": "" },
+      "white vinegar": { "quantity": 5, "type": "tbsp" },
+      "sugar": { "quantity": 2, "type": "tbsp" },
+      "ginger": { "quantity": 2, "type": "in" },
+      "chilli": { "quantity": 1, "type": "" }
+    },
+    "method": [
+      "To butterfly the prawns, first remove the head by twisting it off, then discard. Don't remove the shell. Place the prawn on its back on a cutting board. Using a small, sharp knife, cut through the centre of the body from below the head down to the tail. Don't cut all the way through the flesh. Repeat with the remaining prawns.",
+      "For the sweet and sour sauce, pour the vinegar into a small pan (not aluminium) over a medium heat. Add the sugar and heat through.",
+      "Slice the ginger into thick slices and add to the sauce in the pan.",
+      "Slice the chilli and add to the pan. Simmer the sauce until the sugar is dissolved and the sauce is reduced and sticky - about five minutes. Taste and adjust flavour as needed by adding a touch more sugar or vinegar, as necessary.",
+      "Meanwhile, heat a ridged grill pan until hot. Sprinkle the sea salt over the prepared prawns. Pour over the oil, then rub it into the prawns.",
+      "Place the prawns on the hot grill pan and grill until cooked through and slightly charred (this will take about 2-3 minutes). Press down lightly with tongs to ensure even cooking. Turn the prawns over and cook for another 2-3 minutes on the other side.",
+      "Chop the fresh coriander. When the prawns are cooked, transfer them into the pan with the reduced sauce.",
+      "Add the coriander and a squeeze of fresh lime juice to the pan.",
+      "Stir together until the prawns are coated in the sauce. Serve straightaway."
+    ],
+    "url": "www_bbc_com_food_recipes_chargrilledsweetands_90198",
+    "title": "Chargrilled sweet and sour prawns",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 2Serves 2",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chargrilledsweetands_90198_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
+
+  "Cheddar and bacon frittata": {
+    "ingredients": {
+      "bacon": { "quantity": 5, "type": "oz" },
+      "eggs": { "quantity": 6, "type": "" },
+      "red pepper": { "quantity": 2, "type": "tbsp" },
+      "garlic": { "quantity": 3, "type": "oz" },
+      "olive oil": { "quantity": 2, "type": "tbps" },
+      "potatoes": { "quantity": 1, "type": "lb" },
+      "cheddar": { "quantity": 2, "type": "oz" },
+      "black pepper": { "quantity": 2, "type": "" },
+      "parsley": { "quantity": 2, "type": "" }
+
+    },
+    "method": [
+      "Parboil the potatoes in lightly salted water for 6–10 minutes, until almost cooked but still firm. Cut them into slices. Preheat your grill to medium–high. ",
+      "Using a large ovenproof non-stick frying pan, fry the bacon in its own fat, stirring, for 4–5 minutes, or until cooked. Transfer to a plate and set aside. ",
+      "Heat the oil in the same pan. Add the garlic and peppers and fry for 4–5 minutes, or until just cooked. ",
+      "Add the potatoes to the pan, stir gently, then fry for 2–3 minutes, until lightly browned. Return the bacon to the pan and stir gently again. ",
+      "Crack the eggs into a jug and lightly beat using a fork. Stir in the parsley and season well. Pour over the potato-and-bacon mixture, then sprinkle the cheese on top. Cook for 5 minutes.",
+      "Transfer to the grill and cook for 5 minutes, or until cooked through. Serve in slices, with salad if you like. "
+    ],
+    "url": "www_bbc_com_food_recipes_cheddar_and_bacon_31049",
+    "title": "Cheddar and bacon frittata",
+    "time": {
+      "preparation": "less than 30 minsless than 30 mins",
+      "preparationMins": 30,
+      "cooking": "10 to 30 mins10 to 30 mins",
+      "cookingMins": 30,
+      "totalMins": 60
+    },
+    "serves": "Serves 4–6Serves 4–6",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cheddar_and_bacon_31049_16x9.jpg",
+    "isVegetarian": false,
+    "recommendations": 0
+  },
   "French toast with ham and cheddar": {
     "ingredients": {
       "milk": { "quantity": 5, "type": "fl oz" },
