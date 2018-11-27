@@ -1,111 +1,209 @@
 import React from "react";
-import { Button, Form, Grid } from "semantic-ui-react";
+import { Button, Form, Grid, Header, Icon } from "semantic-ui-react";
 import { setPreference } from "../store/user";
 import { connect } from "react-redux";
 import history from "../history";
 import Navbar from "./navbar";
-import PrefCard from './PreferenceCard'
+import PrefCard from "./PreferenceCard";
+import Box from "./Box";
 
 class Preference extends React.Component {
   state = {
     favCuisines: [],
     favIngredients: [],
-    mealTypes: [],
-    favCategory: []
+    favCategory: [],
+    hateCuisines: [],
+    hateIngredients: [],
+    hateCategory: [],
+    cuisine: [
+      "chinese",
+      "italian",
+      "mexican",
+      "american",
+      "indian",
+      "german",
+      "japanese",
+      "british",
+      "french"
+    ],
+    ingredient: [
+      "chicken",
+      "beef",
+      "pork",
+      "seafood",
+      "cheese",
+      "mushrooms",
+      "milk",
+      "tomatoes",
+      "potatoes"
+    ],
+    category: [
+      "pasta",
+      "quick",
+      "dessert",
+      "alcohol",
+      "salad",
+      "baking",
+      "roast",
+      "breakfast",
+      "appetizer"
+    ]
   };
 
-  handleSubmit = e => {
+  //preference object has changed: update
+  handleSubmit = async (e) => {
     e.preventDefault();
     const preferencesObj = {
       favCuisines: this.state.favCuisines,
       favIngredients: this.state.favIngredients,
-      mealTypes: this.state.mealTypes,
-      favCategory: this.state.favCategory
+      favCategory: this.state.favCategory,
+      hateCuisines: this.state.hateCuisines,
+      hateIngredients: this.state.hateIngredients,
+      hateCategory: this.state.hateCategory
     };
-    this.props.setPreference(preferencesObj, this.props.user.id);
-    history.push("/home");
+    await this.props.setPreference(preferencesObj, this.props.user.id);
+    history.push('/home');
   };
 
-  handleCheck = e => {
-    if (e.target.checked === true) {
-      this.state[`${e.target.value}`].push(e.target.name);
-    } else {
-      const index = this.state[`${e.target.value}`].indexOf(e.target.name);
-      this.state[`${e.target.value}`].splice(index, 1);
+  // eslint-disable-next-line complexity
+  handleDrop = (e, boxName) => {
+    const { label, type } = e.dragData
+    if (boxName === 'love') {
+      if (type === 'cuisine') {
+        let items = this.state.favCuisines.slice()
+        items.push(label)
+        this.setState({favCuisines: items})
+      } else if (type === 'ingredient') {
+        let items = this.state.favIngredients.slice()
+        items.push(label)
+        this.setState({favIngredients: items})
+      } else if (type === 'category') {
+        let items = this.state.favCategory.slice()
+        items.push(label)
+        this.setState({favCategory: items})
+      }
+    } else if (boxName === 'hate') {
+      if (type === 'cuisine') {
+        let items = this.state.hateCuisines.slice()
+        items.push(label)
+        this.setState({hateCuisines: items})
+      } else if (type === 'ingredient') {
+        let items = this.state.hateIngredients.slice()
+        items.push(label)
+        this.setState({hateIngredients: items})
+      } else if (type === 'category') {
+        let items = this.state.hateCategory.slice()
+        items.push(label)
+        this.setState({hateCategory: items})
+      }
     }
   };
 
-  handleDrop = (name, type) => {
-    this.state[`${type}`].push(name)
+  restore = item => {
+    item[0].event.containerElem.style.visibility = "visible"
   }
-
-  cuisines = [
-    "chinese",
-    "italian",
-    "mexican",
-    "american",
-    "indian",
-    "german",
-    "japanese",
-    "british",
-    "french"
-  ];
-  ingredients = [
-    "chicken",
-    "beef",
-    "pork",
-    "seafood",
-    "cheese",
-    "mushrooms",
-    "pesto",
-    "tomatoes",
-    "potatoes"
-  ];
-  categories = [
-    "pasta",
-    "quick",
-    "dessert",
-    "alcohol",
-    "salad",
-    "baking",
-    "roast",
-    "breakfast",
-    "appetizer"
-  ];
-  statements = [
-    "I am vegetarian.",
-    "I prefer low-calorie recipes.",
-    "I prefer easy, quicky recipes."
-  ];
 
   render() {
     return (
-        <div>
-            <Form onSubmit={this.handleSubmit} >
-                <div className="drag_things_to_boxes">
-                <PrefCard
-                  name="Cuisines"
-                  items={this.cuisines}
-                  handleDrop={this.handleDrop}
-                  type="favCuisines"
-                />
-                <PrefCard
-                  name="Ingredients"
-                  items={this.ingredients}
-                  handleDrop={this.handleDrop}
-                  type="favIngredients"
-                />
-                <PrefCard
-                  name="Categories"
-                  items={this.categories}
-                  handleDrop={this.handleDrop}
-                  type="favCategory"
-                />
-                </div>
-                <Button type="submit">Submit</Button>
-            </Form>
+      <div>
+        <Navbar />
+        <Form onSubmit={this.handleSubmit}>
+        <div className="drag_things_to_boxes">
+          <Grid columns={3}>
+
+              <Grid.Row>
+                <Grid.Column>
+                  <Header as='h3' textAlign="center" attached="top">Cuisines:</Header>
+                  <PrefCard
+                    name="Cuisines"
+                    items={this.state.cuisine}
+                    type="cuisine"
+                  />
+                </Grid.Column>
+                <Grid.Column>
+                <Header as='h3' textAlign="center" attached="top">Ingredients:</Header>
+                  <PrefCard
+                    name="Ingredients"
+                    items={this.state.ingredient}
+                    type="ingredient"
+                  />
+                </Grid.Column>
+                <Grid.Column>
+                <Header as='h3' textAlign="center" attached="top">Categories:</Header>
+                  <PrefCard
+                    name="Categories"
+                    items={this.state.category}
+                    type="category"
+                  />
+                </Grid.Column>
+              </Grid.Row>
+
+              <Grid.Row>
+                <Grid.Column>
+                  <Header as='h3' attached="top">
+                    <Icon name='heart' />
+                    <Header.Content>
+                      Love:
+                      <Header.Subheader>
+                        Prioritize recommendations for your favorites!
+                      </Header.Subheader>
+                    </Header.Content>
+                  </Header>
+
+                  <Box
+                    name='love'
+                    targetKey="target"
+                    handleDrop={this.handleDrop}
+                    restore={this.restore}
+                    attached
+                   />
+                </Grid.Column>
+
+                <Grid.Column>
+                  <Header as='h3' attached="top">
+                    <Icon name='balance scale' />
+                    <Header.Content>
+                      Neutral:
+                      <Header.Subheader>
+                        You don't hate 'em, you don't love 'em.
+                      </Header.Subheader>
+                    </Header.Content>
+                  </Header>
+                  <Box
+                    name='neutral'
+                    targetKey="target"
+                    handleDrop={this.handleDrop}
+                    restore={this.restore}
+                    attached
+                  />
+                </Grid.Column>
+
+                <Grid.Column>
+                  <Header as='h3' attached="top">
+                    <Icon name='ban' />
+                    <Header.Content>
+                      Hate:
+                      <Header.Subheader>
+                        We won't recommend anything with these!
+                      </Header.Subheader>
+                    </Header.Content>
+                  </Header>
+                  <Box
+                    name='hate'
+                    targetKey="target"
+                    handleDrop={this.handleDrop}
+                    restore={this.restore}
+                    attached
+                  />
+                </Grid.Column>
+
+              </Grid.Row>
+          </Grid>
         </div>
-    )
+        <Button type="submit">Submit</Button>
+        </Form>
+      </div>
+    );
   }
 }
 
@@ -115,4 +213,5 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setPreference: (pref, id) => dispatch(setPreference(pref, id))
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(Preference);

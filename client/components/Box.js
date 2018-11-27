@@ -11,45 +11,44 @@ export default class Box extends React.Component {
       };
     }
 
-    handleDrop = (e) => {
+    localDropHandler = (e) => {
       let items = this.state.items.slice();
-      items.push({label: e.dragData.label, uid: shortid.generate()});
-      this.setState({items: items});
-      e.containerElem.style.visibility = "hidden";
-    };
-
-    swap = (fromIndex, toIndex, dragData) => {
-      let items = this.state.items.slice();
-      const item = {label: dragData.label, uid: shortid.generate()};
-      items.splice(toIndex, 0, item);
-      this.setState({items: items});
-    };
-
-    kill = (item, uid) => {
-      this.props.handleX(item)
-      let items = this.state.items.slice();
-      const index = items.findIndex((item) => {
-        return item.uid == uid
-      });
-      if (index !== -1) {
-        items.splice(index, 1);
+      const newItem = {
+        label: e.dragData.label,
+        uid: shortid.generate(),
+        status: this.props.name,
+        event: e
       }
+      items.push(newItem)
       this.setState({items: items});
+      e.containerElem.style.visibility = "hidden"
+      this.props.handleDrop(e, this.props.name)
+      }
+
+    kill = (item) => {
+      let items = this.state.items.slice();
+      const target = items.filter(label => label.uid !== item)
+      this.setState({items: target});
     };
+
+    handleX = (item) => {
+      this.kill(item)
+      const target = this.state.items.filter(label => label.uid === item)
+      this.props.restore(target)
+    }
 
     render() {
-
       return (
         <div className="component_box">
             <DropTarget
               className="droptarget"
-              onHit={this.handleDrop}
-              targetKey={this.props.targetKey}
+              onHit={this.localDropHandler}
+              targetKey="target"
               dropData={{name: this.props.name}}
             >
               <DropTarget
                 className="droptarget"
-                onHit={this.handleDrop}
+                onHit={this.localDropHandler}
                 targetKey="boxItem"
                 dropData={{name: this.props.name}}
               >
@@ -61,13 +60,9 @@ export default class Box extends React.Component {
                         uid={item.uid}
                         kill={this.kill}
                         index={index}
-                        swap={this.swap}>
+                        handleX={this.handleX}
+                      >
                         {item.label}
-                        <button
-                          type="button"
-                          onClick={() => this.kill(item, item.uid)}
-                        > X
-                        </button>
                       </BoxItem>
                     )
                   })}

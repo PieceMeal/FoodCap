@@ -49,7 +49,7 @@ const style = {
 		marginLeft: '1vw',
 	},
 	wholeTray: {
-		backgroundColor: 'pink',
+		backgroundColor: 'white',
 		marginLeft: '5vw',
 		marginRight: '5vw',
 		padding: '12px',
@@ -396,11 +396,12 @@ class MyList extends Component {
 						)}
 					</Modal>
 
-					<div style={style.wholeTray}>
+					{/* <div style={style.wholeTray}> */}
+					<div>
 						<Header
 							as="h3"
 							content="Your Tray"
-							style={style.h3}
+							// style={style.h3}
 							textAlign="center"
 						/>
 						<Card.Group centered itemsPerRow={4}>
@@ -417,7 +418,7 @@ class MyList extends Component {
 						</Card.Group>
 						<Divider />
 
-						<table className="ui inverted olive table">
+						<table className="ui inverted table">
 							<thead>
 								<tr>
 									<th>Item</th>
@@ -429,11 +430,6 @@ class MyList extends Component {
 							<tbody>
 								{ingredients.length
 									? ingredients.map((ingredient, i) => {
-											// const ingredientHash = {};
-											// if (!ingredientHash[ingredient.name]) {
-											// 	ingredientHash[ingredient.name] = [];
-											// }
-											// ingredientHash[ingredient.name].push(ingredient);
 											return (
 												<tr key={i}>
 													<td>
@@ -449,7 +445,9 @@ class MyList extends Component {
 															disabled={this.state.disableForm}
 														/>
 													</td>
-													<td>{ingredient.note ? ingredient.note : null}</td>
+													<td>
+														<b>{ingredient.note ? ingredient.note : null}</b>
+													</td>
 													<td>
 														<Button
 															size="mini"
@@ -577,28 +575,26 @@ class MyList extends Component {
 
 						<Divider />
 						<span>
-							<Button animated style={{ backgroundColor: 'red' }}>
-								<Button.Content visible>
-									<i aria-hidden="true" className="trash alternate icon" />
-								</Button.Content>
-								<Button.Content hidden>Delete</Button.Content>
-							</Button>
 							<Button
 								animated
 								style={{ backgroundColor: 'green' }}
 								onClick={() => this.handleUpdate(list.uuid)}
 							>
 								<Button.Content visible>
-									<i aria-hidden="true" className="trash alternate icon" />
+									<i aria-hidden="true" className="check alternate icon" />
 								</Button.Content>
 								<Button.Content hidden>Update </Button.Content>
 							</Button>
 
 							<Button
+								animated
 								floated="right"
 								onClick={() => history.push(`/shopping/${list.uuid}`)}
 							>
-								<Icon name="list" />
+								<Button.Content visible>
+									<i aria-hidden="true" className="list icon" />
+								</Button.Content>
+								<Button.Content hidden>List </Button.Content>
 							</Button>
 						</span>
 					</div>

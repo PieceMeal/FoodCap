@@ -44,18 +44,28 @@ class SearchResults extends Component {
         if (this.props.searchRecipes.length) {
             return (
                 <React.Fragment>
+                    <Navbar />
+                    <div
+          style={{
+            marginTop: '5vh',
+            marginLeft: '10vw',
+            marginRight: '10vw',
+            marginBottom: '40px'
+          }}
+        >
                     <Container >
                         <Message>
                             <Message.Header>Showing results for "{query}"</Message.Header>
                         </Message>
                         <Divider horizontal>Recipes</Divider>
-                        <Grid columns={3} divided>
+                        <Grid columns={4} centered>
                             <Grid.Row stretched>
                                 {searchRec.map((rec, i) => {
                                     return (
                                         <Grid.Column width={4} key={i}>
-                                            <Card style={{ marginTop: "20px" }}>
-                                                <Link to={`/recipes/singleview/${rec.name}`}><Image src={rec.image} /></Link>
+                                            <Card style={{ marginTop: "20px",padding: '8px',
+                        border: '1px solid black' }}>
+                                                <Link to={`/recipes/singleview/${rec.name}`}><Image src={rec.image} style={{ height: '150px', width: '100%' }} /></Link>
                                                 <Card.Content>
                                                     <Card.Header>{rec.name}</Card.Header>
                                                     <Container textAlign="right">
@@ -174,6 +184,7 @@ class SearchResults extends Component {
                             </Grid.Row>
                         </Grid>
                     </Container>
+                    </div>
                 </React.Fragment>
             )
         } else {
