@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import Navbar from './navbar';
-import { Header, List } from 'semantic-ui-react';
+import { Header, List, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 import { setListThunk } from '../store/list';
 
-import { getIngredientsThunk } from '../store/singlerecipe';
-
-class MyList extends Component {
+class ShoppingList extends Component {
 	constructor() {
 		super();
 		this.state = {
 			loading: true,
-			ingredients: [],
+			ingredients: {},
 		};
 	}
 	async componentDidMount() {
@@ -20,9 +18,22 @@ class MyList extends Component {
 		this.setState({ loading: true });
 
 		await this.props.setList(id);
-		this.setState({ loading: false });
+		const categoryMap = this.props.categoryMap;
+		const ingredients = {};
+		Object.keys(categoryMap).forEach(c => {
+			categoryMap[c].forEach(i => {
+				ingredients[i.name] = false;
+			});
+		});
+		this.setState({ loading: false, ingredients });
 	}
 
+	handleToggle = name => {
+		const newIngredients = this.state.ingredients;
+		newIngredients[name] = !newIngredients[name];
+
+		this.setState({ ingredients: newIngredients });
+	};
 	render() {
 		//dont display until loaded
 		console.log(this.props.categoryMap);
@@ -34,25 +45,37 @@ class MyList extends Component {
 			return (
 				<React.Fragment>
 					<Navbar />
+					<Card centered>
+						<Card.Content header="Shopping List" />
+						<Card.Content>
+							<List selection divided>
+								{Object.keys(categoryMap).map(category => {
+									return (
+										<React.Fragment key={category}>
+											<Header>{category} </Header>
 
-					<List>
-						{Object.keys(categoryMap).map(category => {
-							return (
-								<React.Fragment key={category}>
-									<Header>{category} </Header>
-
-									{categoryMap[category].map(i => {
-										return (
-											<List.Item key={i.name}>
-												{i.quantity} {i.type} {i.name}
-												<List.Description>{i.notes}</List.Description>
-											</List.Item>
-										);
-									})}
-								</React.Fragment>
-							);
-						})}
-					</List>
+											{categoryMap[category].map(i => {
+												return (
+													<List.Item
+														key={i.name}
+														className={
+															this.state.ingredients[i.name]
+																? 'crossedItem'
+																: ''
+														}
+														onClick={() => this.handleToggle(i.name)}
+													>
+														{i.quantity} {i.type} {i.name}
+														<List.Description>{i.notes}</List.Description>
+													</List.Item>
+												);
+											})}
+										</React.Fragment>
+									);
+								})}
+							</List>
+						</Card.Content>
+					</Card>
 				</React.Fragment>
 			);
 		} else {
@@ -84,4 +107,4 @@ const mapDispatchToProps = dispatch => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyList);
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingList);

@@ -59,3 +59,17 @@ router.post('/', async (req, res, next) => {
 		next(err);
 	}
 });
+
+router.put('/update', async (req, res, next) => {
+	const { name, category } = req.body;
+	console.log(req.body)
+	try {
+	await runQuery(`MATCH (i:Ingredient {name: $name}) SET i.category=$category`, {
+			name,category
+		});
+		res.json({ status: true });
+	} catch (err) {
+		next(err);
+	}
+});
+
