@@ -97,6 +97,7 @@ export const setPreference = (preferencesObj, userId) => async dispatch => {
     console.error(err);
   }
 };
+
 export const fetchRecipes = () => async dispatch => {
   //we need to create fetchRecipe thunk that is going to get our recipes on componentDidMount
   //or on componentDidUpdate because now after refreshing the page they are gone.
