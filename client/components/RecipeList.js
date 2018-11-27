@@ -18,7 +18,8 @@ import {
   deleteLiked,
   deletePopular,
   setPopularRecipesThunk,
-  setBookmarkedRecipesThunk
+  setBookmarkedRecipesThunk,
+  setAlsoLikedThunk
 } from '../store/genericRecLists';
 
 // STATE AND DISPATCH FOR RECOMMENDATIONS
@@ -68,16 +69,36 @@ const mapBookmarksToDispatch = dispatch => ({
   setListsThunk: () => dispatch(setListsThunk()),
   addRecipeToListThunk: body => dispatch(addRecipeToListThunk(body))
 });
+//USERS ALSO LIKED
+const mapAlsoLikedToState = state => ({
+  lists: state.lists,
+  recipes: state.genericRecLists.alsoLiked,
+  singleRecipe: state.singleRecipe
+});
+const mapAlsoLikedToDispatch = dispatch => ({
+  setListsThunk: () => dispatch(setListsThunk()),
+  addRecipeToListThunk: body => dispatch(addRecipeToListThunk(body)),
+  fetchRecipesWithName: recipeName => dispatch(setAlsoLikedThunk(recipeName))
+});
 class RecipeList extends Component {
   state = {
     listName: '',
     checked: {}
   };
   componentDidMount() {
-    this.props.fetchRecipes();
+    if (this.props.fetchRecipesWithName) {
+      this.props.fetchRecipesWithName(this.props.recipeName);
+    } else {
+      this.props.fetchRecipes();
+    }
+
     if (this.props.lists.length < 1) {
-      console.log('running thunk');
       this.props.setListsThunk();
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.recipeName !== this.props.recipeName) {
+      this.props.fetchRecipesWithName(this.props.recipeName);
     }
   }
   handleSubmit = e => {
@@ -120,16 +141,10 @@ class RecipeList extends Component {
       return (
         <div
           style={{
-            // backgroundColor: '#ffffe5',
-
             marginTop: '5vh',
             marginLeft: '10vw',
             marginRight: '10vw',
             marginBottom: '40px'
-            // padding: '20px'
-
-            // border: '2px solid black'
-            // borderRadius: '5px'
           }}
         >
           <Grid columns={4} centered>
@@ -223,4 +238,9 @@ export const LikedList = connect(mapLikesToState, mapLikesDispatch)(RecipeList);
 export const BookmarkedList = connect(
   mapBookmarksToState,
   mapBookmarksToDispatch
+)(RecipeList);
+
+export const AlsoLikedList = connect(
+  mapAlsoLikedToState,
+  mapAlsoLikedToDispatch
 )(RecipeList);
