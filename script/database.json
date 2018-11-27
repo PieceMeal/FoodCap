@@ -528,7 +528,9 @@
 		"image":
 			"https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/andre_and_andersons_49427_16x9.jpg",
 		"isVegetarian": false,
-		"recommendations": 0
+		"recommendations": 0,
+		"categories": ["comfort"],
+		"cuisine":["brazilian"]
 	},
 
 	"Angel food cake with lemon curd": {
@@ -569,7 +571,8 @@
 		"image":
 			"https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/angel_food_cake_with_04002_16x9.jpg",
 		"isVegetarian": true,
-		"recommendations": 0
+		"recommendations": 0,
+		"categories": ["dessert"]
 	},
 
 	"Swedish Christmas Glögg": {
@@ -609,7 +612,8 @@
 		"image":
 			"https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/annikas_glgg_annikas_32356_16x9.jpg",
 		"isVegetarian": false,
-		"recommendations": 0
+		"recommendations": 0,
+		"categories": ["alcohol"]
 	},
 
 	"Angela's slow roasted ginger pork": {
@@ -639,7 +643,9 @@
 		"isVegetarian": false,
 		"recommendations": 0,
 		"image":
-			"https://www.eatwell101.com/wp-content/uploads/2016/02/best-Slow-Cooked-Pork-Shoulder.jpg"
+			"https://www.eatwell101.com/wp-content/uploads/2016/02/best-Slow-Cooked-Pork-Shoulder.jpg",
+			"categories": ["roast"],
+			"cuisine":["american"]
 	},
 	"Easy cookies": {
 		"ingredients": {
@@ -677,7 +683,9 @@
 		"image":
 			"https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/anytimecookies_92185_16x9.jpg",
 		"isVegetarian": true,
-		"recommendations": 0
+		"recommendations": 0,
+		"categories": ["dessert"],
+		"cuisine":["american"]
 	},
 	"Paul's apple and blackberry crumble": {
 		"ingredients":{
@@ -708,7 +716,9 @@
 		"image":
 			"https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/apple_and_blackberry_33697_16x9.jpg",
 		"isVegetarian": true,
-		"recommendations": 0
+		"recommendations": 0,
+		"categories": ["dessert"],
+		"cuisine":["american"]
   },
 
   "Apple and cinnamon breakfast pot": {
@@ -736,7 +746,9 @@
 		"isVegetarian": true,
 		"recommendations": 0,
 		"image":
-			"https://www.fivehearthome.com/wp-content/uploads/2015/10/Ovenight-Slow-Cooker-Apple-Pie-Steel-Cut-Oatmeal-Breakfast-Recipe-No-Sticking-Burning-Edges-by-Five-Heart-Home_700pxZoom.jpg"
+			"https://www.fivehearthome.com/wp-content/uploads/2015/10/Ovenight-Slow-Cooker-Apple-Pie-Steel-Cut-Oatmeal-Breakfast-Recipe-No-Sticking-Burning-Edges-by-Five-Heart-Home_700pxZoom.jpg",
+			"categories": ["breakfast","quick"],
+			"cuisine":["american"]
   },
 
 	"Arancini with tomato and olive tapenade": {
@@ -776,7 +788,10 @@
 		"image":
 			"https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/arancini_with_tomato_and_49993_16x9.jpg",
 		"isVegetarian": true,
-    "recommendations": 0,
+		"recommendations": 0,
+		"categories": ["comfort"],
+		"cuisine":["italian"]
+	},
     "Beef curry with shatkora": {
       "ingredients":  {
         "vegetable oil":{"quantity":2,"type":"tbsp"},"cinnamon":{"quantity":2,"type":"stick"},
@@ -819,29 +834,30 @@
         "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/aromatic_beef_curry_with_63198_16x9.jpg",
       "isVegetarian": false,
       "recommendations": 0,
-      "cuisine": ["indian"]
-    }
+			"cuisine": ["indian"],
+			"categories": ["curry"]
+
   },
   "Aromatic beef curry": {
 		"ingredients":
 		{
 			"ghee":{"quantity":2,"type":"oz"},
-		"steak":{"quantity":1,"type":"steak"},
-		"onion":{"quantity":1,"type":"medium"},
-		"garlic":{"quantity":1,"type":"clove"},
-		"cumin":{"quantity":1,"type":"tsp"},
-		"coriander":{"quantity":1,"type":"tsp"},
-		"turmeric":{"quantity":1,"type":"tsp"},
-		"chili powder":{"quantity":1,"type":"tsp"},
-		"ginger":{"quantity":0.5,"type":"tsp"},
-		"cloves":{"quantity":3,"type":"tsp"},
-		"cardamom":{"quantity":1,"type":"pod"},
-		"cinnamon":{"quantity":0.5,"type":"tsp"},
-		"tomatoes":{"quantity":1,"type":""},
-		"yogurt":{"quantity":0.5,"type":"oz"},
-		"vinegar":{"quantity":1,"type":"tbsp"},
-		"sugar":{"quantity":1,"type":"pinch"}
-	},
+			"steak":{"quantity":1,"type":"steak"},
+			"onion":{"quantity":1,"type":"medium"},
+			"garlic":{"quantity":1,"type":"clove"},
+			"cumin":{"quantity":1,"type":"tsp"},
+			"coriander":{"quantity":1,"type":"tsp"},
+			"turmeric":{"quantity":1,"type":"tsp"},
+			"chili powder":{"quantity":1,"type":"tsp"},
+			"ginger":{"quantity":0.5,"type":"tsp"},
+			"cloves":{"quantity":3,"type":"tsp"},
+			"cardamom":{"quantity":1,"type":"pod"},
+			"cinnamon":{"quantity":0.5,"type":"tsp"},
+			"tomatoes":{"quantity":1,"type":""},
+			"yogurt":{"quantity":0.5,"type":"oz"},
+			"vinegar":{"quantity":1,"type":"tbsp"},
+			"sugar":{"quantity":1,"type":"pinch"}
+	  },
 		"method": [
 			"Heat a lidded frying pan over a medium heat and add the ghee or oil. Fry the meat until lightly browned on all sides, then remove from the pan with a slotted spoon, cover and set aside.",
 			"Add the onion and garlic to the pan and fry over a low heat until soft. Turn the heat up slightly, add the spices and fry for 1 minute, they should start to smell aromatic, without burning.",
@@ -862,6 +878,8 @@
 			"https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/aromatic_beef_curry_90850_16x9.jpg",
 		"isVegetarian": false,
 		"recommendations": 0
-	}
+	},
+	"categories": ["curry"],
+	"cuisine":["indian"]
 
 }
