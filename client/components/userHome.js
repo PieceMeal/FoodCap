@@ -100,6 +100,7 @@ class UserHome extends React.Component {
       return (
         <div>
           <Navbar />
+
           <Container fluid style={{ padding: '50px' }}>
             <div>
               <Header as="h2" icon textAlign="center">

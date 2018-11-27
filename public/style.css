@@ -32,7 +32,7 @@ nav a {
   padding: 10px;
   margin: 3px;
   background-color: white;
-  border: 2px solid green
+  border: 2px solid green;
 }
 
 .box_item_component .grabber {
@@ -55,7 +55,7 @@ nav a {
 }
 
 .drag_things_to_boxes .boxes h3 {
-  width: 110px
+  width: 110px;
 }
 
 /* individual label */
@@ -74,7 +74,7 @@ nav a {
   border-radius: 4px;
   width: 200px;
   height: 500px;
-  border-style: solid
+  border-style: solid;
 }
 
 /* drop target box */
@@ -82,7 +82,6 @@ nav a {
   width: 200px;
   flex-wrap: wrap;
 }
-
 
 .drag_things_to_boxes .box {
   flex-direction: column;
@@ -95,5 +94,5 @@ nav a {
 }
 
 .drag_things_to_boxes .highlighted .box {
-box-shadow: inset 0 0 4px #00f;
+  box-shadow: inset 0 0 4px #00f;
 }
