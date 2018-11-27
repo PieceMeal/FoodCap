@@ -18,7 +18,8 @@ import {
   deleteLiked,
   deletePopular,
   setPopularRecipesThunk,
-  getAllRecipesThunk
+  getAllRecipesThunk,
+  setBookmarkedRecipesThunk
 } from '../store/genericRecLists';
 
 // STATE AND DISPATCH FOR RECOMMENDATIONS
@@ -64,7 +65,16 @@ const mapLikesDispatch = dispatch => ({
   setListsThunk: () => dispatch(setListsThunk()),
   addRecipeToListThunk: body => dispatch(addRecipeToListThunk(body))
 });
-
+// BOOKMARKS
+const mapBookmarksToState = state => ({
+  recipes: state.genericRecLists.bookmarks,
+  lists: state.lists
+});
+const mapBookmarksToDispatch = dispatch => ({
+  fetchRecipes: () => dispatch(setBookmarkedRecipesThunk()),
+  setListsThunk: () => dispatch(setListsThunk()),
+  addRecipeToListThunk: body => dispatch(addRecipeToListThunk(body))
+});
 class RecipeList extends Component {
   state = {
     listName: '',
@@ -119,16 +129,16 @@ class RecipeList extends Component {
       return (
         <div
           style={{
-            backgroundColor: '#ffffe5',
+            // backgroundColor: '#ffffe5',
 
             marginTop: '5vh',
             marginLeft: '10vw',
             marginRight: '10vw',
-            marginBottom: '40px',
-            padding: '20px',
+            marginBottom: '40px'
+            // padding: '20px'
 
-            border: '2px solid black',
-            borderRadius: '5px'
+            // border: '2px solid black'
+            // borderRadius: '5px'
           }}
         >
           <Grid columns={4} centered>
@@ -136,7 +146,13 @@ class RecipeList extends Component {
               {this.props.recipes.map((rec, id) => {
                 return (
                   <Grid.Column key={id}>
-                    <Card style={{ marginTop: '20px' }}>
+                    <Card
+                      style={{
+                        marginTop: '20px',
+                        padding: '8px',
+                        border: '1px solid black'
+                      }}
+                    >
                       <Link to={`/recipes/singleview/${rec.name}`}>
                         <Image
                           src={rec.image}
@@ -213,3 +229,8 @@ export const PopularList = connect(mapPopularToState, mapPopularDispatch)(
 
 export const LikedList = connect(mapLikesToState, mapLikesDispatch)(RecipeList);
 export const AllRecipes = connect(mapAllToState, mapAllDispatch)(RecipeList)
+
+export const BookmarkedList = connect(
+  mapBookmarksToState,
+  mapBookmarksToDispatch
+)(RecipeList);

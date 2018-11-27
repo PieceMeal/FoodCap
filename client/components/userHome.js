@@ -96,6 +96,8 @@ class UserHome extends React.Component {
     this.setState({ [name]: false });
   };
   render() {
+    const disableSubmitButton = Object.keys(this.state.checked).length;
+    const { user } = this.props;
     if (this.props.recipes) {
       return (
         <div>
@@ -104,7 +106,16 @@ class UserHome extends React.Component {
             <div>
                 <Image src='/logo.png' height='200' centered/>
               <Header as="h2" icon textAlign="center">
-                <Header.Content>Hello {this.props.email}</Header.Content>
+                {/* <img
+                  style={{
+                    height: '190px',
+                    width: 'auto'
+                  }}
+                  src={user.profilePicture}
+                /> */}
+                <Header.Content>
+                  Welcome {user.userName ? user.userName : user.email}!
+                </Header.Content>
               </Header>
               <Form onSubmit={this.handleSubmit}>
                 <Input

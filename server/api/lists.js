@@ -91,11 +91,13 @@ router.get('/:listId', async (req, res, next) => {
 				switch (rel.type) {
 					case 'hasIngredient': {
 						const { type, quantity, note } = record.get('r').properties;
+						const category = record.get('x').properties.category || '';
 						returnObject.ingredients.push({
 							name: record.get('x').properties.name,
 							type,
 							quantity,
 							note,
+							category,
 						});
 						break;
 					}
@@ -318,6 +320,22 @@ router.put('/resolve', async (req, res, next) => {
 				quantity,
 				type,
 			}
+		);
+		res.json({ status: true });
+	} catch (err) {
+		next(err);
+	}
+});
+
+//PUT (/api/lists/removerecipe)
+//expects: req.body.uuid to match the uuid of list
+//         req.body.recipe to be the name of ingredient
+router.put('/removerecipe', async (req, res, next) => {
+	try {
+		const { uuid, recipe } = req.body;
+
+		await runQuery(
+			`MATCH (:List {uuid: '${uuid}'})-[r:hasRecipe]->(:Recipe{name:'${recipe}'}) DELETE r `
 		);
 		res.json({ status: true });
 	} catch (err) {
