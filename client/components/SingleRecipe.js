@@ -8,9 +8,12 @@ import {
   toggleBookmarkThunk
 } from '../store/singlerecipe';
 import Navbar from './navbar';
+import { AlsoLikedList } from './RecipeList';
 const mapStateToProps = state => {
   return {
-    recipe: state.singlerecipe
+    recipe: state.singlerecipe,
+    alsoLiked: state.genericRecLists.alsoLiked,
+    name: state.singlerecipe.name
   };
 };
 
@@ -29,6 +32,7 @@ const style = {
     marginTop: '5vh',
     marginLeft: '10vw',
     marginRight: '10vw',
+    marginBottom: '4vw',
     padding: '20px',
 
     border: '2px solid black',
@@ -42,7 +46,14 @@ class SingleRecipe extends Component {
   async componentDidMount() {
     await this.props.setRecipe(this.props.match.params.recipename);
   }
-
+  async componentDidUpdate(prevProps) {
+    if (
+      prevProps.match.params.recipename !== this.props.match.params.recipename
+    ) {
+      await this.props.setRecipe(this.props.match.params.recipename);
+      window.scrollTo(0, 0);
+    }
+  }
   componentWillUnmount() {
     this.props.deleteStore();
   }
@@ -181,6 +192,12 @@ class SingleRecipe extends Component {
               </div>
             </div>
           </div>
+          <Divider horizontal>
+            <h3>Users Who Liked This Also Liked:</h3>
+          </Divider>
+          {this.props.name ? (
+            <AlsoLikedList recipeName={this.props.name} />
+          ) : null}
         </React.Fragment>
       );
     } else {
