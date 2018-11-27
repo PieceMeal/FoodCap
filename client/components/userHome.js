@@ -102,6 +102,7 @@ class UserHome extends React.Component {
       return (
         <div>
           <Navbar />
+
           <Container fluid style={{ padding: '50px' }}>
             <div>
                 <Image src='/logo.png' height='200' centered/>

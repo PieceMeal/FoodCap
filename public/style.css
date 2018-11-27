@@ -1,90 +1,63 @@
 body {
-	font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 label {
-	display: block;
+  display: block;
 }
 
 nav a {
-	display: inline-block;
-	margin: 1em;
+  display: inline-block;
+  margin: 1em;
 }
 
 .box_item_component .outer {
-	border-top: none;
-	min-width: 140px;
-	max-width: 140px;
-	overflow: hidden;
+  border-top: none;
+  min-width: 140px;
+  max-width: 140px;
+  overflow: hidden;
 }
 
 .box_item_component .highlighted .outer {
-	border-top: 40px solid #ddd;
+  border-top: 40px solid #ddd;
 }
 
 .box_item_component .item {
-<<<<<<< HEAD
   color: black;
   border-radius: 5px;
   padding: 10px;
   margin: 3px;
   background-color: white;
   border: 2px solid black
-=======
-	color: black;
-	border-radius: 5px;
-	padding: 10px;
-	margin: 3px;
-	background-color: white;
-	border: 2px solid green;
->>>>>>> master
 }
 
 .box_item_component .grabber {
-	font-size: 14px;
-	font-weight: bold;
-	padding-right: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  padding-right: 6px;
 }
 
-<<<<<<< HEAD
-=======
-.drag_things_to_boxes {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
 
-/* individual row */
-.drag_things_to_boxes .boxes {
-	display: flex;
-	flex-direction: row;
-	margin-top: 10px;
-}
-
->>>>>>> master
 .drag_things_to_boxes .boxes h3 {
-	width: 110px;
+  width: 110px;
 }
 
 /* individual label */
 .drag_things_to_boxes .boxable_component {
-<<<<<<< HEAD
   flex-grow: 1;
   align-self: center;
   margin: 10px;
-=======
-	flex-grow: 1;
-	align-self: center;
->>>>>>> master
+
+
+
 }
 
 /* options box */
 .drag_things_to_boxes .options {
-<<<<<<< HEAD
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -93,36 +66,23 @@ nav a {
   align-content: stretch;
   width: 100%;
   border-style: solid
-=======
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	justify-content: center;
-	background: white;
-	border-radius: 4px;
-	width: 200px;
-	height: 500px;
-	border-style: solid;
->>>>>>> master
+
 }
 
 .drag_things_to_boxes .options .option {
   width: 100px;
+
 }
 
 /* drop target box */
 .drag_things_to_boxes .component_box {
-<<<<<<< HEAD
+
+
   width: 100%;
   flex-wrap: wrap;
-=======
-	width: 200px;
-	flex-wrap: wrap;
->>>>>>> master
 }
 
 .drag_things_to_boxes .box {
-<<<<<<< HEAD
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
@@ -130,21 +90,12 @@ nav a {
   border-radius: 4px;
   width: 100%;
   height: 300px;
-=======
-	flex-direction: column;
-	flex-wrap: wrap;
-	justify-content: center;
-	background: rgb(12, 54, 54);
-	border-radius: 4px;
-	width: 200px;
-	height: 500px;
->>>>>>> master
 }
 
 .drag_things_to_boxes .highlighted .box {
-	box-shadow: inset 0 0 4px #00f;
+  box-shadow: inset 0 0 4px #00f;
 }
 
 .crossedItem {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
