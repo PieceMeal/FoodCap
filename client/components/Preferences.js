@@ -61,7 +61,6 @@ class Preference extends React.Component {
       hateIngredients: this.state.hateIngredients,
       hateCategory: this.state.hateCategory
     };
-    console.log('PREFERENCES:', preferencesObj)
     await this.props.setPreference(preferencesObj, this.props.user.id);
     history.push('/home');
   };

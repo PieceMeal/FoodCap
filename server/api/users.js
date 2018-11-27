@@ -55,12 +55,12 @@ router.get('/userrec', async (req, res, next) => {
 
 router.put('/:userId', async (req, res, next) => {
   try {
-    const { favCuisines, favIngredients, mealTypes, favCategory } = req.body;
+    const { favCuisines, favIngredients, favCategory } = req.body;
     let userId = req.params.userId;
     let user = await User.findById(userId);
     let uuid = user.uuid;
 
-    //map through favIngredients and draw a like connection between user and ingredient
+    //map through faves and draw a like connection between user and ingredient
     for (let i = 0; i < favIngredients.length; i++) {
       let ingredient = favIngredients[i];
       await runQuery(
