@@ -217,22 +217,33 @@ router.put('/togglebookmark', async (req, res, next) => {
   res.send(201);
 });
 router.get('/', async (req, res, next) => {
-  try {
+	try {
     let key = req.query.key;
-
-    console.log('key from req.query', key);
-    console.log(' from req.query', req.query);
-    const { records } = await runQuery(`
-    MATCH (n)-[1..3:a]-(r:Recipe)
-    WHERE n.name CONTAINS "${key}" OR n.content CONTAINS "${key}" OR n.title CONTAINS "${key}"
-    RETURN n, r`);
-    // console.log('our records from query', records[0].get('r'))
-    const recc = records.map(rec => rec.get('r'));
-    console.log('my record', recc);
-    res.json(records);
-  } catch (err) {
-    next(err);
-  }
+    if(key){
+		  console.log('key from req.query', key);
+      console.log(' from req.query', req.query);
+      //search query, looking for recipe with a search keyword user has provided
+		  const { records } = await runQuery(`
+        MATCH (n)-[a:belongsToCategory|belongsToCuisine|hasIngredient|hasReview*1..2]-(r:Recipe)
+        WHERE r.name CONTAINS "${key}" OR n.name CONTAINS "${key}" OR n.content CONTAINS "${key}" OR n.title CONTAINS "${key}" 
+        WITH r, count(a) as c
+        return r,c
+        order by c desc
+        limit 4`);
+		  const recc = records.map(rec => rec.get('r').properties);
+		  // console.log('my record', recc);
+      res.json(recc);
+    }else {
+      const {records} = await runQuery(
+        `MATCH (a:Recipe) RETURN a ORDER BY a.name`
+      )
+      const recc = records.map(rec => rec.get('r').properties)
+      console.log('all records', recc)
+      res.json(recc)
+    }
+	} catch (err) {
+		next(err);
+	}
 });
 
 router.get('/ingredients/:name', async (req, res, next) => {

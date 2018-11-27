@@ -10,7 +10,7 @@
       "mushrooms": { "quantity": 1, "type": "package" },
       "prosciutto": { "quantity": 4, "type": "slices" },
       "gorgonzola": { "quantity": 4, "type": "oz" },
-      "egg": { "quantity": 1, "type": "egg" }
+      "eggs": { "quantity": 1, "type": "eggs" }
     },
     "method": [
       "Preheat the oven to 200C/400F/Gas 6.",
@@ -18,7 +18,7 @@
       "Place into a frying pan over a high heat and brown the base, then using a mini-blowtorch, crisp the top of the pizza. (Alternatively you can do this under the grill.) ",
       "For the topping, spread tomato purée over the top of the base. ",
       "Fry the mushrooms in a dry frying pan then scatter over the tomato purée. Arrange the prosciutto and cheese on top. ",
-      "Crack an egg into the middle, then place into the oven for five minutes to finish cooking. ",
+      "Crack an eggs into the middle, then place into the oven for five minutes to finish cooking. ",
       "Serve on a large plate, and slice into wedges to serve."
     ],
     "url": "www_bbc_com_food_recipes_10minutepizza_87314",
@@ -47,13 +47,13 @@
       "butter": { "quantity": 5, "type": "oz" },
       "apricot jam": { "quantity": 6, "type": "tbsp" },
       "lemon": { "quantity": 1, "type": "" },
-      "egg": { "quantity": 10, "type": "egg" },
+      "eggs": { "quantity": 10, "type": "eggs" },
       "flour": { "quantity": 5, "type": "oz" }
     },
     "method": [
-      "Whisk the egg yolks in the bowl of a freestanding mixer on a high speed for five minutes, until pale, thick and creamy.  ",
-      "In a separate bowl, beat the butter and sugar together until pale and creamy. Add the lemon zest and vanilla paste and mix well. Add the whisked egg yolks and beat well. Add the flour and cornflour and mix.",
-      "In a clean, grease-free bowl, whisk the egg whites until soft peaks form when the whisk is removed. Stir one-third of the egg whites into the batter to loosen the consistency. Then gently fold the remaining egg whites into the egg yolk mixture. ",
+      "Whisk the eggs yolks in the bowl of a freestanding mixer on a high speed for five minutes, until pale, thick and creamy.  ",
+      "In a separate bowl, beat the butter and sugar together until pale and creamy. Add the lemon zest and vanilla paste and mix well. Add the whisked eggs yolks and beat well. Add the flour and cornflour and mix.",
+      "In a clean, grease-free bowl, whisk the eggs whites until soft peaks form when the whisk is removed. Stir one-third of the eggs whites into the batter to loosen the consistency. Then gently fold the remaining eggs whites into the eggs yolk mixture. ",
       "Preheat the grill to high.  ",
       "Grease a 20cm/8in round springform tin with oil and line the base with parchment paper.  ",
       "Spoon some of the batter into the base of the cake tin and spread evenly across the bottom. Give the tin a gentle side-to-side shake to even out the top of the batter. Place on a shelf 10cm/4in below the grill and cook for two minutes, or until light golden-brown.  ",
@@ -83,7 +83,7 @@
   },
   "Ajitsuke tamago (Japanese pickled eggs)": {
     "ingredients": {
-      "egg": { "quantity": 6, "type": "egg" },
+      "eggs": { "quantity": 6, "type": "eggs" },
       "soy sauce": { "quantity": 4, "type": "fl-oz" },
       "mirin": { "quantity": 4, "type": "fl-oz" },
       "sake": { "quantity": 4, "type": "fl-oz" },
@@ -121,7 +121,7 @@
       "sugar": { "quantity": 7, "type": "oz" },
       "flour": { "quantity": 6, "type": "oz" },
       "spice": { "quantity": 7, "type": "oz" },
-      "egg": { "quantity": 3, "type": "egg" }
+      "eggs": { "quantity": 3, "type": "eggs" }
     },
     "method": [
       "Put the dried fruit into a large pan and cover with the bottled beer.",
@@ -196,7 +196,7 @@
       "spinach": { "quantity": 3, "type": "oz" },
       "potatoes": { "quantity": 8, "type": "oz" },
       "cherry tomatoes": { "quantity": 4, "type": "oz" },
-      "egg": { "quantity": 4, "type": "egg" }
+      "eggs": { "quantity": 4, "type": "eggs" }
     },
     "method": [
       "Preheat the grill to medium-high. Grill the bacon until it is browned on both sides. Remove from the grill and set aside. ",
@@ -204,8 +204,8 @@
       "Rinse the spinach under cold water and drain it in a sieve. Add it to the frying pan and cook for 1-2 minutes, stirring all the time, so that the leaves steam in the residual water. When the spinach is cooked, but still bright green, transfer back to the sieve and press with the back of a spoon to squeeze any remaining water from the leaves. Set aside.",
       "Wipe the frying pan clean, spray with oil and return to a medium heat. Fry the potatoes and tomatoes without stirring too much, so that the vegetables take on some colour but don’t fall apart – about 5 minutes.",
       "Meanwhile, beat the eggs in a fairly large bowl. Chop the cooked bacon and the spinach. Add to the eggs along with the cooked mushrooms. Season the eggs with salt and freshly ground black pepper. ",
-      "When the tomatoes and potatoes are golden-brown in places, spoon them into the eggs with the other vegetables. Give the egg mixture a brief stir, then pour it back into the frying pan and place it back over the heat. Cook gently over a medium heat for 10 minutes, until the egg looks set around the edges (it may be a little runny on the top). ",
-      "Place the pan under the grill for 2 minutes to finish cooking the frittata on top. Turn out the frittata onto a plate and let it cool slightly before cutting into wedges. Serve with a crunchy salad for maximum veggies."
+      "When the tomatoes and potatoes are golden-brown in places, spoon them into the eggs with the other vegetables. Give the eggs mixture a brief stir, then pour it back into the frying pan and place it back over the heat. Cook gently over a medium heat for 10 minutes, until the eggs looks set around the edges (it may be a little runny on the top). ",
+      "Place the pan under the grill for 2 minutes to finish cooking the frittata on top. Turn out the frittata onto a plate and let it cool slightly before cutting into wedges. Serve with a crunchy salad for maximum veggsies."
     ],
     "url": "www_bbc_com_food_recipes_all-day_breakfast_12416",
     "title": "All-day breakfast frittata",
@@ -321,18 +321,18 @@
 			"butter": { "quantity": "8", "type": "oz" },
 			"caster sugar": { "quantity": "7", "type": "oz" },
 			"vanilla extract": { "quantity": "1", "type": "tsp" },
-			"egg": { "quantity": "1", "type": "" },
+			"eggs": { "quantity": "1", "type": "" },
 			"icing sugar": { "quantity": "9", "type": "oz" }
 		},
     "method": [
       "To make the basic dough, line a baking tray with baking parchment (you may need two baking trays or, alternatively, cook the biscuits in batches).",
-      "In a bowl, use a wooden spoon or a mixer to cream together the butter, sugar and vanilla essence until just creamy.  Do not over work the batter at this stage.  Beat in the egg until well combined. ",
+      "In a bowl, use a wooden spoon or a mixer to cream together the butter, sugar and vanilla essence until just creamy.  Do not over work the batter at this stage.  Beat in the eggs until well combined. ",
       "Add the flour and mix on a low speed until a dough forms. In the bowl, use your hands to lightly knead the dough into a ball. Wrap it in cling film and refrigerate for least an hour.",
       "Roll out the dough on a lightly floured work surface to a depth of about 5mm, if possible use spacers to achieve an even thickness. Cut the desired shapes. For the duck biscuits: use a duck-shaped cutter and a round cutter for the base (the base should be approximately the same size as the duck). For the tree biscuits: cut two simple tree shapes out using either a cutter or a template and cut one tree shape in half vertically. For the ladybird biscuits: cut out two rounds, one slightly smaller than the other (approx. 5cm/2in and 3cm/1¼in). For the lamb biscuits: use a cutter or a template to cut out two lamb shapes for each finished biscuit and cut two additional leg shapes separately (for each finished lamb biscuit you should have two lamb shapes and two leg shapes). For the sitting down person biscuits: cut a gingerbread person out of the dough and then cut off the legs. Trim about 2mm from around the edges of the legs and cut two slots out of the bottom of the gingerbread body, about the depth of the legs (the legs will slot in here once baked). Also cut out two small ovals for feet.  ",
       "Transfer the shapes onto the baking sheet using a palate knife and chill again for about 30 minutes. (This is important to prevent the biscuits losing their shape when baked.)",
       "Preheat the oven to 180C/350F/Gas 4.",
       "Bake the biscuits for 6–10 minutes, depending on size, until lightly golden-brown at the edges. Transfer to a wire rack to cool completely.",
-      "For the icing, lightly beat the egg white in a large bowl.  Add the icing sugar and mix slowly at first to avoid an icing sugar cloud. Once combined, whisk or beat for about five minutes if using an electric beater or whisk, or for longer if using a wooden spoon. Continue whisking until the ingredients form a thick, smooth paste that is bright white in colour. If you are using colours, separate the icing into various bowls and colour accordingly.",
+      "For the icing, lightly beat the eggs white in a large bowl.  Add the icing sugar and mix slowly at first to avoid an icing sugar cloud. Once combined, whisk or beat for about five minutes if using an electric beater or whisk, or for longer if using a wooden spoon. Continue whisking until the ingredients form a thick, smooth paste that is bright white in colour. If you are using colours, separate the icing into various bowls and colour accordingly.",
       "To decorate the duck biscuits, thinly roll out the yellow ready-to-roll icing and cover the duck shapes. Pipe on any decoration desired for the eyes, beaks and wings. Position a wire rack over a container that will hold it at a suitable height to lean the stand up biscuit against. Use the flooding technique to ice the biscuit circles (see step 10 for more information) to represent a pond. While the icing is still wet, place the round biscuit under the edge of the wire rack. Stand the duck biscuit in position on the wet icing on the round, using the rack as support to keep it upright. Allow the icing to set completely before carefully removing the support rack.",
       "To flood ice the biscuits, pipe an outline around the edge of the biscuit using either a fine nozzle or by snipping the very end off a disposable piping bag. Let the icing set for a few minutes. For flooding the icing needs to be slightly runnier, so add a few drops of water. Pipe or spoon enough of the runnier icing into the centre of the iced shape to completely fill it – don’t worry about it being neat at this point. Use a toothpick to spread the icing evenly inside the hard icing ‘wall’. If the surface of the icing isn’t flat, gently shake the biscuit back and forth until you have a smooth covering.",
       "To decorate the tree biscuits, pipe a line of green icing all around the edge and cover the biscuits using the flooding method described in step 10. Once the icing is completely dry, use some leftover icing to pipe a zig zag along the bare edge of each half tree and attach them to the middle of the whole trees  Repeat at the back of the biscuit with the remaining tree halves. You may have to hold the half trees in place while the icing sets.",
@@ -402,5 +402,6 @@
     "categories": ["comfort"],
     "cuisine": ["french"]
   }
-
 }
+
+ 

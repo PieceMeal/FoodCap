@@ -3,34 +3,40 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logout } from '../store';
 import { Link } from 'react-router-dom';
-import { Menu, Input, Icon, Form } from 'semantic-ui-react';
+import { Menu, Input, Icon, Form, Confirm } from 'semantic-ui-react';
+import {searchRecipesThunk} from '../store/genericRecLists'
+import history from '../history'
 import AccountMenu from './UserAcct/AccountMenu';
 
 class Navbar extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      active: '',
-      value: ''
-    };
-  }
+	constructor() {
+		super()
+		this.state = {
+			active: '',
+			value: ''
+		}
+	}
+	handleClick = () => {
+		this.props.logout()
+	}
+	handleChange = (e) => {
+		this.setState({value: e.target.value})
+	}
 
-  // handleChange = (e) => {
-  // 	console.log('we are getting this from navbar----->>', this.state.value)
-  // 	this.setState({value: e.target.value})
-  // }
-
-  // handleSubmit = async(e) => {
-  // 	console.log('is this happenign??')
-  // 	e.preventDefault()
-  // 	const {data} = await axios.get(`/api/recipes?key=${this.state.value}`)
-  // 	console.log('data from axios.get recipes', data)
-  // }
+	handleSubmit = async(e) => {
+    if(this.state.value.length){
+		e.preventDefault()
+		const query = this.state.value
+		this.props.searchRecipesThunk(query);
+		this.setState({value: ''})
+    history.push(`/search?key=${query}`)
+    }
+	}
 
   handleItemClick = (e, { name }) => this.setState({ active: name });
-
   render() {
     const { active } = this.state;
+    const empty = this.state.value.length
     return (
       <Menu>
         <Menu.Item
@@ -43,8 +49,15 @@ class Navbar extends React.Component {
           Home
         </Menu.Item>
         <AccountMenu />
+        <Menu.Item
+          as={Link}
+          to="/recipes"
+          name="recipes"
+          active={active === 'recipes'}
+          onClick={this.handleItemClick}
+        >All Recipes </Menu.Item>
         <Menu.Item>
-          <Form onSubmit={this.handleSubmit}>
+          <Form onSubmit={this.handleSubmit} >
             <Input
               onChange={this.handleChange}
               icon={<Icon name="search" inverted circular link />}
@@ -54,31 +67,25 @@ class Navbar extends React.Component {
           </Form>
         </Menu.Item>
 
-        <Menu.Item onClick={this.props.handleClick} position="right">
-          Log out
-        </Menu.Item>
-      </Menu>
-    );
-  }
-}
+					<Menu.Item onClick={this.handleClick} position="right">
+						Log out
+					</Menu.Item>
 
-const mapState = state => {
-  return {
-    isLoggedIn: !!state.user.id
-  };
-};
+				</Menu>
+			)
+		}
+	}
 
-const mapDispatch = dispatch => {
-  return {
-    handleClick() {
-      dispatch(logout());
-    }
-  };
-};
+const mapState = state => ({isLoggedIn: !!state.user.id})
+
+const mapDispatch = dispatch => ({
+	logout: () => dispatch(logout()),
+	searchRecipesThunk: (q) => dispatch(searchRecipesThunk(q))
+})
 
 export default connect(mapState, mapDispatch)(Navbar);
 
 Navbar.propTypes = {
-  handleClick: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
+	// handleClick: PropTypes.func.isRequired,
+	isLoggedIn: PropTypes.bool.isRequired,
 };
