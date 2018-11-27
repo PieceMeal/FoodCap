@@ -24,7 +24,7 @@ async function parseIngredients() {
 	const ingredientsList = {};
 	const keys = Object.keys(recipes);
 
-	const recipe = recipes[keys[4]];
+	const recipe = recipes[keys[0]];
 	const ingredients = recipe.ingredients.join(', ');
 	try {
 		const responseData = await getNutrition(ingredients);
