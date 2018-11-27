@@ -8,7 +8,7 @@ export default class BoxItem extends React.Component {
     }
 
     handleDrop = (e) => {
-      e.stopPropagation();
+      // e.stopPropagation();
       this.props.swap(e.dragData.index, this.props.index, e.dragData);
       e.containerElem.style.visibility="hidden";
     };
@@ -30,20 +30,14 @@ export default class BoxItem extends React.Component {
               targetKey="boxItem"
               dragData={{label: this.props.children, index: this.props.index}}
               onDrop={this.deleteMe}
-              disappearDraggedElement={true}
               dragHandleClassName="grabber"
             >
-              <DropTarget
-                onHit={this.handleDrop}
-                targetKey="boxItem"
-              >
                 <div className="outer">
                   <div className="item">
                     <span className="grabber">&#8759;</span>
                     {this.props.children}
                   </div>
                 </div>
-              </DropTarget>
           </DragDropContainer>
         </div>
       );

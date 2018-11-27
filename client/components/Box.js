@@ -24,22 +24,12 @@ export default class Box extends React.Component {
       this.props.handleDrop(e, this.props.name)
       }
 
-    swap = (fromIndex, toIndex, dragData) => {
+    kill = (item) => {
+      console.log('ITEMS ON STATE BEFORE', this.state.items)
       let items = this.state.items.slice();
-      const item = {label: dragData.label, uid: shortid.generate()};
-      items.splice(toIndex, 0, item);
-      this.setState({items: items});
-    };
-
-    kill = (item, uid) => {
-      let items = this.state.items.slice();
-      const index = items.findIndex((item) => {
-        return item.uid === uid
-      });
-      if (index !== -1) {
-        items.splice(index, 1);
-      }
-      this.setState({items: items});
+      const target = items.filter(label => label.uid !== item)
+      console.log('target', target)
+      this.setState({items: target});
     };
 
     render() {
@@ -64,8 +54,7 @@ export default class Box extends React.Component {
                         key={item.uid}
                         uid={item.uid}
                         kill={this.kill}
-                        index={index}
-                        swap={this.swap}>
+                        index={index}>
                         {item.label}
                         {/* <button
                           type="button"
