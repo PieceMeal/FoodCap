@@ -7,23 +7,11 @@ export default class BoxItem extends React.Component {
       super(props);
     }
 
-    handleDrop = (e) => {
-      // e.stopPropagation();
-      this.props.swap(e.dragData.index, this.props.index, e.dragData);
-      e.containerElem.style.visibility="hidden";
-    };
-
     deleteMe = () => {
       this.props.kill(this.props.uid);
     };
 
     render() {
-      /*
-        Notice how these are wrapped in a DragDropContainer (so you can drag them) AND
-        in a DropTarget (enabling you to rearrange items in the box by dragging them on
-        top of each other)
-      */
-
       return (
         <div className="box_item_component">
           <DragDropContainer

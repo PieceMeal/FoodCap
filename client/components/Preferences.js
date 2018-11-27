@@ -14,7 +14,40 @@ class Preference extends React.Component {
     favCategory: [],
     hateCuisines: [],
     hateIngredients: [],
-    hateCategory: []
+    hateCategory: [],
+    cuisine: [
+      "chinese",
+      "italian",
+      "mexican",
+      "american",
+      "indian",
+      "german",
+      "japanese",
+      "british",
+      "french"
+    ],
+    ingredient: [
+      "chicken",
+      "beef",
+      "pork",
+      "seafood",
+      "cheese",
+      "mushrooms",
+      "milk",
+      "tomatoes",
+      "potatoes"
+    ],
+    category: [
+      "pasta",
+      "quick",
+      "dessert",
+      "alcohol",
+      "salad",
+      "baking",
+      "roast",
+      "breakfast",
+      "appetizer"
+    ]
   };
 
   //preference object has changed: update
@@ -33,6 +66,7 @@ class Preference extends React.Component {
     // history.push("/home");
   };
 
+  // eslint-disable-next-line complexity
   handleDrop = (e, boxName) => {
     const { label, type } = e.dragData
     if (boxName === 'love') {
@@ -66,44 +100,9 @@ class Preference extends React.Component {
     }
   };
 
-  cuisines = [
-    "chinese",
-    "italian",
-    "mexican",
-    "american",
-    "indian",
-    "german",
-    "japanese",
-    "british",
-    "french"
-  ];
-  ingredients = [
-    "chicken",
-    "beef",
-    "pork",
-    "seafood",
-    "cheese",
-    "mushrooms",
-    "milk",
-    "tomatoes",
-    "potatoes"
-  ];
-  categories = [
-    "pasta",
-    "quick",
-    "dessert",
-    "alcohol",
-    "salad",
-    "baking",
-    "roast",
-    "breakfast",
-    "appetizer"
-  ];
-  statements = [
-    "I am vegetarian.",
-    "I prefer low-calorie recipes.",
-    "I prefer easy, quick recipes."
-  ];
+  restore = item => {
+    item[0].event.containerElem.style.visibility = "visible"
+  }
 
   render() {
     return (
@@ -118,8 +117,7 @@ class Preference extends React.Component {
                   <Header as='h3' textAlign="center" attached="top">Cuisines:</Header>
                   <PrefCard
                     name="Cuisines"
-                    items={this.cuisines}
-                    // handleDrop={this.handleDrop}
+                    items={this.state.cuisine}
                     type="cuisine"
                   />
                 </Grid.Column>
@@ -127,8 +125,7 @@ class Preference extends React.Component {
                 <Header as='h3' textAlign="center" attached="top">Ingredients:</Header>
                   <PrefCard
                     name="Ingredients"
-                    items={this.ingredients}
-                    // handleDrop={this.handleDrop}
+                    items={this.state.ingredient}
                     type="ingredient"
                   />
                 </Grid.Column>
@@ -136,7 +133,7 @@ class Preference extends React.Component {
                 <Header as='h3' textAlign="center" attached="top">Categories:</Header>
                   <PrefCard
                     name="Categories"
-                    items={this.categories}
+                    items={this.state.category}
                     type="category"
                   />
                 </Grid.Column>
@@ -158,6 +155,7 @@ class Preference extends React.Component {
                     name='love'
                     targetKey="target"
                     handleDrop={this.handleDrop}
+                    restore={this.restore}
                     attached
                    />
                 </Grid.Column>
@@ -176,6 +174,7 @@ class Preference extends React.Component {
                     name='neutral'
                     targetKey="target"
                     handleDrop={this.handleDrop}
+                    restore={this.restore}
                     attached
                   />
                 </Grid.Column>
@@ -194,6 +193,7 @@ class Preference extends React.Component {
                     name='hate'
                     targetKey="target"
                     handleDrop={this.handleDrop}
+                    restore={this.restore}
                     attached
                   />
                 </Grid.Column>

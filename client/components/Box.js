@@ -16,21 +16,26 @@ export default class Box extends React.Component {
       const newItem = {
         label: e.dragData.label,
         uid: shortid.generate(),
-        status: this.props.name
+        status: this.props.name,
+        event: e
       }
       items.push(newItem)
       this.setState({items: items});
-      e.containerElem.style.visibility="hidden"
+      e.containerElem.style.visibility = "hidden"
       this.props.handleDrop(e, this.props.name)
       }
 
     kill = (item) => {
-      console.log('ITEMS ON STATE BEFORE', this.state.items)
       let items = this.state.items.slice();
       const target = items.filter(label => label.uid !== item)
-      console.log('target', target)
       this.setState({items: target});
     };
+
+    handleX = (item) => {
+      this.kill(item)
+      const target = this.state.items.filter(label => label.uid === item)
+      this.props.restore(target)
+    }
 
     render() {
       return (
@@ -56,11 +61,11 @@ export default class Box extends React.Component {
                         kill={this.kill}
                         index={index}>
                         {item.label}
-                        {/* <button
+                        <button
                           type="button"
-                          onClick={() => this.kill(item, item.uid)}
+                          onClick={() => this.handleX(item.uid)}
                         > X
-                        </button> */}
+                        </button>
                       </BoxItem>
                     )
                   })}

@@ -19,9 +19,7 @@ class PrefCard extends React.Component {
               key={this.props.items.indexOf(item)}
               targetKey="target"
               label={item}
-              handleDrop={this.props.handleDrop}
               type={this.props.type}
-              handleX={this.handleX}
             />
           );
         })}
