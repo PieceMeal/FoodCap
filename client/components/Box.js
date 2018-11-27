@@ -59,13 +59,10 @@ export default class Box extends React.Component {
                         key={item.uid}
                         uid={item.uid}
                         kill={this.kill}
-                        index={index}>
+                        index={index}
+                        handleX={this.handleX}
+                      >
                         {item.label}
-                        <button
-                          type="button"
-                          onClick={() => this.handleX(item.uid)}
-                        > X
-                        </button>
                       </BoxItem>
                     )
                   })}

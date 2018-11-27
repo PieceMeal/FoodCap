@@ -1,5 +1,5 @@
 import React from 'react';
-import { DragDropContainer, DropTarget } from 'react-drag-drop-container';
+import { DragDropContainer } from 'react-drag-drop-container';
 
 export default class BoxItem extends React.Component {
     // the things that appear in the boxes
@@ -24,6 +24,11 @@ export default class BoxItem extends React.Component {
                   <div className="item">
                     <span className="grabber">&#8759;</span>
                     {this.props.children}
+                    <button
+                          type="button"
+                          onClick={() => this.props.handleX(this.props.uid)}
+                        > X
+                    </button>
                   </div>
                 </div>
           </DragDropContainer>
