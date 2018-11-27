@@ -32,7 +32,9 @@
     "serves": "Serves 4-6Serves 4-6",
     "isVegetarian": true,
     "recommendations": 0,
-    "image": "https://www.yummytummyaarthi.com/wp-content/uploads/2013/03/1-5.jpg"
+    "image": "https://www.yummytummyaarthi.com/wp-content/uploads/2013/03/1-5.jpg",
+    "categories": ["quick"],
+    "cuisine" : ["chinese"]
   },
 
   "Alpine pizza": {
@@ -65,7 +67,9 @@
     "serves": "Makes 2 large pizzasMakes 2 large pizzas",
     "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/alpine_pizza_32132_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["quick"],
+    "cuisine" : ["italian"]
   },
 
   "Aloo gobi and jeera rice": {
@@ -101,7 +105,9 @@
     "serves": "Serves 4Serves 4",
     "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/aloo_gobi_and_jeera_rice_60396_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["salad"],
+    "cuisine" : ["indian"]
   },
 
   "Amaretti biscuits": {
@@ -133,7 +139,9 @@
     "serves": "Makes approximately 20 biscuitsMakes approximately 20 biscuits",
     "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/amarettibistcuits_67183_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["dessert"],
+    "cuisine" : ["italian"]
   },
   "Amaretti tiramisu": {
     "ingredients": {
@@ -168,7 +176,9 @@
     "serves": "Serves 1Serves 1",
     "isVegetarian": true,
     "recommendations": 0,
-    "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/2/4/2/RX-FNM_030111-Sugar-Fix-005_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371597326801.jpeg"
+    "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/2/4/2/RX-FNM_030111-Sugar-Fix-005_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371597326801.jpeg",
+    "categories": ["dessert"],
+    "cuisine" : ["italian"]
   },
   "Breakfast muffins": {
     "ingredients": {
@@ -201,7 +211,9 @@
     "serves": "Makes 12Makes 12",
     "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/american-style_breakfast_66044_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["breakfast"],
+    "cuisine" : ["british"]
   },
   "American-style pancakes with blueberries": {
     "ingredients": {
@@ -233,7 +245,9 @@
     "serves": "Makes 8 x 20cm/8in pancakesMakes 8 x 20cm/8in pancakes",
     "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/american_style_pancakes_94634_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["breakfast"],
+    "cuisine" : ["american"]
   },
   "Anatra con melagrana (duck with pomegranate) and sautéed escarole": {
     "ingredients": {
@@ -269,7 +283,9 @@
     "serves": "Serves 4Serves 4",
     "isVegetarian": false,
     "recommendations": 0,
-    "image": "https://assets.bonappetit.com/photos/57b03238f1c801a1038bd707/16:9/w_1000,c_limit/mare_roast_duck_breasts_with_pomegranate_chile_sauce_h.jpg"
+    "image": "https://assets.bonappetit.com/photos/57b03238f1c801a1038bd707/16:9/w_1000,c_limit/mare_roast_duck_breasts_with_pomegranate_chile_sauce_h.jpg",
+    "categories": ["roast"],
+    "cuisine" : ["chinese"]
   },
   "An authentic ragù bolognese": {
     "ingredients": {
@@ -306,7 +322,9 @@
     "serves": "Makes 8 x 225g/8oz portionsMakes 8 x 225g/8oz portions",
     "isVegetarian": false,
     "recommendations": 0,
-    "image": "https://assets.epicurious.com/photos/58a4bff7f43b8f08235e5588/master/pass/classic-ragu-bolognese-021517-2.jpg"
+    "image": "https://assets.epicurious.com/photos/58a4bff7f43b8f08235e5588/master/pass/classic-ragu-bolognese-021517-2.jpg",
+    "categories": ["pasta"],
+    "cuisine" : ["italian"]
   },
   "Pork chops with celeriac mash and apple and ale gravy": {
     "ingredients": {
@@ -346,7 +364,9 @@
     "serves": "Serves 4Serves 4",
     "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/amershamporkchopswit_80661_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["roast"],
+    "cuisine" : ["british"]
   },
   "Anardana chana (pomegranate and chickpea curry)": {
     "ingredients": {
