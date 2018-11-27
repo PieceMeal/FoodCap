@@ -19,3 +19,5 @@ export {
 } from './RemoveRecipeIngredientsMenu';
 
 export { default as IngredientRow } from './IngredientRow';
+export { default as Ingredients } from './Ingredients';
+export { default as ShoppingList } from './ShoppingList';
