@@ -91,11 +91,13 @@ router.get('/:listId', async (req, res, next) => {
 				switch (rel.type) {
 					case 'hasIngredient': {
 						const { type, quantity, note } = record.get('r').properties;
+						const category = record.get('x').properties.category || '';
 						returnObject.ingredients.push({
 							name: record.get('x').properties.name,
 							type,
 							quantity,
 							note,
+							category,
 						});
 						break;
 					}

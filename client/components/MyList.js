@@ -35,8 +35,10 @@ import {
 	ConfirmIngredientsMenu,
 	ItemsConflictModal,
 	RemoveRecipeIngredientsMenu,
+	IngredientRow,
 } from './';
-import { throws } from 'assert';
+import history from '../history';
+
 const style = {
 	h3: {
 		padding: '2em 0em',
@@ -428,11 +430,11 @@ class MyList extends Component {
 							<tbody>
 								{ingredients.length
 									? ingredients.map((ingredient, i) => {
-											const ingredientHash = {};
-											if (!ingredientHash[ingredient.name]) {
-												ingredientHash[ingredient.name] = [];
-											}
-											ingredientHash[ingredient.name].push(ingredient);
+											// const ingredientHash = {};
+											// if (!ingredientHash[ingredient.name]) {
+											// 	ingredientHash[ingredient.name] = [];
+											// }
+											// ingredientHash[ingredient.name].push(ingredient);
 											return (
 												<tr key={i}>
 													<td>
@@ -591,6 +593,13 @@ class MyList extends Component {
 									<i aria-hidden="true" className="trash alternate icon" />
 								</Button.Content>
 								<Button.Content hidden>Update </Button.Content>
+							</Button>
+
+							<Button
+								floated="right"
+								onClick={() => history.push(`/shopping/${list.uuid}`)}
+							>
+								<Icon name="list" />
 							</Button>
 						</span>
 					</div>
