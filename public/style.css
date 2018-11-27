@@ -15,6 +15,20 @@ nav a {
   margin: 1em;
 }
 
+.navbar {
+  display: flex;
+  background-color: #304d58;
+  height: 127px;
+  justify-content: space-between;
+}
+
+.navbar .navbar_menu {
+  height: 100px;
+  align-self: center;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
 .box_item_component .outer {
   border-top: none;
   min-width: 140px;
@@ -87,7 +101,7 @@ nav a {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  background: rgb(12, 54, 54);
+  background: #304d58;
   border-radius: 4px;
   width: 200px;
   height: 500px;

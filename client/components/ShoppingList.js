@@ -44,7 +44,6 @@ class ShoppingList extends Component {
 		if (categoryMap) {
 			return (
 				<React.Fragment>
-					<Navbar />
 					<Card centered>
 						<Card.Content header="Shopping List" />
 						<Card.Content>

@@ -101,23 +101,9 @@ class UserHome extends React.Component {
     if (this.props.recipes) {
       return (
         <div>
-          <Navbar />
 
           <Container fluid style={{ padding: '50px' }}>
             <div>
-                <Image src='/logo.png' height='200' centered/>
-              <Header as="h2" icon textAlign="center">
-                {/* <img
-                  style={{
-                    height: '190px',
-                    width: 'auto'
-                  }}
-                  src={user.profilePicture}
-                /> */}
-                <Header.Content>
-                  Welcome {user.userName ? user.userName : user.email}!
-                </Header.Content>
-              </Header>
               <Form onSubmit={this.handleSubmit}>
                 <Input
                   size="large"

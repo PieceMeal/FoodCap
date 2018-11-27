@@ -34,7 +34,6 @@ class AccountHome extends Component {
             justifyContent: 'center'
           }}
         >
-          <Navbar />
           <Grid divided columns={3} style={{ margin: '6vw', height: '40vh' }}>
             <Grid.Row>
               <Grid.Column width={3}>

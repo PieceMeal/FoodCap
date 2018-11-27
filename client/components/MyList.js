@@ -361,7 +361,6 @@ class MyList extends Component {
 		if (ingredients) {
 			return (
 				<React.Fragment>
-					<Navbar />
 					<Modal
 						closeOnDimmerClick={false}
 						open={this.state.showConflictModal}

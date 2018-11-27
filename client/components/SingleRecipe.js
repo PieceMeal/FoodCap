@@ -71,7 +71,6 @@ class SingleRecipe extends Component {
     if (recipe.name) {
       return (
         <React.Fragment>
-          <Navbar />
           <div style={style.wholeTray}>
             <Segment
               style={{

@@ -44,7 +44,6 @@ class SearchResults extends Component {
         if (this.props.searchRecipes.length) {
             return (
                 <React.Fragment>
-                    <Navbar />
                     <Container >
                         <Message>
                             <Message.Header>Showing results for "{query}"</Message.Header>
