@@ -8,9 +8,8 @@ export default class Boxable extends React.Component {
         <div className="boxable_component" style={{display: 'inline-block'}}>
           <DragDropContainer
             targetKey="target"
-            dragData={{label: this.props.label}}
+            dragData={{label: this.props.label, type: this.props.type}}
             customDragElement={this.props.customDragElement}
-            onDrop={(e) => (this.props.handleDrop(e.dragData.label, this.props.type))}
           >
             <Label className="option" height="45">{this.props.label}</Label>
           </DragDropContainer>

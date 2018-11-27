@@ -28,30 +28,43 @@ class Preference extends React.Component {
       hateIngredients: this.state.hateIngredients,
       hateCategory: this.state.hateCategory
     };
-    this.props.setPreference(preferencesObj, this.props.user.id);
-    history.push("/home");
+    console.log('PREFERENCES:', preferencesObj)
+    // this.props.setPreference(preferencesObj, this.props.user.id);
+    // history.push("/home");
   };
 
-  handleDrop = (item) => {
-    console.log('SET', item)
-    if (item.status === 'love') {
-      console.log('i love', item)
-    } else if (item.status === 'hate') {
-      console.log('i hate', item)
+  handleDrop = (e, boxName) => {
+    const { label, type } = e.dragData
+    if (boxName === 'love') {
+      if (type === 'cuisine') {
+        let items = this.state.favCuisines.slice()
+        items.push(label)
+        this.setState({favCuisines: items})
+      } else if (type === 'ingredient') {
+        let items = this.state.favIngredients.slice()
+        items.push(label)
+        this.setState({favIngredients: items})
+      } else if (type === 'category') {
+        let items = this.state.favCategory.slice()
+        items.push(label)
+        this.setState({favCategory: items})
+      }
+    } else if (boxName === 'hate') {
+      if (type === 'cuisine') {
+        let items = this.state.hateCuisines.slice()
+        items.push(label)
+        this.setState({hateCuisines: items})
+      } else if (type === 'ingredient') {
+        let items = this.state.hateIngredients.slice()
+        items.push(label)
+        this.setState({hateIngredients: items})
+      } else if (type === 'category') {
+        let items = this.state.hateCategory.slice()
+        items.push(label)
+        this.setState({hateCategory: items})
+      }
     }
   };
-
-  handleX = evt => {
-    this.setState((prevState) => {
-      const newItem = evt.label
-      const options = [...prevState.options, newItem]
-      return {...prevState, options }
-    })
-  }
-
-  restore = (item) => {
-    console.log('item', item)
-  }
 
   cuisines = [
     "chinese",
@@ -106,7 +119,7 @@ class Preference extends React.Component {
                   <PrefCard
                     name="Cuisines"
                     items={this.cuisines}
-                    handleDrop={this.handleDrop}
+                    // handleDrop={this.handleDrop}
                     type="cuisine"
                   />
                 </Grid.Column>
@@ -115,7 +128,7 @@ class Preference extends React.Component {
                   <PrefCard
                     name="Ingredients"
                     items={this.ingredients}
-                    handleDrop={this.handleDrop}
+                    // handleDrop={this.handleDrop}
                     type="ingredient"
                   />
                 </Grid.Column>
@@ -124,7 +137,6 @@ class Preference extends React.Component {
                   <PrefCard
                     name="Categories"
                     items={this.categories}
-                    handleDrop={this.handleDrop}
                     type="category"
                   />
                 </Grid.Column>
@@ -144,10 +156,10 @@ class Preference extends React.Component {
 
                   <Box
                     name='love'
-                    targetKey="favCuisines"
-                    handleX={this.handleX}
+                    targetKey="target"
+                    handleDrop={this.handleDrop}
                     attached
-                    restoreOption={this.restore} />
+                   />
                 </Grid.Column>
 
                 <Grid.Column>
@@ -162,10 +174,9 @@ class Preference extends React.Component {
                   </Header>
                   <Box
                     name='neutral'
-                    targetKey="favCuisines"
-                    handleX={this.handleX}
+                    targetKey="target"
+                    handleDrop={this.handleDrop}
                     attached
-                    restoreOption={this.restore}
                   />
                 </Grid.Column>
 
@@ -181,10 +192,9 @@ class Preference extends React.Component {
                   </Header>
                   <Box
                     name='hate'
-                    targetKey="favCuisines"
-                    handleX={this.handleX}
+                    targetKey="target"
+                    handleDrop={this.handleDrop}
                     attached
-                    restoreOption={this.restore}
                   />
                 </Grid.Column>
 
@@ -204,4 +214,5 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setPreference: (pref, id) => dispatch(setPreference(pref, id))
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(Preference);
