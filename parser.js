@@ -36,7 +36,8 @@ async function parseIngredients() {
 	const ingredientsList = {};
 	const keys = Object.keys(recipes);
 	//353 line in DanDB.json
-	const recipe = recipes[keys[10]];
+	const recipe = recipes[keys[7]];
+	console.log('this is my recipe', recipe)
 	const ingredients = recipe.ingredients.join(', ');
 	try {
 		const responseData = await getNutrition(ingredients);
