@@ -51,7 +51,7 @@ class Preference extends React.Component {
   };
 
   //preference object has changed: update
-  handleSubmit = e => {
+  handleSubmit = async (e) => {
     e.preventDefault();
     const preferencesObj = {
       favCuisines: this.state.favCuisines,
@@ -62,8 +62,8 @@ class Preference extends React.Component {
       hateCategory: this.state.hateCategory
     };
     console.log('PREFERENCES:', preferencesObj)
-    // this.props.setPreference(preferencesObj, this.props.user.id);
-    // history.push("/home");
+    await this.props.setPreference(preferencesObj, this.props.user.id);
+    history.push('/home');
   };
 
   // eslint-disable-next-line complexity
