@@ -3,16 +3,18 @@ import { connect } from 'react-redux';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
-	MyList,
-	UserHome,
-	Preferences,
-	SingleRecipe,
-	LoginForm,
-	Ingredients,
-	ShoppingList,
+  MyList,
+  UserHome,
+  Preferences,
+  SingleRecipe,
+  LoginForm,
+  SearchResults,
+  Ingredients,
+	ShoppingList
 } from './components';
 import { me } from './store';
 import AccountHome from './components/UserAcct/AccountHome';
+import {AllRecipes} from './components/RecipeList'
 //component
 class Routes extends Component {
 	componentDidMount() {
@@ -34,7 +36,7 @@ class Routes extends Component {
 						<Route exact path="/" component={UserHome} />
 						<Route exact path="/home" component={UserHome} />
 						<Route exact path="/ingredients" component={Ingredients} />
-
+            <Route path="/search" component={SearchResults} />
 						<Route path="/home/preferences" component={Preferences} />
 						<Route path="/lists/:id" component={MyList} />
 						<Route path="/shopping/:id" component={ShoppingList} />

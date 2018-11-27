@@ -1,21 +1,19 @@
 {
   "Aloo panchporan (Stir-fried potatoes tempered with five spices)": {
-    "ingredients": [
-      "1-2 tbsp vegetable oil",
-      "1kg/2lb potatoes, peeled and diced into 1cm/½in cubes",
-      "½ tsp dried turmeric",
-      "½ tsp red chilli powder",
-      "salt",
-      "1 tbsp cumin seeds",
-      "1 tbsp fennel seeds",
-      "1 tbsp fenugreek seeds",
-      "1 tbsp nigella seeds",
-      "1 tbsp black mustard seeds",
-      "1 tsp vegetable oil",
-      "2 tsp five spice mix (panchphoran) ",
-      "1 green chilli finely chopped",
-      "1 tbsp fresh coriander, chopped"
-    ],
+    "ingredients": {
+      "vegetable oil": { "quantity": 1, "type": "tbsp" },
+      "potatoes": { "quantity": 2, "type": "lb" },
+      "turmeric": { "quantity": 1, "type": "tsp" },
+      "cilli powder": { "quantity": 1, "type": "tsp" },
+      "cumin": { "quantity": 1, "type": "tbsp" },
+      "fennel": { "quantity": 1, "type": "tbsp" },
+      "fenugreek seeds": { "quantity": 1, "type": "tbsp" },
+      "nigella seeds": { "quantity": 1, "type": "tbsp" },
+      "black mustard seeds": { "quantity": 1, "type": "tbsp" },
+      "five spice mix": { "quantity": 2, "type": "tbsp" },
+      "green chilli": { "quantity": 1, "type": "tsp" },
+      "coriander": { "quantity": 1, "type": "tbsp" }
+    },
     "method": [
       "In a wide non-stick pan, heat the oil to a medium-high heat and add the potatoes.  ",
       "Sauté the potatoes until they are nearly cooked. Add the turmeric, chilli powder and salt and fry until they are cooked through.",
@@ -38,19 +36,15 @@
   },
 
   "Alpine pizza": {
-    "ingredients": [
-      "500g/1lb 2oz strong plain flour, plus extra for dusting ",
-      "2 tsp salt",
-      "1 x 7g sachet of dried yeast",
-      "320ml/11fl oz lukewarm water",
-      "dried breadcrumbs or semolina, for dusting",
-      "80g/3oz gruyère cheese, grated",
-      "250g/9oz crème fraîche",
-      "salt and freshly ground black pepper",
-      "1 large red onion, thinly sliced",
-      "140g/5oz salami, cut into strips ",
-      "marjoram leaves, to finish"
-    ],
+    "ingredients": {
+      "flour": { "quantity": 1, "type": "lb" },
+      "salt": { "quantity": 2, "type": "tsp" },
+      "sachet": { "quantity": 2, "type": "oz" },
+      "gruyere cheese": { "quantity": 3, "type": "oz" },
+      "crème fraîche": { "quantity": 9, "type": "oz" },
+      "red onion": { "quantity": 1, "type": "onion" },
+      "salami": { "quantity": 5, "type": "oz" }
+    },
     "method": [
       "For the pizza dough, combine the flour, salt and yeast in a large bowl. Gradually add the water, mixing well with your hands to obtain a dough. If you find the dough too sticky, simply add a little more flour. Shape into a ball, cover with a cloth and leave to rest for five minutes. ",
       "Knead the dough for about 10 minutes and split it in half. Sprinkle some flour on a clean kitchen cloth and place the pieces of dough on it. Cover with a slightly damp cloth and leave to rise for at least 30 minutes in a warm place. ",
@@ -75,28 +69,22 @@
   },
 
   "Aloo gobi and jeera rice": {
-    "ingredients": [
-      "350g/12oz basmati rice",
-      "2 tbsp sunflower oil",
-      "1 large onion, thinly sliced",
-      "2 tsp cumin seeds",
-      "1 bay leaf",
-      "1 cinnamon stick",
-      "3 green cardamom pods",
-      "2 tbsp sunflower oil",
-      "25g/1oz butter (or alternative)",
-      "2 tsp cumin seeds ",
-      "2 tsp ground turmeric",
-      "4cm/1½in fresh root ginger, finely grated",
-      "2 onions, roughly chopped",
-      "2 tsp freshly chopped green bird’s-eye chillies (or to taste) ",
-      "3 tbsp dried fenugreek leaves (methi) ",
-      "1 cauliflower, broken into florets, leaves chopped ",
-      "2 large potatoes, cut into 2cm/¾in cubes",
-      "2 tsp garam masala",
-      "salt and freshly ground black pepper",
-      "handful fresh coriander, to garnish "
-    ],
+    "ingredients": {
+      "basmati rice": { "quantity": 12, "type": "oz" },
+      "sunflower oil": { "quantity": 2, "type": "tbsp" },
+      "onion": { "quantity": 1, "type": "onion" },
+      "cumin": { "quantity": 2, "type": "tsp" },
+      "bay leaf": { "quantity": 1, "type": "" },
+      "cinnamon stick": { "quantity": 1, "type": "" },
+      "butter": { "quantity": 1, "type": "oz" },
+      "ground turmeric": { "quantity": 2, "type": "tsp" },
+      "root ginger": { "quantity": 1, "type": "in" },
+      "chilli": { "quantity": 2, "type": "tsp" },
+      "fenugreek": { "quantity": 3, "type": "tbsp" },
+      "cauliflower": { "quantity": 1, "type": "" },
+      "potatoes": { "quantity": 2, "type": "potatoes" },
+      "masala": { "quantity": 2, "type": "tbsp" }
+    },
     "method": [
       "To make the jeera rice, wash and soak the rice while you prepare the spices. Place the oil in a large saucepan over a medium heat. Add the onion, cumin, bay, cinnamon and cardamom pods and gently fry for a few minutes. Drain and add the rice, then pour over 800ml/1 pint 8fl oz water. Bring to the boil, cover, reduce the heat and simmer for 15–20 minutes.",
       "Meanwhile, to make the aloo gobi, heat the oil and butter in a large heavy-based saucepan over a medium heat. Add the cumin, turmeric, ginger, onions, chillies and fenugreek and fry for a few minutes. Add the cauliflower florets and leaves, stir to coat in the spices and cook for a few minutes. Add the potatoes, stir again, cover and steam for 10–15 minutes, or until the vegetables are tender. Sprinkle over the garam masala and season to taste. Garnish with coriander before serving with the rice."
@@ -117,16 +105,16 @@
   },
 
   "Amaretti biscuits": {
-    "ingredients": [
-      "4 eggs, whites only (160g/6oz)",
-      "340g/12oz caster sugar",
-      "340g/12oz ground almonds",
-      "30ml/1fl oz amaretto liquor",
-      "butter, for greasing"
-    ],
+    "ingredients": {
+      "eggs": { "quantity": 4, "type": "eggs" },
+      "sugar": { "quantity": 12, "type": "oz" },
+      "almonds": { "quantity": 12, "type": "oz" },
+      "amareto liquor": { "quantity": 1, "type": "fl oz" },
+      "butter": { "quantity": 1, "type": "tbsp" }
+    },
     "method": [
       "Preheat the oven to 170C/325F/Gas 3.",
-      "In a large bowl beat the egg whites until firm.  ",
+      "In a large bowl beat the eggs whites until firm.  ",
       "Mix the sugar and the almonds gently into it.  ",
       "Add the amaretto liquor and fold in gently until you have a smooth paste.",
       "Place some baking paper on a baking tray and lightly brush with butter.   ",
@@ -148,19 +136,18 @@
     "recommendations": 0
   },
   "Amaretti tiramisu": {
-    "ingredients": [
-      "200ml/7fl oz strong black coffee",
-      "½ brandy miniature ",
-      "6 amaretti biscuits",
-      "150ml/5fl oz double cream, whipped ",
-      "50g/1¾oz chocolate, grated ",
-      "50g/1¾oz tinned cherries, drained, stones removed ",
-      "1 tbsp cocoa powder, for dusting ",
-      "250ml/9fl oz milk",
-      "75g/2¾oz dark chocolate, chopped",
-      "2 tbsp icing sugar ",
-      "½ orange, peeled, sliced"
-    ],
+    "ingredients": {
+      "black coffee": { "quantity": 7, "type": "oz" },
+      "brandy": { "quantity": 1, "type": "fl oz" },
+      "amaretti": { "quantity": 6, "type": "" },
+      "double cream": { "quantity": 5, "type": "fl oz" },
+      "chocolate": { "quantity": 1, "type": "oz" },
+      "cherries": { "quantity": 1, "type": "oz" },
+      "cocoa": { "quantity": 1, "type": "tbsp" },
+      "milk": { "quantity": 9, "type": "oz" },
+      "sugar": { "quantity": 2, "type": "tbsp" },
+      "orange": { "quantity": 2, "type": "" }
+    },
     "method": [
       "Place the coffee and brandy into a bowl and mix together.",
       "Dip the biscuits into the mixture, then place half of them into the base of a dessert glass.",
@@ -184,20 +171,18 @@
     "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/2/4/2/RX-FNM_030111-Sugar-Fix-005_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371597326801.jpeg"
   },
   "Breakfast muffins": {
-    "ingredients": [
-      "300g/10½oz self-raising flour, sifted",
-      "1 tsp baking powder",
-      "pinch salt",
-      "1 tsp ground cinnamon",
-      "150g/5½oz light brown sugar",
-      "250ml/9fl oz full-fat milk",
-      "2 free-range eggs, beaten",
-      "100g/3½oz butter, melted",
-      "100g/3½oz toasted, skinned hazelnuts, chopped",
-      "25g/1oz dried cherries",
-      "25g/1oz dried cranberries",
-      "75g/2½oz crunchy granola "
-    ],
+    "ingredients": {
+      "flour": { "quantity": 10, "type": "oz" },
+      "baking powder": { "quantity": 1, "type": "tsp" },
+      "cinnamon": { "quantity": 1, "type": "tsp" },
+      "brown sugar": { "quantity": 5, "type": "oz" },
+      "milk": { "quantity": 10, "type": "oz" },
+      "eggs": { "quantity": 2, "type": "eggs" },
+      "butter": { "quantity": 3, "type": "oz" },
+      "hazelnuts": { "quantity": 3, "type": "oz" },
+      "cherries": { "quantity": 1, "type": "oz" },
+      "granola": { "quantity": 2, "type": "oz" }
+    },
     "method": [
       "Preheat the oven to 180C/350F/Gas 4 and line a muffin tray with paper muffin cases.",
       "In a large bowl, sift together the flour, baking powder, salt and cinnamon and then stir in the sugar. In a separate bowl, whisk together the milk, eggs and melted butter, then pour into the dry ingredients and quickly mix together. Stir in the hazelnuts, dried cherries and dried cranberries. ",
@@ -219,23 +204,20 @@
     "recommendations": 0
   },
   "American-style pancakes with blueberries": {
-    "ingredients": [
-      "450g/1lb self-raising flour",
-      "1 tsp baking powder",
-      "½ tsp ground cinnamon (optional)",
-      "small pinch salt ",
-      "50g/1¾oz butter, melted, plus a small knob for frying",
-      "600ml/20fl oz buttermilk",
-      "3 large free-range eggs, separated",
-      "1 tsp vanilla extract, or seeds scraped from 1 vanilla pod",
-      "300g/10½oz blueberries, plus extra to serve",
-      "150g/5½oz butter, softened",
-      "pinch of ground cinnamon",
-      "4 tbsp maple syrup"
-    ],
+    "ingredients": {
+      "flour": { "quantity": 1, "type": "lb" },
+      "baking powder": { "quantity": 1, "type": "tsp" },
+      "cinnamon": { "quantity": 1, "type": "tsp" },
+      "buttermilk": { "quantity": 23, "type": "fl oz" },
+      "vanilla": { "quantity": 1, "type": "tsp" },
+      "eggs": { "quantity": 3, "type": "eggs" },
+      "butter": { "quantity": 1, "type": "oz" },
+      "blueberries": { "quantity": 10, "type": "oz" },
+      "maple syrup": { "quantity": 5, "type": "tbps" }
+    },
     "method": [
-      "For the pancakes, put the flour, baking powder, cinnamon, if using, and salt in a large bowl, mix and make a well in the centre. Put the buttermilk, egg yolks, melted butter and vanilla in a large bowl and whisk. In a separate, clean glass bowl, whisk the egg whites until stiff peaks form.",
-      "Pour the buttermilk mixture into the well in the flour mixture and whisk. Add a large spoonful of the egg whites and fold in with a metal spoon to loosen the batter a little. Stir in the rest of the egg whites, preserving as much of the air as possible, until you have a fluffy, bubbly batter.",
+      "For the pancakes, put the flour, baking powder, cinnamon, if using, and salt in a large bowl, mix and make a well in the centre. Put the buttermilk, eggs yolks, melted butter and vanilla in a large bowl and whisk. In a separate, clean glass bowl, whisk the eggs whites until stiff peaks form.",
+      "Pour the buttermilk mixture into the well in the flour mixture and whisk. Add a large spoonful of the eggs whites and fold in with a metal spoon to loosen the batter a little. Stir in the rest of the eggs whites, preserving as much of the air as possible, until you have a fluffy, bubbly batter.",
       "Heat a 20cm/8in frying pan to a medium heat and rub over a little butter. Pour one and a half ladlefuls of batter into the pan. Sprinkle a large handful of blueberries over the pancake; it will rise up around them as it cooks. When the pancake has browned on the bottom and is firm enough to flip (cooked through beyond halfway), turn it over quickly and cook for another minute on the other side. Transfer to a plate. Repeat with the rest of the batter and blueberries.",
       "For the maple butter, put the butter, cinnamon and a pinch of salt into a bowl. Whisk with a hand whisk until white and fluffy. Gradually whisk in the maple syrup until it is all incorporated and has a whipped consistency."
     ],
@@ -254,17 +236,16 @@
     "recommendations": 0
   },
   "Anatra con melagrana (duck with pomegranate) and sautéed escarole": {
-    "ingredients": [
-      "4 skinless duck breasts",
-      "salt and freshly ground black pepper",
-      "plain flour, for dusting",
-      "40g/1½oz butter",
-      "4 tbsp olive oil",
-      "4 pomegranates",
-      "1 escarole, cleaned and leaves separated ",
-      "5 tbsp olive oil",
-      "3 garlic cloves, finely chopped"
-    ],
+    "ingredients": {
+      "duck": { "quantity": 4, "type": "" },
+      "black pepper": { "quantity": 1, "type": "tbsp" },
+      "butter": { "quantity": 1, "type": "oz" },
+      "flour": { "quantity": 1, "type": "oz" },
+      "olive oil": { "quantity": 4, "type": "tbsp" },
+      "pomegranates": { "quantity": 5, "type": "" },
+      "escarole": { "quantity": 1, "type": "" },
+      "garlic": { "quantity": 4, "type": "" }
+    },
     "method": [
       "Preheat the oven to 200C/400F/Gas 6.",
       "Season the duck breast with salt and freshly ground black pepper and dust with flour, shaking off any excess.",
@@ -291,21 +272,19 @@
     "image": "https://assets.bonappetit.com/photos/57b03238f1c801a1038bd707/16:9/w_1000,c_limit/mare_roast_duck_breasts_with_pomegranate_chile_sauce_h.jpg"
   },
   "An authentic ragù bolognese": {
-    "ingredients": [
-      "450g/1lb lean minced beef",
-      "450g/1lb minced pork",
-      "6 tbsp extra virgin olive oil",
-      "1x225g/8oz tub chicken livers",
-      "2 medium onion, finely chopped",
-      "4 fat garlic cloves, chopped",
-      "2 x 70g packs (or 140g/5oz) pancetta or streaky bacon, finely chopped",
-      "2 x 400g/14oz tins Italian chopped tomatoes",
-      "2 x 200g/7oz tubes double concentrate tomato purée",
-      "1 x 37.5cl half bottle red wine (or 400ml/14fl oz)",
-      "2 x 15g packs or 30g/1oz fresh basil",
-      "½ whole nutmeg, grated",
-      "salt and freshly milled black pepper"
-    ],
+    "ingredients": {
+      "beef": { "quantity": 1, "type": "lb" },
+      "pork": { "quantity": 1, "type": "lb" },
+      "olive oil": { "quantity": 4, "type": "tbsp" },
+      "chicken livers": { "quantity": 8, "type": "oz" },
+      "onion": { "quantity": 2, "type": "" },
+      "garlic": { "quantity": 4, "type": "" },
+      "pancetta": { "quantity": 1, "type": "oz" },
+      "tomatoes": { "quantity": 14, "type": "oz" },
+      "red wine": { "quantity": 14, "type": "fl oz" },
+      "basil": { "quantity": 1, "type": "oz" },
+      "nutmeg": { "quantity": 1, "type": "oz" }
+    },
     "method": [
       "Preheat the oven to 140C/275F/Gas 1.",
       "First take a large frying pan, the largest you have, heat 3 tbsp of the oil and gently fry the onion and garlic over a medium heat for about 10 minutes, moving it around from time to time.",
@@ -330,21 +309,19 @@
     "image": "https://assets.epicurious.com/photos/58a4bff7f43b8f08235e5588/master/pass/classic-ragu-bolognese-021517-2.jpg"
   },
   "Pork chops with celeriac mash and apple and ale gravy": {
-    "ingredients": [
-      "1 large celeriac",
-      "150g/5oz butter, plus extra for the sauce",
-      "salt and freshly ground black pepper",
-      "1 large onion",
-      "2 tbsp extra virgin olive oil",
-      "3 Cox's apples, peeled",
-      "425ml/¾ pint London Pride ale (or similar)",
-      "4 pork chops",
-      "2 tsp vegetable oil",
-      "½ tsp Dijon mustard",
-      "1 tbsp white wine vinegar",
-      "3 tbsp extra virgin olive oil",
-      "250g/9oz rocket leaves"
-    ],
+    "ingredients": {
+      "celeriac": { "quantity": 1, "type": "" },
+      "pork": { "quantity": 4, "type": "lb" },
+      "olive oil": { "quantity": 2, "type": "tbsp" },
+      "butter": { "quantity": 4, "type": "oz" },
+      "onion": { "quantity": 1, "type": "" },
+      "black pepper": { "quantity": 1, "type": "tbsp" },
+      "apple": { "quantity": 3, "type": "" },
+      "beer": { "quantity": 16, "type": "oz" },
+      "vegetable oil": { "quantity": 2, "type": "tbsp" },
+      "dijon mustard": { "quantity": 1, "type": "tbsp" },
+      "vinegar": { "quantity": 1, "type": "tbsp" }
+    },
     "method": [
       "Peel the celeriac, chop into 2.5cm/1-inch chunks and place in a pan of cold water. Place on the hob, bring to the boil and simmer until tender, about 20 minutes. Mash the celeriac with 100g/3½oz of the butter and season with salt and freshly ground black pepper. Keep covered and warm.",
       "Meanwhile, peel, halve and thinly slice the onion lengthways into semicircles. Heat the olive oil in a heavy-bottomed frying pan and cook the onions on a medium high heat until soft and lightly coloured. ",
@@ -372,23 +349,21 @@
     "recommendations": 0
   },
   "Anardana chana (pomegranate and chickpea curry)": {
-    "ingredients": [
-      "200g/7oz dried chickpeas, soaked in water overnight",
-      "100g/3½oz chana dal, soaked in water overnight",
-      "2 tbsp sunflower oil",
-      "2 onions, roughly chopped",
-      "3cm/1¼in fresh root ginger, finely grated",
-      "1½ tsp cumin seeds",
-      "1 cinnamon stick",
-      "2 black cardamoms, lightly crushed",
-      "2–3 cloves",
-      "1 small green chilli, finely chopped",
-      "1 tsp salt",
-      "1½ tbsp anardana powder (crushed pomegranate), or 1 tbsp pomegranate molasses",
-      "1 tsp garam masala ",
-      "50g/1¾oz pomegranate seeds, to garnish",
-      "handful coriander, finely chopped, to garnish"
-    ],
+    "ingredients": {
+      "chickpeas": { "quantity": 7, "type": "oz" },
+      "chana dal": { "quantity": 3, "type": "oz" },
+      "sunflower oil": { "quantity": 2, "type": "tbsp" },
+      "root ginger": { "quantity": 1, "type": "in" },
+      "cumin": { "quantity": 2, "type": "tbsp" },
+      "cinnamon": { "quantity": 1, "type": "" },
+      "cardamoms": { "quantity": 2, "type": "" },
+      "cloves": { "quantity": 2, "type": "" },
+      " chilli": { "quantity": 1, "type": "" },
+      "salt": { "quantity": 1, "type": "tbsp" },
+      "anardana": { "quantity": 1, "type": "tbsp" },
+      "masala": { "quantity": 1, "type": "tsp" },
+      "pomegranate": { "quantity": 1, "type": "" }
+    },
     "method": [
       "Drain the chickpeas and place in a saucepan. Cover with water and bring to the boil. Reduce the heat and simmer for 45 minutes, or until tender. Drain and set aside.",
       "Meanwhile, heat the oil in a heavy bottomed saucepan over a medium heat. When hot, add the onions and cook for a few minutes until starting to soften. Add the ginger, spices, chilli and salt. ",
@@ -412,19 +387,19 @@
   },
 
   "Asparagus and puff pastry cigars": {
-    "ingredients": [
-      "150g/5oz ready-made puff pastry",
-      "flour, for dusting",
-      "25g/1oz cream cheese",
-      "10 asparagus spears",
-      "1 free-range egg, beaten",
-      "2 tbsp freshly grated parmesan (or a similar vegetarian hard cheese)"
-    ],
+    "ingredients": {
+      "pastry": { "quantity": 7, "type": "oz" },
+      "flour": { "quantity": 3, "type": "tbsp" },
+      "cream cheese": { "quantity": 1, "type": "oz" },
+      "asparagus": { "quantity": 1, "type": "oz" },
+      "eggs": { "quantity": 1, "type": "eggs" },
+      "parmesan": { "quantity": 2, "type": "tbsp" }
+    },
     "method": [
       "Preheat the oven to 200C/400F/Gas 6.",
       "Roll the puff pastry out on a floured surface into an 15cmx25cm/6inx10in rectangle and spread all over with the cream cheese.",
       "Using a sharp knife, cut the pastry into 10 long, thin strips.",
-      "Wrap one pastry strip in a spiral around each asparagus spear and place onto a baking tray. Lightly brush each with beaten egg then scatter over the parmesan.",
+      "Wrap one pastry strip in a spiral around each asparagus spear and place onto a baking tray. Lightly brush each with beaten eggs then scatter over the parmesan.",
       "Bake the cigars in the oven for 15-20 minutes, or until the pastry has risen and is golden-brown."
     ],
     "url": "www_bbc_com_food_recipes_asparagus_and_puff_00402",
@@ -442,33 +417,32 @@
     "recommendations": 0
   },
 
-  "Asparagus and poached egg puff tarts with parmesan and basil": {
-    "ingredients": [
-      "plain flour, for dusting ",
-      "500g/1lb 2oz puff pastry",
-      "200g/7oz low-fat cream cheese ",
-      "¼ lemon, finely grated zest only ",
-      "flaked sea salt and freshly ground black pepper",
-      "30 medium asparagus spears",
-      "1 free-range egg, beaten, to glaze (alternatively use a little milk)",
-      "6 medium free-range eggs",
-      "25g/1oz parmesan, made into shavings with a potato peeler",
-      "good handful small basil leaves",
-      "drizzle extra virgin olive oil (optional)"
-    ],
+  "Asparagus and poached eggs puff tarts with parmesan and basil": {
+    "ingredients": {
+      "pastry": { "quantity": 1, "type": "lb" },
+      "flour": { "quantity": 3, "type": "tbsp" },
+      "cream cheese": { "quantity": 1, "type": "oz" },
+      "asparagus": { "quantity": 1, "type": "oz" },
+      "eggs": { "quantity": 7, "type": "eggs" },
+      "parmesan": { "quantity": 2, "type": "tbsp" },
+      "lemon": { "quantity": 2, "type": "" },
+      "black pepper": { "quantity": 2, "type": "" },
+      "basil ": { "quantity": 2, "type": "" },
+      "olive oil": { "quantity": 2, "type": "" }
+    },
     "method": [
       "Line a large baking tray with baking parchment and set aside.",
       "Dust a little flour on a clean work surface and roll out the puff pastry to a 28x30cm/11x12in rectangle about the thickness of a £1 coin. Trim the edges so that the sides are nice and straight and neat. Cut the pastry in half down the length and then into thirds across the width to give six 10x14cm/4x5½in rectangles.",
       "Put the pastry rectangles on the baking tray, cover with cling film and refrigerate for 20 minutes (or freeze for 10 minutes) for the pastry to firm up. It is important to do this so that when the puff pastry goes into the oven the flour cooks before the butter melts ensuring a much lighter pastry.",
       "Preheat the oven to 220C/425F/Gas 7 (200C fan).  Mix the cream cheese and lemon zest together in a small bowl and season to taste with salt and pepper. Trim the asparagus so that each stem is 10cm/4in long (you can use the trimmings to make a quick soup or add to a pasta sauce).",
-      "Once firm, remove the pastry from the fridge (or freezer) and use a sharp knife to mark a 1cm/½in wide border around each rectangle. Then, using a crosshatch pattern, mark the border so each pastry shape resembles a picture frame. Take a fork and prick the centre of each shape about 10 times, right through to the baking tray. Brush the border with the beaten egg (or milk), making sure that it does not go down the sides of the pastry (if this happens, wipe it away with your finger otherwise the egg will stick the layers of the pastry together and stop the pastry from rising). ",
+      "Once firm, remove the pastry from the fridge (or freezer) and use a sharp knife to mark a 1cm/½in wide border around each rectangle. Then, using a crosshatch pattern, mark the border so each pastry shape resembles a picture frame. Take a fork and prick the centre of each shape about 10 times, right through to the baking tray. Brush the border with the beaten eggs (or milk), making sure that it does not go down the sides of the pastry (if this happens, wipe it away with your finger otherwise the eggs will stick the layers of the pastry together and stop the pastry from rising). ",
       "Divide the lemony cream cheese between the six tarts, spreading it out with the back of the spoon and making sure that it stays inside the ‘frame’. Lay five asparagus spears in a single layer, touching each other and pointing in the same direction on each tart, and push them down slightly. ",
       "Bake the tarts in the oven for 18-20 minutes, or until the pastry has puffed up nicely and is firm and golden-brown where it has risen.",
-      "About 10 minutes before the tart is ready, pour about 4cm/1½in of water into a sauté pan or a deep frying pan and bring to the boil over a high heat. Turn the heat down to bring the water to a gentle simmer. Crack an egg into a very small bowl or tea cup and then slide the egg into the water. Repeat with all of the eggs, spacing them apart. Cook them for about 3-4 minutes, or until the white is cooked but the yolk still soft. Remove with a slotted spoon onto a warm plate. ",
-      "Remove the tarts from the oven and divide between six serving plates. Sit a poached egg on top of each tart and scatter over the parmesan and basil leaves. Sprinkle with a little salt and pepper and drizzle with a little olive oil, if liked, and serve."
+      "About 10 minutes before the tart is ready, pour about 4cm/1½in of water into a sauté pan or a deep frying pan and bring to the boil over a high heat. Turn the heat down to bring the water to a gentle simmer. Crack an eggs into a very small bowl or tea cup and then slide the eggs into the water. Repeat with all of the eggs, spacing them apart. Cook them for about 3-4 minutes, or until the white is cooked but the yolk still soft. Remove with a slotted spoon onto a warm plate. ",
+      "Remove the tarts from the oven and divide between six serving plates. Sit a poached eggs on top of each tart and scatter over the parmesan and basil leaves. Sprinkle with a little salt and pepper and drizzle with a little olive oil, if liked, and serve."
     ],
     "url": "www_bbc_com_food_recipes_asparagus_and_poached_80127",
-    "title": "Asparagus and poached egg puff tarts with parmesan and basil",
+    "title": "Asparagus and poached eggs puff tarts with parmesan and basil",
     "time": {
       "preparation": "less than 30 minsless than 30 mins",
       "preparationMins": 30,
@@ -483,16 +457,16 @@
   },
 
   "Avocado salad": {
-    "ingredients": [
-      "¼ red onion, thinly sliced",
-      "400g tin cannellini beans, drained and rinsed",
-      "1 large avocado, peeled, stoned and thickly sliced",
-      "100g/3½oz cherry tomatoes, quartered ",
-      "20g/¾oz fresh basil, roughly chopped",
-      "¼ lemon, juice only",
-      "½ tbsp extra virgin olive oil ",
-      "salt and freshly ground black pepper"
-    ],
+    "ingredients": {
+      "onion": { "quantity":1, "type": "oz" },
+      "cannellini beans": { "quantity": 1, "type": "lb" },
+      "avocado": { "quantity": 1, "type": "" },
+      "cherry tomatoes": { "quantity": 1, "type": "oz" },
+      "basil": { "quantity": 1, "type": "oz" },
+      "lemon": { "quantity": 2, "type": "" },
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "salt": { "quantity": 2, "type": "" }
+    },
     "method": [
       "Soak the onion in a small bowl of cold water for 5 minutes to remove some of the heat.",
       "Toss the cannellini beans, avocado, cherry tomatoes and basil together in a bowl.",
@@ -515,17 +489,16 @@
   },
 
   "Avocado pasta with peas and mint": {
-    "ingredients": [
-      "375g/13oz pasta",
-      "1 large avocado (or 2 small) ",
-      "2 garlic cloves",
-      "2 tbsp coconut oil, melted",
-      "½ tsp salt ",
-      "1 lemon, juice and zest ",
-      "6 fresh mint leaves",
-      "150g/5½oz fresh peas (or frozen and defrosted) ",
-      "1 large red chilli (optional) "
-    ],
+    "ingredients": {
+      "pasta": { "quantity": 13, "type": "oz" },
+      "avocado": { "quantity": 1, "type": "" },
+      "garlic": { "quantity": 2, "type": "" },
+      "coconut": { "quantity": 2, "type": "tbsp" },
+      "salt": { "quantity": 1, "type": "tsp" },
+      "mint": { "quantity": 2, "type": "" },
+      "peas": { "quantity": 5, "type": "oz" },
+      "chilli": { "quantity": 1, "type": "" }
+    },
     "method": [
       "Cook the pasta according to the packet instructions. Drain and set aside. ",
       "Destone the avocado, then put the avocado flesh, garlic, coconut oil, salt, lemon juice, zest and mint leaves into a blender with 4 tablespoons of water. (Alternatively, you can put everything in a bowl or pan and use a stick blender.)",
@@ -548,16 +521,13 @@
   },
 
   "Simple baba ganoush": {
-    "ingredients": [
-      "2 aubergine, peeled and chopped",
-      "6 tbsp olive oil",
-      "½ red onion, finely chopped",
-      "2 garlic cloves, crushed",
-      "1 large bunch fresh basil",
-      "splash olive oil",
-      "1 loaf ciabatta ",
-      "extra olive oil, to brush"
-    ],
+    "ingredients": {
+      "aubergine": { "quantity": 2, "type": "oz" },
+      "olive oil": { "quantity": 5, "type": "tbsp" },
+      "onion": { "quantity": 2, "type": "" },
+      "garlic": { "quantity": 2, "type": "" },
+      "cibatta": { "quantity": 1, "type": "" }
+    },
     "method": [
       "Heat the oil in an oven-proof frying pan over a medium heat. Add the aubergine and onion and fry for fifteen minutes to soften. Add the garlic and fry for two minutes",
       "Meanwhile, heat a griddle pan. Brush the ciabatta with oil and grill the bread on each side for 1-2 minutes, or until brown stripes appear.",
@@ -579,24 +549,24 @@
     "recommendations": 0
   },
 
-  "Bacon and egg bites": {
-    "ingredients": [
-      "12 bacon medallions",
-      "12 free-range eggs",
-      "12 small cherry tomatoes, halved",
-      "freshly ground black pepper",
-      "6 slices of bread, to serve",
-      "knob of butter, to spread"
-    ],
+  "Bacon and eggs bites": {
+    "ingredients": {
+      "bacon": { "quantity": 12, "type": "" },
+      "eggs": { "quantity": 12, "type": "eggs" },
+      "cherry tomatoes": { "quantity": 12, "type": "" },
+      "black pepper": { "quantity": 2, "type": "tbsp" },
+      "bread": { "quantity": 5, "type": "" },
+      "butter": { "quantity": 1, "type": "tbsp" }
+    },
     "method": [
       "Preheat the oven to 220C/200C Fan/Gas 8 and lightly grease a 12-hole muffin tin. ",
       "Put the bacon medallions between two sheets of cling film and roll out using a rolling pin. Put them into the muffin tin, creating a case shape.",
       "Crack the eggs into the centre of each bacon case, season with black pepper and top with two tomato halves.",
-      "Bake in the oven for 10 minutes until the bacon is cooked and the egg just cooked on the inside. If you like your egg well done, cook for 15 minutes.",
-      "Toast the bread to your liking and then butter lightly. Serve two egg bites with one piece of toast per person."
+      "Bake in the oven for 10 minutes until the bacon is cooked and the eggs just cooked on the inside. If you like your eggs well done, cook for 15 minutes.",
+      "Toast the bread to your liking and then butter lightly. Serve two eggs bites with one piece of toast per person."
     ],
-    "url": "www_bbc_com_food_recipes_bacon_and_egg_bites_26820",
-    "title": "Bacon and egg bites",
+    "url": "www_bbc_com_food_recipes_bacon_and_eggs_bites_26820",
+    "title": "Bacon and eggs bites",
     "time": {
       "preparation": "less than 30 minsless than 30 mins",
       "preparationMins": 30,
@@ -605,23 +575,23 @@
       "totalMins": 60
     },
     "serves": "Serves 6Serves 6",
-    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/bacon_and_egg_bites_26820_16x9.jpg",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/bacon_and_eggs_bites_26820_16x9.jpg",
     "isVegetarian": false,
     "recommendations": 0
   },
 
   "Bacon and white bean soup": {
-    "ingredients": [
-      "1 tsp olive oil",
-      "2 lean smoked bacon rashers, chopped",
-      "2 garlic cloves, crushed",
-      "1 onion, chopped",
-      "3 thyme sprigs",
-      "2 x 400g cans cannellini beans, drained and rinsed",
-      "850ml/1½ pints vegetable stock ",
-      "2 tbsp chopped parsley",
-      "freshly ground black pepper"
-    ],
+    "ingredients": {
+      "bacon": { "quantity": 2, "type": "" },
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "onion": { "quantity": 2, "type": "" },
+      "garlic": { "quantity": 2, "type": "" },
+      "thyme": { "quantity": 3, "type": "" },
+      "cannellini beans": { "quantity": 2, "type": "lb" },
+      "vegetable stock": { "quantity": 24, "type": "oz" },
+      "parsley": { "quantity": 2, "type": "oz" },
+      "black pepper": { "quantity": 2, "type": "tbsp" }
+    },
     "method": [
       "Heat the oil in a large saucepan over a medium heat. Add the bacon, garlic and onion and fry for 3-4 minutes, or until the bacon begins to brown and the onion softens.",
       "Add the thyme and fry for a further minute. Add the beans and stock to the pan and bring to the boil, then reduce the heat and simmer for 10 minutes.",
@@ -644,15 +614,16 @@
   },
 
   "Bacon and cheese straws": {
-    "ingredients": [
-      "1 x 375g/13oz puff pastry",
-      "plain flour, for dusting",
-      "1 tbsp English mustard",
-      "100g/3½oz mature cheddar, grated",
-      "freshly ground black pepper",
-      "14 slices good-quality streaky bacon",
-      "1 free-range egg, lightly beaten"
-    ],
+    "ingredients": {
+      "bacon": { "quantity": 12, "type": "" },
+      "eggs": { "quantity": 1, "type": "" },
+      "black pepper": { "quantity": 2, "type": "tbsp" },
+      "pastry": { "quantity": 13, "type": "oz" },
+      "flour": { "quantity": 2, "type": "" },
+      "mustard": { "quantity": 3, "type": "tbsp" },
+      "cheddar": { "quantity": 2, "type": "oz" }
+
+    },
     "method": [
       "Line a baking tray with greaseproof paper.",
       "Roll the pastry out on a lightly floured work surface to a large rectangle of 0.5cm/¼in thickness. ",
@@ -660,7 +631,7 @@
       "Cut the pastry between each slice of bacon. Carefully twist each piece of pastry 4-5 times so it looks like a curly straw, then place on the baking tray.",
       "Repeat the process until all of the bacon has been used up. Chill the pastry twists in the fridge for 15-20 minutes.",
       "Preheat the oven to 220C/425F/Gas 7.",
-      "Remove the twists from the fridge and brush with the beaten egg. ",
+      "Remove the twists from the fridge and brush with the beaten eggs. ",
       "Reduce the oven to 200C/400F/Gas 6 and bake the twists for 20-25 minutes, or until the pastry is well risen and golden-brown. Remove from the oven and set aside to cool."
     ],
     "url": "www_bbc_com_food_recipes_bacon_and_mature_cheddar_58920",
@@ -679,19 +650,19 @@
   },
 
   "Bacon and Brussels sprout salad": {
-    "ingredients": [
-      "1 tbsp olive oil",
-      "100g/3½oz smoked bacon lardons",
-      "500g/1lb 2oz Brussels sprouts, trimmed",
-      "50g/1¾oz dried cranberries",
-      "bag mixed leaves",
-      "100ml/3½fl oz marsala or sherry ",
-      "50g/1¾oz pecans, lightly toasted",
-      "3 tbsp walnut oil",
-      "2 tbsp sherry vinegar",
-      "½ tsp honey",
-      "½ tsp mustard (optional)"
-    ],
+    "ingredients": {
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "bacon": { "quantity": 3, "type": "oz" },
+      "brussels sprouts": { "quantity": 1, "type": "lb" },
+      "cranberries": { "quantity": 1, "type": "oz" },
+      "marsala": { "quantity": 2, "type": "oz" },
+      "mustard": { "quantity": 1, "type": "tbsp" },
+      "honey": { "quantity": 1, "type": "tsp" },
+      "walnut oil": { "quantity": 3, "type": "tbsp" },
+      "pecans": { "quantity": 1, "type": "oz" },
+      "sherry vinegard": { "quantity": 1, "type": "tsp" }
+
+    },
     "method": [
       "Heat the olive oil in a large sauté pan. Add the bacon and cook until very crisp and the fat has rendered off. Remove with a slotted spoon and drain on kitchen paper.",
       "Thinly slice the Brussels sprouts and add to the pan. Cook on a high heat until the sprouts are starting to brown around the edges. Add 100ml/3½fl oz water and continue to cook, stirring regularly, until the water has evaporated off and the Brussels are just cooked – they should have wilted a little but still be a very fresh looking green. Keep warm.",
@@ -715,17 +686,16 @@
   },
 
   "Bagels": {
-    "ingredients": [
-      "450g/1lb strong bread flour, plus extra for dusting",
-      "2 tsp salt",
-      "7g sachet fast-acting yeast",
-      "2 tbsp clear honey",
-      "1 tbsp vegetable oil, plus extra for greasing",
-      "3 tbsp black treacle or molasses",
-      "fine polenta, for sprinkling",
-      "1 free-range egg, beaten",
-      "sesame seeds, sea salt, poppy seeds, or a savoury topping of your choice (optional)"
-    ],
+    "ingredients": {
+      "flour": { "quantity": 1, "type": "lb" },
+      "salt": { "quantity": 2, "type": "tsp" },
+      "eggs": { "quantity": 1, "type": "" },
+      "polenta": { "quantity": 2, "type": "tbsp" },
+      "honey": { "quantity": 2, "type": "tbsp" },
+      "vegetable oil": { "quantity": 1, "type": "tbsp" },
+      "black treacle": { "quantity": 3, "type": "tbps" },
+      "sesame seeds": { "quantity": 3, "type": "tbps" }
+    },
     "method": [
       "Sift the flour and salt into a large mixing bowl, then add the yeast and mix well.",
       "Measure 250ml/9fl oz warm water in a measuring jug and then stir in the honey and oil.",
@@ -738,7 +708,7 @@
       "Cover and set aside to prove for a further 10–20 minutes.",
       "Preheat the oven to 220C/425F/Gas 7.",
       "Bring the saucepan of molasses and water back to a gentle simmer. Gently drop each bagel into the water (do this in batches of no more than three at a time) and turn over after 1-2 minutes. Simmer for another 1-2 minutes, then remove the bagels from the water, and drain.",
-      "Place the bagels on the prepared baking trays, spacing them widely apart. Brush the tops with the beaten egg and sprinkle with sesame seeds, sea salt, poppy seeds or a savoury topping of your choice. Bake in the oven for 15 minutes, or until golden-brown, then turn them upside down for a further ten minutes to cook the bases. Transfer to a wire rack to cool before serving."
+      "Place the bagels on the prepared baking trays, spacing them widely apart. Brush the tops with the beaten eggs and sprinkle with sesame seeds, sea salt, poppy seeds or a savoury topping of your choice. Bake in the oven for 15 minutes, or until golden-brown, then turn them upside down for a further ten minutes to cook the bases. Transfer to a wire rack to cool before serving."
     ],
     "url": "www_bbc_com_food_recipes_bagels_47163",
     "title": "Bagels",
@@ -756,17 +726,16 @@
   },
 
   "Chai muffins": {
-    "ingredients": [
-      "225ml/8fl oz unsweetened almond milk",
-      "2 Chai teabags",
-      "1 tsp ground cinnamon",
-      "400g/14oz white spelt flour",
-      "2½ tsp baking powder",
-      "150g/5½oz soft light brown sugar",
-      "75g/2½oz natural skin-on almonds, roughly chopped",
-      "2 large free-range eggs",
-      "150ml/5fl oz sunflower oil"
-    ],
+    "ingredients": {
+      "almond milk": { "quantity": 8, "type": "fl oz" },
+      "eggs": { "quantity": 2, "type": "" },
+      "chai": { "quantity": 2, "type": "" },
+      "cinnamon": { "quantity": 1, "type": "tsp" },
+      "flour": { "quantity": 2, "type": "tsp" },
+      "baking powder": { "quantity": 3, "type": "tbsp" },
+      "brown sugar": { "quantity": 5, "type": "oz" },
+      "sunflower oil": { "quantity": 5, "type": "fl oz" }
+    },
     "method": [
       "Warm the almond milk with the contents of the 2 teabags (I just rip them open over the pan) and cinnamon – stirring to mix – and leave to cool.",
       "While the milk’s cooling, preheat the oven to 200C/180C Fan/Gas 6 and line a 12-hole muffin tin with paper cases.",
@@ -791,15 +760,14 @@
   },
 
   "Chargrilled broccoli pasta with chilli and garlic": {
-    "ingredients": [
-      "100g/3½oz spaghetti",
-      "3 tbsp olive oil",
-      "100g/3½oz broccoli, cut into small florets",
-      "1 garlic clove, finely sliced",
-      "½ red chilli, finely sliced",
-      "1 tbsp flaked almonds",
-      "salt and freshly ground black pepper"
-    ],
+    "ingredients": {
+      "spaghetti": { "quantity": 3, "type": "oz" },
+      "olive oil": { "quantity": 3, "type": "tbps" },
+      "broccoli": { "quantity": 3, "type": "oz" },
+      "garlic": { "quantity": 1, "type": "" },
+      "chilli": { "quantity": 1, "type": "" },
+      "almonds": { "quantity": 1, "type": "tbsp" }
+    },
     "method": [
       "Bring a large pan of salted water to the boil and cook the spaghetti for 8 minutes, until al dente. ",
       "Meanwhile, heat the olive oil in a saucepan over a high heat and add the broccoli. Leave it for 1 minute before moving so the broccoli chars, then turn and char on the other sides for about 3 minutes. ",
@@ -822,15 +790,16 @@
   },
 
   "Chargrilled courgette with basil, mint, chilli and lemon": {
-    "ingredients": [
-      "6 courgettes, ends trimmed, cut into long strips",
-      "1-2 tbsp extra virgin olive oil, plus extra for dressing ",
-      "1 fresh red chilli, seeded, finely chopped (or 5 tsp dried chilli flakes) ",
-      "sea salt and freshly ground black pepper",
-      "½ lemon, juice only ",
-      "handful fresh mint, roughly chopped ",
-      "handful fresh basil, roughly chopped"
-    ],
+    "ingredients": {
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "chilli": { "quantity": 1, "type": "" },
+      "black pepper": { "quantity": 2, "type": "tbsp" },
+      "lemon": { "quantity": 1, "type": "" },
+      "mint": { "quantity": 1, "type": "" },
+      "basil": { "quantity": 3, "type": "" },
+      "courgettes": { "quantity": 2, "type": "oz" }
+
+    },
     "method": [
       "Toss the courgette strips in a bowl with the olive oil (just enough to coat the courgette), chilli, sea salt and freshly ground black pepper.",
       "Heat a ridged grill pan until smoking hot and griddle the courgettes in batches, about four minutes per side, being careful not to crowd the grill pan. They should be tender, but with a crunch to them in the middle. If the strips are not quite cooked, leave them on the grill pan for longer, but watch the heat as you don't want them to burn. Don't be tempted to move the courgette while it is cooking or you won't get the chargrill marks across the flesh. Drain on kitchen paper.",
@@ -852,17 +821,17 @@
   },
 
   "Chargrilled sweet and sour prawns": {
-    "ingredients": [
-      "6 large prawns, butterflied, shells on, but heads removed",
-      "pinch sea salt",
-      "drizzle vegetable oil",
-      "large handful fresh coriander",
-      "1 lime, juice only",
-      "4-5 tbsp white wine vinegar",
-      "3-4 tbsp caster sugar",
-      "4cm/1in piece fresh ginger, unpeeled",
-      "1 mild red chilli, finely chopped"
-    ],
+    "ingredients": {
+      "prawns": { "quantity": 6, "type": "" },
+      "salt": { "quantity": 1, "type": "" },
+      "vegetable oil": { "quantity": 2, "type": "tbsp" },
+      "coriander": { "quantity": 3, "type": "" },
+      "lime": { "quantity": 2, "type": "" },
+      "white vinegar": { "quantity": 5, "type": "tbsp" },
+      "sugar": { "quantity": 2, "type": "tbsp" },
+      "ginger": { "quantity": 2, "type": "in" },
+      "chilli": { "quantity": 1, "type": "" }
+    },
     "method": [
       "To butterfly the prawns, first remove the head by twisting it off, then discard. Don't remove the shell. Place the prawn on its back on a cutting board. Using a small, sharp knife, cut through the centre of the body from below the head down to the tail. Don't cut all the way through the flesh. Repeat with the remaining prawns.",
       "For the sweet and sour sauce, pour the vinegar into a small pan (not aluminium) over a medium heat. Add the sugar and heat through.",
@@ -890,17 +859,18 @@
   },
 
   "Cheddar and bacon frittata": {
-    "ingredients": [
-      "700g/1lb 9oz large salad potatoes, peeled and halved",
-      "175g/6oz smoked bacon, roughly chopped",
-      "1 tbsp olive oil",
-      "1 garlic clove",
-      "½ red pepper, thinly sliced",
-      "6 large free-range eggs",
-      "25g flatleaf parsley, roughly chopped",
-      "30g/1oz cheddar, grated",
-      "salt and freshly ground black pepper"
-    ],
+    "ingredients": {
+      "bacon": { "quantity": 5, "type": "oz" },
+      "eggs": { "quantity": 6, "type": "" },
+      "red pepper": { "quantity": 2, "type": "tbsp" },
+      "garlic": { "quantity": 3, "type": "oz" },
+      "olive oil": { "quantity": 2, "type": "tbps" },
+      "potatoes": { "quantity": 1, "type": "lb" },
+      "cheddar": { "quantity": 2, "type": "oz" },
+      "black pepper": { "quantity": 2, "type": "" },
+      "parsley": { "quantity": 2, "type": "" }
+
+    },
     "method": [
       "Parboil the potatoes in lightly salted water for 6–10 minutes, until almost cooked but still firm. Cut them into slices. Preheat your grill to medium–high. ",
       "Using a large ovenproof non-stick frying pan, fry the bacon in its own fat, stirring, for 4–5 minutes, or until cooked. Transfer to a plate and set aside. ",
@@ -923,19 +893,19 @@
     "isVegetarian": false,
     "recommendations": 0
   },
-
   "French toast with ham and cheddar": {
-    "ingredients": [
-      "2 eggs",
-      "115ml/4¼fl oz milk",
-      "sea salt",
-      "freshly ground black pepper",
-      "2 slices white bread (3cm/1.25in thick)",
-      "1 tsp Dijon mustard",
-      "2 slices ham, trimmed to fit bread",
-      "2 slices cheddar ",
-      "1 tbsp olive oil"
-    ],
+    "ingredients": {
+      "milk": { "quantity": 5, "type": "fl oz" },
+      "eggs": { "quantity": 2, "type": "eggs" },
+      "salt": { "quantity": 2, "type": "tsp" },
+      "bread": { "quantity": 3, "type": "" },
+      "olive oil": { "quantity": 2, "type": "tbps" },
+      "dijon mustard": { "quantity": 1, "type": "tbsp" },
+      "cheddar": { "quantity": 2, "type": "" },
+      "black pepper": { "quantity": 2, "type": "" },
+      "ham": { "quantity": 2, "type": "" }
+
+    },
     "method": [
       "Preheat oven to 180C/350F/Gas 4.",
       "Place eggs, milk, salt and pepper into a large bowl. Whisk to combine.",
@@ -962,18 +932,20 @@
   },
 
   "Cheese and ham quinoa bites": {
-    "ingredients": [
-      "rapeseed oil, for greasing",
-      "180g/6½oz quinoa, rinsed well and drained ",
-      "6 free-range eggs, beaten",
-      "6 spring onions, roughly chopped",
-      "6 tomatoes, roughly chopped",
-      "120g/4½oz ‘lighter’ mature cheddar cheese, grated",
-      "120g/4½oz lean wafer-thin ham, shredded",
-      "1 tsp mustard powder",
-      "½ tsp sea salt ",
-      "freshly ground black pepper"
-    ],
+    "ingredients": {
+      "rapeseed oil": { "quantity": 1, "type": "" },
+      "eggs": { "quantity": 6, "type": "" },
+      "quinoa": { "quantity": 1, "type": "lb" },
+      "onion": { "quantity": 6, "type": "" },
+      "tomatoes": { "quantity": 5, "type": "" },
+      "potatoes": { "quantity": 1, "type": "lb" },
+      "cheddar": { "quantity": 4, "type": "oz" },
+      "black pepper": { "quantity": 2, "type": "" },
+      "ham": { "quantity": 4, "type": "oz" },
+      "salt": { "quantity": 1, "type": "" },
+      "mustard": { "quantity": 1, "type": "tbsp" }
+
+    },
     "method": [
       "Preheat the oven to 200C/180C Fan/Gas 6. Lightly grease a 12-hole muffin tin with a little rapeseed oil.",
       "Put the quinoa into a large saucepan, add 540ml/19fl oz cold water and bring to the boil over a high heat. Stir well then reduce the heat and simmer for 20 minutes, or until all the water has been absorbed and the quinoa is tender.",
@@ -997,18 +969,18 @@
   },
 
   "Cheese and chorizo rolls": {
-    "ingredients": [
-      "500g/1lb 2oz strong white flour",
-      "7g instant yeast",
-      "1 tsp salt",
-      "1 tsp sugar or honey",
-      "2 tbsp olive oil",
-      "300ml/10fl oz tepid water",
-      "50g/1¾oz chorizo, finely chopped",
-      "100g/3½oz hard cheese (such as cheddar or gouda), grated",
-      "2 tbsp finely snipped chives (or finely chopped thyme, oregano, parsley)",
-      "1 free-range egg, beaten, for glazing "
-    ],
+    "ingredients": {
+      "flour": { "quantity": 2, "type": "oz" },
+      "yeast": { "quantity": 1, "type": "oz" },
+      "salt": { "quantity": 2, "type": "tbsp" },
+      "sugar": { "quantity": 1, "type": "tbsp" },
+      "olive oil": { "quantity": 2, "type": "tbps" },
+      "chorizo": { "quantity":2, "type": "oz" },
+      "cheddar": { "quantity": 3, "type": "oz" },
+      "chives ": { "quantity": 2, "type": "tbsp" },
+      "eggs": { "quantity": 1, "type": "eggs" }
+
+    },
     "method": [
       "Put the flour, yeast, salt and sugar (or honey) in a bowl and drizzle in the olive oil, then the water, mixing together until it comes together as a dough. Add the chorizo, 50g/1¾oz of the cheese and the chives (or other herbs).",
       "Knead in the bowl for a minute until the additions have worked in a little, then knead on a floured surface until the dough is smooth. Return to the bowl, cover with a damp cloth or cling film and leave to rest somewhere warm for 1½ –2 hours, until doubled in size.",
@@ -1031,15 +1003,16 @@
   },
 
   "Cherry and chocolate mug cake": {
-    "ingredients": [
-      "75g/3oz dark chocolate, melted, plus extra to serve",
-      "50g/1¾oz unsalted butter, melted, plus extra for greasing ",
-      "2 free-range eggs, beaten",
-      "50g/1¾oz caster sugar",
-      "50g/1¾oz plain flour",
-      "½ tsp baking powder",
-      "50g/1¾oz pitted cherries from a can, chopped, 2 tbsp juice reserved"
-    ],
+    "ingredients": {
+      "chocolate": { "quantity": 3, "type": "oz" },
+      "eggs": { "quantity": 2, "type": "" },
+      "butter": { "quantity": 2, "type": "oz" },
+      "sugar": { "quantity": 2, "type": "oz" },
+      "flour": { "quantity": 2, "type": "oz" },
+      "baking powder": { "quantity": 1, "type": "tsp" },
+      "cherries": { "quantity": 2, "type": "oz" }
+
+    },
     "method": [
       "Place the chocolate, butter, eggs and sugar into a bowl and mix together well.",
       "Add the flour, baking powder, cherries and cherry juice and fold together until smooth.",
@@ -1062,16 +1035,17 @@
   },
 
   "Cherry tomato, marinated feta and basil skewers": {
-    "ingredients": [
-      "350g/12oz feta (enough to make 40 squares)",
-      "120ml/4fl oz extra virgin olive oil",
-      "1 unwaxed lemon, zest only",
-      "2 tsp freshly chopped oregano",
-      "1 tsp cracked black pepper",
-      "40 cherry tomatoes",
-      "large bunch of basil",
-      "40 long skewers"
-    ],
+    "ingredients": {
+      "feta": { "quantity": 12, "type": "oz" },
+      "olive oil": { "quantity": 2, "type": "tbps" },
+      "lemon": { "quantity":1, "type": "" },
+      "oregano": { "quantity": 2, "type": "tsp" },
+      "cherry tomatoes": { "quantity": 40, "type": "" },
+      "basil": { "quantity": 1, "type": "" },
+      "skewers": { "quantity": 40, "type": "oz" },
+      "black pepper": { "quantity": 2, "type": "" }
+
+    },
     "method": [
       "Cut the feta into 40 even squares and place in a bowl.  Pour over the olive oil; add the lemon zest, oregano and cracked black pepper.  Leave to marinate for at least 2 hours or preferably overnight.",
       "To assemble, take a skewer and place a cherry tomato first, follow with a cube of the feta.  You could prepare the skewers to this stage in advance, just keep refrigerated. ",
@@ -1093,18 +1067,19 @@
   },
 
   "Chestnut stuffed mushrooms": {
-    "ingredients": [
-      "6 large mushrooms",
-      "80g/2oz butter",
-      "3 tbsp olive oil",
-      "6 sprigs thyme, picked",
-      "3 tbsp madeira",
-      "2 medium onions",
-      "6 Lincolnshire sausages",
-      "2 sprigs rosemary, picked ",
-      "200g/7oz breadcrumbs",
-      "200g/7oz can of chestnuts, chopped"
-    ],
+    "ingredients": {
+      "mushrooms": { "quantity": 6, "type": "" },
+      "butter": { "quantity": 2, "type": "oz" },
+      "olive oil": { "quantity": 2, "type": "tbps" },
+      "thyme": { "quantity": 6, "type": "" },
+      "madeira": { "quantity": 3, "type": "tbsp" },
+      "onion": { "quantity": 2, "type": "" },
+      "sausages": { "quantity": 6, "type": "" },
+      "rosemary": { "quantity": 2, "type": "" },
+      "breadcrumbs": { "quantity": 7, "type": "oz" },
+      "chestnuts": { "quantity": 7, "type": "oz" }
+
+    },
     "method": [
       "Pre heat the oven to 180C/350F/Gas 4.",
       "Remove the stalks from the mushrooms to allow them to be stuffed and lay in a large oven dish. Place a little knob of butter in each one and then drizzle the olive oil all over. Sprinkle the thyme into the mushrooms and finish with a few generous glugs of Madeira wine. Pop them in the oven for 20 minutes.",
@@ -1128,14 +1103,15 @@
   },
 
   "Vegan coconut macaroons": {
-    "ingredients": [
-      "80g/2¾oz desiccated coconut",
-      "125ml/4½fl oz full-fat coconut milk",
-      "1 tbsp coconut flour",
-      "2 tbsp maple syrup",
-      "½ tsp vanilla extract",
-      "pinch salt"
-    ],
+    "ingredients": {
+      "coconut": { "quantity": 2, "type": "oz" },
+      "coconut milk": { "quantity": 6, "type": "fl oz" },
+      "flour": { "quantity": 2, "type": "tbsp" },
+      "maple syrup": { "quantity": 3, "type": "tbsp" },
+      "vanila extract": { "quantity": 2, "type": "tbps" },
+      "salt": { "quantity": 1, "type": "" }
+
+    },
     "method": [
       "Preheat the oven to 180C/160C Fan/Gas 4. Line a baking tray with baking parchment.",
       "Stir all of the ingredients together in a saucepan over a medium heat until well combined. Continue to cook for 4-5 minutes until the coconut milk has been absorbed into the mixture and the mixture has thickened. Remove from the heat and set aside to cool slightly.",
@@ -1158,20 +1134,21 @@
   },
 
   "Chicken and chorizo paella": {
-    "ingredients": [
-      "1–2 tbsp oil",
-      "12 whole chicken pieces (legs or thighs), on the bone",
-      "1 chorizo sausage, sliced into 3mm/⅛in thick slices",
-      "1 large onion, finely chopped",
-      "3 garlic cloves, crushed",
-      "2 red peppers, seeds removed, sliced",
-      "2–3 red chillies, seeds removed, chopped",
-      "2 tsp smoked paprika ",
-      "1.5 litres/2½ pints chicken stock",
-      "400g/14oz paella rice",
-      "12 mussels or clams, (optional) cleaned, open and damaged shells discarded",
-      "handful parsley, roughly chopped"
-    ],
+
+    "ingredients": {"oil":{"quantity":12,"type":"tbsp"},
+    "chicken pieces":{"quantity":12,"type":"oz, with bone, raw"},"chorizo sausage":{"quantity":1,"type":"oz"},
+    "onion":{"quantity":1,"type":"large"},
+    "garlic cloves":{"quantity":1,"type":"clove"},
+    "red peppers":{"quantity":2,"type":"cup, strips"},
+    "chillies":{"quantity":23,"type":"pepper"},
+    "smoked paprika":{"quantity":2,"type":"tsp"},
+    "chicken stock":{"quantity":0.5,"type":"pints"},
+    "paella":{"quantity":1,"type":"cup"},
+    "rice":{"quantity":1,"type":"cup"},
+    "mussels":{"quantity":36,"type":"oz"},
+    "clams":{"quantity":3,"type":"oz"},
+    "shells":{"quantity":1,"type":"cup shells"},
+    "parsley roughly chopped":{"quantity":2,"type":"oz"}},
     "method": [
       "Preheat the oven to 180C/350F/Gas 4.",
       "Heat the oil in a large, lidded, heatproof pan or paella pan. Fry the chicken until the pieces are evenly browned, turning them regularly as they cook. You may need to do this in two batches, depending on the size of your pan. Remove the chicken from the pan and set aside.",
@@ -1234,18 +1211,17 @@
   },
 
   "Mediterranean chicken with potatoes": {
-    "ingredients": [
-      "1 tbsp olive oil ",
-      "400–500g/14oz-1lb 2oz chicken thighs, skin on and bone in",
-      "1 onion, diced ",
-      "1 carrot, finely diced ",
-      "2 garlic cloves, sliced",
-      "400g tin tomatoes ",
-      "250ml/9fl oz chicken stock",
-      "1 tsp dried mixed herbs ",
-      "600g/1lb 5oz potatoes, cut into bite-sized pieces",
-      "salt and pepper "
-    ],
+    "ingredients": {
+      "olive oil":{"quantity":1,"type":"tbsp"},
+      "chicken thighs":{"quantity":2,"type":"oz"},
+      "onion":{"quantity":1,"type":"medium"},
+      "carrot":{"quantity":1,"type":"carrot"},
+      "garlic cloves":{"quantity":2,"type":"clove"},
+      "tomatoes":{"quantity":400,"type":"g"},
+      "chicken stock":{"quantity":1,"type":"cup"},
+      "herbs":{"quantity":1,"type":"tsp"},
+      "potatoes":{"quantity":5,"type":"oz"},
+      "salt and pepper":{"quantity":1,"type":"tbsp"}},
     "method": [
       "Heat a large saucepan over a medium heat. Add the oil and, once hot, add the chicken thighs, skin side down. Brown the chicken on each side for 3-4 minutes, or until nicely golden-brown all over. Remove the thighs from the pan and set to one side.",
       "Add the onion and carrot with a pinch of salt to the saucepan and stir over the heat. Fry for 6-7 minutes, or until the onions are soft and translucent. Add the garlic and continue to cook for two more minutes.",
@@ -1268,21 +1244,18 @@
   },
 
   "Coconut chilli chicken": {
-    "ingredients": [
-      "3 plump stalks lemongrass ",
-      "50g/2oz fresh ginger ",
-      "2 hot red chillies",
-      "2 cloves garlic",
-      "a bunch coriander ",
-      "2 limes",
-      "2 tbsp groundnut oil",
-      "200g/7oz tomatoes",
-      "2 tbsp fish sauce (nam plah)",
-      "2 tbsp dark soy sauce",
-      "8 chicken thighs",
-      "400ml/14oz can coconut milk",
-      "8 apricots, halved"
-    ],
+    "ingredients": {
+      "lemongrass":{"quantity":3,"type":"cups"},
+      "fresh ginger":{"quantity":2,"type":"tsp"},
+      "chillies":{"quantity":2,"type":"pepper"},
+      "cloves garlic":{"quantity":2,"type":"clove"},
+      "coriander":{"quantity":1,"type":"tsp"},
+      "limes":{"quantity":1,"type":"lime"},
+      "oil":{"quantity":2,"type":"tbsp"},
+      "tomatoes":{"quantity":1,"type":"medium whole (2-3/5\" dia)","fish sauce":{"quantity":2,"type":"tbsp"},
+      "dark soy sauce":{"quantity":2,"type":"tbsp"},
+      "chicken thighs":{"quantity":8,"type":"thigh with skin"},"coconut milk":{"quantity":1,"type":"can"},
+      "apricots":{"quantity":8,"type":"apricot"}},
     "method": [
       "Peel and discard the outer leaves of the lemongrass- they can sometimes be tough. Cut the inner leaves into short lengths and put in the food processor. Peel the ginger, then slice into thin pieces and add to the lemongrass. Chop the chillies, discarding their stems and add to the ginger with the peeled garlic. Roughly chop the stems and half of the leaves of the coriander to add to the food processor, reserving the rest for later.",
       "Grate the lime zest into the food processor, reserving the limes for later, then turn the machine on and let it chop everything to a coarse paste. Add a little groundnut oil and scrape the sides down with a spatula if it sticks. Add the fish sauce, soy sauce and the tomatoes and process for a few seconds longer.",
@@ -1955,5 +1928,5 @@
     "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cornishpasty_89627_16x9.jpg",
     "isVegetarian": false,
     "recommendations": 0
-  },
-}
+  }
+  }}

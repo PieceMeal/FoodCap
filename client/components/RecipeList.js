@@ -18,6 +18,7 @@ import {
   deleteLiked,
   deletePopular,
   setPopularRecipesThunk,
+  getAllRecipesThunk,
   setBookmarkedRecipesThunk,
   setAlsoLikedThunk
 } from '../store/genericRecLists';
@@ -47,7 +48,13 @@ const mapPopularDispatch = dispatch => ({
   setListsThunk: () => dispatch(setListsThunk()),
   addRecipeToListThunk: body => dispatch(addRecipeToListThunk(body))
 });
-
+//ALL STATE AND DISPATCH 
+const mapAllToState = state => ({
+  recipes: state.genericRecLists.allRecipes
+})
+const mapAllDispatch = dispatch => ({
+  fetchRecipes: () => dispatch(getAllRecipesThunk())
+})
 // LIKED RECIPES LIST
 const mapLikesToState = state => ({
   recipes: state.genericRecLists.pastLikes,
@@ -124,9 +131,7 @@ class RecipeList extends Component {
     let uuid = this.state.checked[recipe];
     let body = { uuid, recipe };
     //dispatch thank for sending list info, recipe info
-
     this.props.addRecipeToListThunk(body);
-
     this.setState({ [recipe]: false, checked: {} });
   };
   handleOpen = name => {
@@ -234,6 +239,7 @@ export const PopularList = connect(mapPopularToState, mapPopularDispatch)(
 );
 
 export const LikedList = connect(mapLikesToState, mapLikesDispatch)(RecipeList);
+export const AllRecipes = connect(mapAllToState, mapAllDispatch)(RecipeList)
 
 export const BookmarkedList = connect(
   mapBookmarksToState,

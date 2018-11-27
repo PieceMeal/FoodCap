@@ -9,7 +9,9 @@ import {
   Icon,
   Divider,
   Input,
-  Form
+  Form,
+  Image,
+  Message
 } from 'semantic-ui-react';
 import { fetchRecipes } from '../store/user';
 import {
@@ -103,14 +105,15 @@ class UserHome extends React.Component {
 
           <Container fluid style={{ padding: '50px' }}>
             <div>
+                <Image src='/logo.png' height='200' centered/>
               <Header as="h2" icon textAlign="center">
-                <img
+                {/* <img
                   style={{
                     height: '190px',
                     width: 'auto'
                   }}
                   src={user.profilePicture}
-                />
+                /> */}
                 <Header.Content>
                   Welcome {user.userName ? user.userName : user.email}!
                 </Header.Content>
@@ -147,7 +150,15 @@ class UserHome extends React.Component {
       );
     } else {
       //loading page ??
-      return <div />;
+      return(
+      <Message icon>
+        <Icon name='circle notched' loading />
+         <Message.Content>
+           <Message.Header>Just one second</Message.Header>
+           We are fetching that content for you.
+        </Message.Content>
+      </Message>
+      )
     }
   }
 }
