@@ -73,7 +73,7 @@ const recipeSeeder = async db => {
           {
             name: recipe, //string
             instructions: recipeObj.method, //array of strings
-            time: recipeObj.time.totalMins, //string number
+            time: recipeObj.time.totalMins || 100, //string number
             serves: recipeObj.serves,
             image: recipeObj.image || '' //string
           }
@@ -222,11 +222,11 @@ async function seed() {
     console.log(`seeded successfully`);
     await runQuery(
       // CHANGE random num for more frequent likes
-      `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .2 then [1] else [] end | merge (x)-[:HAS_FAVORITE]->(y))`
+      `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .1 then [1] else [] end | merge (x)-[:HAS_FAVORITE]->(y))`
     );
     await runQuery(
       // CHANGE random num for more frequent likes
-      `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .3 then [1] else [] end | merge (x)-[:HAS_VIEWED]->(y))`
+      `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .1 then [1] else [] end | merge (x)-[:HAS_VIEWED]->(y))`
     );
     await runQuery(
       // CHANGE random num for more frequent likes
