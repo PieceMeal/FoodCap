@@ -18,14 +18,20 @@ class ItemsConflictModal extends React.Component {
 		};
 	}
 
-	componentDidMount() {
-		console.log(this.props);
+	async componentDidMount() {
+		console.log('conflict modal mount');
 		let quantity = 0;
-
+		console.log(this.props.item[0]);
 		for (let i = 0; i < this.props.item.length; i++) {
 			quantity += +this.props.item[i].quantity;
 		}
-		this.setState({ name: this.props.item[0].name, quantity });
+		await this.setState({ name: this.props.item[0].name, quantity });
+	}
+
+	async componentDidUpdate(prevProps) {
+		if (prevProps !== this.props) {
+			await this.setState({ name: this.props.item[0].name });
+		}
 	}
 
 	handleChange = evt => {

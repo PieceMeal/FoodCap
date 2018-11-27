@@ -3,12 +3,19 @@ import axios from 'axios';
 /**
  * ACTION TYPES
  */
-import { SET_POPULAR_RECIPES, DELETE_POPULAR_RECIPES, GET_ALL_RECIPES, SEARCHED_RECIPES } from './constants';
+import {
+  GET_ALL_RECIPES, 
+  SEARCHED_RECIPES,
+  SET_POPULAR_RECIPES,
+  DELETE_POPULAR_RECIPES,
+  SET_LIKED_RECIPES,
+  DELETE_LIKED_RECIPES
+} from './constants';
 
 /**
  * INITIAL STATE
  */
-const defaultRecipeList = { popular: [], allRecipes: [], searchRecipes: [] };
+const defaultRecipeList = { popular: [], pastLikes: [], allRecipes: [], searchRecipes: [] };
 
 /**
  * ACTION CREATORS
@@ -18,7 +25,11 @@ const setPopular = recipes => ({ type: SET_POPULAR_RECIPES, recipes });
 export const deletePopular = () => ({ type: DELETE_POPULAR_RECIPES });
 //search for specific recipes
 const searchRecipes = recipes => ({type: SEARCHED_RECIPES, recipes})
-const getAllRecipes = () => ({type: GET_ALL_RECIPES})
+const getAllRecipes = recipes => ({type: GET_ALL_RECIPES, recipes})
+
+// LIKED
+const setLiked = recipes => ({ type: SET_LIKED_RECIPES, recipes });
+export const deleteLiked = () => ({ type: DELETE_LIKED_RECIPES });
 /**
  * THUNK CREATORS
  */
@@ -44,13 +55,24 @@ export const searchRecipesThunk = (query) => async dispatch => {
   }
 }
 //finish the story of getting all the recipes from the back.
-// export const getAllRecipes = () => async dispatch => {
-//   try {
-//     const {data} = await axios.get('/api/recipes')
-//   } catch (err) {
-//     console.error(err)
-//   }
-// }
+export const getAllRecipesThunk = () => async dispatch => {
+  try {
+    const {data} = await axios.get('/api/recipes')
+    dispatch(getAllRecipes(data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+// LIKED THUNK
+export const setLikedRecipesThunk = () => async dispatch => {
+  try {
+    const { data } = await axios.get('/api/recipes/pastliked');
+    dispatch(setLiked(data));
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 /**
  * REDUCER
@@ -63,6 +85,12 @@ export default function(state = defaultRecipeList, action) {
       return { ...state, popular: [] };
     case SEARCHED_RECIPES: 
       return {...state, searchRecipes: action.recipes}
+    case SET_LIKED_RECIPES:
+      return { ...state, pastLikes: action.recipes };
+    case DELETE_LIKED_RECIPES:
+      return { ...state, pastLikes: [] };
+    case GET_ALL_RECIPES: 
+      return {...state, allRecipes: action.recipes}
     default:
       return state;
   }

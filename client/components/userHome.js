@@ -99,9 +99,8 @@ class UserHome extends React.Component {
     if (this.props.recipes) {
       return (
         <div>
-
           <Navbar />
-          <Container>
+          <Container fluid style={{ padding: '50px' }}>
             <div>
                 <Image src='/logo.png' height='200' centered/>
               <Header as="h2" icon textAlign="center">
@@ -121,16 +120,20 @@ class UserHome extends React.Component {
             <Container>
               <ListPreview />
             </Container>
-            <Divider />
-            <h3>Your Recs</h3>
+
+            <Divider horizontal>
+              <h3>Recipes You Might Like:</h3>
+            </Divider>
+
             <RecommendationsList />
 
-            <Divider />
-            <h3>Popular</h3>
+            <Divider horizontal>
+              <h3>Popular Recipes:</h3>
+            </Divider>
+
             <PopularList />
             <Divider />
           </Container>
-
         </div>
       );
     } else {

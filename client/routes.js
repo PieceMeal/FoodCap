@@ -11,6 +11,8 @@ import {
   SearchResults
 } from './components';
 import { me } from './store';
+import AccountHome from './components/UserAcct/AccountHome';
+import {AllRecipes} from './components/RecipeList'
 //component
 class Routes extends Component {
   componentDidMount() {
@@ -34,11 +36,12 @@ class Routes extends Component {
             <Route path="/search" component={SearchResults} />
             <Route path="/home/preferences" component={Preferences} />
             <Route path="/lists/:id" component={MyList} />
-
             <Route
               path="/recipes/singleview/:recipename"
               component={SingleRecipe}
             />
+            <Route exact path='/recipes' component={AllRecipes} />
+            <Route path="/user/account" component={AccountHome} />
           </Switch>
         )}
       </div>

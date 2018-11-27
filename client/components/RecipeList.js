@@ -14,9 +14,13 @@ import { connect } from 'react-redux';
 import { fetchRecipes } from '../store/user';
 import { setListsThunk, addRecipeToListThunk } from '../store/lists';
 import {
+  setLikedRecipesThunk,
+  deleteLiked,
   deletePopular,
-  setPopularRecipesThunk
+  setPopularRecipesThunk,
+  getAllRecipesThunk
 } from '../store/genericRecLists';
+
 // STATE AND DISPATCH FOR RECOMMENDATIONS
 const mapRecommendationsListToState = state => {
   return {
@@ -42,6 +46,24 @@ const mapPopularDispatch = dispatch => ({
   setListsThunk: () => dispatch(setListsThunk()),
   addRecipeToListThunk: body => dispatch(addRecipeToListThunk(body))
 });
+//ALL STATE AND DISPATCH 
+const mapAllToState = state => ({
+  recipes: state.genericRecLists.allRecipes
+})
+const mapAllDispatch = dispatch => ({
+  fetchRecipes: () => dispatch(getAllRecipesThunk())
+})
+// LIKED RECIPES LIST
+const mapLikesToState = state => ({
+  recipes: state.genericRecLists.pastLikes,
+  lists: state.lists
+});
+const mapLikesDispatch = dispatch => ({
+  fetchRecipes: () => dispatch(setLikedRecipesThunk()),
+  deleteRecipes: () => dispatch(deleteLiked()),
+  setListsThunk: () => dispatch(setListsThunk()),
+  addRecipeToListThunk: body => dispatch(addRecipeToListThunk(body))
+});
 
 class RecipeList extends Component {
   state = {
@@ -50,10 +72,12 @@ class RecipeList extends Component {
   };
   componentDidMount() {
     this.props.fetchRecipes();
+    if(this.props.list){
     if (this.props.lists.length < 1) {
       console.log('running thunk');
       this.props.setListsThunk();
     }
+  }
   }
   handleSubmit = e => {
     //have a thunk in lists.js that will take this action and dispatch post request for list api
@@ -95,24 +119,29 @@ class RecipeList extends Component {
       return (
         <div
           style={{
-            backgroundColor: '#00004d',
+            backgroundColor: '#ffffe5',
+
             marginTop: '5vh',
             marginLeft: '10vw',
             marginRight: '10vw',
+            marginBottom: '40px',
             padding: '20px',
 
-            border: '2px solid #00cc00',
-            borderRadius: '15px'
+            border: '2px solid black',
+            borderRadius: '5px'
           }}
         >
-          <Grid columns={4}>
-            <Grid.Row>
+          <Grid columns={4} centered>
+            <Grid.Row stretched>
               {this.props.recipes.map((rec, id) => {
                 return (
                   <Grid.Column key={id}>
-                    <Card>
+                    <Card style={{ marginTop: '20px' }}>
                       <Link to={`/recipes/singleview/${rec.name}`}>
-                        <Image src={rec.image} />
+                        <Image
+                          src={rec.image}
+                          style={{ height: '150px', width: '100%' }}
+                        />
                       </Link>
                       <Card.Content>
                         <Card.Header>{rec.name}</Card.Header>
@@ -181,3 +210,6 @@ export const RecommendationsList = connect(
 export const PopularList = connect(mapPopularToState, mapPopularDispatch)(
   RecipeList
 );
+
+export const LikedList = connect(mapLikesToState, mapLikesDispatch)(RecipeList);
+export const AllRecipes = connect(mapAllToState, mapAllDispatch)(RecipeList)
