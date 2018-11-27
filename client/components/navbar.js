@@ -44,9 +44,8 @@ class Navbar extends React.Component {
             as={Link} to='/home'
           />
           <Image
-            floated
-            height="75"
-            src='/logo.png'
+            size="tiny"
+            src='/whitelogo.png'
             as={Link} to='/home'
           />
           <div className="navbar_menu">
