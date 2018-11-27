@@ -13,20 +13,23 @@
 	"dinner": { "name": "Dinnner" },
 	"appetizer": { "name": "Appetizer" },
 	"soup": { "name": "Soup" },
-	"roast" : {"name": "Roast"}
-	
+	"roast" : {"name": "Roast"},
+	"curry" : {"name": "Curry"}
+
 }
 ,
 {
 "indian": { "name": "Indian" },
 "chinese": { "name": "Chinese" },
 "mexican": { "name": "Mexican" },
-"spanish": { "name": "Spanish" }
+"spanish": { "name": "Spanish" },
 "italian": { "name": "Italian" },
 "german" : {"name" : "German"},
 "japanese" : {"name" : "Japanese"},
 "american" : { "name" : "American"},
 "british" : {"name" : "British"},
-"french": {"name": "French"}
+"french": {"name": "French"},
+"brazilian": {"name": "Brazilian"}
+
 
 }
