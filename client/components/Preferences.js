@@ -106,7 +106,6 @@ class Preference extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
         <Form onSubmit={this.handleSubmit}>
         <div className="drag_things_to_boxes">
           <Grid columns={3}>
@@ -141,7 +140,7 @@ class Preference extends React.Component {
               <Grid.Row>
                 <Grid.Column>
                   <Header as='h3' attached="top">
-                    <Icon name='heart' />
+                    <Icon name='utensils' color="green" />
                     <Header.Content>
                       Love:
                       <Header.Subheader>
@@ -180,7 +179,7 @@ class Preference extends React.Component {
 
                 <Grid.Column>
                   <Header as='h3' attached="top">
-                    <Icon name='ban' />
+                    <Icon name='ban' color="red" />
                     <Header.Content>
                       Hate:
                       <Header.Subheader>

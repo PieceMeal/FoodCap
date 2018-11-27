@@ -49,7 +49,7 @@ class Navbar extends React.Component {
             as={Link} to='/home'
           />
           <div className="navbar_menu">
-            <Menu centered compact size="small" >
+            <Menu compact size="small" >
               <AccountMenu />
               <Menu.Item
                 as={Link}
