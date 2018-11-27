@@ -25,6 +25,27 @@ router.get('/', async (req, res, next) => {
 	}
 });
 
+router.get('/categories', async (req, res, next) => {
+	try {
+		console.log();
+		const { records } = await runQuery(
+			`MATCH (i:Ingredient) RETURN i ORDER BY i.name`
+		);
+		const ingredients = [];
+
+		records.forEach(record => {
+			ingredients.push({
+				name: record.get('i').properties.name,
+				category: record.get('i').properties.category || '',
+			});
+		});
+
+		res.json(ingredients);
+	} catch (err) {
+		next(err);
+	}
+});
+
 router.post('/', async (req, res, next) => {
 	const { name } = req.body;
 	console.log('in route');
@@ -38,3 +59,17 @@ router.post('/', async (req, res, next) => {
 		next(err);
 	}
 });
+
+router.put('/update', async (req, res, next) => {
+	const { name, category } = req.body;
+	console.log(req.body)
+	try {
+	await runQuery(`MATCH (i:Ingredient {name: $name}) SET i.category=$category`, {
+			name,category
+		});
+		res.json({ status: true });
+	} catch (err) {
+		next(err);
+	}
+});
+

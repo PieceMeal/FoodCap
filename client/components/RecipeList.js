@@ -17,7 +17,10 @@ import {
   setLikedRecipesThunk,
   deleteLiked,
   deletePopular,
-  setPopularRecipesThunk
+  setPopularRecipesThunk,
+  getAllRecipesThunk,
+  setBookmarkedRecipesThunk,
+  setAlsoLikedThunk
 } from '../store/genericRecLists';
 
 // STATE AND DISPATCH FOR RECOMMENDATIONS
@@ -45,7 +48,13 @@ const mapPopularDispatch = dispatch => ({
   setListsThunk: () => dispatch(setListsThunk()),
   addRecipeToListThunk: body => dispatch(addRecipeToListThunk(body))
 });
-
+//ALL STATE AND DISPATCH 
+const mapAllToState = state => ({
+  recipes: state.genericRecLists.allRecipes
+})
+const mapAllDispatch = dispatch => ({
+  fetchRecipes: () => dispatch(getAllRecipesThunk())
+})
 // LIKED RECIPES LIST
 const mapLikesToState = state => ({
   recipes: state.genericRecLists.pastLikes,
@@ -57,17 +66,46 @@ const mapLikesDispatch = dispatch => ({
   setListsThunk: () => dispatch(setListsThunk()),
   addRecipeToListThunk: body => dispatch(addRecipeToListThunk(body))
 });
-
+// BOOKMARKS
+const mapBookmarksToState = state => ({
+  recipes: state.genericRecLists.bookmarks,
+  lists: state.lists
+});
+const mapBookmarksToDispatch = dispatch => ({
+  fetchRecipes: () => dispatch(setBookmarkedRecipesThunk()),
+  setListsThunk: () => dispatch(setListsThunk()),
+  addRecipeToListThunk: body => dispatch(addRecipeToListThunk(body))
+});
+//USERS ALSO LIKED
+const mapAlsoLikedToState = state => ({
+  lists: state.lists,
+  recipes: state.genericRecLists.alsoLiked,
+  singleRecipe: state.singleRecipe
+});
+const mapAlsoLikedToDispatch = dispatch => ({
+  setListsThunk: () => dispatch(setListsThunk()),
+  addRecipeToListThunk: body => dispatch(addRecipeToListThunk(body)),
+  fetchRecipesWithName: recipeName => dispatch(setAlsoLikedThunk(recipeName))
+});
 class RecipeList extends Component {
   state = {
     listName: '',
     checked: {}
   };
   componentDidMount() {
-    this.props.fetchRecipes();
+    if (this.props.fetchRecipesWithName) {
+      this.props.fetchRecipesWithName(this.props.recipeName);
+    } else {
+      this.props.fetchRecipes();
+    }
+
     if (this.props.lists.length < 1) {
-      console.log('running thunk');
       this.props.setListsThunk();
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.recipeName !== this.props.recipeName) {
+      this.props.fetchRecipesWithName(this.props.recipeName);
     }
   }
   handleSubmit = e => {
@@ -93,9 +131,7 @@ class RecipeList extends Component {
     let uuid = this.state.checked[recipe];
     let body = { uuid, recipe };
     //dispatch thank for sending list info, recipe info
-
     this.props.addRecipeToListThunk(body);
-
     this.setState({ [recipe]: false, checked: {} });
   };
   handleOpen = name => {
@@ -110,16 +146,10 @@ class RecipeList extends Component {
       return (
         <div
           style={{
-            backgroundColor: '#ffffe5',
-
             marginTop: '5vh',
             marginLeft: '10vw',
             marginRight: '10vw',
-            marginBottom: '40px',
-            padding: '20px',
-
-            border: '2px solid black',
-            borderRadius: '5px'
+            marginBottom: '40px'
           }}
         >
           <Grid columns={4} centered>
@@ -127,7 +157,13 @@ class RecipeList extends Component {
               {this.props.recipes.map((rec, id) => {
                 return (
                   <Grid.Column key={id}>
-                    <Card style={{ marginTop: '20px' }}>
+                    <Card
+                      style={{
+                        marginTop: '20px',
+                        padding: '8px',
+                        border: '1px solid black'
+                      }}
+                    >
                       <Link to={`/recipes/singleview/${rec.name}`}>
                         <Image
                           src={rec.image}
@@ -203,3 +239,14 @@ export const PopularList = connect(mapPopularToState, mapPopularDispatch)(
 );
 
 export const LikedList = connect(mapLikesToState, mapLikesDispatch)(RecipeList);
+export const AllRecipes = connect(mapAllToState, mapAllDispatch)(RecipeList)
+
+export const BookmarkedList = connect(
+  mapBookmarksToState,
+  mapBookmarksToDispatch
+)(RecipeList);
+
+export const AlsoLikedList = connect(
+  mapAlsoLikedToState,
+  mapAlsoLikedToDispatch
+)(RecipeList);

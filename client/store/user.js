@@ -77,9 +77,21 @@ export const logout = () => async dispatch => {
   }
 };
 
+export const setAccountInfoThunk = updateData => async dispatch => {
+  try {
+    const { data } = await axios.put('/api/users/setaccountinfo', updateData);
+    dispatch(getUser(data));
+  } catch (err) {
+    console.err(err);
+  }
+};
+
 export const setPreference = (preferencesObj, userId) => async dispatch => {
   try {
-    const { data } = await axios.put(`/api/users/${userId}`, preferencesObj);
+    const { data } = await axios.put(
+      `/api/users/setpref/${userId}`,
+      preferencesObj
+    );
     dispatch(getUser(data.user));
   } catch (err) {
     console.error(err);

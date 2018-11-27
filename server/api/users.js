@@ -5,14 +5,7 @@ const { runQuery, driver } = require('../db/neo');
 module.exports = router;
 
 //Jaccard théoreme running every 5 min to delete connections between user nodes and recreate new ones taking in consideration new views and new favorites
-setInterval(async () => {
 
-  await runQuery(`MATCH(:Person)-[s:similar]-(:Person) DELETE s`);
-
-  await runQuery(
-    `MATCH(p:Person)-[:like|:HAS_VIEWED|:HAS_FAVORITE]-(n) WITH {item:id(p), categories:collect(id(n))} AS userdata WITH collect(userdata) AS data CALL algo.similarity.jaccard.stream(data, {topK:3, similarityCutoff:0.1}) YIELD item1, item2, count1, count2, intersection, similarity MATCH (z:Person {uuid: algo.getNodeById(item1).uuid}),(y:Person {uuid: algo.getNodeById(item2).uuid}) MERGE (z)-[c:similar]->(y) RETURN z`
-  );
-}, 300000);
 router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll({
@@ -27,11 +20,16 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-// grab user recommendations based on [:similar] connections to other users
+// grab user recommendations based on [:similar] connections to other users, before grabbing recommendations we:
+// DETACH OLD SIMILAR CONNECTIONS, RUN SIMILARITY INDEX AND REATTACH - THEN SEND RECS BACK
 router.get('/userrec', async (req, res, next) => {
   try {
     let uuid = req.user.uuid;
-    //
+    await runQuery(`MATCH(:Person)-[s:similar]-(:Person) DELETE s`);
+
+    await runQuery(
+      `MATCH(p:Person)-[:like|:HAS_VIEWED|:HAS_FAVORITE]-(n) WITH {item:id(p), categories:collect(id(n))} AS userdata WITH collect(userdata) AS data CALL algo.similarity.jaccard.stream(data, {topK:3, similarityCutoff:0.1}) YIELD item1, item2, count1, count2, intersection, similarity MATCH (z:Person {uuid: algo.getNodeById(item1).uuid}),(y:Person {uuid: algo.getNodeById(item2).uuid}) MERGE (z)-[c:similar]->(y) RETURN z`
+    );
     let recipes = await runQuery(`
     Match (a:Person {uuid: "${uuid}"})-[z:similar]->(b:Person)-[:HAS_VIEWED |:HAS_FAVORITE]-(c:Recipe)where not (a)-[:HAS_FAVORITE]-(c) with count(c)as importance,a,b,c return distinct c limit 8`);
 
@@ -50,10 +48,19 @@ router.get('/userrec', async (req, res, next) => {
     next(err);
   }
 });
+router.put('/setaccountinfo', async (req, res, next) => {
+  const user = req.user.uuid;
+  const userInfo = await User.update(req.body, {
+    where: { uuid: user },
+    returning: true,
+    plain: true
+  });
 
+  res.json(userInfo[1], 201);
+});
 // Set user [:like] to ingredient, category and cuisine & set [:similar] with Jaccard
 
-router.put('/:userId', async (req, res, next) => {
+router.put('/setpref/:userId', async (req, res, next) => {
   try {
     const { favCuisines, favIngredients, favCategory } = req.body;
     let userId = req.params.userId;
@@ -83,11 +90,6 @@ router.put('/:userId', async (req, res, next) => {
       MATCH (a: Person {uuid: "${uuid}"}), (b:Cuisine {name: "${cuisine}"})
       MERGE (a)-[:like]-> (b)`);
     }
-
-    // Define similars with Jaccard
-    let records = await runQuery(
-      `MATCH(p:Person)-[:like|:HAS_VIEWED|:HAS_FAVORITE]-(n) WITH {item:id(p), categories:collect(id(n))} AS userdata WITH collect(userdata) AS data CALL algo.similarity.jaccard.stream(data, {topK:3, similarityCutoff:0.1}) YIELD item1, item2, count1, count2, intersection, similarity MATCH (z:Person {uuid: algo.getNodeById(item1).uuid}),(y:Person {uuid: algo.getNodeById(item2).uuid}) MERGE (z)-[c:similar]->(y) RETURN z`
-    );
 
     let updatedUser = await user.update({
       formFilled: true

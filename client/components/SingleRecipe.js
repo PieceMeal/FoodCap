@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Segment, Divider, Button } from 'semantic-ui-react';
+import { Segment, Divider, Button, Message, Icon } from 'semantic-ui-react';
 import {
   setRecipeThunk,
   deleteRecipe,
-  toggleLikeThunk
+  toggleLikeThunk,
+  toggleBookmarkThunk
 } from '../store/singlerecipe';
 import Navbar from './navbar';
+import { AlsoLikedList } from './RecipeList';
 const mapStateToProps = state => {
   return {
-    recipe: state.singlerecipe
+    recipe: state.singlerecipe,
+    alsoLiked: state.genericRecLists.alsoLiked,
+    name: state.singlerecipe.name
   };
 };
 
@@ -17,7 +21,8 @@ const mapDispatchToProps = dispatch => {
   return {
     setRecipe: searchTerm => dispatch(setRecipeThunk(searchTerm)),
     deleteStore: () => dispatch(deleteRecipe()),
-    toggleLike: name => dispatch(toggleLikeThunk(name))
+    toggleLike: name => dispatch(toggleLikeThunk(name)),
+    toggleBookmark: name => dispatch(toggleBookmarkThunk(name))
   };
 };
 
@@ -27,6 +32,7 @@ const style = {
     marginTop: '5vh',
     marginLeft: '10vw',
     marginRight: '10vw',
+    marginBottom: '4vw',
     padding: '20px',
 
     border: '2px solid black',
@@ -40,13 +46,24 @@ class SingleRecipe extends Component {
   async componentDidMount() {
     await this.props.setRecipe(this.props.match.params.recipename);
   }
-
+  async componentDidUpdate(prevProps) {
+    if (
+      prevProps.match.params.recipename !== this.props.match.params.recipename
+    ) {
+      await this.props.setRecipe(this.props.match.params.recipename);
+      window.scrollTo(0, 0);
+    }
+  }
   componentWillUnmount() {
     this.props.deleteStore();
   }
 
   handleAddLike = () => {
     this.props.toggleLike(this.props.recipe.name);
+  };
+
+  handleBookmark = () => {
+    this.props.toggleBookmark(this.props.recipe.name);
   };
 
   render() {
@@ -154,8 +171,15 @@ class SingleRecipe extends Component {
                   Add to List
                 </Button>
 
-                <Button type="button" style={style.buttonMargin}>
-                  Bookmark
+                <Button
+                  className={
+                    recipe.hasBookmark ? 'ui yellow button' : 'ui button'
+                  }
+                  type="button"
+                  style={style.buttonMargin}
+                  onClick={this.handleBookmark}
+                >
+                  {recipe.hasBookmark ? 'Bookmarked' : 'Bookmark'}
                 </Button>
                 <div
                   className={recipe.hasLike ? 'ui green button' : 'ui button'}
@@ -168,10 +192,23 @@ class SingleRecipe extends Component {
               </div>
             </div>
           </div>
+          <Divider horizontal>
+            <h3>Users Who Liked This Also Liked:</h3>
+          </Divider>
+          {this.props.name ? (
+            <AlsoLikedList recipeName={this.props.name} />
+          ) : null}
         </React.Fragment>
       );
     } else {
-      return <h1>LOADING!!! WAIT!</h1>;
+      return   ( <Message icon>
+      <Icon name='circle notched' loading />
+       <Message.Content>
+         <Message.Header>Just one second</Message.Header>
+         We are fetching that content for you.
+      </Message.Content>
+    </Message>
+      )
     }
   }
 }
