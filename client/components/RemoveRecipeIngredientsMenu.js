@@ -8,13 +8,13 @@ const RemoveRecipeIngredientsMenu = props => {
 			<Modal.Header>
 				Do you want to remove the following ingredients?
 			</Modal.Header>
-			<Modal.Content>
+			<Modal.Content className="deletemodal">
 				<Grid columns="five" divided>
 					<Grid.Row>
 						<Grid.Column>Ingredient</Grid.Column>
 
-						<Grid.Column>Accept</Grid.Column>
-						<Grid.Column>Reject</Grid.Column>
+						<Grid.Column>Yes: Remove</Grid.Column>
+						<Grid.Column>No: Keep</Grid.Column>
 					</Grid.Row>
 					{props.items.map(item => {
 						return (

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListPreview from './ListPreview';
 import { connect } from 'react-redux';
-import Navbar from './navbar';
 import {
   Container,
   Header,
@@ -102,37 +101,15 @@ class UserHome extends React.Component {
     if (this.props.recipes) {
       return (
         <div>
-          <Navbar />
-
           <Container fluid style={{ padding: '50px' }}>
-            <div>
-                <Image src='/logo.png' height='200' centered/>
-              <Header as="h2" icon textAlign="center">
-                {/* <img
-                  style={{
-                    height: '190px',
-                    width: 'auto'
-                  }}
-                  src={user.profilePicture}
-                /> */}
-                <Header.Content>
-                  Welcome {user.userName ? user.userName : user.email}!
-                </Header.Content>
-              </Header>
-              <Form onSubmit={this.handleSubmit}>
-                <Input
-                  size="large"
-                  icon="add"
-                  placeholder="create new list..."
-                  onChange={this.handleChange}
-                  value={this.state.listName}
-                />
-              </Form>
-            </div>
-            <Divider />
-            <Container>
-              <ListPreview />
-            </Container>
+              <Divider horizontal>
+                <h3>Your Lists:</h3>
+              </Divider>
+              <ListPreview
+                handleSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+                value={this.state.listName}
+              />
 
             <Divider horizontal>
               <h3>Recipes You Might Like:</h3>
@@ -151,7 +128,7 @@ class UserHome extends React.Component {
       );
     } else {
       //loading page ??
-      return(
+      return (
         <Loading />
       // <Message icon>
       //   <Icon name='circle notched' loading />

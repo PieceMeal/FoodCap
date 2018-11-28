@@ -28,7 +28,7 @@ const mapDispatchToProps = dispatch => {
 
 const style = {
   wholeTray: {
-    backgroundColor: '#E6E6FA',
+    backgroundColor: '#D3D3D3',
     marginTop: '5vh',
     marginLeft: '10vw',
     marginRight: '10vw',
@@ -71,31 +71,23 @@ class SingleRecipe extends Component {
     if (recipe.name) {
       return (
         <React.Fragment>
-          <Navbar />
-          <div style={style.wholeTray}>
-            <Segment
-              style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                justifyContent: 'center',
-                border: '1px solid black'
-              }}
-            >
-              <h2>
-                <b>{recipe.name}</b>
-              </h2>
-            </Segment>
+          <Divider horizontal>
+            <h3>{recipe.name}</h3>
+          </Divider>
             <img
               src={recipe.image}
               style={{
+                display: 'block',
+                margin: 'auto',
+                width: '50%',
                 maxHeight: '550px',
                 minHeight: '375px',
                 marginTop: '30px',
-                border: '13px solid #3e2b14',
+                border: '13px solid black',
                 padding: '7px',
                 backgroundColor: 'white'
               }}
-              alt="no image"
+              alt="/logo.png"
             />
             <div
               style={{
@@ -119,9 +111,9 @@ class SingleRecipe extends Component {
                   role="list"
                   className="ui bulleted list"
                 >
-                  <h2>
-                    <b>INGREDIENTS</b>
-                  </h2>
+                  <Divider horizontal>
+                    <h3>Ingredients</h3>
+                  </Divider>
                   {Object.keys(recipe.ingredients).map(ingredient => {
                     return (
                       <div role="listitem" className="item" key={ingredient}>
@@ -134,16 +126,15 @@ class SingleRecipe extends Component {
                       </div>
                     );
                   })}
-                  <Divider />
                 </div>
                 <div
                   role="list"
                   className="ui list"
                   style={style.ingredientContainer}
                 >
-                  <h2>
-                    <b>PREPARATION</b>
-                  </h2>
+                  <Divider horizontal>
+                    <h3>Preparation:</h3>
+                  </Divider>
                   {recipe.instructions.map((step, i) => {
                     return (
                       <li
@@ -191,7 +182,6 @@ class SingleRecipe extends Component {
                 </div>
               </div>
             </div>
-          </div>
           <Divider horizontal>
             <h3>Users Who Liked This Also Liked:</h3>
           </Divider>

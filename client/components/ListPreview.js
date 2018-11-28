@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, List, Button, Icon } from 'semantic-ui-react';
+import { Image, Card, Icon, Grid, Form, Input, Button, Item } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { setListsThunk, deleteListThunk } from '../store/lists';
 import { Link } from 'react-router-dom';
@@ -20,40 +20,62 @@ class ListPreview extends React.Component {
   //     }
   // }
   handleDelete = uuid => {
-    //this will be a thunk for deleting the lists.
     this.props.deleteListThunk(uuid);
   };
   render() {
     return (
-      <List animated horizontal divided>
-        {this.props.lists.map(list => {
-          const path = '/lists/' + list.uuid;
-          return (
-            <List.Item key={list.uuid}>
-              <List.Content>
-                <Link to={path}>
-                  <List.Header style={{}}>
-                    <img src="/List Icon.svg" height="50px" />
-                    <br />
-                    <small
-                      style={{
-                        fontFamily: 'Arial Black, Gadget, sans-serif'
-                      }}
-                    >
-                      {list.name}
-                    </small>
-                  </List.Header>
-                </Link>
-              </List.Content>
-              <Icon
-                onClick={() => this.handleDelete(list.uuid)}
-                link
-                name="close"
-              />
-            </List.Item>
-          );
-        })}
-      </List>
+      <div className="listcontainer">
+        <Card className="addlist">
+          <Card.Content textAlign="center">
+            <Card.Header>
+              <Image centered size="tiny" src='/logo.png' />
+              <Form onSubmit={this.props.handleSubmit}>
+                <Input
+                  size="large"
+                  icon="add"
+                  placeholder="create new list..."
+                  onChange={this.props.handleChange}
+                  value={this.props.value}
+                />
+              </Form>
+            </Card.Header>
+          </Card.Content>
+        </Card>
+        <Grid columns={6} className="listgrid">
+          <Grid.Row>
+            {this.props.lists.map(list => {
+              const path = '/lists/' + list.uuid
+              return (
+                <Grid.Column key={list.uuid}>
+                  <Card className="listcard" >
+                    <Card.Content textAlign="center">
+                      <Item.Image
+                        as='a'
+                        href={path}
+                        src='/List Icon.svg'
+                        height='50px'
+                      />
+                      <br />
+                      <small style={{fontFamily: 'Arial Black, Gadget, sans-serif'}}>
+                        {list.name}
+                      </small>
+                    </Card.Content>
+                    <Card.Content extra>
+                      <Button
+                        size="mini"
+                        negative
+                        floated="right"
+                        onClick={() => this.handleDelete(list.uuid)}
+                        icon={<Icon name="remove circle" />}
+                      />
+                    </Card.Content>
+                  </Card>
+                </Grid.Column>
+              )
+            })}
+          </Grid.Row>
+        </Grid>
+      </div>
     );
   }
 }

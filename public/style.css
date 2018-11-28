@@ -15,6 +15,81 @@ nav a {
   margin: 1em;
 }
 
+.main {
+  margin-top: 110px;
+}
+
+.options {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: rgb(203, 210, 212);
+  border-radius: 4px;
+  align-content: stretch;
+  width: 100%;
+  border: solid 4px black
+}
+
+.options .image {
+  margin: 5px;
+  border: solid 2px black
+}
+
+.listcontainer {
+  display: flex
+}
+
+.listcontainer .listgrid {
+  width: 75%
+}
+
+.listcard {
+  height: 200px;
+}
+
+.addlist {
+  height: 200px;
+  width: 15%;
+  float: right
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+  background-color: #304d58;
+  height: 110px;
+  justify-content: space-between;
+}
+
+.deletemodal {
+  height: 500px
+}
+
+.navbarlogo {
+  margin-left: 100px
+}
+
+.accounthome {
+  background-size: cover;
+  justify-content: center
+}
+
+.navbar .navbar_menu {
+  height: 100px;
+  margin-right: 20px;
+  margin-top: 25px;
+}
+
+.background {
+  background: #657F88;
+  background-size: cover;
+  justify-content: center
+}
+
 .box_item_component .outer {
   border-top: none;
   min-width: 140px;
@@ -41,6 +116,10 @@ nav a {
   padding-right: 6px;
 }
 
+.drag_things_to_boxes {
+  margin-top: 7px;
+}
+
 
 .drag_things_to_boxes .boxes h3 {
   width: 110px;
@@ -51,9 +130,6 @@ nav a {
   flex-grow: 1;
   align-self: center;
   margin: 10px;
-
-
-
 }
 
 /* options box */
@@ -76,8 +152,6 @@ nav a {
 
 /* drop target box */
 .drag_things_to_boxes .component_box {
-
-
   width: 100%;
   flex-wrap: wrap;
 }
@@ -86,14 +160,14 @@ nav a {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  background: rgb(12, 54, 54);
+  background: #657F88;
   border-radius: 4px;
   width: 100%;
   height: 300px;
 }
 
 .drag_things_to_boxes .highlighted .box {
-  box-shadow: inset 0 0 4px #00f;
+  box-shadow: inset 0 0 4px green;
 }
 
 .crossedItem {
