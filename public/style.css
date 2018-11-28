@@ -65,6 +65,10 @@ nav a {
   justify-content: space-between;
 }
 
+.navbarlogo {
+  margin-left: 100px
+}
+
 .accounthome {
   background-size: cover;
   justify-content: center

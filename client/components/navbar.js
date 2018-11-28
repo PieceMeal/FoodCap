@@ -43,11 +43,13 @@ class Navbar extends React.Component {
             src='/header.png'
             as={Link} to='/home'
           />
-          <Image
-            size="tiny"
-            src='/whitelogo.png'
-            as={Link} to='/home'
-          />
+          <div className="navbarlogo">
+            <Image
+              size="tiny"
+              src='/whitelogo.png'
+              as={Link} to='/home'
+            />
+          </div>
           <div className="navbar_menu">
             <Menu compact size="small" >
               <AccountMenu />
