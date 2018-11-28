@@ -220,8 +220,6 @@ router.get('/', async (req, res, next) => {
 	try {
     let key = req.query.key;
     if(key){
-		  console.log('key from req.query', key);
-      console.log(' from req.query', req.query);
       //search query, looking for recipe with a search keyword user has provided
 		  const { records } = await runQuery(`
         MATCH (n)-[a:belongsToCategory|belongsToCuisine|hasIngredient|hasReview*1..2]-(r:Recipe)
@@ -231,7 +229,6 @@ router.get('/', async (req, res, next) => {
         order by c desc
         limit 4`);
 		  const recc = records.map(rec => rec.get('r').properties);
-		  // console.log('my record', recc);
       res.json(recc);
     }else {
       const {records} = await runQuery(

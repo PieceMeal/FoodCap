@@ -20,6 +20,7 @@ import {
   addRecipeToListThunk
 } from '../store/lists';
 import { RecommendationsList, PopularList } from './RecipeList';
+import { Loading } from './'
 /**
  * COMPONENT
  */
@@ -151,13 +152,14 @@ class UserHome extends React.Component {
     } else {
       //loading page ??
       return(
-      <Message icon>
-        <Icon name='circle notched' loading />
-         <Message.Content>
-           <Message.Header>Just one second</Message.Header>
-           We are fetching that content for you.
-        </Message.Content>
-      </Message>
+        <Loading />
+      // <Message icon>
+      //   <Icon name='circle notched' loading />
+      //    <Message.Content>
+      //      <Message.Header>Just one second</Message.Header>
+      //      We are fetching that content for you.
+      //   </Message.Content>
+      // </Message>
       )
     }
   }

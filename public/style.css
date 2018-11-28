@@ -32,7 +32,7 @@ nav a {
   padding: 10px;
   margin: 3px;
   background-color: white;
-  border: 2px solid green;
+  border: 2px solid black
 }
 
 .box_item_component .grabber {
@@ -41,18 +41,6 @@ nav a {
   padding-right: 6px;
 }
 
-.drag_things_to_boxes {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-/* individual row */
-.drag_things_to_boxes .boxes {
-  display: flex;
-  flex-direction: row;
-  margin-top: 10px;
-}
 
 .drag_things_to_boxes .boxes h3 {
   width: 110px;
@@ -62,24 +50,35 @@ nav a {
 .drag_things_to_boxes .boxable_component {
   flex-grow: 1;
   align-self: center;
+  margin: 10px;
+
+
+
 }
 
 /* options box */
 .drag_things_to_boxes .options {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
   background: white;
   border-radius: 4px;
-  width: 200px;
-  height: 500px;
-  border-style: solid;
+  align-content: stretch;
+  width: 100%;
+  border-style: solid
+
+}
+
+.drag_things_to_boxes .options .option {
+  width: 100px;
+
 }
 
 /* drop target box */
 .drag_things_to_boxes .component_box {
-  width: 200px;
+
+
+  width: 100%;
   flex-wrap: wrap;
 }
 
@@ -89,8 +88,8 @@ nav a {
   justify-content: center;
   background: rgb(12, 54, 54);
   border-radius: 4px;
-  width: 200px;
-  height: 500px;
+  width: 100%;
+  height: 300px;
 }
 
 .drag_things_to_boxes .highlighted .box {
