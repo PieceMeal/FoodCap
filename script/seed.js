@@ -41,6 +41,7 @@ const testRecipe = {
 };
 
 //maps through json database and creates recipe nodes (run by seed function)
+// eslint-disable-next-line complexity
 const recipeSeeder = async db => {
   const testReview = {
     title: 'An aweasome pasta!',
@@ -65,73 +66,72 @@ const recipeSeeder = async db => {
     });
 
     for (let recipe in db) {
-      if (db.hasOwnProperty(recipe)) {
-        const recipeObj = db[recipe];
-        //create recipe node
-        await runQuery(
-          'MERGE (a:Recipe {name:$name, instructions:$instructions, time:$time, serves:$serves, image:$image}) RETURN a',
-          {
-            name: recipe, //string
-            instructions: recipeObj.method, //array of strings
-            time: recipeObj.time.totalMins || 100, //string number
-            serves: recipeObj.serves,
-            image: recipeObj.image || '' //string
-          }
-        );
-        await runQuery(`MATCH (a:Recipe {name: "15 minute pasta"}), (b:Review)
+      // if (db.hasOwnProperty(recipe)) {
+      const recipeObj = db[recipe];
+      //create recipe node
+      await runQuery(
+        'MERGE (a:Recipe {name:$name, instructions:$instructions, time:$time, serves:$serves, image:$image}) RETURN a',
+        {
+          name: recipe, //string
+          instructions: recipeObj.method, //array of strings
+          time: recipeObj.time.totalMins || 100, //string number
+          serves: recipeObj.serves,
+          image: recipeObj.image || '' //string
+        }
+      );
+      console.log(recipe);
+      await runQuery(`MATCH (a:Recipe {name: "15 minute pasta"}), (b:Review)
         MERGE (a)-[:hasReview]->(b)`);
-        const ingredientsObj = recipeObj.ingredients;
-        for (let ingredient in ingredientsObj) {
-          if (ingredientsObj.hasOwnProperty(ingredient)) {
-            //create ingredient nodes that don't already exist
-            await runQuery('MERGE (b:Ingredient {name:$name}) RETURN b', {
-              name: ingredient
-            });
-            // session.close();
+      const ingredientsObj = recipeObj.ingredients;
+      for (let ingredient in ingredientsObj) {
+        if (ingredientsObj.hasOwnProperty(ingredient)) {
+          //create ingredient nodes that don't already exist
+          await runQuery('MERGE (b:Ingredient {name:$name}) RETURN b', {
+            name: ingredient
+          });
+          // session.close();
 
-            //establish relationship between recipe and ingredient
-            await runQuery(
-              `MATCH (a:Recipe), (b:Ingredient)
+          //establish relationship between recipe and ingredient
+          await runQuery(
+            `MATCH (a:Recipe), (b:Ingredient)
             WHERE a.name = $aName AND b.name = $bName
             MERGE (a)-[r:hasIngredient {quantity: $quantity, type: $type} ]->(b) RETURN r`,
-              {
-                aName: recipe,
-                bName: ingredient,
-                quantity: ingredientsObj[ingredient].quantity,
-                type: ingredientsObj[ingredient].type
-              }
-            );
-            // session.close();
-          }
+            {
+              aName: recipe,
+              bName: ingredient,
+              quantity: ingredientsObj[ingredient].quantity,
+              type: ingredientsObj[ingredient].type
+            }
+          );
+          // session.close();
         }
-        const categoriesObj = recipeObj.categories;
-
-        for (let category in categoriesObj) {
-          if (categoriesObj.hasOwnProperty(category)) {
-            await runQuery(
-              `MERGE (a:Category {name: "${categoriesObj[category]}"})`
-            );
-            await runQuery(`MATCH (a:Recipe {name: "${recipe}"}), (b:Category {name: "${
-              categoriesObj[category]
-            }"})
-				MERGE (a)-[:belongsToCategory]->(b)`);
-          }
-        }
-        const cuisineObj = recipeObj.cuisine;
-        for (let cuisine in cuisineObj) {
-          console.log('we are in cuisine forloop', cuisineObj);
-          if (cuisineObj.hasOwnProperty(cuisine)) {
-            await runQuery(
-              `MERGE (a:Cuisine {name: "${cuisineObj[cuisine]}"})`
-            );
-            await runQuery(`MATCH (a:Recipe {name: "${recipe}"}), (b:Cuisine {name: "${
-              cuisineObj[cuisine]
-            }"})
-				MERGE (a) -[:belongsToCuisine]->(b)`);
-          }
-        }
-        // session.close();
       }
+      const categoriesObj = recipeObj.categories;
+
+      for (let category in categoriesObj) {
+        if (categoriesObj.hasOwnProperty(category)) {
+          await runQuery(
+            `MERGE (a:Category {name: "${categoriesObj[category]}"})`
+          );
+          await runQuery(`MATCH (a:Recipe {name: "${recipe}"}), (b:Category {name: "${
+            categoriesObj[category]
+          }"})
+				MERGE (a)-[:belongsToCategory]->(b)`);
+        }
+      }
+      const cuisineObj = recipeObj.cuisine;
+      for (let cuisine in cuisineObj) {
+        console.log('we are in cuisine forloop', cuisineObj);
+        if (cuisineObj.hasOwnProperty(cuisine)) {
+          await runQuery(`MERGE (a:Cuisine {name: "${cuisineObj[cuisine]}"})`);
+          await runQuery(`MATCH (a:Recipe {name: "${recipe}"}), (b:Cuisine {name: "${
+            cuisineObj[cuisine]
+          }"})
+				MERGE (a) -[:belongsToCuisine]->(b)`);
+        }
+      }
+      // session.close();
+      // }
     }
   } catch (err) {
     console.log(err);
