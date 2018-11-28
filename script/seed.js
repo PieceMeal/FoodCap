@@ -63,17 +63,18 @@ const recipeSeeder = async db => {
       title: testReview.title,
       content: testReview.content
     });
-
+    let count= 0;
     for (let recipe in db) {
       if (db.hasOwnProperty(recipe)) {
         const recipeObj = db[recipe];
         //create recipe node
+        console.log('this is last one', recipe, ++count);
         await runQuery(
           'MERGE (a:Recipe {name:$name, instructions:$instructions, time:$time, serves:$serves, image:$image}) RETURN a',
           {
             name: recipe, //string
             instructions: recipeObj.method, //array of strings
-            time: recipeObj.time.totalMins || 100, //string number
+            time: "0" , //string number
             serves: recipeObj.serves,
             image: recipeObj.image || '' //string
           }
@@ -88,7 +89,7 @@ const recipeSeeder = async db => {
               name: ingredient
             });
             // session.close();
-
+             
             //establish relationship between recipe and ingredient
             await runQuery(
               `MATCH (a:Recipe), (b:Ingredient)
@@ -119,7 +120,6 @@ const recipeSeeder = async db => {
         }
         const cuisineObj = recipeObj.cuisine;
         for (let cuisine in cuisineObj) {
-          console.log('we are in cuisine forloop', cuisineObj);
           if (cuisineObj.hasOwnProperty(cuisine)) {
             await runQuery(
               `MERGE (a:Cuisine {name: "${cuisineObj[cuisine]}"})`
