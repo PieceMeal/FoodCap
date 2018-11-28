@@ -43,40 +43,44 @@ class Navbar extends React.Component {
             src='/header.png'
             as={Link} to='/home'
           />
-          <div className="navbarlogo">
-            <Image
-              size="tiny"
-              src='/whitelogo.png'
-              as={Link} to='/home'
-            />
-          </div>
-          <div className="navbar_menu">
-            <Menu compact size="small" >
-              <AccountMenu />
-              <Menu.Item
-                as={Link}
-                to="/recipes"
-                name="recipes"
-                active={active === 'recipes'}
-                onClick={this.handleItemClick}
-              >
-                All Recipes
-              </Menu.Item>
-              <Menu.Item>
-                <Form onSubmit={this.handleSubmit} >
-                  <Input
-                    onChange={this.handleChange}
-                    icon={<Icon name="search" inverted circular link />}
-                    placeholder="Search Recipes..."
-                    value={this.state.value}
-                  />
-                </Form>
-              </Menu.Item>
-              <Menu.Item onClick={this.handleClick} position="right">
-                Log out
-              </Menu.Item>
-            </Menu>
-          </div>
+          {this.props.isLoggedIn && (
+            <div className="navbarlogo">
+              <Image
+                size="tiny"
+                src='/whitelogo.png'
+                as={Link} to='/home'
+              />
+            </div>
+          )}
+          {this.props.isLoggedIn && (
+            <div className="navbar_menu">
+              <Menu compact size="small" >
+                <AccountMenu />
+                <Menu.Item
+                  as={Link}
+                  to="/recipes"
+                  name="recipes"
+                  active={active === 'recipes'}
+                  onClick={this.handleItemClick}
+                >
+                  All Recipes
+                </Menu.Item>
+                <Menu.Item>
+                  <Form onSubmit={this.handleSubmit} >
+                    <Input
+                      onChange={this.handleChange}
+                      icon={<Icon name="search" inverted circular link />}
+                      placeholder="Search Recipes..."
+                      value={this.state.value}
+                    />
+                  </Form>
+                </Menu.Item>
+                <Menu.Item onClick={this.handleClick} position="right">
+                  Log out
+                </Menu.Item>
+              </Menu>
+            </div>
+          )}
         </div>
 			)
 		}
