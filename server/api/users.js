@@ -31,7 +31,7 @@ router.get('/userrec', async (req, res, next) => {
       `MATCH(p:Person)-[:like|:HAS_VIEWED|:HAS_FAVORITE]-(n) WITH {item:id(p), categories:collect(id(n))} AS userdata WITH collect(userdata) AS data CALL algo.similarity.jaccard.stream(data, {topK:3, similarityCutoff:0.0}) YIELD item1, item2, count1, count2, intersection, similarity MATCH (z:Person {uuid: algo.getNodeById(item1).uuid}),(y:Person {uuid: algo.getNodeById(item2).uuid}) MERGE (z)-[c:similar]->(y) RETURN z`
     );
     let recipes = await runQuery(`
-    Match (a:Person {uuid: "${uuid}"})-[z:similar]->(b:Person)-[:HAS_VIEWED |:HAS_FAVORITE]-(c:Recipe)where not (a)-[:dislike]->()-[*1]-(c) OR (a)-[:HAS_FAVORITE]-(c) with count(c)as importance,a,b,c return distinct c limit 8`);
+    Match (a:Person {uuid: "${uuid}"})-[z:similar]->(b:Person)-[:HAS_VIEWED |:HAS_FAVORITE]-(c:Recipe)where not (a)-[:dislike]->()-[*1]-(c) and not (a)-[:HAS_FAVORITE]->(c) with count(c)as importance,a,b,c return distinct c limit 8`);
 
     const recipesArray = [];
     recipes.records.forEach((rec, i) => {
@@ -61,7 +61,14 @@ router.put('/setaccountinfo', async (req, res, next) => {
 
 router.put('/setpref/:userId', async (req, res, next) => {
   try {
-    const { favCuisines, favIngredients, favCategory, hateCuisines, hateIngredients, hateCategory } = req.body;
+    const {
+      favCuisines,
+      favIngredients,
+      favCategory,
+      hateCuisines,
+      hateIngredients,
+      hateCategory
+    } = req.body;
     let userId = req.params.userId;
     let user = await User.findById(userId);
     let uuid = user.uuid;
@@ -90,12 +97,12 @@ router.put('/setpref/:userId', async (req, res, next) => {
       MERGE (a)-[:like]-> (b)`);
     }
     //dislikes
-    for(let i =0; i< hateCuisines.length; i++) {
+    for (let i = 0; i < hateCuisines.length; i++) {
       let cuisine = hateCuisines[i];
       await runQuery(
         `MATCH (a:Person {uuid: "${uuid}"}), (b:Cuisine {name: "${cuisine}"})
         MERGE (a)-[:dislike]-(b)`
-      )
+      );
     }
     for (let i = 0; i < hateCategory.length; i++) {
       let category = hateCategory[i];
