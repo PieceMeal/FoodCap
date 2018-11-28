@@ -29,7 +29,8 @@
 "american" : { "name" : "American"},
 "british" : {"name" : "British"},
 "french": {"name": "French"},
-"brazilian": {"name": "Brazilian"}
+"brazilian": {"name": "Brazilian"},
+"african": {"name": "African"}
 
 
 }
