@@ -112,9 +112,11 @@ const mapStateToProps = state => {
 	});
 	if (list.ingredients) {
 		list.ingredients.forEach(i => {
-			const { name, quantity, type, category } = i;
-			const tempName = category.length > 0 ? category : 'other';
-			const mappedOption = options.filter(opt => tempName === opt.value);
+			let { name, quantity, type, category } = i;
+			if (category === '') category = 'other';
+			//console.log('test');
+			// const tempName = category.length > 0 ? category : 'other';
+			const mappedOption = options.filter(opt => category === opt.value);
 			let categoryName;
 			if (mappedOption.length > 0) {
 				categoryName = mappedOption[0].text;
