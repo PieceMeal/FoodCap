@@ -1318,7 +1318,9 @@
       "serves": "Makes 10Makes 10",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/asparagus_and_puff_00402_16x9.jpg",
       "isVegetarian": true,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["appetizer"],
+      "cuisine" : ["french"]
     },
   
     "Asparagus and poached eggs puff tarts with parmesan and basil": {
@@ -1357,7 +1359,9 @@
       "serves": "Serves 6Serves 6",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/asparagus_and_poached_80127_16x9.jpg",
       "isVegetarian": true,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["breakfast"],
+      "cuisine" : ["french"]
     },
   
     "Avocado salad": {
@@ -1389,7 +1393,9 @@
       "serves": "Serves 1Serves 1",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/avocado_salad_60227_16x9.jpg",
       "isVegetarian": true,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["quick", "salad"],
+      "cuisine" : ["american", "british"]
     },
   
     "Avocado pasta with peas and mint": {
@@ -1421,7 +1427,9 @@
       "serves": "Serves 4Serves 4",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/avocado_pasta_with_peas_31700_16x9.jpg",
       "isVegetarian": true,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["pasta"],
+      "cuisine" : ["italian"]
     },
   
     "Simple baba ganoush": {
@@ -1450,7 +1458,9 @@
       "serves": "Serves 4Serves 4",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/babaganoush_78707_16x9.jpg",
       "isVegetarian": true,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["salad", "appetizer"],
+      "cuisine" : ["indian", "syrian"]
     },
   
     "Bacon and eggs bites": {
