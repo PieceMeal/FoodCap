@@ -28,7 +28,7 @@ router.get('/userrec', async (req, res, next) => {
     await runQuery(`MATCH(:Person)-[s:similar]-(:Person) DELETE s`);
 
     await runQuery(
-      `MATCH(p:Person)-[:like|:HAS_VIEWED|:HAS_FAVORITE]-(n) WITH {item:id(p), categories:collect(id(n))} AS userdata WITH collect(userdata) AS data CALL algo.similarity.jaccard.stream(data, {topK:3, similarityCutoff:0.1}) YIELD item1, item2, count1, count2, intersection, similarity MATCH (z:Person {uuid: algo.getNodeById(item1).uuid}),(y:Person {uuid: algo.getNodeById(item2).uuid}) MERGE (z)-[c:similar]->(y) RETURN z`
+      `MATCH(p:Person)-[:like|:HAS_VIEWED|:HAS_FAVORITE]-(n) WITH {item:id(p), categories:collect(id(n))} AS userdata WITH collect(userdata) AS data CALL algo.similarity.jaccard.stream(data, {topK:3, similarityCutoff:0.0}) YIELD item1, item2, count1, count2, intersection, similarity MATCH (z:Person {uuid: algo.getNodeById(item1).uuid}),(y:Person {uuid: algo.getNodeById(item2).uuid}) MERGE (z)-[c:similar]->(y) RETURN z`
     );
     let recipes = await runQuery(`
     Match (a:Person {uuid: "${uuid}"})-[z:similar]->(b:Person)-[:HAS_VIEWED |:HAS_FAVORITE]-(c:Recipe)where not (a)-[:dislike]->()-[*1]-(c) OR (a)-[:HAS_FAVORITE]-(c) with count(c)as importance,a,b,c return distinct c limit 8`);

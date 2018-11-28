@@ -50,10 +50,12 @@ const mapPopularDispatch = dispatch => ({
 });
 //ALL STATE AND DISPATCH 
 const mapAllToState = state => ({
-  recipes: state.genericRecLists.allRecipes
+  recipes: state.genericRecLists.allRecipes,
+  lists: state.lists
 })
 const mapAllDispatch = dispatch => ({
-  fetchRecipes: () => dispatch(getAllRecipesThunk())
+  fetchRecipes: () => dispatch(getAllRecipesThunk()),
+  setListsThunk: () => dispatch(setListsThunk())
 })
 // LIKED RECIPES LIST
 const mapLikesToState = state => ({
@@ -90,18 +92,21 @@ const mapAlsoLikedToDispatch = dispatch => ({
 class RecipeList extends Component {
   state = {
     listName: '',
-    checked: {}
+    checked: {},
+    recipes: []
   };
   componentDidMount() {
+    
     if (this.props.fetchRecipesWithName) {
       this.props.fetchRecipesWithName(this.props.recipeName);
     } else {
       this.props.fetchRecipes();
     }
-
+    if(this.props.lists){
     if (this.props.lists.length < 1) {
       this.props.setListsThunk();
     }
+  }
   }
   componentDidUpdate(prevProps) {
     if (prevProps.recipeName !== this.props.recipeName) {
