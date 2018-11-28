@@ -222,7 +222,7 @@
     "isVegetarian": false,
     "recommendations": 0,
     "categories": ["breakfast"],
-    "cuisine" : ["mexican"]
+    "cuisine" : ["italian"]
   },
   "15 minute pasta": {
     "ingredients": {
@@ -1491,7 +1491,9 @@
       "serves": "Serves 6Serves 6",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/bacon_and_eggs_bites_26820_16x9.jpg",
       "isVegetarian": false,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["breakfast", "appetizer"],
+      "cuisine" : ["british", "american"]
     },
   
     "Bacon and white bean soup": {
@@ -1524,7 +1526,9 @@
       "serves": "Serves 4Serves 4",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/bacon_and_white_bean_06748_16x9.jpg",
       "isVegetarian": false,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["soup"],
+      "cuisine" : ["american", "british", "french"]
     },
   
     "Bacon and cheese straws": {
@@ -1560,7 +1564,9 @@
       "serves": "Makes 14 cheese strawsMakes 14 cheese straws",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/bacon_and_mature_cheddar_58920_16x9.jpg",
       "isVegetarian": false,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["simple", "appetizer"],
+      "cuisine" : ["american", "british"]
     },
   
     "Bacon and Brussels sprout salad": {
@@ -1596,7 +1602,9 @@
       "serves": "Serves 6Serves 6",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/baconbutteredbrussel_84617_16x9.jpg",
       "isVegetarian": false,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["salad", "appetizer"],
+      "cuisine" : ["american", "british"]
     },
   
     "Bagels": {
@@ -1636,7 +1644,9 @@
       "serves": "Serves 7Serves 7",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/bagels_47163_16x9.jpg",
       "isVegetarian": true,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["pastry", "appetizer", "baking"],
+      "cuisine" : ["french", "american"]
     },
   
     "Chai muffins": {
@@ -1670,7 +1680,9 @@
       "serves": "Makes 12 muffinsMakes 12 muffins",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chai_muffins_06244_16x9.jpg",
       "isVegetarian": true,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["vegetarian", "baking","breakfast"],
+      "cuisine" : ["british"]
     },
   
     "Chargrilled broccoli pasta with chilli and garlic": {
@@ -1700,7 +1712,9 @@
       "serves": "Serves 1Serves 1",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chargrilled_broccoli_69096_16x9.jpg",
       "isVegetarian": true,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["pasta", "vegetarian"],
+      "cuisine" : ["italian"]
     },
   
     "Chargrilled courgette with basil, mint, chilli and lemon": {
@@ -1711,7 +1725,7 @@
         "lemon": { "quantity": 1, "type": "" },
         "mint": { "quantity": 1, "type": "" },
         "basil": { "quantity": 3, "type": "" },
-        "courgettes": { "quantity": 2, "type": "oz" }
+        "zucchini": { "quantity": 2, "type": "oz" }
   
       },
       "method": [
@@ -1731,7 +1745,9 @@
       "serves": "Serves 4-6Serves 4-6",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chargrilledcourgette_85172_16x9.jpg",
       "isVegetarian": true,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["vegetarian", "lowCal", "hearty"],
+      "cuisine" : ["french", "british"]
     },
   
     "Chargrilled sweet and sour prawns": {
@@ -1769,7 +1785,9 @@
       "serves": "Serves 2Serves 2",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chargrilledsweetands_90198_16x9.jpg",
       "isVegetarian": false,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["seafood"],
+      "cuisine" : ["chinese"]
     },
   
     "Cheddar and bacon frittata": {
@@ -1805,7 +1823,9 @@
       "serves": "Serves 4–6Serves 4–6",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cheddar_and_bacon_31049_16x9.jpg",
       "isVegetarian": false,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["baking","breakfast"],
+      "cuisine" : ["italian"]
     },
     "French toast with ham and cheddar": {
       "ingredients": {
@@ -1842,7 +1862,9 @@
       "serves": "Serves 2Serves 2",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cheddarandhameggybre_72058_16x9.jpg",
       "isVegetarian": false,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["breakfast", "comfort", "quick"],
+      "cuisine" : ["french", "american"]
     },
   
     "Cheese and ham quinoa bites": {
@@ -1879,7 +1901,9 @@
       "serves": "Makes 12Makes 12",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cheese_and_ham_quinoa_37074_16x9.jpg",
       "isVegetarian": false,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["breakfast", "baking", "appetizer"],
+      "cuisine" : ["italian", "american"]
     },
   
     "Cheese and chorizo rolls": {
@@ -1913,7 +1937,9 @@
       "serves": "Makes 8–10Makes 8–10",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cheese_and_chorizo_rolls_96145_16x9.jpg",
       "isVegetarian": false,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["baking", "appetizer"],
+      "cuisine" : ["mexican", "american"]
     },
   
     "Cherry and chocolate mug cake": {
@@ -1945,7 +1971,9 @@
       "serves": "Serves 2Serves 2",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cherryandchocolateca_84273_16x9.jpg",
       "isVegetarian": true,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["dessert", "baking"],
+      "cuisine" : ["french"]
     },
   
     "Cherry tomato, marinated feta and basil skewers": {
@@ -1977,7 +2005,9 @@
       "serves": "Makes 40Makes 40",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/cherrytomatomarinate_68101_16x9.jpg",
       "isVegetarian": true,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["vegetarian", "appetizer", "lowCal"],
+      "cuisine" : ["italian", "french"]
     },
   
     "Chestnut stuffed mushrooms": {
@@ -2013,7 +2043,9 @@
       "serves": "Serves 3-4Serves 3-4",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chestnut_stuffed_83323_16x9.jpg",
       "isVegetarian": false,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["appetizer"],
+      "cuisine" : ["british"]
     },
   
     "Vegan coconut macaroons": {
@@ -2044,7 +2076,8 @@
       "serves": "Makes 16Makes 16",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chewy_coconut_macaroons_69782_16x9.jpg",
       "isVegetarian": true,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["dessert", "baking"]
     },
   
     "Chicken and chorizo paella": {
@@ -2082,7 +2115,9 @@
       "serves": "Serves 6Serves 6",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chicken_and_chorizo_33509_16x9.jpg",
       "isVegetarian": false,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["dinner", "meat"],
+      "cuisine" : ["mexican", "american"]
     },
   
     "Mediterranean chicken with potatoes": {
@@ -2115,7 +2150,9 @@
       "serves": "Serves 4Serves 4",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chicken_cacciatore_with_54620_16x9.jpg",
       "isVegetarian": false,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["meat", "dinner"],
+      "cuisine" : ["italian", "french", "greek"]
     },
   
     "Coconut chilli chicken": {
@@ -2149,7 +2186,9 @@
       "serves": "Serves 4Serves 4",
       "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chicken_curry_with_59058_16x9.jpg",
       "isVegetarian": false,
-      "recommendations": 0
+      "recommendations": 0,
+      "categories": ["dinner", "hearty"],
+      "cuisine" : ["american"]
     },
       "Chicken egg-fried rice": {
         "ingredients": {
@@ -2179,7 +2218,9 @@
         "serves": "Serves 1Serves 1",
         "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chicken_egg_fried_rice_50450_16x9.jpg",
         "isVegetarian": false,
-        "recommendations": 0
+        "recommendations": 0,
+        "categories": ["dinner", "meat"],
+        "cuisine" : ["chinese"]
       },
     
       "Chicken fajita drumsticks with Mexican corn salad": {
@@ -2212,7 +2253,9 @@
         "serves": "Serves 6Serves 6",
         "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chicken_drumsticks_with_66853_16x9.jpg",
         "isVegetarian": false,
-        "recommendations": 0
+        "recommendations": 0,
+        "categories": ["salad", "dinner", "meat"],
+        "cuisine" : ["mexican", "american"]
       },
     
       "Chicken yakitori": {
@@ -2242,7 +2285,9 @@
         "serves": "Serves 4Serves 4",
         "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chickenyakitori_11599_16x9.jpg",
         "isVegetarian": false,
-        "recommendations": 0
+        "recommendations": 0,
+        "categories": ["meat", "dinner"],
+        "cuisine" : ["jappanese"]
       },
     
       "Chilli and garlic-spiced kale crisps": {
@@ -2266,7 +2311,9 @@
         "serves": "Serves 4Serves 4",
         "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chilli_and_garlic_spiced_00826_16x9.jpg",
         "isVegetarian": true,
-        "recommendations": 0
+        "recommendations": 0,
+        "categories": ["salad", "vegetarian", "appetizer","baking"],
+        "cuisine" : ["indian", "british"]
       },
     
       "Chilli and coriander fish parcel": {
@@ -2290,7 +2337,8 @@
         "serves": "Serves 1Serves 1",
         "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chilli_and_coriander_21270_16x9.jpg",
         "isVegetarian": false,
-        "recommendations": 0
+        "recommendations": 0,
+        "categories": ["seafood", "dinner", "lowCal"]
       },
     
       "Steamed chilli soy tofu": {
@@ -2311,7 +2359,9 @@
         "serves": "Serves 2Serves 2",
         "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chillisoytofu_13912_16x9.jpg",
         "isVegetarian": true,
-        "recommendations": 0
+        "recommendations": 0,
+        "categories": ["dinner", "vegetarian"],
+        "cuisine" : ["indian","chinese"]
       },
     
       "Chocolate chip fluffy pancakes": {
@@ -2334,7 +2384,9 @@
         "serves": "Serves 2Serves 2",
         "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chocchippuffypancake_65968_16x9.jpg",
         "isVegetarian": true,
-        "recommendations": 0
+        "recommendations": 0,
+        "categories": ["breakfast", "dessert", "vegetarian"],
+        "cuisine" : ["american"]
       },
     
       "Gluten-free chocolate cake": {
@@ -2358,7 +2410,9 @@
         "serves": "Serves 6-8Serves 6-8",
         "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/chocolate_almond_caprese_27893_16x9.jpg",
         "isVegetarian": true,
-        "recommendations": 0
+        "recommendations": 0,
+        "categories": ["dessert", "vegetarian"],
+        "cuisine" : ["american", "french"]
       },
     
       "Christmas carrots": {
@@ -2380,7 +2434,9 @@
         "serves": "Serves 4Serves 4",
         "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/christmas_carrots_90489_16x9.jpg",
         "isVegetarian": true,
-        "recommendations": 0
+        "recommendations": 0,
+        "categories": ["vegetarian", "appetizer"],
+        "cuisine" : ["american", "british"]
       },
     
       "Christmas Martini": {
@@ -2400,7 +2456,9 @@
         "serves": "Serves 1Serves 1",
         "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/christmas_martini_77981_16x9.jpg",
         "isVegetarian": false,
-        "recommendations": 0
+        "recommendations": 0,
+        "categories": ["alcohol"],
+        "cuisine" : ["british"]
       },
     
       
@@ -2425,7 +2483,9 @@
         "serves": "Serves 4Serves 4",
         "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/classic_burgers_58632_16x9.jpg",
         "isVegetarian": false,
-        "recommendations": 0
+        "recommendations": 0,
+        "categories": ["comfort"],
+        "cuisine" : ["american"]
       },
     
       "Chocolate and ginger oat biscuits": {
@@ -2448,7 +2508,9 @@
         "serves": "Makes 24 biscuitsMakes 24 biscuits",
         "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/classic_stem_ginger_83286_16x9.jpg",
         "isVegetarian": true,
-        "recommendations": 0
+        "recommendations": 0,
+        "categories": ["vegetarian", "breakfast", "hearty"],
+        "cuisine" : ["british"]
       },
     
       
