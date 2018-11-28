@@ -14,7 +14,7 @@ import {
 } from './components';
 import { me } from './store';
 import AccountHome from './components/UserAcct/AccountHome';
-import {AllRecipes} from './components/RecipeList'
+import {AllRecipesComp} from './components/AllRecipes'
 //component
 class Routes extends Component {
 	componentDidMount() {
@@ -40,7 +40,7 @@ class Routes extends Component {
 						<Route path="/home/preferences" component={Preferences} />
 						<Route path="/lists/:id" component={MyList} />
 						<Route path="/shopping/:id" component={ShoppingList} />
-
+            <Route exact path="/recipes" component={AllRecipesComp} />
 						<Route
 							path="/recipes/singleview/:recipename"
 							component={SingleRecipe}

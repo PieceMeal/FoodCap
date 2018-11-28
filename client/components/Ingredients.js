@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
 	Input,
-	Button
+	Button,
+	Select
 } from 'semantic-ui-react';
 import axios from 'axios';
 export default class Ingredients extends Component {
@@ -11,12 +12,22 @@ export default class Ingredients extends Component {
 			ingredients: {},
 		};
 	}
+	 options = [ {key:'produce', value:'produce', text:'Produce'},
+	 {key:'meat', value:'meat', text:'Meat/Seafood'},
+	 {key:'dairy', value:'dairy', text:'Dairy'},
+	 {key:'beverages', value:'beverages', text:'Beverages'},
+	 {key:'bakery', value:'bakery', text:'Bakery & Deli'},
+	 {key:'frozen', value:'frozen', text:'Refrigerated / Frozen'},
+	 {key:'pantry', value:'pantry', text:'Pantry'},
+	 {key:'other', value:'other', text:'Other'}];
 
-	handleChange = (evt,name) => {
-		console.log(evt.target.value,name)
+	handleChange = async (evt,{value},name) => {
+		console.log(value, name)
 		const ingredients = this.state.ingredients
-		ingredients[name] = evt.target.value
+		ingredients[name] = value
 		this.setState({ingredients})
+		const { data } = await axios.put('/api/ingredients/update',{name,category:value});
+
 	}
 
 	handleClick = async (name) => {
@@ -37,7 +48,8 @@ export default class Ingredients extends Component {
 				{Object.keys(this.state.ingredients).map(i => {
 					return (
 						<div key={i}>
-							{i} <Input value={this.state.ingredients[i]}onChange={(e)=>this.handleChange(e,i)} /> <Button onClick={()=>this.handleClick(i)}>Update</Button>
+							{i}
+							<Select options={this.options} value={this.state.ingredients[i]} onChange={(...e) =>this.handleChange(...e,i) }/>
 						</div>
 					);
 				})}

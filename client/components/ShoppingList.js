@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navbar from './navbar';
 import { Header, List, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-
+import { Loading } from './';
 import { setListThunk } from '../store/list';
 
 class ShoppingList extends Component {
@@ -13,6 +13,16 @@ class ShoppingList extends Component {
 			ingredients: {},
 		};
 	}
+	options = [
+		{ key: 'produce', value: 'produce', text: 'Produce' },
+		{ key: 'meat', value: 'meat', text: 'Meat/Seafood' },
+		{ key: 'dairy', value: 'dairy', text: 'Dairy' },
+		{ key: 'beverages', value: 'beverages', text: 'Beverages' },
+		{ key: 'bakery', value: 'bakery', text: 'Bakery & Deli' },
+		{ key: 'frozen', value: 'frozen', text: 'Refrigerated / Frozen' },
+		{ key: 'pantry', value: 'pantry', text: 'Pantry' },
+		{ key: 'other', value: 'other', text: 'Other' },
+	];
 	async componentDidMount() {
 		const { id } = this.props.match.params;
 		this.setState({ loading: true });
@@ -36,7 +46,6 @@ class ShoppingList extends Component {
 	};
 	render() {
 		//dont display until loaded
-		console.log(this.props.categoryMap);
 		if (this.state.loading === true) {
 			return <div />;
 		}
@@ -50,6 +59,7 @@ class ShoppingList extends Component {
 						<Card.Content>
 							<List selection divided>
 								{Object.keys(categoryMap).map(category => {
+									if (categoryMap[category].length === 0) return null;
 									return (
 										<React.Fragment key={category}>
 											<Header>{category} </Header>
@@ -79,20 +89,40 @@ class ShoppingList extends Component {
 				</React.Fragment>
 			);
 		} else {
-			return <div>LOADING</div>;
+			return <Loading />;
 		}
 	}
 }
 
 const mapStateToProps = state => {
+	const options = [
+		{ key: 'produce', value: 'produce', text: 'Produce' },
+		{ key: 'meat', value: 'meat', text: 'Meat/Seafood' },
+		{ key: 'dairy', value: 'dairy', text: 'Dairy' },
+		{ key: 'beverages', value: 'beverages', text: 'Beverages' },
+		{ key: 'bakery', value: 'bakery', text: 'Bakery & Deli' },
+		{ key: 'frozen', value: 'frozen', text: 'Refrigerated / Frozen' },
+		{ key: 'pantry', value: 'pantry', text: 'Pantry' },
+		{ key: 'other', value: 'other', text: 'Other' },
+	];
+
 	const { list } = state;
-	console.log(list);
 	const categoryMap = {};
+	options.forEach(o => {
+		categoryMap[o.text] = [];
+	});
 	if (list.ingredients) {
 		list.ingredients.forEach(i => {
 			const { name, quantity, type, category } = i;
-			const categoryName = category.length > 0 ? category : 'other';
-			if (!categoryMap[categoryName]) categoryMap[categoryName] = [];
+			const tempName = category.length > 0 ? category : 'other';
+			const mappedOption = options.filter(opt => tempName === opt.value);
+			let categoryName;
+			if (mappedOption.length > 0) {
+				categoryName = mappedOption[0].text;
+			} else {
+				categoryName = 'Other';
+			}
+			//	if (!categoryMap[categoryName]) categoryMap[categoryName] = [];
 			categoryMap[categoryName].push({ name, quantity, type });
 		});
 	}

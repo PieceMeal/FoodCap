@@ -234,7 +234,7 @@ router.get('/', async (req, res, next) => {
       const {records} = await runQuery(
         `MATCH (a:Recipe) RETURN a ORDER BY a.name`
       )
-      const recc = records.map(rec => rec.get('r').properties)
+      const recc = records.map(rec => rec.get('a').properties)
       console.log('all records', recc)
       res.json(recc)
     }
