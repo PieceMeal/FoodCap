@@ -398,12 +398,9 @@ class MyList extends Component {
 
 					{/* <div style={style.wholeTray}> */}
 					<div>
-						<Header
-							as="h3"
-							content="Your Tray"
-							// style={style.h3}
-							textAlign="center"
-						/>
+						<Divider horizontal>
+                <h3>Your Menu:</h3>
+      			</Divider>
 						<Card.Group centered itemsPerRow={4}>
 							{recipes.map(recipe => {
 								return (
@@ -418,7 +415,7 @@ class MyList extends Component {
 						</Card.Group>
 						<Divider />
 
-						<table className="ui inverted table">
+						<table className="ui striped teal table">
 							<thead>
 								<tr>
 									<th>Item</th>
@@ -470,9 +467,10 @@ class MyList extends Component {
 																<Button
 																	size="mini"
 																	floated="right"
-																	positive
-																	icon={<Icon name="sticky note outline" />}
-																/>
+																	color="teal"
+																>
+																	Add a Note
+																</Button>
 															}
 															style={{ width: '300px' }}
 														>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Card, Icon, Grid, Form, Input, Button } from 'semantic-ui-react';
+import { Image, Card, Icon, Grid, Form, Input, Button, Item } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { setListsThunk, deleteListThunk } from '../store/lists';
 import { Link } from 'react-router-dom';
@@ -19,15 +19,14 @@ class ListPreview extends React.Component {
   //     this.props.setListsThunk()
   //     }
   // }
-  handleDelete = async uuid => {
-    //this will be a thunk for deleting the lists.
-    await this.props.deleteListThunk(uuid);
+  handleDelete = uuid => {
+    this.props.deleteListThunk(uuid);
   };
   render() {
     return (
       <div className="listcontainer">
         <Card className="addlist">
-          <Card.Content>
+          <Card.Content textAlign="center">
             <Card.Header>
               <Image centered size="tiny" src='/logo.png' />
               <Form onSubmit={this.props.handleSubmit}>
@@ -42,15 +41,20 @@ class ListPreview extends React.Component {
             </Card.Header>
           </Card.Content>
         </Card>
-        <Grid columns={8} className="listgrid">
+        <Grid columns={6} className="listgrid">
           <Grid.Row>
             {this.props.lists.map(list => {
               const path = '/lists/' + list.uuid
               return (
                 <Grid.Column key={list.uuid}>
-                  <Card className="listcard" href={path} >
-                    <Card.Content>
-                      <Image src='/List Icon.svg' height='50px' />
+                  <Card className="listcard" >
+                    <Card.Content textAlign="center">
+                      <Item.Image
+                        as='a'
+                        href={path}
+                        src='/List Icon.svg'
+                        height='50px'
+                      />
                       <br />
                       <small style={{fontFamily: 'Arial Black, Gadget, sans-serif'}}>
                         {list.name}

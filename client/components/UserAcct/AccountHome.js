@@ -22,7 +22,7 @@ class AccountHome extends Component {
     const { user } = this.props;
     if (user.profilePicture) {
       return (
-        <div className="background">
+        <div className="accthome">
           <Grid divided columns={3} style={{ margin: '6vw', height: '40vh' }}>
             <Grid.Row>
               <Grid.Column width={3}>
@@ -46,7 +46,7 @@ class AccountHome extends Component {
                 </p>
                 <p>
                   <b>Picture Url:</b>&nbsp;
-                  {user.profilePicture === '/list.svg'
+                  {user.profilePicture === '/logo.png'
                     ? 'Update your picture below'
                     : user.profilePicture}
                 </p>
