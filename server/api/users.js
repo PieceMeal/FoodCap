@@ -72,7 +72,9 @@ router.put('/setpref/:userId', async (req, res, next) => {
     let userId = req.params.userId;
     let user = await User.findById(userId);
     let uuid = user.uuid;
-
+    //making sure update works
+    await runQuery(`MATCH(a:Person{uuid: "${uuid}"})-[s:like]-(n) DELETE s`);
+    await runQuery(`MATCH(a:Person{uuid: "${uuid}"})-[s:dislike]-(n) DELETE s`);
     //map through faves and draw a like connection between user and ingredient
     for (let i = 0; i < favIngredients.length; i++) {
       let ingredient = favIngredients[i];
@@ -114,7 +116,7 @@ router.put('/setpref/:userId', async (req, res, next) => {
       let ingredient = hateIngredients[i];
       await runQuery(`
       MATCH (a: Person {uuid: "${uuid}"}), (b:Ingredient {name: "${ingredient}"})
-      MERGE (a)-[:like]->(b)`);
+      MERGE (a)-[:dislike]->(b)`);
     }
     let updatedUser = await user.update({
       formFilled: true
