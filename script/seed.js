@@ -41,6 +41,7 @@ const testRecipe = {
 };
 
 //maps through json database and creates recipe nodes (run by seed function)
+// eslint-disable-next-line complexity
 const recipeSeeder = async db => {
   const testReview = {
     title: 'An aweasome pasta!',
@@ -131,7 +132,7 @@ const recipeSeeder = async db => {
           }
         }
         // session.close();
-      }
+      // }
     }
   } catch (err) {
     console.log(err);
@@ -212,30 +213,30 @@ async function seed() {
     ]);
     let userArr = [];
     // Set # of users here
-    for (let i = 0; i <= 15; i++) {
-      let name = random.first();
-      name += '@email.com';
-      userArr.push(User.create({ email: name, password: '123' }));
-    }
-    await Promise.all(userArr);
-    console.log(`seeded ${users.length} users`);
-    console.log(`seeded successfully`);
-    await runQuery(
-      // CHANGE random num for more frequent likes
-      `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .1 then [1] else [] end | merge (x)-[:HAS_FAVORITE]->(y))`
-    );
-    await runQuery(
-      // CHANGE random num for more frequent likes
-      `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .1 then [1] else [] end | merge (x)-[:HAS_VIEWED]->(y))`
-    );
-    await runQuery(
-      // CHANGE random num for more frequent likes
-      `match (r:Category) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .4 then [1] else [] end | merge (x)-[:like]->(y))`
-    );
-    await runQuery(
-      // CHANGE random num for more frequent likes
-      `match (r:Cuisine) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .4 then [1] else [] end | merge (x)-[:like]->(y))`
-    );
+    // for (let i = 0; i <= 15; i++) {
+    //   let name = random.first();
+    //   name += '@email.com';
+    //   userArr.push(User.create({ email: name, password: '123' }));
+    // }
+    // await Promise.all(userArr);
+    // console.log(`seeded ${users.length} users`);
+    // console.log(`seeded successfully`);
+    // await runQuery(
+    //   // CHANGE random num for more frequent likes
+    //   `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .1 then [1] else [] end | merge (x)-[:HAS_FAVORITE]->(y))`
+    // );
+    // await runQuery(
+    //   // CHANGE random num for more frequent likes
+    //   `match (r:Recipe) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .1 then [1] else [] end | merge (x)-[:HAS_VIEWED]->(y))`
+    // );
+    // await runQuery(
+    //   // CHANGE random num for more frequent likes
+    //   `match (r:Category) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .4 then [1] else [] end | merge (x)-[:like]->(y))`
+    // );
+    // await runQuery(
+    //   // CHANGE random num for more frequent likes
+    //   `match (r:Cuisine) with collect(r) as recipes match (p:Person) with collect(p) as users, recipes unwind users as x unwind recipes as y foreach (ignoreme in case when rand() < .4 then [1] else [] end | merge (x)-[:like]->(y))`
+    // );
   } catch (err) {
     console.log(err);
   }
