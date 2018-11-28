@@ -34,6 +34,9 @@
 "british" : {"name" : "British"},
 "french": {"name": "French"},
 "brazilian": {"name": "Brazilian"},
-"hungarian":{"name":"Hungarian"}
+"hungarian":{"name":"Hungarian"},
+
+"african": {"name": "African"}
+
 
 }

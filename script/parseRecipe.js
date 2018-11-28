@@ -19,7 +19,11 @@ const getNutrition = async ingredients => {
     console.error(e);
   }
 };
-
+/*
+,
+		"categories": ["curry"],
+		"cuisine": ["indian"]
+		*/
 async function parseIngredients() {
   const ingredientsList = {};
   const keys = Object.keys(recipes);
