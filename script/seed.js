@@ -120,7 +120,6 @@ const recipeSeeder = async db => {
 				}
 				const cuisineObj = recipeObj.cuisine;
 				for (let cuisine in cuisineObj) {
-					console.log('we are in cuisine forloop', cuisineObj);
 					if (cuisineObj.hasOwnProperty(cuisine)) {
 						await runQuery(
 							`MERGE (a:Cuisine {name: "${cuisineObj[cuisine]}"})`
