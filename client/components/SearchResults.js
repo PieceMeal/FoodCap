@@ -35,10 +35,11 @@ class SearchResults extends Component {
       handleClose = name => {
         this.setState({ [name]: false });
       };
+
     render() {
-        console.log('this is my state in search results', this.props)
         const disableSubmitButton = Object.keys(this.state.checked).length;
         const searchRec = this.props.searchRecipes
+
         const popular = this.props.popular
         const query = this.props.location.search.slice(5)
         if (this.props.searchRecipes.length) {
@@ -122,13 +123,14 @@ class SearchResults extends Component {
                             <Message.Header>Also check popular recipes for this week</Message.Header>
                         </Message>
                         <Divider horizontal>Popular</Divider>
-                        <Grid columns={3} divided>
+                        <Grid columns={4} stretched>
                             <Grid.Row stretched>
                                 {popular.map((rec, i) => {
                                     return (
                                         <Grid.Column width={4} key={i}>
-                                            <Card>
-                                                <Link to={`/recipes/singleview/${rec.name}`}><Image src={rec.image} /></Link>
+                                            <Card style={{ marginTop: "20px",padding: '8px',
+                        border: '1px solid black' }}>
+                                                <Link to={`/recipes/singleview/${rec.name}`}><Image src={rec.image} style={{ height: '150px', width: '100%' }}/></Link>
                                                 <Card.Content>
                                                     <Card.Header>{rec.name}</Card.Header>
                                                     <Card.Meta>
