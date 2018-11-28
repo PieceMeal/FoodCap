@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Navbar from '../navbar';
 import { LikedList, BookmarkedList } from '../RecipeList';
 import AccountUpdateForm from './AccountUpdateForm';
 import { Menu, Grid, Button } from 'semantic-ui-react';
-// Make new Recipe List
-// import RecipeList from '../RecipeList'
 
 class AccountHome extends Component {
   constructor() {
@@ -25,15 +22,7 @@ class AccountHome extends Component {
     const { user } = this.props;
     if (user.profilePicture) {
       return (
-        <div
-          style={{
-            background:
-              'linear-gradient(0deg, rgba(91,25,193,0.16430322128851538) 0%, rgba(53,232,78,0.07466736694677867) 100%)',
-            minHeight: '110vh',
-            backgroundSize: 'cover',
-            justifyContent: 'center'
-          }}
-        >
+        <div className="background">
           <Grid divided columns={3} style={{ margin: '6vw', height: '40vh' }}>
             <Grid.Row>
               <Grid.Column width={3}>

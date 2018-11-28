@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListPreview from './ListPreview';
 import { connect } from 'react-redux';
-import Navbar from './navbar';
 import {
   Container,
   Header,
@@ -102,23 +101,15 @@ class UserHome extends React.Component {
     if (this.props.recipes) {
       return (
         <div>
-
           <Container fluid style={{ padding: '50px' }}>
-            <div>
-              <Form onSubmit={this.handleSubmit}>
-                <Input
-                  size="large"
-                  icon="add"
-                  placeholder="create new list..."
-                  onChange={this.handleChange}
-                  value={this.state.listName}
-                />
-              </Form>
-            </div>
-            <Divider />
-            <Container>
-              <ListPreview />
-            </Container>
+              <Divider horizontal>
+                <h3>Your Lists:</h3>
+              </Divider>
+              <ListPreview
+                handleSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+                value={this.state.listName}
+              />
 
             <Divider horizontal>
               <h3>Recipes You Might Like:</h3>
@@ -137,7 +128,7 @@ class UserHome extends React.Component {
       );
     } else {
       //loading page ??
-      return(
+      return (
         <Loading />
       // <Message icon>
       //   <Icon name='circle notched' loading />

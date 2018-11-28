@@ -15,6 +15,41 @@ nav a {
   margin: 1em;
 }
 
+.options {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: rgb(203, 210, 212);
+  border-radius: 4px;
+  align-content: stretch;
+  width: 100%;
+  border: solid 4px black
+}
+
+.options .image {
+  margin: 5px;
+  border: solid 2px black
+}
+
+.listcontainer {
+  display: flex
+}
+
+.listcontainer .listgrid {
+  width: 100%
+}
+
+.listcard {
+  height: 200px;
+  width: 100%
+}
+
+.addlist {
+  height: 200px;
+  float: right
+}
+
 .navbar {
   display: flex;
   background-color: #304d58;
@@ -26,6 +61,12 @@ nav a {
   height: 100px;
   margin-right: 20px;
   margin-top: 25px;
+}
+
+.background {
+  background: #657F88;
+  background-size: cover;
+  justify-content: center
 }
 
 .box_item_component .outer {
