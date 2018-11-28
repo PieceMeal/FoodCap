@@ -19,7 +19,6 @@ class ItemsConflictModal extends React.Component {
 	}
 
 	async componentDidMount() {
-		console.log('conflict modal mount');
 		let quantity = 0;
 		console.log(this.props.item[0]);
 		for (let i = 0; i < this.props.item.length; i++) {

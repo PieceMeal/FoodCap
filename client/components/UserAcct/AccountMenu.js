@@ -1,30 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu } from 'semantic-ui-react';
-import history from '../../history';
+import { Menu, Dropdown } from 'semantic-ui-react';
 
 const AccountMenu = props => {
   return (
     <Menu.Item>
-      <div className="ui simple dropdown">
-        <div className="text">Your Account</div>
-        <i className="dropdown icon" />
-        <div className="menu">
-          <div className="item" onClick={() => history.push('/home')}>
-            Home
-          </div>
-          <div className="divider" />
-          <div
-            className="item"
-            onClick={() => history.push('/home/preferences')}
+      <Dropdown item icon="user outline" simple>
+        <Dropdown.Menu>
+          <Dropdown.Item
+            as={Link}
+            to="/home/preferences"
           >
-            Change Preferences
-          </div>
-          <div className="item" onClick={() => history.push('/user/account')}>
+            Preferences
+          </Dropdown.Item>
+          <Dropdown.Item
+            as={Link}
+            to="/user/account"
+          >
             Account Info
-          </div>
-        </div>
-      </div>
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
     </Menu.Item>
   );
 };

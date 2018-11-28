@@ -35,7 +35,6 @@
     "recommendations": 0,
     "categories": ["baking", "dinner", "dessert"]
   },
-
   "Almond and lemon polenta cake with orange mascarpone": {
     "ingredients": {
       "butter": { "quantity": "8", "type": "oz" },
@@ -74,7 +73,8 @@
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/almond_and_lemon_polenta_21317_16x9.jpg",
     "isVegetarian": true,
     "recommendations": 0,
-    "categories": ["baking", "dessert", "comfort"]
+    "categories": ["baking", "dessert", "comfort"],
+    "cuisine": ["italian"]
   },
 
   "Almond, cranberry and orange biscotti": {
@@ -117,7 +117,8 @@
     "recommendations": 0,
     "image":
       "https://tutti-dolci.com/wp-content/uploads/2017/04/Almond-Biscotti-1-copy.jpg",
-    "categories": ["baking", "dessert", "comfort", "italian"]
+    "categories": ["baking", "dessert", "comfort"],
+    "cuisine": ["italian"]
   },
   "Almond lentil stew": {
     "ingredients": {
@@ -159,7 +160,8 @@
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/almond_lentil_stew_69086_16x9.jpg",
     "isVegetarian": true,
     "recommendations": 0,
-    "categories": ["hearty", "soup", "comfort"]
+    "categories": ["hearty", "soup", "comfort"],
+    "cuisine": ["british"]
   },
   "Almond rice pudding and cherry compôte": {
     "ingredients": {
@@ -195,21 +197,21 @@
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/almond_rice_pudding_and_42007_16x9.jpg",
     "isVegetarian": true,
     "recommendations": 0,
-    "categories": ["baking", "dessert", "comfort"]
+    "categories": ["baking", "dessert", "comfort", "vegetarian"],
+    "cuisine": ["british"]
   },
   "Vegetarian korma": {
-    "ingredients": [
-      "1 tbsp olive oil",
-      "½ onion, finely chopped",
-      "1 tsp ground turmeric",
-      "½ tsp ground paprika",
-      "½ tsp cayenne pepper",
-      "4 baby cauliflowers, quartered",
-      "150ml/5fl oz double cream",
-      "2 tbsp chopped fresh coriander",
-      "1 tbsp chopped fresh coriander",
-      "50g/2oz toasted flaked almonds"
-    ],
+    "ingredients": {
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "onion": { "quantity": 0.5, "type": "" },
+      "ground turmeric": { "quantity": 1, "type": "tsp" },
+      "paprika": { "quantity": 0.5, "type": "tsp" },
+      "cayenne pepper": { "quantity": 0.5, "type": "tsp" },
+      "cauliflowers": { "quantity": 4, "type": "medium head" },
+      "cream": { "quantity": 1, "type": "oz" },
+      "fresh coriander": { "quantity": 1, "type": "tbsp" },
+      "almonds": { "quantity": 4, "type": "tbsp" }
+    },
     "method": [
       "Heat the oil in a saucepan and gently fry the onion until softened, about 4-5 minutes.",
       "Add the turmeric, paprika and cayenne pepper and stir fry for a further two minutes.",
@@ -230,23 +232,27 @@
     "isVegetarian": true,
     "recommendations": 0,
     "image":
-      "https://cf-images.us-east-1.prod.boltdns.net/v1/static/1033249144001/c63bcbb1-9c0e-490b-bb32-39c8812e1631/80144fdd-15de-48aa-9237-ba339f220174/1280x720/match/image.jpg"
+      "https://cf-images.us-east-1.prod.boltdns.net/v1/static/1033249144001/c63bcbb1-9c0e-490b-bb32-39c8812e1631/80144fdd-15de-48aa-9237-ba339f220174/1280x720/match/image.jpg",
+    "categories": ["hearty", "vegetarian", "curry"],
+    "cuisine": ["indian"]
   },
-  "Almond-crusted salmon with chilli spinach": {
-    "ingredients": [
-      "2 tbsp whole almonds",
-      "large handful fresh parsley",
-      "50g/1¾oz breadcrumbs",
-      "2 tbsp olive oil",
-      "salt and freshly ground black pepper",
-      "1 tsp garlic and horseradish mustard",
-      "150g/5½oz salmon fillet, skinned",
-      "1 tbsp olive oil",
-      "2 garlic cloves, sliced",
-      "150g/5½oz spinach",
-      "pinch chilli flakes",
-      "salt and freshly ground black pepper"
-    ],
+  "Almond-crusted salmon with chili spinach": {
+    "ingredients": {
+      "almonds": { "quantity": 2, "type": "tbsp" },
+      "fresh parsley": { "quantity": 1, "type": "tbsp" },
+      "breadcrumbs": { "quantity": 0.75, "type": "oz" },
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      },
+      "garlic": { "quantity": 1, "type": "tsp" },
+      "horseradish mustard": { "quantity": 1, "type": "teaspoon" },
+      "salmon fillet": { "quantity": 0.5, "type": "oz" },
+      "garlic cloves": { "quantity": 2, "type": "clove" },
+      "spinach": { "quantity": 0.5, "type": "oz" },
+      "chilli": { "quantity": 1, "type": "pinch" }
+    },
     "method": [
       "To make the salmon crust, place the almonds, parsley, breadcrumbs, a dash of olive oil and seasoning into a blender and pulse to combine. ",
       "Spread the garlic and horseradish mustard over the salmon fillet and then roll in the breadcrumbs. Pat to ensure the crumbs stick to the salmon. ",
@@ -267,22 +273,24 @@
     "isVegetarian": false,
     "recommendations": 0,
     "image":
-      "https://images.food52.com/GyVjSkK06xexfVII4DiUynp-lxI=/1200x900/d42aa3bb-f685-44b5-812e-a34c2b0d3ade--almond_crusted_salmon.jpg"
+      "https://images.food52.com/GyVjSkK06xexfVII4DiUynp-lxI=/1200x900/d42aa3bb-f685-44b5-812e-a34c2b0d3ade--almond_crusted_salmon.jpg",
+    "categories": ["dinner", "meat"],
+    "cuisine": ["french"]
   },
   "Christmas mince pies": {
-    "ingredients": [
-      "225g/9oz plain flour ",
-      "2 tsp ground cinnamon ",
-      "140g/5oz chilled butter, cut into cubes ",
-      "55g/2oz ground almonds ",
-      "25g caster sugar ",
-      "1 egg, yolk only ",
-      "55g/2oz golden marzipan ",
-      "170g/6oz vegetarian mincemeat ",
-      "2 tbsp sherry ",
-      "caster sugar, for sprinkling",
-      "cream, custard, or brandy butter, to serve"
-    ],
+    "ingredients": {
+      "flour": { "quantity": 25, "type": "g" },
+      "ground cinnamon": { "quantity": 2, "type": "tsp" },
+      "butter": { "quantity": 1, "type": "tbsp" },
+      "almonds": { "quantity": 1, "type": "" },
+      "sugar": { "quantity": 1, "type": "tsp" },
+      "egg yolk": { "quantity": 1, "type": "large" },
+      "marzipan": { "quantity": 2, "type": "tbsp" },
+      "sherry": { "quantity": 2, "type": "tbsp" },
+      "cream": { "quantity": 1, "type": "fl oz" },
+      "custard": { "quantity": 0.5, "type": "cup" },
+      "brandy": { "quantity": 1, "type": "shot" }
+    },
     "method": [
       "Put the flour in a blender with the cinnamon. Add the butter and blitz to form fine breadcrumbs. Add the almonds, sugar, egg yolk and 2-3 tbsp of cold water and blitz to form a soft dough. Knead the dough briefly on a floured surface, then wrap in cling film and chill for 30 minutes.",
       "Meanwhile, chop the marzipan into small pieces. Stir into the mincemeat, along with the sherry. ",
@@ -302,32 +310,32 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/almondymincepies_14566_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["meat", "baking", "hearty", "comfort"],
+    "cuisine": ["british"]
   },
   "Aloo baingun (veggie potato and aubergine curry)": {
-    "ingredients": [
-      "175g/6oz basmati rice",
-      "2 tbsp sunflower oil",
-      "1 onion, thinly sliced",
-      "1 tsp cumin seeds",
-      "½ cinnamon stick",
-      "2 cloves",
-      "2 cardamom pods",
-      "2 tbsp sunflower oil",
-      "20g/¾oz butter",
-      "1½ onions, diced",
-      "3cm/1¼in fresh root ginger, peeled and grated",
-      "1½ tsp turmeric",
-      "1½ tsp cumin seeds ",
-      "1 tsp black mustard seeds",
-      "1 tsp chopped fresh green chilli (adjust to taste)",
-      "1 large potato chopped into 1cm/½in cubes",
-      "6–8 baby aubergines (or two medium aubergines), chopped into 2cm/¾in cubes",
-      "25g/1oz fresh fenugreek leaves (methi), chopped (or 3 tbsp dried methi)",
-      "1 tsp garam masala",
-      "small bunch fresh coriander, finely chopped",
-      "salt"
-    ],
+    "ingredients": {
+      "basmati rice": { "quantity": 1, "type": "cup" },
+      "sunflower oil": { "quantity": 2, "type": "tbsp" },
+      "onion": { "quantity": 1, "type": "medium" },
+      "cumin seeds": { "quantity": 1.5, "type": "tsp" },
+      "cinnamon stick": { "quantity": 0.5, "type": "stick" },
+      "cloves": { "quantity": 2, "type": "tsp" },
+      "cardamom pods": { "quantity": 2, "type": "pod" },
+      "butter": { "quantity": 0.75, "type": "oz" },
+      "onions": { "quantity": 1.5, "type": "medium" },
+      "ginger": { "quantity": 1, "type": "tsp" },
+      "turmeric": { "quantity": 1.5, "type": "tsp" },
+      "mustard seeds": { "quantity": 1, "type": "tsp" },
+      "chili": { "quantity": 1, "type": "tsp" },
+      "potato": { "quantity": 1, "type": "large" },
+      "aubergines": { "quantity": 68, "type": "medium" },
+      "fenugreek": { "quantity": 1, "type": "tsp" },
+      "garam masala": { "quantity": 1, "type": "tsp" },
+      "fresh coriander": { "quantity": 0.25, "type": "cup" },
+      "salt": { "quantity": 0.25, "type": "tsp" }
+    },
     "method": [
       "To make the rice, wash it in a bowl of cold water, drain and repeat until the water runs clear, then leave in water to soak for 15–20 minutes. ",
       "Meanwhile, to make the aloo baingan, heat the oil and butter in a large lidded saucepan over a medium heat. Add the onion and cook for 5 minutes. Add the ginger, turmeric, cumin, mustard seeds, chilli and 1 teaspoon of salt. Fry everything together for a few minutes and stir in the potato. Add a splash of water and cook for 5–6 minutes, or until al dente. ",
@@ -349,21 +357,26 @@
     "isVegetarian": true,
     "recommendations": 0,
     "image":
-      "https://www.indianhealthyrecipes.com/wp-content/uploads/2016/04/aloo-baingan-masala-1.jpg"
+      "https://www.indianhealthyrecipes.com/wp-content/uploads/2016/04/aloo-baingan-masala-1.jpg",
+    "categories": ["curry", "comfort", "hearty"],
+    "cuisine": ["indian"]
   },
 
   "Baked burrito": {
-    "ingredients": [
-      "1 small onion",
-      "oil, for cooking",
-      "600g/1lb 5oz skinless, boneless turkey breast or thigh",
-      "3 tsp Mexican seasoning, such as mild taco seasoning",
-      "2 tomatoes, halved",
-      "200g tin of sweetcorn, drained",
-      "200g/7oz grated cheese, such as Cheddar",
-      "4 large soft tortilla wraps",
-      "4 tbsp natural yoghurt, to serve"
-    ],
+    "ingredients": {
+      "onion": { "quantity": 1, "type": "small" },
+      "oil": { "quantity": 1, "type": "tbsp" },
+      "turkey breast": { "quantity": 5, "type": "oz" },
+      "thigh": { "quantity": 1, "type": "thigh with skin" },
+      "seasoning": { "quantity": 3, "type": "tsp" },
+      "taco seasoning": { "quantity": 2, "type": "tsp" },
+      "tomatoes": { "quantity": 2, "type": "medium" },
+      "sweetcorn": { "quantity": 200, "type": "g" },
+      "grated cheese": { "quantity": 0.25, "type": "cup" },
+      "cheddar": { "quantity": 1, "type": "oz" },
+      "tortilla wraps": { "quantity": 4, "type": "" },
+      "yoghurt": { "quantity": 4, "type": "tbsp" }
+    },
     "method": [
       "Preheat the oven to 200C/180C Fan/Gas 4. ",
       "Peel and roughly chop the onion. Heat a large frying pan over a medium heat, then add a dash of oil and the onion. Cook for 7-10 minutes, or until soft and translucent but not brown. Reduce the heat if the onion starts to colour.",
@@ -386,17 +399,18 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/baked_burrito_04690_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["dinner", "meat"],
+    "cuisine": ["mexican"]
   },
-
   "Baked egg with ham and spinach": {
-    "ingredients": [
-      "25g/1oz slice ham ",
-      "40g/1½oz baby spinach",
-      "1 medium free-range egg",
-      "30g/1oz slice wholemeal or granary bread",
-      "2g low-fat margarine (optional)"
-    ],
+    "ingredients": {
+      "ham": { "quantity": 1, "type": "slice" },
+      "baby spinach": { "quantity": 0.5, "type": "oz" },
+      "egg": { "quantity": 1, "type": "" },
+      "bread": { "quantity": 1, "type": "slice" },
+      "low fat margarine": { "quantity": 2, "type": "g" }
+    },
     "method": [
       "Preheat the oven to 180C/160C Fan/Gas 4.",
       "Line a ramekin with the ham. Pour some boiling water into a small saucepan over a low heat. Add the spinach and cook for 2 minutes, or until wilted. Remove from the heat, squeeze out any excess water and place on top of the ham. ",
@@ -415,30 +429,35 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/baked_egg_with_ham_and_69539_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["hearty", "meat", "comfort", "breakfast"],
+    "cuisine": ["british"]
   },
 
   "Baked meatballs with hidden veggies": {
-    "ingredients": [
-      "2 tbsp sunflower oil",
-      "1 onion, roughly chopped",
-      "1 sweet potato, peeled, cut into chunks",
-      "2 garlic cloves, crushed",
-      "1 x 400g tin chopped tomatoes ",
-      "2 tbsp tomato purée",
-      "1 tsp dried oregano",
-      "1 bay leaf",
-      "salt and freshly ground black pepper",
-      "1 slice bread, crust removed, torn into small pieces",
-      "4 tbsp milk",
-      "1 small onion, finely grated",
-      "1 carrot, peeled, finely grated",
-      "1 courgette, trimmed, finely grated",
-      "500g/1lb 2oz lean beef mince",
-      "1 large free-range egg yolk",
-      "100g/3½oz grated mozzarella or cheddar",
-      "freshly ground black pepper"
-    ],
+    "ingredients": {
+      "sunflower oil": { "quantity": 2, "type": "tbsp" },
+      "onion": { "quantity": 1, "type": "small" },
+      "sweet potato": { "quantity": 1, "type": "medium" },
+      "garlic cloves": { "quantity": 2, "type": "clove" },
+      "tomatoes": { "quantity": 400, "type": "g" },
+      "tomato puree": { "quantity": 2, "type": "tbsp" },
+      "dried oregano": { "quantity": 1, "type": "tsp" },
+      "bay leaf": { "quantity": 1, "type": "leaf" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      },
+      "bread": { "quantity": 1, "type": "slice" },
+      "milk 1": { "quantity": 4, "type": "tbsp" },
+      "carrot": { "quantity": 1, "type": "carrot" },
+      "courgette": { "quantity": 1, "type": "medium" },
+      "lean beef mince": { "quantity": 2, "type": "oz" },
+      "egg yolk": { "quantity": 1, "type": "large" },
+      "mozzarella": { "quantity": 0.5, "type": "oz" },
+      "cheddar": { "quantity": 1, "type": "oz" },
+      "ground black pepper": { "quantity": 1, "type": "tsp" }
+    },
     "method": [
       "Preheat the oven to 200C/180C Fan/Gas 6.",
       "Heat the oil in a large, heavy-based saucepan, add the onion and sweet potato and fry gently for 4-5 minutes, stirring regularly, until the onion has softened and is beginning to brown. Add the garlic and fry for 1-2 minutes, stirring regularly.",
@@ -462,21 +481,26 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/baked_meatballs_with_17989_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["meat", "hearty", "comfort"],
+    "cuisine": ["italian"]
   },
-
   "Lighter baked mushrooms": {
-    "ingredients": [
-      "1 tsp olive oil",
-      "2 large, flat Portobello mushrooms (150g/5½oz total weight), wiped clean, stalks finely chopped",
-      "1 spring onion, thinly sliced",
-      "1 stick celery, thinly sliced",
-      "1 bacon medallion (30g/1oz), roughly chopped",
-      "20g/¾oz fresh breadcrumbs",
-      "30g/1oz baby spinach ",
-      "1 tomato, halved",
-      "salt and freshly ground black pepper"
-    ],
+    "ingredients": {
+      "olive oil": { "quantity": 1, "type": "tsp" },
+      "portobello mushrooms": { "quantity": 2, "type": "cap" },
+
+      "spring onion": { "quantity": 1, "type": "medium" },
+      "celery": { "quantity": 1, "type": "stalk" },
+      "bacon": { "quantity": 1, "type": "strip" },
+      "breadcrumbs": { "quantity": 0.75, "type": "oz" },
+      "baby spinach": { "quantity": 1, "type": "cup" },
+      "tomato": { "quantity": 1, "type": "medium" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      }
+    },
     "method": [
       "Preheat the oven to 220C/200C Fan/Gas 7.",
       "Heat the oil in a small frying pan over a medium heat. Add the mushroom stalks, spring onion, celery and bacon and cook for 1–2 minutes, or until softened. Stir in the breadcrumbs and spinach and season. ",
@@ -496,70 +520,28 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/baked_mushrooms_55154_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
-  },
-
-  "Baked potato with bacon, taleggio and leek": {
-    "ingredients": [
-      "4 large baking potatoes",
-      "1 tbsp olive oil",
-      "sea salt",
-      "25g/1oz butter",
-      "1 shallot, finely chopped",
-      "1 garlic clove, finely sliced",
-      "2 leeks, sliced lengthways then across into slices",
-      "75ml/2½fl oz white wine",
-      "300ml/10½fl oz double cream",
-      "150g/5½oz taleggio cheese, roughly chopped",
-      "8 slices streaky bacon",
-      "salt and freshly ground black pepper"
-    ],
-    "method": [
-      "Preheat the oven to 200C/400F/Gas 6.",
-      "Rub the potatoes with the olive oil, prick all over with a fork and place onto a little pile of sea salt on a baking tray.",
-      "Place the potatoes on the top shelf of the oven and bake until tender and the skin is crisp, about an hour.",
-      "Remove from the oven and set aside until cool enough to handle. ",
-      "Meanwhile, heat a frying pan until medium hot. Add the butter, shallot and garlic and cook for 2-3 minutes, then add the leeks and cook for another two minutes.",
-      "Add the white wine and cook until the volume of liquid has reduced by half. Add the cream and cook for 3-4 minutes, or until thickened. Season, to taste, with salt and black pepper.",
-      "When the potatoes are cool enough, cut them into quarters and place into an ovenproof dish. Pour the leek sauce over the top then add the taleggio pieces.",
-      "Heat a frying pan until hot, add the bacon and cook until golden-brown and crisp. ",
-      "Roughly chop the bacon and scatter it over the top of the cheese.",
-      "Place in the oven and bake for 10 minutes, or until golden-brown and bubbling."
-    ],
-    "url": "www_bbc_com_food_recipes_baked_potato_skins_with_28036",
-    "title": "Baked potato with bacon, taleggio and leek",
-    "time": {
-      "preparation": "less than 30 minsless than 30 mins",
-      "preparationMins": 30,
-      "cooking": "1 to 2 hours1 to 2 hours",
-      "cookingMins": 120,
-      "totalMins": 150
-    },
-    "serves": "Serves 4Serves 4",
-    "image":
-      "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/baked_potato_skins_with_28036_16x9.jpg",
-    "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["hearty", "dinner", "vegetarian"],
+    "cuisine": ["american"]
   },
 
   "Baked samosas": {
-    "ingredients": [
-      "100g/4oz potatoes, peeled",
-      "100g/4oz carrots, chopped ",
-      "100g/4oz peas",
-      "2 tbsp olive oil",
-      "¼ tsp cumin seeds",
-      "1 onion, chopped",
-      "2 green chillies, finely chopped",
-      "¼ tsp salt",
-      "¼ tsp ground coriander",
-      "pinch garam masala",
-      "handful of coriander leaves, chopped",
-      "300g/11oz wholemeal flour, plus a little extra for the ‘glue-like paste’ and a little extra for flouring",
-      "2 tsp olive oil",
-      "pinch of salt",
-      "tomato chutney or ketchup, to serve"
-    ],
+    "ingredients": {
+      "potatoes": { "quantity": 1, "type": "medium" },
+      "carrots": { "quantity": 1, "type": "" },
+      "peas": { "quantity": 1, "type": "cup" },
+      "olive oil": { "quantity": 2, "type": "tsp" },
+      "cumin seeds": { "quantity": 0.25, "type": "tsp" },
+      "onion": { "quantity": 1, "type": "medium" },
+      "chillies": { "quantity": 2, "type": "pepper" },
+      "salt": { "quantity": 1, "type": "pinch" },
+      "ground coriander": { "quantity": 0.25, "type": "tsp" },
+      "garam masala": { "quantity": 1, "type": "pinch" },
+      "coriander leaves": { "quantity": 2, "type": "oz" },
+      "wholemeal flour": { "quantity": 1, "type": "cup" },
+      "tomato chutney": { "quantity": 1, "type": "tbsp" },
+      "ketchup": { "quantity": 1, "type": "tbsp" }
+    },
     "method": [
       "Preheat the oven to 180C/350F/Gas 4.",
       "For the filling, boil the potatoes in a pan of boiling, salted water for about 10-15 minutes, or until tender. Drain, roughly mash the potatoes and set aside.",
@@ -589,24 +571,29 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/baked_samosas_69255_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["dinner", "vegetarian", "appetizer"],
+    "cuisine": ["indian"]
   },
 
   "Baked salmon with chorizo rice": {
-    "ingredients": [
-      "100g/3½oz chorizo",
-      "1 onion, sliced ",
-      "1 garlic clove, sliced",
-      "200g/7oz  arborio rice",
-      "4 tomatoes, roughly chopped",
-      "50g/2oz butter ",
-      "1 tbsp parsley",
-      "600ml/20fl oz chicken stock",
-      "salt and freshly ground black pepper",
-      "4 x 150g/5oz salmon fillets, skinned",
-      "250g/9oz smoked salmon",
-      "1 lemon, juice only"
-    ],
+    "ingredients": {
+      "chorizo": { "quantity": 0.5, "type": "oz" },
+      "onion": { "quantity": 1, "type": "medium" },
+      "garlic clove": { "quantity": 1, "type": "clove" },
+      "arborio rice": { "quantity": 1, "type": "oz" },
+      "tomatoes": { "quantity": 4, "type": "medium" },
+      "butter": { "quantity": 1, "type": "tbsp" },
+      "parsley": { "quantity": 1, "type": "tbsp" },
+      "chicken stock": { "quantity": 1, "type": "cup" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      },
+      "salmon fillets": { "quantity": 4, "type": "fillet" },
+      "smoked salmon": { "quantity": 3, "type": "oz" },
+      "lemon juice": { "quantity": 1, "type": "tsp" }
+    },
     "method": [
       "Preheat the oven to 180C/350F/Gas 4.",
       "Heat a heavy-based frying pan over a medium heat and fry the chorizo for 3-4 minutes, or until crisp. Remove the chorizo from the pan with a slotted spoon and set aside.",
@@ -630,27 +617,32 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/baked_salmon_with_00771_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["dinner", "meat"],
+    "cuisine": ["spanish", "mexican"]
   },
 
   "Baked sea bream Rota-style": {
-    "ingredients": [
-      "3 large waxy potatoes, peeled and cut into thick slices",
-      "5 tbsp olive oil",
-      "1 large onion, sliced",
-      "1 garlic clove, chopped",
-      "1 large green pepper, seeds removed, sliced",
-      "300g/10½oz tomatoes, skinned and chopped",
-      "1 bay leaf",
-      "2 x 400g/14oz whole sea bream, scaled and gutted",
-      "½ lemon, juice only",
-      "4 tbsp dry sherry",
-      "small handful flatleaf parsley, leaves chopped, to serve",
-      "salt and freshly ground black pepper",
-      "small handful flatleaf parsley, chopped",
-      "2 large garlic cloves, roughly chopped",
-      "½ tsp sea salt"
-    ],
+    "ingredients": {
+      "potatoes": { "quantity": 3, "type": "large" },
+      "olive oil": { "quantity": 5, "type": "tbsp" },
+      "onion": { "quantity": 1, "type": "large" },
+      "garlic clove": { "quantity": 1, "type": "clove" },
+      "green pepper": { "quantity": 1, "type": "pepper" },
+      "tomatoes": { "quantity": 0.5, "type": "oz" },
+      "bay leaf": { "quantity": 1, "type": "leaf" },
+      "bream": { "quantity": 1, "type": "fillet" },
+      "lemon juice": { "quantity": 0.5, "type": "tsp" },
+      "dry sherry": { "quantity": 4, "type": "tbsp" },
+      "parsley": { "quantity": 1, "type": "tbsp" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      },
+      "parsley chopped": { "quantity": 1, "type": "tbsp" },
+      "garlic cloves": { "quantity": 2, "type": "clove" },
+      "sea salt": { "quantity": 0.5, "type": "tsp" }
+    },
     "method": [
       "Preheat the oven to 180C/160C Fan/Gas 4.",
       "Arrange the potatoes in an ovenproof dish large enough to accommodate the sea bream. Season with salt and pepper and drizzle with 2 tablespoons oil. Bake for 20 minutes.",
@@ -672,22 +664,27 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/baked_sea_bream_28386_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["dinner", "meat", "comfort"],
+    "cuisine": ["spanish"]
   },
 
   "Baked sweet potato with roasted vegetables and bulgur wheat": {
-    "ingredients": [
-      "1 medium sweet potato (about 350g/12oz), washed and dried",
-      "2 tbsp olive oil",
-      "½ fennel bulb, thinly sliced",
-      "½ red pepper, cut into 2cm/¾in cubes",
-      "½ red onion, cut into wedges",
-      "small handful cherry tomatoes",
-      "50g/1¾oz bulgur wheat",
-      "2 sprigs dill, roughly chopped",
-      "salt and freshly ground black pepper",
-      "2 tbsp natural yoghurt, to serve"
-    ],
+    "ingredients": {
+      "sweet potato": { "quantity": 1, "type": "medium" },
+      "olive oil": { "quantity": 2, "type": "tbsp" },
+      "fennel bulb": { "quantity": 0.5, "type": "cup" },
+      "red pepper": { "quantity": 0.5, "type": "cup" },
+      "red onion": { "quantity": 0.5, "type": "medium" },
+      "cherry tomatoes": { "quantity": 1, "type": "cherry" },
+      "bulgur wheat": { "quantity": 0.75, "type": "oz" },
+      "dill": { "quantity": 5, "type": "sprigs" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      },
+      "yogurt": { "quantity": 2, "type": "tbsp" }
+    },
     "method": [
       "Preheat the oven to 200C/180C Fan/Gas 6 and place a sheet of kitchen foil on the middle shelf. ",
       "Rub the sweet potato with half a teaspoon of the olive oil and some salt. Pierce the skin several times with a sharp knife, place directly onto the top shelf of the oven and bake for 1 hour. ",
@@ -710,27 +707,31 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/baked_sweet_potato_with_42313_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["vegetarian", "comfort"],
+    "cuisine": ["british", "american"]
   },
 
   "Balsamic-glazed sesame salmon with spicy cherry tomatoes and spinach": {
-    "ingredients": [
-      "175g/6oz salmon fillet",
-      "sea salt and freshly ground black pepper",
-      "1 tsp olive oil",
-      "1 tbsp balsamic vinegar",
-      "1 tsp honey",
-      "1-2 sesame seeds",
-      "1 tbsp olive oil",
-      "large handful of spinach",
-      "½ 400g/14oz can cherry tomatoes",
-      "½ tsp dried chilli flakes"
-    ],
+    "ingredients": {
+      "salmon fillet": { "quantity": 1, "type": "fillet" },
+      "sea salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      },
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "balsamic vinegar": { "quantity": 1, "type": "tbsp" },
+      "honey": { "quantity": 1, "type": "tsp" },
+      "sesame seeds": { "quantity": 2, "type": "oz" },
+      "spinach": { "quantity": 1, "type": "cup" },
+      "cherry tomatoes": { "quantity": 3, "type": "cherry" },
+      "chili": { "quantity": 0.5, "type": "tsp" }
+    },
     "method": [
       "Preheat the grill to high.",
       "Season the salmon fillet with sea salt and freshly ground black pepper. Heat the oil in an frying pan add the salmon skin-side down and cook for 2minutes, then turn and cook for a further minute. Pour over the vinegar and continue to cook for 2 more minutes.",
       "Transfer the salmon to a grill pan lined with foil, skin side-down. Drizzle over the honey and sprinkle with the sesame seeds, then place under the grill and cook for 3-4 minutes, or until cooked through.",
-      "Meanwhile, for the tomatoes, heat the oil in a large frying pan. Add the spinach and gently fry for two minutes. Add the tomatoes, chilli flakes and extra oil and allow to simmer and reduce for 2-3 minutes, until thickened. To serve, place the spinach onto a warm plate and top with the salmon. Pour over the pan juices."
+      "Meanwhile, for the tomatoes, heat the oil in a large frying pan. Add the spinach and gently fry for two minutes. Add the tomatoes, chili flakes and extra oil and allow to simmer and reduce for 2-3 minutes, until thickened. To serve, place the spinach onto a warm plate and top with the salmon. Pour over the pan juices."
     ],
     "url": "www_bbc_com_food_recipes_balsamicglazedsesame_83963",
     "title":
@@ -746,22 +747,24 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/balsamicglazedsesame_83963_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["meat", "dinner", "spicy"],
+    "cuisine": ["american", "french"]
   },
 
   "Barbecued sirloin with chimichurri sauce": {
-    "ingredients": [
-      "2-3 long red chillies, seeds removed, finely chopped",
-      "10-12 garlic cloves, peeled, finely chopped",
-      "2 large handfuls finely chopped curly-leaved parsley, leaves only",
-      "4 heaped tsp dried oregano",
-      "2 tsp sea salt flakes",
-      "5 tbsp red wine vinegar",
-      "4-5 tbsp extra virgin olive oil",
-      "5 tbsp cold water",
-      "1 x 2kg/4½lb well-hung boneless beef sirloin, not rolled (weight after bone removed)",
-      "freshly ground black pepper"
-    ],
+    "ingredients": {
+      "chilies": { "quantity": 3, "type": "pepper" },
+      "garlic cloves": { "quantity": 12, "type": "clove" },
+      "parsley": { "quantity": 1, "type": "tbsp" },
+      "dried oregano": { "quantity": 1, "type": "tsp" },
+      "sea salt": { "quantity": 2, "type": "tsp" },
+      "red wine vinegar": { "quantity": 5, "type": "tbsp" },
+      "extra virgin olive oil": { "quantity": 5, "type": "tbsp" },
+      "water": { "quantity": 5, "type": "tbsp" },
+      "beef sirloin": { "quantity": 0.5, "type": "lb" },
+      "ground black pepper": { "quantity": 1, "type": "tsp, ground" }
+    },
     "method": [
       "For the chimichurri sauce, place the chopped chillies and garlic into a bowl. ",
       "Add the remaining chimichurri sauce ingredients and stir well until combined. Cover the bowl with a sheet of cling film, then set the mixture aside for 4-6 hours to allow the flavours to infuse, or preferably overnight.",
@@ -786,49 +789,27 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/barbecuedsirloinwith_91627_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
-  },
-
-  "Fettuccine Alfredo": {
-    "ingredients": [
-      "500g/1lb 2oz dried fettuccine pasta",
-      "300ml/10½fl oz double cream",
-      "30g/1oz butter",
-      "freshly grated nutmeg, to taste",
-      "200g/7oz freshly grated parmesan cheese",
-      "freshly ground black pepper"
-    ],
-    "method": [
-      "Cook the pasta in a large pan of boiling salted water for 10-12 minutes, until al dente. Meanwhile, put the cream in a saucepan with the butter and a little grated nutmeg and warm through gently. Stir in the parmesan.",
-      "Drain the pasta, reserving about three tablespoons of the cooking water, then tip it straight into the cream sauce. Add as much of the reserved water as needed to loosen the consistency of the sauce to your liking. Mix gently, adding plenty of freshly ground black pepper. Serve immediately."
-    ],
-    "url": "www_bbc_com_food_recipes_fettuccine_alfredo_47554",
-    "title": "Fettuccine Alfredo",
-    "time": {
-      "preparation": "less than 30 minsless than 30 mins",
-      "preparationMins": 30,
-      "cooking": "10 to 30 mins10 to 30 mins",
-      "cookingMins": 30,
-      "totalMins": 60
-    },
-    "serves": "Serves 4Serves 4",
-    "image":
-      "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/fettuccine_alfredo_47554_16x9.jpg",
-    "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["meat", "dinner", "roast", "spicy"],
+    "cuisine": ["brazilian"]
   },
 
   "Fiery prawn and tomato pasta": {
-    "ingredients": [
-      "125g/4½oz dried spaghetti or linguine",
-      "150g/5½oz broccoli, cut into small florets",
-      "100g/3½oz cherry tomatoes, halved",
-      "150g/5½oz large cold water prawns, such as North Atlantic or Canadian, completely thawed and drained",
-      "1 tbsp extra virgin olive oil",
-      "½ tsp dried chilli flakes, to taste",
-      "sea salt and freshly ground black pepper",
-      "lemon wedges, for squeezing (optional)"
-    ],
+    "ingredients": {
+      "spaghetti": { "quantity": 0.5, "type": "oz" },
+      "linguine": { "quantity": 1, "type": "cup" },
+      "broccoli": { "quantity": 0.5, "type": "oz" },
+      "cherry tomatoes": { "quantity": 0.5, "type": "oz" },
+      "water": { "quantity": 0.5, "type": "oz" },
+      "shrimp": { "quantity": 6, "type": "" },
+      "extra virgin olive oil": { "quantity": 1, "type": "tbsp" },
+      "chili": { "quantity": 0.5, "type": "tsp" },
+      "sea salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      },
+      "lemon": { "quantity": 1, "type": "" }
+    },
     "method": [
       "Half-fill a large, non-stick saucepan with water and bring to the boil. Add the pasta to the boiling water, return to the boil and cook for 8 minutes, stirring occasionally. Add the broccoli to the pan and cook for 2 minutes more. ",
       "Drain the pasta and broccoli. Return to the pan and add the tomatoes, prawns, oil, chilli flakes and season well. Cook for 2–3 minutes, tossing with two wooden spoons until the spaghetti is evenly coated with the spices from the pan and the prawns and tomatoes are hot. ",
@@ -847,20 +828,25 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/fiery_prawn_and_tomato_46263_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["dinner", "meat", "spicy", "hearty"],
+    "cuisine": ["italian"]
   },
-
   "Fillet steak with morel mushroom and wine sauce": {
-    "ingredients": [
-      "2 x 225g/8oz beef fillet steaks",
-      "salt and freshly ground black pepper",
-      "3 tbsp olive oil ",
-      "115g/4oz morel mushrooms, cleaned",
-      "2 shallots, peeled and finely chopped",
-      "1 clove garlic, finely chopped",
-      "200ml/7fl oz red wine",
-      "2 tsp finely chopped fresh thyme leaves"
-    ],
+    "ingredients": {
+      "beef fillet": { "quantity": 2, "type": "oz" },
+      "steak": { "quantity": 1, "type": "steak" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      },
+      "olive oil": { "quantity": 3, "type": "tbsp" },
+      "morel mushroom": { "quantity": 1, "type": "" },
+      "shallots": { "quantity": 1, "type": "shallot" },
+      "clove garlic": { "quantity": 1, "type": "clove" },
+      "red wine": { "quantity": 1, "type": "glass" },
+      "fresh thyme": { "quantity": 2, "type": "tsp" }
+    },
     "method": [
       "Rub the beef fillets with salt and freshly ground black pepper and brush with two tablespoons of the oil.  Heat a frying pan until smoking and add the steaks, frying for 3-4 minutes on both sides (for rare), or until cooked to your liking. Transfer to warm serving plates to rest.  ",
       "Reduce the heat, add the remaining oil to the pan and fry the shallots and the garlic for 2-3 minutes, or until they begin to soften. Stir in the morels and fry for 1-2 minutes, then season with salt and freshly ground black pepper.",
@@ -880,22 +866,28 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/filletsteakwithmorel_89193_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["meat", "dinner", "hearty"],
+    "cuisine": ["french"]
   },
 
   "Tuna fish cakes": {
-    "ingredients": [
-      "100g/3½oz light cream cheese ",
-      "400g/14oz potatoes",
-      "2 x 160g tins of tuna or salmon, or 320g/11½oz smoked mackerel",
-      "½ tsp dried mixed herbs",
-      "50g/1¾oz puffed rice cereal (such as Rice Krispies)",
-      "1 free-range egg",
-      "2 tbsp plain flour",
-      "oil",
-      "salt and pepper",
-      "750g/1lb 10oz sweet potatoes, scrubbed clean"
-    ],
+    "ingredients": {
+      "light cream cheese": { "quantity": 0.5, "type": "oz" },
+      "potato": { "quantity": 1, "type": "medium" },
+      "tuna": { "quantity": 160, "type": "g" },
+      "salmon": { "quantity": 1, "type": "fillet" },
+      "mackerel": { "quantity": 0.5, "type": "oz" },
+      "herbs": { "quantity": 0.5, "type": "tsp" },
+      "puffed rice": { "quantity": 0.75, "type": "oz" },
+      "cereal": { "quantity": 1, "type": "cup" },
+      "rice": { "quantity": 1, "type": "cup" },
+      "egg": { "quantity": 1, "type": "large" },
+      "flour": { "quantity": 2, "type": "tbsp" },
+      "oil": { "quantity": 1, "type": "tbsp" },
+      "salt and pepper": { "quantity": 0.25, "type": "tsp" },
+      "sweet potatoes": { "quantity": 10, "type": "oz" }
+    },
     "method": [
       "Preheat the oven to 200C/180C/Gas 6. Take the cream cheese out of the fridge and put to one side so that it reaches room temperature.",
       "Peel the potatoes and then chop them in to pieces that are all the same size.  Bring a saucepan of water to the boil and add the potatoes, boil until tender then drain. Tip back in to the saucepan and leave off the heat to steam dry for 5 minutes. Once dry, roughly mash the potatoes until completely broken up but not completely smooth.  Leave to cool.",
@@ -922,24 +914,32 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/fish_cakes_with_sweet_04563_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["comfort", "meat", "dinner"],
+    "cuisine": ["american"]
   },
 
   "Fish cakes": {
-    "ingredients": [
-      "450g/1lb potato, chopped into chunks",
-      "450g/1lb mixed frozen fish such as cod, haddock, salmon, smoked haddock",
-      "2 tbsp chopped fresh parsley",
-      "1 free-range egg, beaten",
-      "vegetable oil, for frying",
-      "salt and freshly ground black pepper"
-    ],
+    "ingredients": {
+      "potato": { "quantity": 1, "type": "medium" },
+      "fish": { "quantity": 1, "type": "fillet" },
+      "cod": { "quantity": 1, "type": "fillet" },
+      "haddock": { "quantity": 1, "type": "fillet" },
+      "smoked haddock": { "quantity": 1, "type": "oz" },
+      "fresh parsley": { "quantity": 2, "type": "tbsp" },
+      "egg": { "quantity": 1, "type": "large" },
+      "vegetable oil": { "quantity": 1, "type": "tbsp" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      }
+    },
     "method": [
       "Preheat the oven to 190C/170C Fan/Gas 5.",
       "For the mashed potato, bring a pot of salted water to the boil. Add the potatoes to the pot and cook until tender, this should tabke about 15 minutes. When cooked drain in a colander and leave to drain for a few minutes. Return to the pot and mash with a potato masher until a smooth consistency is achieved. Set aside. ",
       "Put the frozen fish on a roasting tin and cook in the oven for about 10-15 minutes until opaque and starting to flake. When cool enough to handle, remove the skin and any bones and flake the fish into large chunks.",
       "Mix the fish, mashed potato, parsley and egg together until well combined. (Mix together carefully so as not to break up the fish too much.) Season with salt and pepper. Shape the mixture into 8-12 patties, depending on how large you want them to be and set aside to chill in the fridge for one hour. ",
-      "Heat vegetable oil in a frying pan and fry the fish cakes until golden brown on each side and heated right through. Serve with tartare sauce and a simple salad. "
+      "Heat vegetable oil in a frying pan and fry the fish cakes until golden brown on each side and heated right through. Serve with tartar sauce and a simple salad. "
     ],
     "url": "www_bbc_com_food_recipes_fishcakes_1915",
     "title": "Fish cakes",
@@ -954,20 +954,22 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/fishcakes_1915_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["meat", "dinner", "comfort"],
+    "cuisine": ["american"]
   },
-
   "Five-spice roast chicken drumsticks": {
-    "ingredients": [
-      "1 tbsp groundnut oil",
-      "3 garlic cloves, chopped",
-      "2 tbsp grated fresh root ginger",
-      "1 tbsp Shaoxing rice wine or dry sherry (optional)",
-      "2 tbsp light soy sauce",
-      "2 tsp five-spice powder",
-      "2 tbsp honey",
-      "1kg/2lb chicken drumsticks, skin on"
-    ],
+    "ingredients": {
+      "oil": { "quantity": 1, "type": "tbsp" },
+      "garlic cloves": { "quantity": 3, "type": "clove" },
+      "ginger": { "quantity": 2, "type": "tbsp" },
+      "rice wine": { "quantity": 1, "type": "tbsp" },
+      "dry sherry": { "quantity": 1, "type": "fl oz" },
+      "light soy sauce": { "quantity": 2, "type": "tbsp" },
+      "allspice": { "quantity": 2, "type": "tsp" },
+      "honey": { "quantity": 2, "type": "tbsp" },
+      "chicken drumsticks": { "quantity": 5, "type": "drumstick with skin" }
+    },
     "method": [
       "For the marinade, put all of the marinade ingredients into a large bowl and stir to combine. Add the chicken and allow to marinate while you preheat the oven to 200C/180C Fan/Gas 6. ",
       "Put the chicken drumsticks on a roasting tray and roast for 20-30 minutes, or until the skin is golden and the chicken is cooked through. (To check, pierce the drumstick at its thickest part, next to the bone. The juices should run clear.)"
@@ -985,20 +987,25 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/fivespiceroastchicke_89295_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["meat", "dinner", "spicy"],
+    "cuisine": ["british"]
   },
 
   "Fantastic fish fingers": {
-    "ingredients": [
-      "40g/1½oz bread (approximately 1 thick slice) ",
-      "400g/14oz skinless white fish fillets (such as cod, haddock or pollock)",
-      "5 tbsp plain flour",
-      "1 large free-range egg, beaten",
-      "¼ tsp paprika (optional)",
-      "1 tsp garlic powder (optional)",
-      "freshly ground black pepper",
-      "little sunflower oil, a spray oil is also good to use"
-    ],
+    "ingredients": {
+      "bread": { "quantity": 2, "type": "slices" },
+      "fish fillets": { "quantity": 1, "type": "fillet" },
+      "cod": { "quantity": 1, "type": "fillet" },
+      "haddock": { "quantity": 1, "type": "fillet" },
+      "flour": { "quantity": 5, "type": "tbsp" },
+      "egg": { "quantity": 1, "type": "large" },
+      "paprika": { "quantity": 0.25, "type": "tsp" },
+      "garlic powder": { "quantity": 1, "type": "tsp" },
+      "ground black pepper": { "quantity": 1, "type": "tsp, ground" },
+      "sunflower oil": { "quantity": 1, "type": "tbsp" },
+      "oil": { "quantity": 1, "type": "tbsp" }
+    },
     "method": [
       "Preheat the oven to 200C/180C Fan/Gas 6. Line a baking tray with non-stick parchment paper. ",
       "To make the breadcrumbs, put the bread in a food processor and blitz into fine breadcrumbs. If you do not have a food processor, you could also try grating the bread, but you would need an adult to help you with this. ",
@@ -1024,23 +1031,25 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/floss_fantastic_fish_31623_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["quick", "comfort"],
+    "cuisine": ["british", "american"]
   },
 
   "Fresh herb fougasse": {
-    "ingredients": [
-      "500g/1lb 2oz strong white bread flour, plus extra for dusting ",
-      "10g/¼ fine salt ",
-      "7g sachet instant yeast ",
-      "2 tbsp olive oil, plus extra for greasing and drizzling ",
-      "350ml/12fl oz warm water ",
-      "2 tsp chopped fresh rosemary, plus extra to finish ",
-      "2 tsp chopped fresh thyme ",
-      "2 tsp chopped fresh sage ",
-      "fine semolina, for dusting ",
-      "½ tsp dried oregano ",
-      "sea salt flakes, crushed, to finish "
-    ],
+    "ingredients": {
+      "white bread flour": { "quantity": 2, "type": "oz" },
+      "salt": { "quantity": 2.5, "type": "g" },
+      "yeast": { "quantity": 7, "type": "g" },
+      "olive oil": { "quantity": 2, "type": "tbsp" },
+      "water": { "quantity": 1, "type": "oz" },
+      "fresh rosemary": { "quantity": 2, "type": "tsp" },
+      "fresh thyme": { "quantity": 2, "type": "tsp" },
+      "fresh sage": { "quantity": 2, "type": "tsp" },
+      "semolina": { "quantity": 1, "type": "cup" },
+      "dried oregano": { "quantity": 0.5, "type": "tsp" },
+      "sea salt": { "quantity": 0.25, "type": "tsp" }
+    },
     "method": [
       "Grease a large plastic container with a little olive oil. Line two large baking sheets with baking parchment or silicone paper. ",
       "Put the flour, salt and yeast into the bowl of a freestanding electric mixer fitted with a dough hook. (Don’t put the salt directly on top of the yeast). Add the olive oil and three-quarters of the water. Begin mixing on a low speed. As the dough starts to come together, add the remaining water very slowly, then mix for another 8 minutes on a medium speed. Add the rosemary, sage and thyme and mix for a minute until the herbs are evenly distributed in the dough. When ready, the dough will be very elastic and you should be able to stretch it away from the bowl. ",
@@ -1063,20 +1072,27 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/fresh_herb_fougasse_70351_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["hearty", "vegetarian", "spicy", "baking"],
+    "cuisine": ["french"]
   },
 
   "Fresh mackerel with roasted rhubarb": {
-    "ingredients": [
-      "4-5 stalks rhubarb ",
-      "good shake of light brown sugar",
-      "2 fresh mackerel, filleted",
-      "a little plain flour, seasoned with salt and freshly ground black pepper, for dusting ",
-      "a couple of good glugs of fruity olive oil",
-      "a few sprigs of rosemary, chopped",
-      "1 tbsp capers, drained ",
-      "splash sherry vinegar"
-    ],
+    "ingredients": {
+      "rhubarb": { "quantity": 5, "type": "stalks" },
+      "shake": { "quantity": 16, "type": "fl oz" },
+      "light brown sugar": { "quantity": 1, "type": "tsp" },
+      "mackerel": { "quantity": 2, "type": "fillet" },
+      "flour": { "quantity": 1, "type": "cup" },
+      "salt andfreshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      },
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "rosemary": { "quantity": 1, "type": "tsp" },
+      "capers": { "quantity": 1, "type": "tbsp" },
+      "sherry vinegar": { "quantity": 1, "type": "" }
+    },
     "method": [
       "For the roasted rhubarb, preheat the oven to 200C/400F/Gas 6. Cut the rhubarb into 15cm/6in or so lengths (about the length of a wooden spoon-handle) and place in a roasting tin with half a tea-cup of water and the light brown sugar. Roast until just soft enough to take the point of a knife, about 10-15 minutes. Allow to cool, then drain, reserving the cooking juices. ",
       "Dip the skin side of each mackerel fillet into the seasoned flour to lightly coat. Heat the oil in a large frying pan. Gently place the mackerel fillets in the hot pan, skin-side down, and scatter over the rosemary. Add the roasted rhubarb to the side of the pan to heat through and add the capers for a little vinegary flavour. ",
@@ -1089,27 +1105,31 @@
       "preparationMins": 30,
       "cooking": "10 to 30 mins10 to 30 mins",
       "cookingMins": 30,
-      "totalMins": 60
+      "totalMins": 60,
+      "categories": ["dinner", "meat"],
+      "cuisine": []
     },
     "serves": "Serves 2Serves 2",
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/freshmackerelwithroa_92281_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["dinner", "meat"],
+    "cuisine": ["american", "british"]
   },
 
   "Fried ham and cheese sandwich": {
-    "ingredients": [
-      "250g/9oz gruyère cheese, grated",
-      "2 free-range egg yolks",
-      "1 tbsp Worcestershire sauce",
-      "1 tsp mustard powder",
-      "2 pinches cayenne pepper",
-      "dash cream (if mixture is too thick to spread)",
-      "4 slices thin white bread (square)",
-      "4 thin slices cooked ham",
-      "olive oil"
-    ],
+    "ingredients": {
+      "gruyere cheese": { "quantity": 2, "type": "cup, shredded" },
+      "egg yolks": { "quantity": 2, "type": "large" },
+      "worcestershire sauce": { "quantity": 1, "type": "tbsp" },
+      "mustard powder": { "quantity": 1, "type": "tsp" },
+      "cayenne pepper": { "quantity": 1, "type": "pinches" },
+      "cream": { "quantity": 1, "type": "dash" },
+      "white bread": { "quantity": 4, "type": "slices" },
+      "cooked ham": { "quantity": 4, "type": "slices" },
+      "olive oil": { "quantity": 1, "type": "tbsp" }
+    },
     "method": [
       "Put all the sandwich filling ingredients (except the cream) into a food processor and blend until smooth (the mixtuer should spread easily, but add a little cream if needed.) ",
       "Cover four slices of bread with a thin layer of cheese mixture almost to the edge, place a slice of ham over that and then finally place another slice of bread on to the ham. Press down firmly and then repeat the process for the second sandwich. Cut off the crusts and liberally brush (or spray) each side of the sandwiches with olive oil.",
@@ -1128,28 +1148,34 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/fried_ham_and_cheese_34474_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["comfort", "quick", "breakfast"],
+    "cuisine": ["french", "british"]
   },
 
   "Broad bean and feta frittata": {
-    "ingredients": [
-      "200g/7oz small broad beans, pods removed (podded weight) (use frozen beans if fresh aren't available)",
-      "2 tbsp olive oil",
-      "1 small red onion, peeled, chopped",
-      "salt and freshly ground black pepper",
-      "6 large free-range eggs",
-      "100g/3½oz feta cheese, crumbled",
-      "small bunch fresh mint, leaves only (optional)"
-    ],
+    "ingredients": {
+      "fava beans": { "quantity": 0.5, "type": "cup" },
+      "beans": { "quantity": 1, "type": "cup" },
+      "olive oil": { "quantity": 2, "type": "tbsp" },
+      "red onion": { "quantity": 1, "type": "small" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      },
+      "eggs": { "quantity": 6, "type": "large" },
+      "feta cheese": { "quantity": 0.5, "type": "oz" },
+      "mint leaves": { "quantity": 2, "type": "tbsp" }
+    },
     "method": [
-      "Cook the broad beans in a pan of boiling, salted water for 2-3 minutes, or until tender. Drain well, then refresh in cold water. When the beans are cool enough to handle, peel away the outer skins, if you want to.",
+      "Cook the fava beans in a pan of boiling, salted water for 2-3 minutes, or until tender. Drain well, then refresh in cold water. When the beans are cool enough to handle, peel away the outer skins, if you want to.",
       "Heat the oil in a small ovenproof frying pan over a low heat. Add the onion and season with a pinch of salt. Fry for 8-10 minutes, or until softened but not browned.",
       "Meanwhile, preheat the grill to its highest setting. In a bowl, whisk the eggs until well combined and full of air, then season, to taste, with salt and freshly ground black pepper.",
       "When the onions have softened, increase the heat to medium and pour in the beaten eggs. Sprinkle over the crumbled feta, mint leaves (if using) and cooked broad beans. Leave the pan on the heat for 2-3 minutes, or until the underside of the egg mixture is pale golden-brown. (NB: Do not stir the mixture.)",
       "Transfer the pan to the grill and cook for a further 2-3 minutes, or until the top side of the egg mixture is firm and pale golden-brown. Place a large plate upside-down over the pan, then turn the pan over so that the omelette falls onto the plate. Cut it into wedges and serve with crusty white bread."
     ],
     "url": "www_bbc_com_food_recipes_fruitalia_91683",
-    "title": "Broad bean and feta frittata",
+    "title": "Fava bean and feta frittata",
     "time": {
       "preparation": "less than 30 minsless than 30 mins",
       "preparationMins": 30,
@@ -1161,23 +1187,29 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/fruitalia_91683_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["quick", "breakfast", "hearty"],
+    "cuisine": ["italian", "spanish"]
   },
 
   "Ricotta dumplings": {
-    "ingredients": [
-      "200g/7oz 00 flour, plus extra for dusting",
-      "225g/8oz ricotta",
-      "3 free-range egg yolks ",
-      "30g/1oz parmesan, freshly grated ",
-      "pinch freshly grated nutmeg ",
-      "salt and freshly ground black pepper ",
-      "6 tbsp olive oil ",
-      "3 garlic cloves, peeled, cut into thick slices ",
-      "1 chilli, sliced",
-      "2 x 400g/14oz cans tinned plum tomatoes, each tomato chopped in half ",
-      "few basil leaves"
-    ],
+    "ingredients": {
+      "flour": { "quantity": 0, "type": "cup" },
+      "ricotta": { "quantity": 0.5, "type": "cup" },
+      "egg yolks": { "quantity": 3, "type": "large" },
+      "parmesan": { "quantity": 1, "type": "tbsp" },
+      "nutmeg": { "quantity": 1, "type": "pinch" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      },
+      "olive oil": { "quantity": 6, "type": "tbsp" },
+      "garlic cloves": { "quantity": 1, "type": "clove" },
+      "chilli": { "quantity": 1, "type": "bowl (2 cups)" },
+      "plum tomatoes": { "quantity": 1, "type": "" },
+      "tomato": { "quantity": 1, "type": "medium" },
+      "basil leaves": { "quantity": 0.5, "type": "leaf" }
+    },
     "method": [
       "Mix the flour, ricotta, egg yolks, parmesan, nutmeg and seasoning together in a large bowl to form a soft, moist dough. ",
       "Tip the mixture out onto a floured work surface and knead for 3-5 minutes. Roll the dough into a long, thin sausage shape, then cut into dumplings about 2cm/1in long.",
@@ -1200,54 +1232,22 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/ricotta_dumplings_01916_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
-  },
-
-  "Risotto alla Parmigiana": {
-    "ingredients": [
-      "75g/3oz unsalted butter ",
-      "1 large onion, finely chopped",
-      "125ml/4fl oz vermouth",
-      "200g/8oz carnaroli rice ",
-      "400-450ml/14-16fl oz lightly flavoured chicken stock ",
-      "3-4 tbsp freshly grated parmesan  ",
-      "salt and freshly ground white pepper"
-    ],
-    "method": [
-      "Heat 40g/1½oz  of the butter in a deep, heavy-based pan and gently fry the onion until softened, but not coloured.",
-      "Meanwhile heat the stock in a separate saucepan. Add the vermouth to the onions, turn up the heat and reduce until almost evaporated. ",
-      "Add the rice and, stirring vigorously using a sturdy wooden spoon, allow the rice to become shiny with butter before adding a ladle of hot stock. Continuing to stir vigorously and let the rice absorb the stock before adding another ladleful. ",
-      "Remove the risotto from the heat when the rice is becoming tender, but is still sloppy and dropping consistency. Cover with a lid and set aside for three minutes.",
-      "Stir in two tablespoons of cheese and the remaining butter. Season to taste with salt and freshly ground white pepper and vigorously beat the rice with a wooden spoon until slick and glossy; it should easily fall back on itself when lifted.",
-      "Spoon onto hot plates and take extra parmesan to the dinner table."
-    ],
-    "url": "www_bbc_com_food_recipes_risotto_alla_parmigiana_56804",
-    "title": "Risotto alla Parmigiana",
-    "time": {
-      "preparation": "less than 30 minsless than 30 mins",
-      "preparationMins": 30,
-      "cooking": "10 to 30 mins10 to 30 mins",
-      "cookingMins": 30,
-      "totalMins": 60
-    },
-    "serves": "Serves 4Serves 4",
-    "image":
-      "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/risotto_alla_parmigiana_56804_16x9.jpg",
-    "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["quick", "appetizer", "comfort"],
+    "cuisine": ["italian", "american", "british"]
   },
 
   "Roast fillet of beef with roasted garlic and mustard cream": {
-    "ingredients": [
-      "1kg/2.2lb middle-cut thick fillet of beef",
-      "salt and pepper",
-      "2 tbsp olive oil",
-      "2 whole heads garlic",
-      "150ml/¼ pint mayonnaise",
-      "150ml/¼ pint full fat crème fraîche",
-      "½ tsp sugar",
-      "2 tbsp wholegrain mustard"
-    ],
+    "ingredients": {
+      "beef": { "quantity": 3, "type": "oz" },
+      "salt and pepper": { "quantity": 0.25, "type": "tsp" },
+      "olive oil": { "quantity": 2, "type": "tbsp" },
+      "garlic": { "quantity": 1, "type": "heads" },
+      "mayonnaise": { "quantity": 37.5, "type": "ml" },
+      "creme fraiche": { "quantity": 0.25, "type": "pint" },
+      "sugar": { "quantity": 0.5, "type": "tsp" },
+      "mustard": { "quantity": 2, "type": "tbsp" }
+    },
     "method": [
       "Preheat the oven to 220C/425F/Gas 7 (fan 200C).",
       "Rub the fillet of beef with plenty of salt and pepper and the oil. ",
@@ -1272,23 +1272,25 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/roast_fillet_of_beef_45803_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["comfort", "hearty", "dinner"],
+    "cuisine": ["french"]
   },
 
   "Roast leg of lamb with rosemary and garlic": {
-    "ingredients": [
-      "2kg/4lb 8oz leg of lamb",
-      "1 bulb garlic",
-      "large bunch rosemary",
-      "sea salt and black pepper",
-      "2 carrots, roughly chopped",
-      "3 white onions, quartered",
-      "250ml/9fl oz dry white wine",
-      "olive oil",
-      "1 tbsp caster sugar",
-      "3 tbsp white wine vinegar",
-      "6 sprigs mint, leaves only, finely chopped"
-    ],
+    "ingredients": {
+      "leg of lamb": { "quantity": 16, "type": "oz" },
+      "garlic": { "quantity": 1, "type": "clove" },
+      "rosemary": { "quantity": 1, "type": "tsp" },
+      "sea salt and black pepper": { "quantity": 0.25, "type": "tsp" },
+      "carrots": { "quantity": 1, "type": "" },
+      "white onions": { "quantity": 3, "type": "medium" },
+      "white wine": { "quantity": 1, "type": "oz" },
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "sugar": { "quantity": 1, "type": "tbsp" },
+      "white wine vinegar": { "quantity": 3, "type": "tbsp" },
+      "mint leaves": { "quantity": 12, "type": "tbsp" }
+    },
     "method": [
       "Preheat the oven to 200C/400F/Gas 6. ",
       "Use a small, sharp knife to make 12-14 slits all over the lamb. Peel two garlic cloves and slice them into shards. Roughly squash the remaining garlic and put into the bottom of a large roasting tin. ",
@@ -1312,20 +1314,22 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/roast_leg_of_lamb_with_02393_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["roast", "dinner", "meat", "hearty"],
+    "cuisine": ["american", "british"]
   },
 
   "Roast pork shoulder": {
-    "ingredients": [
-      "2-2.5kg/4lb 8oz-5lb half pork shoulder, boned and rolled",
-      "olive oil",
-      "sea salt",
-      "3 white onions, halved",
-      "2 carrots",
-      "3 Bramley apples, peeled, cored and diced",
-      "1 sprig rosemary, finely chopped",
-      "demerara sugar, to taste"
-    ],
+    "ingredients": {
+      "pork shoulder": { "quantity": 4, "type": "lbs" },
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "sea salt": { "quantity": 0.25, "type": "tsp" },
+      "white onions": { "quantity": 3, "type": "medium" },
+      "carrots": { "quantity": 1, "type": "" },
+      "apples": { "quantity": 3, "type": "medium" },
+      "rosemary": { "quantity": 1, "type": "tsp" },
+      "sugar": { "quantity": 1, "type": "tsp" }
+    },
     "method": [
       "Preheat the oven to 220C/425F/Gas 7.",
       "Using a very sharp knife (or a clean Stanley knife) score the skin all over, taking care not to cut through to the meat (you can ask your butcher to do this for you if you like). ",
@@ -1348,17 +1352,22 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/roast_pork_crackling_and_90317_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["roast", "meat", "comfort", "dinner"],
+    "cuisine": ["american", "british"]
   },
 
   "Roast celeriac with marsala": {
-    "ingredients": [
-      "1 medium-large celeriac, peeled and cut into eight wedges",
-      "sunflower oil, to coat",
-      "knob of butter",
-      "salt and freshly ground black pepper",
-      "5 tbsp sweet marsala"
-    ],
+    "ingredients": {
+      "celeriac": { "quantity": 1, "type": "cup" },
+      "sunflower oil": { "quantity": 8, "type": "tbsp" },
+      "butter": { "quantity": 1, "type": "tbsp" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      },
+      "marsala": { "quantity": 5, "type": "tbsp" }
+    },
     "method": [
       "Preheat the oven to 180C/350F/Gas 4.",
       "Place the celeriac wedges into a large bowl, drizzle with a little oil and stir to coat them.",
@@ -1378,68 +1387,22 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/roastceleriacwithmar_85617_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
-  },
-
-  "Roast chicken and sage and onion stuffing and gooseberry sauce": {
-    "ingredients": [
-      "4 onions, peeled, quartered",
-      "8 fresh sage leaves",
-      "125g/4½oz fresh breadcrumbs",
-      "40g/1½oz butter, plus extra for brushing",
-      "1 free-range egg yolk",
-      "pinch freshly grated nutmeg",
-      "salt and freshly ground black pepper",
-      "100ml/3½fl oz water",
-      "2 x 1kg/2lb 2oz free-range chickens ",
-      "4 tbsp caster sugar",
-      "100ml/3½fl oz water",
-      "1 lemon, zest only",
-      "250g/9oz gooseberries, topped and tailed",
-      "300ml/10½fl oz white wine",
-      "300ml/10½fl oz chicken juices, (reserved from cooking the roast chicken), or chicken stock",
-      "25g/1oz unsalted butter"
-    ],
-    "method": [
-      "For the chicken and stuffing, preheat the oven to 180C/350F/Gas 4.",
-      "Cook the onions in a pan of boiling water for four minutes, then add the sage leaves and continue to boil for a further minute. Drain well and place into the bowl of a food processor. Add the breadcrumbs, butter, egg yolk, nutmeg, salt and freshly ground black pepper. Blend until the mixture is just combined and resembles large breadcrumbs (do not blend to a paste). ",
-      "Stuff the chickens with equal quantities of the stuffing mixture. Rub the extra butter over the outside of the chickens, then season, to taste, with salt and freshly ground black pepper. ",
-      "Place the chickens into a roasting tin, breast-sides up, and add just enough water to cover the bottom of the roasting tin. Cover the roasting tin with aluminium foil. ",
-      "Cook the chickens in the oven for 1½-2 hours (cook the chickens for 1 hour per kg, allowing the weight of the stuffing to factor in as well). Remove the foil 20 minutes before the end of the cooking time and strain off the juices, reserving it for the gooseberry sauce. Return the chicken to the oven uncovered for the final 20 minutes, until the chicken is cooked through and the skin is golden-brown and crisp. (To check if the chicken is cooked, the juices should run clear when the chicken is pierced between the leg and the body).",
-      "For the gooseberry sauce, place the sugar and water into a non-reactive pan and heat until the sugar has dissolved. Stir in the lemon zest and bring to the boil, cooking for 2-3 minutes until reduced slightly. ",
-      "Add the gooseberries to the pan, reduce the heat and and gently poach for 4-5 minutes, or until the gooseberries are tender. Remove from the heat and allow the gooseberries to cool in the syrup.",
-      "When cool, strain the gooseberries through a sieve and reserve the syrup. Push the gooseberries through a sieve into a separate bowl. Discard the skins and solids left behind in the sieve. ",
-      "In a clean pan, bring the white wine to the boil with a little salt and freshly ground black pepper. Cook for 4-5 minutes, or until the liquid has reduced by half in volume. ",
-      "Add the chicken juices (or stock) and continue boiling until the liquid has again reduced by half in volume. Remove the pan from the heat and whisk in the butter until the sauce is smooth and glossy. Stir in the gooseberry purée and season, to taste, with a little of the reserved syrup, the salt and freshly ground black pepper. "
-    ],
-    "url": "www_bbc_com_food_recipes_roastchickenandsagea_92462",
-    "title": "Roast chicken and sage and onion stuffing and gooseberry sauce",
-    "time": {
-      "preparation": "30 mins to 1 hour30 mins to 1 hour",
-      "preparationMins": 60,
-      "cooking": "1 to 2 hours1 to 2 hours",
-      "cookingMins": 120,
-      "totalMins": 180
-    },
-    "serves": "Serves 8Serves 8",
-    "image":
-      "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/roastchickenandsagea_92462_16x9.jpg",
-    "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["vegetarian", "appetizer", "alcohol"],
+    "cuisine": ["french", "italian"]
   },
 
   "Roast cod with a lemon, garlic and parsley crust": {
-    "ingredients": [
-      "675g/1lb 8oz cod fillet, 3cm/1¼in thick",
-      "85g/3oz white breadcrumbs, soft or slightly stale ",
-      "3 tbsp parsley, finely chopped",
-      "2 cloves garlic, crushed",
-      "finely grated zest ½ lemon",
-      "60g/2¼oz butter, melted",
-      "a squeeze of lemon juice",
-      "salt and pepper",
-      "lemon wedges, to serve"
-    ],
+    "ingredients": {
+      "cod fillet": { "quantity": 8, "type": "oz" },
+      "breadcrumbs": { "quantity": 1, "type": "oz" },
+      "parsley": { "quantity": 3, "type": "tbsp" },
+      "cloves garlic": { "quantity": 2, "type": "clove" },
+      "lemon": { "quantity": 1, "type": "" },
+      "butter": { "quantity": 0.25, "type": "oz" },
+      "lemon juice": { "quantity": 1, "type": "tsp" },
+      "salt and pepper": { "quantity": 0.25, "type": "tsp" }
+    },
     "method": [
       "Season the cod with salt and pepper to taste. ",
       "Mix the breadcrumbs with the parsley, garlic, lemon zest, salt and pepper, then add butter and lemon juice. Mix thoroughly with your fingers.",
@@ -1458,21 +1421,26 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/roastcodwithalemonga_3477_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["roast", "meat", "dinner"],
+    "cuisine": ["american", "british"]
   },
 
   "Mary Berry's butternut squash soup": {
-    "ingredients": [
-      "1.5kg/3lb 5oz peeled and deseeded butternut squash, cut into 3cm/1¼in cubes (see tip)",
-      "1 large onion, roughly chopped",
-      "2 medium carrots, peeled and chopped",
-      "1 red pepper, deseeded and cut into cubes",
-      "4 tbsp olive oil",
-      "1 tbsp clear honey, optional",
-      "5cm/2in piece fresh root ginger, peeled and chopped",
-      "1.5 litres/2½ pints vegetable stock",
-      "salt and freshly ground black pepper"
-    ],
+    "ingredients": {
+      "butternut squash": { "quantity": 5, "type": "oz" },
+      "onion": { "quantity": 1, "type": "large" },
+      "carrots": { "quantity": 2, "type": "" },
+      "red pepper": { "quantity": 1, "type": "cup, strips" },
+      "olive oil": { "quantity": 4, "type": "tbsp" },
+      "honey": { "quantity": 1, "type": "tbsp" },
+      "ginger": { "quantity": 1, "type": "piece" },
+      "vegetable stock": { "quantity": 0.5, "type": "pint" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      }
+    },
     "method": [
       "Preheat the oven to 200C/180C Fan/Gas 6.",
       "Tip the prepared squash into a large, resealable freezer bag with the onion, carrots and red pepper. Add half the oil and salt and pepper and toss everything together until the vegetables are evenly coated. Tip into a large roasting tin and spread out to form a single layer.",
@@ -1493,22 +1461,25 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/roasted_butternut_squash_10281_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["soup", "hearty", "appetizer", "vegetarian"],
+    "cuisine": ["british"]
   },
 
   "Roasted lamb with rosemary and paprika rub": {
-    "ingredients": [
-      "2.2kg/4.5lb whole shoulder of lamb",
-      "3 tbsp rosemary, leaves picked and finely chopped ",
-      "2-3 tbsp olive oil ",
-      "1 tsp ground paprika ",
-      "salt and pepper",
-      "2 onions, sliced ",
-      "1.2 litres/2 pint stock ",
-      "2 tbsp plain flour ",
-      "1 tbsp redcurrant jelly",
-      "gravy browning (optional)"
-    ],
+    "ingredients": {
+      "lamb": { "quantity": 4, "type": "lbs" },
+      "rosemary": { "quantity": 3, "type": "tbsp" },
+      "olive oil": { "quantity": 3, "type": "tbsp" },
+      "paprika": { "quantity": 1, "type": "tsp" },
+      "salt and pepper": { "quantity": 0.25, "type": "tsp" },
+      "onions": { "quantity": 1, "type": "medium" },
+      "stock": { "quantity": 1, "type": "pint" },
+      "flour": { "quantity": 2, "type": "tbsp" },
+      "redcurrant": { "quantity": 1, "type": "tbsp" },
+      "jelly": { "quantity": 1, "type": "tbsp" },
+      "gravy": { "quantity": 0.25, "type": "cup" }
+    },
     "method": [
       "Preheat the oven to 220C/425F/Gas 7 (200C Fan).",
       "Put the lamb on a board. Mix the rosemary, oil and paprika together and season well with salt and pepper. Rub over the lamb on both sides.",
@@ -1529,26 +1500,32 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/roasted_lamb_with_78424_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["roast", "meat", "hearty"],
+    "cuisine": ["american", "british", "german"]
   },
 
   "Stuffed peppers": {
-    "ingredients": [
-      "50g/1¾oz wholegrain long-grain rice",
-      "1 red and 1 yellow pepper",
-      "low-calorie cooking spray",
-      "1 small onion, thinly sliced",
-      "1 courgette, diced",
-      "75g/2½oz cherry tomatoes, halved",
-      "2 garlic cloves, crushed",
-      "1 tsp ground cumin",
-      "1 tsp ground coriander",
-      "20g/¾oz toasted flaked almonds",
-      "½ orange, zest only, finely grated",
-      "3 heaped tbsp roughly chopped fresh flat leaf parsley (or coriander)",
-      "100g/3½oz mild goats' cheese, rind removed and cheese cut into chunks ",
-      "salt and freshly ground black pepper"
-    ],
+    "ingredients": {
+      "long grain rice": { "quantity": 1, "type": "oz" },
+      "yellow pepper": { "quantity": 1, "type": "pepper, large" },
+      "cooking spray": { "quantity": 1, "type": "calorie" },
+      "onion": { "quantity": 1, "type": "small" },
+      "courgette": { "quantity": 1, "type": "sliced" },
+      "cherry tomatoes": { "quantity": 1, "type": "oz" },
+      "garlic cloves": { "quantity": 1, "type": "clove" },
+      "ground cumin": { "quantity": 1, "type": "tsp" },
+      "ground coriander": { "quantity": 1, "type": "tsp" },
+      "almonds": { "quantity": 0.75, "type": "oz" },
+      "orange zest": { "quantity": 0.5, "type": "tbsp" },
+      "parsley": { "quantity": 1, "type": "tbsp" },
+      "goats cheese": { "quantity": 0.5, "type": "oz" },
+      "cheese": { "quantity": 1, "type": "oz" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      }
+    },
     "method": [
       "Preheat the oven to 200C/400F/Gas 6. Cook the rice in a pan of boiling water for 25 minutes, or until just tender, then drain.  ",
       "Meanwhile, cut the peppers in half from top to bottom and discard the seeds. Place, open-side up, on a baking tray (cut a sliver from the base if necessary to help them sit flat). Bake for 15 minutes.",
@@ -1570,17 +1547,26 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/roasted_pepper_with_19108_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["appetizer", "comfort", "vegetarian"],
+    "cuisine": ["spanish", "mexican"]
   },
 
   "Roasted red pepper and artichoke salad": {
-    "ingredients": [
-      "300g/10½oz roasted red peppers in oil, drained and sliced ",
-      "175g/6oz chargrilled artichoke hearts in oil, drained and chopped",
-      "2 tsp shredded fresh basil leaves",
-      "2 tsp balsamic vinegar",
-      "salt and freshly ground black pepper"
-    ],
+    "ingredients": {
+      "roasted red peppers": { "quantity": 0.5, "type": "oz" },
+      "oil": { "quantity": 1, "type": "tbsp" },
+      "artichoke hearts in oil": {
+        "quantity": 1,
+        "type": "heart"
+      },
+      "basil leaves": { "quantity": 2, "type": "tsp" },
+      "balsamic vinegar": { "quantity": 2, "type": "tsp" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      }
+    },
     "method": [
       "Mix the peppers and artichokes together in a bowl and season with salt and pepper. Add a little oil from the jar, if needed, along with the basil leaves and balsamic vinegar."
     ],
@@ -1597,21 +1583,26 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/roasted_red_pepper_and_53318_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["salad", "appetizer", "vegetarian"],
+    "cuisine": ["british", "italian"]
   },
 
   "Roasted sausage and potato supper": {
-    "ingredients": [
-      "2 tbsp olive oil",
-      "2 large onions, sliced lengthways into wedges",
-      "2 red peppers, deseeded and diced",
-      "2 garlic cloves, chopped",
-      "1 tbsp chopped fresh thyme leaves",
-      "500g/1lb 2oz baby new potatoes, halved",
-      "12 sausages, pricked with a fork ",
-      "200ml/7fl oz white wine ",
-      "salt and freshly ground black pepper"
-    ],
+    "ingredients": {
+      "olive oil": { "quantity": 2, "type": "tbsp" },
+      "onions": { "quantity": 2, "type": "large" },
+      "red peppers": { "quantity": 2, "type": "cup, strips" },
+      "garlic cloves": { "quantity": 2, "type": "clove" },
+      "fresh thyme": { "quantity": 1, "type": "tbsp" },
+      "new potatoes": { "quantity": 2, "type": "oz" },
+      "sausages": { "quantity": 12, "type": "links" },
+      "white wine": { "quantity": 1, "type": "oz" },
+      "salt and freshly ground black pepper": {
+        "quantity": 0.25,
+        "type": "tsp"
+      }
+    },
     "method": [
       "Preheat the oven to 220C/200C Fan/Gas 7.",
       "Place all the ingredients except the wine in a large, resealable freezer bag. Seal the bag shut and shake well to coat everything in the oil. Alternatively, put everything in a large bowl and turn the ingredients until they are fully coated in the oil. ",
@@ -1632,56 +1623,24 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/roasted_sausage_and_39127_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
-  },
-
-  "Vegetable Thai curry": {
-    "ingredients": [
-      "1 tbsp olive oil",
-      "50g/1¾oz Thai curry paste (green or red) ",
-      "750g/1lb 10oz mixed root vegetables (such as carrot, swede, turnip), peeled and chopped ",
-      "160ml/5½fl oz coconut cream (or 75g/2½oz creamed coconut, broken into pieces) ",
-      "750ml/1¼ pint vegetable stock, made from stock cube ",
-      "200g/7oz rice ",
-      "salt and black pepper"
-    ],
-    "method": [
-      "Heat a large non-stick saucepan with a lid over a medium heat. Add the oil and curry paste and stir over the heat for two minutes until you can smell the flavours. ",
-      "Mix in the chopped root vegetables and stir, coating the vegetables in the paste.  Add a splash of water to help steam the vegetables and stop them from sticking.  Place the lid on the saucepan and cook for 10 minutes, stirring every couple of minutes. Add a splash more water if needed to stop them sticking to the bottom of the pan.",
-      "Meanwhile, in a jug, mix the coconut and stock, stirring until dissolved. ",
-      "Once the vegetables have cooked for 10 minutes, pour the stock and coconut mixture over the top and leave to simmer uncovered for 30 minutes, or until all the vegetables are soft and breaking up slightly and the sauce has thickened. If the sauce hasn’t thickened enough to your liking, then turn up the heat and allow it to bubble away for a further 10 minutes, or until thickened. Add salt and pepper to taste.",
-      "Meanwhile, cook the rice in a separate saucepan according to the packet instructions. Serve the curry on top of the rice."
-    ],
-    "url": "www_bbc_com_food_recipes_root_vegetable_thai_74828",
-    "title": "Vegetable Thai curry",
-    "time": {
-      "preparation": "less than 30 minsless than 30 mins",
-      "preparationMins": 30,
-      "cooking": "30 mins to 1 hour30 mins to 1 hour",
-      "cookingMins": 60,
-      "totalMins": 90
-    },
-    "serves": "Serves 4Serves 4",
-    "image":
-      "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/root_vegetable_thai_74828_16x9.jpg",
-    "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["roast", "meat", "comfort"],
+    "cuisine": ["british"]
   },
 
   "Root vegetable gratin": {
-    "ingredients": [
-      "4 medium carrots, thinly sliced",
-      "55g/2oz butter",
-      "2 cloves garlic, finely chopped",
-      "200g/7oz Emmental, grated",
-      "1 small swede, peeled and sliced",
-      "2 small parsnips, peeled and sliced",
-      "3 medium potatoes, peeled and thinly sliced",
-      "300ml/½pt milk",
-      "300ml/½pt single cream",
-      "1 free-range egg, beaten",
-      "3 tbsp breadcrumbs"
-    ],
+    "ingredients": {
+      "carrots": { "quantity": 4, "type": "carrot" },
+      "butter": { "quantity": 2, "type": "tbsp" },
+      "cloves garlic": { "quantity": 2, "type": "clove" },
+      "swede": { "quantity": 1, "type": "small" },
+      "parsnips": { "quantity": 1, "type": "medium" },
+      "potatoes": { "quantity": 1, "type": "medium" },
+      "milk": { "quantity": 300, "type": "ml" },
+      "cream": { "quantity": 300, "type": "ml" },
+      "egg": { "quantity": 1, "type": "large" },
+      "breadcrumbs": { "quantity": 3, "type": "tbsp" }
+    },
     "method": [
       "Preheat the oven to 190C/375F/Gas 5.",
       "Place the carrots in the bottom of a medium-sized baking dish.  Add a little butter and garlic. Sprinkle over some of the grated Emmental.",
@@ -1703,17 +1662,19 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/rootvegetablegratin_79762_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["vegetarian", "appetizer", "hearty"],
+    "cuisine": ["american", "british"]
   },
 
   "Rosemary-roasted almonds": {
-    "ingredients": [
-      "200g/7oz blanched almonds",
-      "2 tbsp olive oil",
-      "2 tsp sea salt",
-      "2 tbsp finely chopped rosemary needles",
-      "½ tsp smoked paprika"
-    ],
+    "ingredients": {
+      "almonds": { "quantity": 1, "type": "almond" },
+      "olive oil": { "quantity": 2, "type": "tbsp" },
+      "sea salt": { "quantity": 2, "type": "tsp" },
+      "rosemary": { "quantity": 2, "type": "tbsp" },
+      "smoked paprika": { "quantity": 0.5, "type": "tsp" }
+    },
     "method": [
       "Add the almonds to a wide-based pan, heat over a very high heat and fry for a minute. Add the oil, salt and rosemary then fry until crisp.  ",
       "Remove from the heat and sprinkle in the paprika, toss together and serve.  If preferred, roast in an oven preheated to 220C/425F/Gas 7 (200C fan)."
@@ -1731,21 +1692,23 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/rosemary-roasted_almonds_06345_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["quick", "appetizer", "vegetarian"],
+    "cuisine": ["american"]
   },
 
   "Rye bread": {
-    "ingredients": [
-      "175ml full-fat milk",
-      "175ml water",
-      "2 tbsp dark soft brown sugar",
-      "1 x 7g sachet of fast-action dried yeast",
-      "250g rye flour",
-      "200g strong white flour, plus extra for dusting",
-      "1 tbsp fine sea salt",
-      "2 tsp caraway seeds",
-      "sunflower oil, for greasing"
-    ],
+    "ingredients": {
+      "milk": { "quantity": 175, "type": "ml" },
+      "water": { "quantity": 175, "type": "ml" },
+      "brown sugar": { "quantity": 2, "type": "tbsp" },
+      "yeast": { "quantity": 7, "type": "g" },
+      "rye flour": { "quantity": 250, "type": "g" },
+      "white flour": { "quantity": 200, "type": "g" },
+      "sea salt": { "quantity": 1, "type": "tbsp" },
+      "caraway seeds": { "quantity": 2, "type": "tsp" },
+      "sunflower oil": { "quantity": 1, "type": "tbsp" }
+    },
     "method": [
       "Put the milk, water and sugar in a small saucepan and heat very gently, stirring constantly, for just a few seconds until the liquid is lukewarm and the sugar has dissolved. Remove the pan from the heat and pour the mixture into a bowl. ",
       "Stir in the yeast and leave for 10 minutes until there is a light froth floating on the surface.",
@@ -1770,23 +1733,26 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/scandinavian_rye_bread_93361_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["baking", "hearty", "vegetarian"],
+    "cuisine": ["british"]
   },
 
   "Easy vegetable stir-fry": {
-    "ingredients": [
-      "2 tbsp sunflower oil",
-      "4 spring onions, cut into 4cm/1½in lengths",
-      "1 garlic clove, crushed",
-      "piece fresh root ginger, about 1cm/½in, peeled and grated",
-      "1 carrot, cut into matchsticks",
-      "1 red pepper, cut into thick matchsticks",
-      "100g/3½oz baby sweetcorn, halved",
-      "1 courgette, cut into thick matchsticks",
-      "150g/5½oz sugar-snap peas or mangetout, trimmed",
-      "2 tbsp hoisin sauce",
-      "2 tbsp low-salt soy sauce"
-    ],
+    "ingredients": {
+      "sunflower oil": { "quantity": 2, "type": "tbsp" },
+      "spring onions": { "quantity": 4, "type": "medium (4-1/8\" long)" },
+      "garlic clove": { "quantity": 1, "type": "clove" },
+      "ginger": { "quantity": 1, "type": "piece" },
+      "carrot": { "quantity": 1, "type": "carrot" },
+      "red pepper": { "quantity": 1, "type": "cup, strips" },
+      "sweetcorn": { "quantity": 0.5, "type": "oz" },
+      "zucchini": { "quantity": 1, "type": "medium" },
+      "sugar snap peas": { "quantity": 0.5, "type": "oz" },
+      "snow pea": { "quantity": 1, "type": "cup" },
+      "hoisin sauce": { "quantity": 2, "type": "tbsp" },
+      "low salt soy sauce": { "quantity": 2, "type": "tbsp" }
+    },
     "method": [
       "Heat a wok on a high heat and add the sunflower oil. Add the spring onions, garlic, ginger and stir-fry for 1 minute, then reduce the heat. Take care to not brown the vegetables.",
       "Add the carrot, red pepper and baby sweetcorn and stir-fry for 2 minutes. Add the courgette and sugar snap peas and stir-fry for a further 3 minutes. Toss the ingredients from the centre to the side of the wok using a wooden spatula. Do not overcrowd the wok and keep the ingredients moving.",
@@ -1805,21 +1771,23 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/sachas_stir-fry_17077_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["dinner", "vegetarian", "hearty", "lowCal"],
+    "cuisine": ["chinese"]
   },
 
   "Sage and parmesan palmiers": {
-    "ingredients": [
-      "1 tbsp olive oil",
-      "small handful fresh sage leaves",
-      "200g/7oz ready-made puff pastry",
-      "plain flour, for dusting",
-      "8 tbsp freshly grated parmesan ",
-      "12 tinned anchovies (preserved in oil), drained, finely chopped (optional)",
-      "freshly ground black pepper",
-      "1 free-range egg, lightly beaten",
-      "dry sherry, to serve (optional)"
-    ],
+    "ingredients": {
+      "olive oil": { "quantity": 1, "type": "tbsp" },
+      "sage leaves": { "quantity": 1, "type": "leaf" },
+      "puff pastry": { "quantity": 1, "type": "oz" },
+      "flour": { "quantity": 1, "type": "cup" },
+      "grated parmesan": { "quantity": 8, "type": "tbsp" },
+      "anchovies": { "quantity": 12, "type": "" },
+      "ground black pepper": { "quantity": 1, "type": "tsp, ground" },
+      "egg": { "quantity": 1, "type": "large" },
+      "dry sherry": { "quantity": 1, "type": "fl oz" }
+    },
     "method": [
       "Heat the olive oil in a frying pan over a medium heat. Add the sage leaves and fry for 1-2 minutes, or until crisp, then remove the sage leaves from the pan using a slotted spoon and set aside to drain on a plate lined with kitchen paper.",
       "Roll out the puff pastry onto  lightly floured work surface until it measures approximately 20cm x 30cm/8in x 12in.  Trim the edges using a sharp knife.",
@@ -1843,18 +1811,20 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/sage_and_parmesan_73369_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["baking", "appetizer", "vegetarian"],
+    "cuisine": ["french"]
   },
 
   "Sage and onion stuffing": {
-    "ingredients": [
-      "1 onion, peeled and finely chopped",
-      "1 tbsp vegetable oil",
-      "1 tbsp fresh sage, finely chopped",
-      "80g/3oz fresh white breadcrumbs",
-      "salt and pepper",
-      "1 egg, beaten"
-    ],
+    "ingredients": {
+      "onion": { "quantity": 1, "type": "medium" },
+      "vegetable oil": { "quantity": 1, "type": "tbsp" },
+      "fresh sage": { "quantity": 1, "type": "tbsp" },
+      "breadcrumbs": { "quantity": 3, "type": "oz" },
+      "salt and pepper": { "quantity": 0.25, "type": "tsp" },
+      "egg": { "quantity": 1, "type": "large" }
+    },
     "method": [
       "Sweat the onion in the oil, until soft but not coloured",
       "Mix together the onion, sage and breadcrumbs and season well.",
@@ -1874,26 +1844,28 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/sageandonionstuffing_1328_16x9.jpg",
     "isVegetarian": true,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["appetizer", "hearty", "vegetarian"],
+    "cuisine": ["american", "british"]
   },
 
   "Sausage and chorizo goulash": {
-    "ingredients": [
-      "1 tbsp vegetable oil",
-      "knob of butter",
-      "700g/1½lb good quality beef sausages, chopped",
-      "300g/10½oz spicy chorizo sausage, chopped",
-      "2 onions, finely sliced",
-      "1 garlic clove, chopped. ",
-      "2 tbsp plain flour",
-      "1 tbsp smoked paprika",
-      "2 red chillies, finely chopped",
-      "1 red pepper, finely sliced",
-      "200ml/7fl oz beef stock",
-      "175ml/6fl oz soured cream",
-      "1 tbsp chopped fresh parsley",
-      "cooked long-grain rice, to serve"
-    ],
+    "ingredients": {
+      "vegetable oil": { "quantity": 1, "type": "tbsp" },
+      "butter": { "quantity": 1, "type": "tbsp" },
+      "beef sausages": { "quantity": 0.5, "type": "lb" },
+      "chorizo sausage": { "quantity": 0.5, "type": "oz" },
+      "onions": { "quantity": 2, "type": "medium" },
+      "garlic clove": { "quantity": 1, "type": "clove" },
+      "flour": { "quantity": 2, "type": "tbsp" },
+      "smoked paprika": { "quantity": 1, "type": "tbsp" },
+      "chillies": { "quantity": 2, "type": "pepper" },
+      "red pepper": { "quantity": 1, "type": "cup, strips" },
+      "beef stock": { "quantity": 1, "type": "oz" },
+      "cream": { "quantity": 1, "type": "oz" },
+      "fresh parsley": { "quantity": 1, "type": "tbsp" },
+      "long grain rice": { "quantity": 1, "type": "cup" }
+    },
     "method": [
       "Preheat the oven to 150C/300F/Gas 2.",
       "Heat the oil and butter in a large ovenproof frying pan and fry the beef sausages and chorizo for 5-7 minutes, or until browned all over.",
@@ -1915,6 +1887,9 @@
     "image":
       "https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/sausage_and_chorizo_06598_16x9.jpg",
     "isVegetarian": false,
-    "recommendations": 0
+    "recommendations": 0,
+    "categories": ["spicy", "soup", "dinner", "hearty"],
+
+    "cuisine": ["hungarian"]
   }
 }

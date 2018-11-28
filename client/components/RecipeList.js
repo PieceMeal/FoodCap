@@ -1,15 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import {
-  Container,
-  Grid,
-  Card,
-  Image,
-  Button,
-  Popup,
-  Form,
-  Checkbox
-} from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { fetchRecipes } from '../store/user';
 import { setListsThunk, addRecipeToListThunk } from '../store/lists';
@@ -22,6 +12,7 @@ import {
   setBookmarkedRecipesThunk,
   setAlsoLikedThunk
 } from '../store/genericRecLists';
+import RecipeCard from './RecipeCard';
 
 // STATE AND DISPATCH FOR RECOMMENDATIONS
 const mapRecommendationsListToState = state => {
@@ -48,7 +39,7 @@ const mapPopularDispatch = dispatch => ({
   setListsThunk: () => dispatch(setListsThunk()),
   addRecipeToListThunk: body => dispatch(addRecipeToListThunk(body))
 });
-//ALL STATE AND DISPATCH 
+//ALL STATE AND DISPATCH
 const mapAllToState = state => ({
   recipes: state.genericRecLists.allRecipes,
   lists: state.lists
@@ -114,10 +105,7 @@ class RecipeList extends Component {
     }
   }
   handleSubmit = e => {
-    //have a thunk in lists.js that will take this action and dispatch post request for list api
-    //clear the state after submit so input is empty
     e.preventDefault();
-
     this.props.createList(this.state.listName);
     this.setState({
       listName: ''
@@ -125,7 +113,6 @@ class RecipeList extends Component {
   };
 
   handleChangeList = (e, { value, name }) => {
-    //have a thunk that sends information about the list and information about
     this.setState(prevState => {
       return { checked: { ...prevState.checked, [name]: value } };
     });
@@ -162,65 +149,17 @@ class RecipeList extends Component {
               {this.props.recipes.map((rec, id) => {
                 return (
                   <Grid.Column key={id}>
-                    <Card
-                      style={{
-                        marginTop: '20px',
-                        padding: '8px',
-                        border: '1px solid black'
-                      }}
-                    >
-                      <Link to={`/recipes/singleview/${rec.name}`}>
-                        <Image
-                          src={rec.image}
-                          style={{ height: '150px', width: '100%' }}
-                        />
-                      </Link>
-                      <Card.Content>
-                        <Card.Header>{rec.name}</Card.Header>
-                        <Container textAlign="right">
-                          {this.props.lists ? (
-                            <Popup
-                              on="click"
-                              open={this.state[rec.name]}
-                              onOpen={() => this.handleOpen(rec.name)}
-                              onClose={() => this.handleClose(rec.name)}
-                              trigger={<Button icon="add" />}
-                              content={
-                                <Form onSubmit={this.handleSubmitList}>
-                                  {this.props.lists.map(list => {
-                                    return (
-                                      <Form.Field key={list.uuid}>
-                                        <Checkbox
-                                          name={rec.name}
-                                          value={list.uuid}
-                                          label={list.name}
-                                          onChange={this.handleChangeList}
-                                          checked={
-                                            list.uuid ===
-                                            this.state.checked[rec.name]
-                                          }
-                                        />
-                                      </Form.Field>
-                                    );
-                                  })}
-
-                                  <Button
-                                    disabled={!disableSubmitButton}
-                                    type="submit"
-                                  >
-                                    Submit
-                                  </Button>
-                                </Form>
-                              }
-                              on="click"
-                            />
-                          ) : (
-                            <Button icon="x" />
-                          )}
-                        </Container>
-                        <Card.Meta>Time: {rec.time}</Card.Meta>
-                      </Card.Content>
-                    </Card>
+                    <RecipeCard
+                      recipe={rec}
+                      lists={this.props.lists}
+                      open={this.state[rec.name]}
+                      handleOpen={this.handleOpen}
+                      handleClose={this.handleClose}
+                      handleSubmitList={this.handleSubmitList}
+                      handleChangeList={this.handleChangeList}
+                      checked={this.state.checked[rec.name]}
+                      disableSubmitButton={disableSubmitButton}
+                    />
                   </Grid.Column>
                 );
               })}

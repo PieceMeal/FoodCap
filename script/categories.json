@@ -1,3 +1,4 @@
+//categories
 {
 	"pasta": { "name": "Pasta" },
 	"quick": { "name": "Quick" },
@@ -10,14 +11,17 @@
 	"comfort": { "name": "Comfort Food" },
 	"lowCal": { "name": "Low Calorie" },
 	"breakfast": { "name": "Breakfast" },
-	"dinner": { "name": "Dinnner" },
+	"dinner": { "name": "Dinner" },
 	"appetizer": { "name": "Appetizer" },
 	"soup": { "name": "Soup" },
 	"roast" : {"name": "Roast"},
-	"curry" : {"name": "Curry"}
+	"curry" : {"name": "Curry"},
+	"vegetarian": {"name":"Vegetarian"},
+	"spicy":{"name":"Spicy"}
 
 }
 ,
+//Cuisine
 {
 "indian": { "name": "Indian" },
 "chinese": { "name": "Chinese" },
@@ -30,6 +34,8 @@
 "british" : {"name" : "British"},
 "french": {"name": "French"},
 "brazilian": {"name": "Brazilian"},
+"hungarian":{"name":"Hungarian"},
+
 "african": {"name": "African"}
 
 
