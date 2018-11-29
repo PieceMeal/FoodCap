@@ -75,7 +75,7 @@ class ShoppingList extends Component {
 														onClick={() => this.handleToggle(i.name)}
 													>
 														{i.quantity} {i.type} {i.name}
-														<List.Description>{i.notes}</List.Description>
+														<List.Description>{i.note}</List.Description>
 													</List.Item>
 												);
 											})}
@@ -112,7 +112,7 @@ const mapStateToProps = state => {
 	});
 	if (list.ingredients) {
 		list.ingredients.forEach(i => {
-			let { name, quantity, type, category } = i;
+			let { name, quantity, type, category, note } = i;
 			if (category === '') category = 'other';
 			//console.log('test');
 			// const tempName = category.length > 0 ? category : 'other';
@@ -124,7 +124,7 @@ const mapStateToProps = state => {
 				categoryName = 'Other';
 			}
 			//	if (!categoryMap[categoryName]) categoryMap[categoryName] = [];
-			categoryMap[categoryName].push({ name, quantity, type });
+			categoryMap[categoryName].push({ name, quantity, type, note });
 		});
 	}
 	return {
