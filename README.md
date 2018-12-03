@@ -4,13 +4,13 @@ _An app that streamlines the process of choosing recipes and creating grocery li
 
 ## Usage
 
-\*
 An account is required to view recipes and create lists! Sign-up at www.piece-meal-app.com!
 
 New Users - Upon account creation, fill out your dietary preferences to get your first recommendations.
+
 Returning Users - Further page views and recipe likes will provide more information for recommendations
 
-Grocery Lists- Create a list on the home page. Add as many recipes as you want to your shopping list. Go to the list view, resolve any duplication conflicts, add/remove individual items. Use the list view in the bottom right to sort by aisle. \*
+Grocery Lists - Create a list on the home page. Add as many recipes as you want to your shopping list. Go to the list view, resolve any duplication conflicts, add/remove individual items. Use the list view in the bottom right to sort by aisle.
 
 ## Setup
 
@@ -23,24 +23,21 @@ Grocery Lists- Create a list on the home page. Add as many recipes as you want t
 
 ### Running Locally
 
-\*To setup your database, download the neo4j desktop app and create a project. This project attempt to connect with localhost 1234. Neo4J will run on this URL by default.
+* To setup your database, download the neo4j desktop app and create a project. This project attempt to connect with localhost 1234. Neo4J will run on this URL by default.
 
-\*Install the "GRAPH ALGORITHMS" plug-in on your new project. This plug-in is will come packaged with the initial neo4j desktop download. - This plug-in will allow the similarity algorithm to run.
+* Install the "GRAPH ALGORITHMS" plug-in on your new project. This plug-in is will come packaged with the initial neo4j desktop download. - This plug-in will allow the similarity algorithm to run.
 
 * Next, from your terminal seed your database
   * npm run seed
 
 ## Team
 
-\*
-Madison Jennings Shepard
-Jon Ryer
-Dejan Rajkovic
+Madison Jennings Shepard,
+Jon Ryer,
+Dejan Rajkovic,
 Luke Miller
 
 * Fullstack Academy
-
-\*
 
 ## Errors and bugs
 
